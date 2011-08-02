@@ -1,0 +1,56 @@
+$page_width: 960px;
+$padding: 5px;
+$bg_shadow: 0px 2px 5px #333333;
+$header_shadow: 0px -2px 5px #333333;
+
+@mixin nav_border{
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  -moz-border-radius-topleft: 5px;
+  -moz-border-radius-topright: 5px;
+}
+
+@mixin title_border{
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  -moz-border-radius-topright: 5px;
+  -moz-border-radius-bottomright: 5px;
+  box-shadow:2px 1px 3px #333333; 
+  -moz-box-shadow:2px 1px 3px #333333;
+}
+
+body{
+  background: #6B696A;
+  #header_wrapper{background:#4E4E4E; padding-top:30px;
+    #account{margin: 0px auto 10px auto; width:$page_width - 15px; padding-right:15px;
+      span{float:right; margin-left:10px;
+        a{color:#000000; font-weight:bold;}
+      }
+    }
+    #header{margin: 0px auto; width:$page_width - 30px; padding:0px 15px; background:#979797; box-shadow: $header_shadow; -moz-box-shadow: $header_shadow;
+      #global_search{padding-top:30px;
+        input{float:right; vertical-align:middle; height:27px; border:1px solid #CCCCCC; background:#CACACA; border-radius:5px; -moz-border-radius:5px;}
+      }
+      #head_nav{float:right; margin-top:80px;
+        ul{
+          li{float:left;
+            a{display:block; text-align:center; padding:5px 0px; min-width:180px; background:#2F2F2F; margin-left:5px; @include nav_border;
+              &:hover{text-decoration:none; background:#5F5F5F; }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  #body_wrapper{margin: 0px auto 30px auto; width:$page_width; background:#A2A2A2; box-shadow: $bg_shadow; -moz-box-shadow: $bg_shadow;
+    #content{padding: 35px 0px; min-height:200px;
+      #current_content{width:700px; float:right; margin:0px 15px 15px 0px;}
+      #side_bar{width:180px; float:left;
+        #title{background:#A0180A; padding:8px 15px 8px 5px; color:#FFFFFF; font-size:18px; font-weight:bold; text-align:right; @include title_border;}
+      }
+    }
+    #footer{height: 40px; text-align:center; padding:$padding; background:#979797; padding-top:10px;}
+  }
+
+}

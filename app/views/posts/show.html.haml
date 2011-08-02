@@ -1,0 +1,11 @@
+=render "sidebar"
+#current_content
+  #post_wrapper
+    #post_title= @post.title
+    #post_author_date
+      = @post.user.nickname.capitalize!
+      = raw "&nbsp;|&nbsp;" 
+      = @post.created_at
+    #post_content= @post.content
+  #add_comment
+  #comment_list

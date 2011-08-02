@@ -1,0 +1,59 @@
+en:
+  boys_shirt: "Boys Shirt"
+  girls_shirt: "Girls Shirt"
+  boys_pajama: "Boys Pajama"
+  girls_pajama: "Girls Pajama"
+  one_day_event: "ON <span class=\"hilight\">%{date}</span>"
+  many_days_event: "FROM <span class=\"hilight\">%{start_date}</span> TO <span class=\"hilight\">%{end_date}</span>"
+  contact_us_explanation: contact us
+  signup: Signup
+  messages:
+    form:
+      message_for_product: I am interested in %{product_title}.
+      message_normal: I am interested in your product.
+      message_sent_successfully: Message Sent Successfully
+  admin:
+    title: Admin
+  site_name: Kidsecret
+  login: Login
+  category: Categories
+  confirm_delete: "Are you sure?"
+  categories:
+    title: Categories
+    new:
+      title: Create new Category
+  product: Products
+  products:
+    title: Products
+    new:
+      title: Create new product
+  admin_ui:
+    header:
+      title: "Kidsecret Content Management"
+    title: "Kidsecret Content Management: %{model}"
+    actions:
+      search: Search
+  admin:
+    name: Admin
+  user: Users
+  users:
+    edit:
+      is_opt_in_notification: "I am willing to receive mails from kidsecret."
+      invitation_notification: "Also you can user your own invitation code <span class='hilight'>%{invitation_code}</span> to invite 10 of your friends, it may have surprising bonus by inviting."
+    validates:
+      invalid_invitation_code: The invitation code is not valid.
+    manage: User Management
+    new_user: New User
+    role_manage: Role Management
+    account:
+      title: User Center
+  page: Pages
+  settings: Settings
+  static: Statics
+  rorshack_admin_ui:
+    admin_ui:
+      form_has_many:
+        title: "manage %{association}"
+        add_more: "add more %{association}"
+      form_has_one:
+        title: "manage %{association}"

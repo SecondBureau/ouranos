@@ -1,0 +1,10 @@
+#global_search
+  = text_field :search_key, :size => 30
+  .clear
+#head_nav
+  %ul
+    %li= link_to "Nav Item"
+    %li= link_to "Nav Item"
+    %li= link_to t("blogs.title"), main_app.posts_path
+    %li= link_to t("contact.title")
+.clear
