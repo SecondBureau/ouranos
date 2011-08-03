@@ -2,3 +2,4 @@
 #current_content
   %ul#post_list
     =render :partial => "post_item", :collection => @posts, :as => :post
+  = paginate @posts

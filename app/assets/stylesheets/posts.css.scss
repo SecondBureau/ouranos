@@ -7,15 +7,23 @@
 }
 
 #post_list{@include common;
-  li{border-bottom:1px dashed #888888; margin-bottom:5px; padding:5px 0px; 
-    a{font-size:16px; color:#000000; }
+  li{border-bottom:1px dashed #888888; margin-bottom:5px; padding:5px 0px;
+    .post_title{float:left;
+      a{font-size:16px; color:#000000; }
+    }
+    .post_date{font-style:italic; float:right; font-size:12px; color:#333333;}
   }
 }
 
 #post_wrapper{@include common;
   #post_title{font-size:22px; font-weight:bold;}
   #post_author_date{margin:10px 0px; font-style:italic; color:#333333;}
-  #post_content{
-    &::first-letter{font-size:200%; font-weight:bold;}
+  #post_content{text-indent:2em; line-height: 25px;
+    &:first-letter{font-size:200%; font-weight:bold;}
   }
+}
+
+nav.pagination{margin-top:10px; float:right;
+  .current{color:#A0180A; font-weight:bold; font-size:16px;}
+  a{color:#000000}
 }
