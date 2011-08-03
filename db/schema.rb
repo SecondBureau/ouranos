@@ -10,11 +10,27 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110802154241) do
+ActiveRecord::Schema.define(:version => 20110803145943) do
 
-  create_table "comments", :force => true do |t|
-    t.text     "cotent"
-    t.integer  "post_id"
+# Could not dump table "comments" because of following StandardError
+#   Unknown type 'belongs_to' for column 'user'
+
+  create_table "messages", :force => true do |t|
+    t.string   "firstname"
+    t.string   "lastname"
+    t.string   "email"
+    t.text     "content"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "messages", ["user_id"], :name => "index_messages_on_user_id"
+
+  create_table "pages", :force => true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.string   "permalink"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

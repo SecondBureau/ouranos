@@ -6,6 +6,6 @@
       = @post.user.nickname.capitalize!
       = raw "&nbsp;|&nbsp;" 
       = @post.created_at
-    #post_content= @post.content
+    #post_content= raw @post.content
   #add_comment
   #comment_list
