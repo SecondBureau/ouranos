@@ -15,7 +15,7 @@
   }
 }
 
-#post_wrapper{@include common;
+#post_wrapper{@include common; padding-bottom:15px; margin-bottom:15px; border-bottom:1px dashed #888888;
   #post_title{font-size:22px; font-weight:bold;}
   #post_author_date{margin:10px 0px; font-style:italic; color:#333333;}
   #post_content{text-indent:2em; line-height: 25px;

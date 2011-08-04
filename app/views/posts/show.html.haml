@@ -13,3 +13,10 @@
       = form.input :content, :input_html => {:rows => 10, :cols =>50}
       = form.submit
   #comment_list
+    %ul
+      - @comments.each_with_index do |comment, index|
+        %li
+          .index= (@comments_size - index - 1)
+          .comment_content= raw comment.content
+          .date= comment.created_at
+          .clear

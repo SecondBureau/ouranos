@@ -24,7 +24,9 @@ body{
   #header_wrapper{background:#4E4E4E; padding-top:30px;
     #account{margin: 0px auto 10px auto; width:$page_width - 15px; padding-right:15px;
       span{float:right; margin-left:10px;
-        a{color:#000000; font-weight:bold;}
+        a{color:#000000; font-weight:bold;
+          &:hover{color:#AAAAAA;}
+        }
       }
     }
     #header{margin: 0px auto; width:$page_width - 30px; padding:0px 15px; background:#979797; box-shadow: $header_shadow; -moz-box-shadow: $header_shadow;
@@ -54,3 +56,13 @@ body{
   }
 
 }
+
+textarea{resize:none;
+  &:focus{outline:none;}
+}
+form.formtastic{
+  li{padding: 5px 0px; list-style-type: none; margin-bottom: 3px;
+    label{display:block; padding: 5px 0px; font-size: 14px; font-weight: bold;}
+  }
+}
+.hidden{margin:0px; padding:0px;}

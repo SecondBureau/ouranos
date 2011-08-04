@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe MessagesController do
+describe CommentsController do
 
   describe "GET 'create'" do
     it "should be successful" do
