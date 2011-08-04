@@ -3,8 +3,8 @@
   .clear
 #head_nav
   %ul
+    %li= link_to t("home.title"), main_app.root_path
     %li= link_to "Nav Item"
-    %li= link_to "Nav Item"
-    %li= link_to t("blogs.title"), main_app.posts_path
-    %li= link_to t("contact.title")
+    %li= link_to t("blog.title"), main_app.posts_path
+    %li= link_to t("about.title"), main_app.page_path(:about)
 .clear

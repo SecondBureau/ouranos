@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 
   before_filter :set_locale
   before_filter :create_account_for_guest
- before_filter :meta_defaults
+  before_filter :meta_defaults
 
   private 
   

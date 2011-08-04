@@ -44,9 +44,9 @@ body{
   }
 
   #body_wrapper{margin: 0px auto 30px auto; width:$page_width; background:#A2A2A2; box-shadow: $bg_shadow; -moz-box-shadow: $bg_shadow;
-    #content{padding: 35px 0px; min-height:200px;
-      #current_content{width:700px; float:right; margin:0px 15px 15px 0px;}
-      #side_bar{width:180px; float:left;
+    #content{min-height:200px;
+      #current_content{width:730px; float:right; margin:35px 15px 15px 0px;}
+      #side_bar{width:180px; float:left; margin-top:35px;
         #title{background:#A0180A; padding:8px 15px 8px 5px; color:#FFFFFF; font-size:18px; font-weight:bold; text-align:right; @include title_border;}
       }
     }

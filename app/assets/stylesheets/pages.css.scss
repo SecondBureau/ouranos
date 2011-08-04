@@ -2,7 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-body.pages {
-  // Add the pages class to your body tag
-  // Then, place scoped styles here.
+#home_wrapper{padding:15px 5px 15px 15px;
+  ul{
+    li{float:left; width:224px; height:200px; background:#CCCCCC; margin:0px 10px 10px 0px;
+      border-right:1px solid #666666; border-bottom:1px solid #666666;
+    }
+  }
 }
+
+#contact_wrapper{padding-bottom:15px; margin-bottom:15px; border-bottom:1px dashed #888888;}

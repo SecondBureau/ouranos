@@ -3,8 +3,7 @@ Ouranos::Application.routes.draw do
   scope "(/:locale)" do
     resources :posts
     resources :users
-    resources :pages
-    match '/page/:permalink'   => "pages#show", :as => :content_page, :requirements => { "permalink" => /[-_a-z0-9]/ }
+    match '/page/:permalink'   => "pages#show", :as => :page, :requirements => { "permalink" => /[-_a-z0-9]/ }
     mount RorshackAdminUi::Engine => "/iadmin", :as => "iadmin"
   end
   
