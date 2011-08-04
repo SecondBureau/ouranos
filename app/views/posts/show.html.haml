@@ -8,8 +8,8 @@
       = @post.created_at
     #post_content= raw @post.content
     #post_printer
-      = link_to image_tag("icons/printer.png", :title => t("post.print"), :id => "post_print"), post_print_path(@post)
-      = link_to image_tag("icons/pdf.png", :title => t("post.pdf"), :id => "post_pdf"), post_print_path(@post)
+      = link_to image_tag("icons/printer.png", :width => 24, :height => 24, :title => t("print.print")), post_print_path(@post)
+      = link_to image_tag("icons/pdf.png", :width => 24, :height => 24,:title => t("print.pdf")), post_print_path(@post)
   #add_comment= render "comments/form"
   #comment_list= render "comment_list"
 :javascript

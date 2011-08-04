@@ -6,7 +6,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
 
 function goToByScroll(id) {
 	$('html,body').delay(200).animate({
