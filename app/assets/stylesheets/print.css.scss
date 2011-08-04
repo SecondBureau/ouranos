@@ -1,0 +1,9 @@
+$bg_shadow: 0px 0px 5px #333333;
+
+.clear{clear:both;}
+
+body{background:#CCCCCC;}
+#body_wrapper{padding:5px; margin:20px auto; width:960px; min-height:800px;background:#EEEEEE; box-shadow: $bg_shadow; -moz-box-shadow: $bg_shadow;
+  #print_header{padding:5px 0px; border-bottom:1px solid #CCCCCC;}
+  #print_sidebar{float:left; margin-top:5px; width:200px; background:#CCCCCC; height:400px;}
+}

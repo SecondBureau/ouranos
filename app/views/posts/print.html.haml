@@ -1,0 +1,16 @@
+!!! 5
+%html
+  %head
+    %title Ouranos
+    = stylesheet_link_tag     "print"
+    = javascript_include_tag  "print"
+    = csrf_meta_tags
+  %body
+    #body_wrapper
+      #print_header
+        = image_tag("icons/printer_32.png", :width => 64, :height => 64)
+        = image_tag("icons/pdf_32.png")
+      #print_content
+        #print_for_title
+        #print_for_content
+      #footer

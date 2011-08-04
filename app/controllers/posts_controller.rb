@@ -13,7 +13,7 @@ class PostsController < ApplicationController
   
   def print
     @post = Post.find params[:id]
-    render :layout => "print"
+    render :layout => false
   end
 
 end
