@@ -7,8 +7,8 @@ class PostsController < ApplicationController
   def show
     @post = Post.find params[:id]
     @comment = @post.comments.build
-    @comments = @post.comments.order("created_at DESC")
-    @comments_size = @post.comments.size
+    @comments = @post.comments.order("created_at DESC").select{|comment| comment.validtag }
+    @comments_size = @comments.size
   end
   
   def print

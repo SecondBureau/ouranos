@@ -14,9 +14,9 @@
   #comment_list= render "comment_list"
 :javascript
   $(function(){
-    if("#{flash[:notice]}".length > 0){
-      goToByScroll("comment#{@comments_size - 1}");
-    }
+    -# if("#{flash[:notice]}".length > 0){
+      -# goToByScroll("comment#{@comments_size - 1}");
+    -# }
     
     $('img[width=24]').click(function(){
       var w = 1020;

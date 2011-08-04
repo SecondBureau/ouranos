@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110803145943) do
+ActiveRecord::Schema.define(:version => 20110804100851) do
 
 # Could not dump table "comments" because of following StandardError
 #   Unknown type 'belongs_to' for column 'user'
