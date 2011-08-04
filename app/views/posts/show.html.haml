@@ -8,8 +8,8 @@
       = @post.created_at
     #post_content= raw @post.content
     #post_printer
-      = link_to image_tag("icons/printer.png", :width => 24, :height => 24, :title => t("print.print")), post_print_path(@post)
-      = link_to image_tag("icons/pdf.png", :width => 24, :height => 24,:title => t("print.pdf")), post_print_path(@post)
+      = image_tag("icons/printer.png", :width => 24, :height => 24, :title => t("print.print"))
+      = image_tag("icons/pdf.png", :width => 24, :height => 24,:title => t("print.pdf"))
   #add_comment= render "comments/form"
   #comment_list= render "comment_list"
 :javascript
@@ -17,4 +17,13 @@
     if("#{flash[:notice]}".length > 0){
       goToByScroll("comment#{@comments_size - 1}");
     }
+    
+    $('img[width=24]').click(function(){
+      var w = 1020;
+      var left = (screen.width/2)-(w/2);
+      var printwindow = window.open ("#{main_app.post_print_path(@post)}", "print",
+        "status=no, location=no, menubar=no, toolbar=no, scrollbars=yes, width=1020, height=800");
+      printwindow.moveTo(left, 0);
+      printwindow.focus();
+    });
   })
