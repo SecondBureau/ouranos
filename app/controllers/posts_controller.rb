@@ -10,5 +10,10 @@ class PostsController < ApplicationController
     @comments = @post.comments.order("created_at DESC")
     @comments_size = @post.comments.size
   end
+  
+  def print
+    @post = Post.find params[:id]
+    render :layout => "print"
+  end
 
 end

@@ -21,6 +21,9 @@
   #post_content{text-indent:2em; line-height: 25px;
     &:first-letter{font-size:200%; font-weight:bold; margin-right:2px;}
   }
+  #post_printer{margin-top:15px;
+    img{cursor:pointer;}
+  }
 }
 
 nav.pagination{margin-top:10px; float:right;

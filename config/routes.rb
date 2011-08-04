@@ -8,7 +8,8 @@ Ouranos::Application.routes.draw do
     resources :posts
     resources :users
     resources :comments
-    match '/page/:permalink'   => "pages#show", :as => :page, :requirements => { "permalink" => /[-_a-z0-9]/ }
+    match "/post/print/:id" => "posts#print", :as => :post_print
+    match "/page/:permalink"   => "pages#show", :as => :page, :requirements => { "permalink" => /[-_a-z0-9]/ }
     mount RorshackAdminUi::Engine => "/iadmin", :as => "iadmin"
   end
   

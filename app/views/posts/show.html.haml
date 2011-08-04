@@ -7,16 +7,14 @@
       = raw "&nbsp;|&nbsp;" 
       = @post.created_at
     #post_content= raw @post.content
-  #add_comment
-    = semantic_form_for @comment, :url => main_app.polymorphic_path(@comment) do |form|
-      = form.input :post_id , :as => :hidden
-      = form.input :content, :input_html => {:rows => 10, :cols =>50}
-      = form.submit
-  #comment_list
-    %ul
-      - @comments.each_with_index do |comment, index|
-        %li
-          .index= (@comments_size - index - 1)
-          .comment_content= raw comment.content
-          .date= comment.created_at
-          .clear
+    #post_printer
+      = link_to image_tag("icons/printer.png", :title => t("post.print"), :id => "post_print"), post_print_path(@post)
+      = link_to image_tag("icons/pdf.png", :title => t("post.pdf"), :id => "post_pdf"), post_print_path(@post)
+  #add_comment= render "comments/form"
+  #comment_list= render "comment_list"
+:javascript
+  $(function(){
+    if("#{flash[:notice]}".length > 0){
+      goToByScroll("comment#{@comments_size - 1}");
+    }
+  })

@@ -5,3 +5,6 @@ fr:
     title: Blog
   about:
     title: About us
+  post:
+    print: Print this post
+    pdf: Export this post as pdf
