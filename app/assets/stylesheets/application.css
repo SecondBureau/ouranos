@@ -9,6 +9,7 @@
  *= require posts 
  *= require comments 
  *= require messages
+ *= require message_dialog
 */
 
 /******************************************
