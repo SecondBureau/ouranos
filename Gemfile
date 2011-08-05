@@ -40,7 +40,7 @@ gem "database_cleaner" , :group => :test
 gem "acts_as_indexed"
 
 gem "fastercsv"
-gem "surveyor", :git => "git://github.com/NUBIC/surveyor.git", :branch => "rails3"
+# gem "surveyor", :git => "git://github.com/mark-secondbureau/surveyor.git", :branch => "rails3"
  
 #group :production do
   gem 'therubyracer-heroku'
