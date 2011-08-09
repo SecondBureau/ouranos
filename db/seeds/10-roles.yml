@@ -19,9 +19,9 @@ admins:
     :image: 31
     :message: 31
   is_default_role: false
-board:
+officer:
   uniq: [name]
-  name: board
+  name: officer
   permissions:
     :category: 31
 member:

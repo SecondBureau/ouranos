@@ -10,6 +10,12 @@ fr:
   print:
     print: Print this post
     pdf: Export this post as pdf
+  comment:
+    valid:
+      added: "Successfully add a new comment!"
+    checked:
+      added: "Successfully add a new comment! The comment will not be visible before the administrator checks it"
+  management: Management
   date:
     formats:
       default: "%d/%m/%Y"

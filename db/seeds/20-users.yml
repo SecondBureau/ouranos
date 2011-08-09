@@ -45,6 +45,30 @@ user2:
   zipcode: inconnu
   city: inconnu
   country: France
+  
+user3:
+  nickname: member
+  firstname: Zhe
+  lastname: Li
+  role_id: "{:name => 'member'}"
+  gender: M.
+  birthdate: 01/01/1970
+  address: inconnue
+  zipcode: inconnu
+  city: inconnu
+  country: France
+  
+user4:
+  nickname: officer
+  firstname: Zhe
+  lastname: Li
+  role_id: "{:name => 'officer'}"
+  gender: M.
+  birthdate: 01/01/1970
+  address: inconnue
+  zipcode: inconnu
+  city: inconnu
+  country: France
 
 guest:
   nickname: guest

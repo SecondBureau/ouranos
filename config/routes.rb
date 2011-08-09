@@ -1,6 +1,7 @@
 Ouranos::Application.routes.draw do
 
   scope "(/:locale)" do
+    resources :managements
     resources :posts
     resources :users
     resources :comments

@@ -25,6 +25,20 @@ user2:
   password: secret
   password_confirmation: secret
   user_id: "{:nickname => 'mark'}"
+  
+user3:
+  uniq: [email]
+  email: member@secondbureau.com
+  password: secret
+  password_confirmation: secret
+  user_id: "{:nickname => 'member'}"
+  
+user4:
+  uniq: [email]
+  email: officer@secondbureau.com
+  password: secret
+  password_confirmation: secret
+  user_id: "{:nickname => 'officer'}"
 
 guest:
   uniq: [email]
