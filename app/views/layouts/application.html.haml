@@ -15,7 +15,15 @@
       #header= render "site/header"
       
     #body_wrapper
+      .clear
       -# for the main content
+      #notice= flash[:notice]
+      :javascript
+        if("#{flash[:notice]}".length > 0){
+          $("#notice").slideDown("slow");
+        }else{
+          $("#notice").css("display", "none");
+        }
       #content= yield
       .clear
 

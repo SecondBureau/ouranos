@@ -175,6 +175,7 @@ fr:
     role_manage: Role Management
     account:
       title: User Center
+      edit: Edit Profile
   page: Pages
   settings: Settings
   static: Statics
