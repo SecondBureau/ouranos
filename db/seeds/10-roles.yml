@@ -19,7 +19,16 @@ admins:
     :image: 31
     :message: 31
   is_default_role: false
-
+board:
+  uniq: [name]
+  name: board
+  permissions:
+    :category: 31
+member:
+  uniq: [name]
+  name: member
+  permissions:
+    :category: 31
 user:
   uniq: [name]
   name: users

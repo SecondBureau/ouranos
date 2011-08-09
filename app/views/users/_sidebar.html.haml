@@ -1,0 +1,8 @@
+#side_bar
+  #title= link_to t("users.account.title"), main_app.user_path
+  #side_operations
+    %ul
+      %li= link_to t("user.infomations"), "#", :class => "select"
+      %li= link_to t("user.membership"), "#"
+      %li= link_to t("user.subscribe"), "#"
+      %li= link_to t("user.settings"), "#"

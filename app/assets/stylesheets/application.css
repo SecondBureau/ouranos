@@ -5,6 +5,7 @@
  *= require_self
  *= require common 
  *= require layout 
+ *= require users 
  *= require pages 
  *= require posts 
  *= require comments 

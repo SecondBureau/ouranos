@@ -2,11 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-@mixin common{
-  padding-top:40px;
-}
-
-#post_list{@include common;
+#post_list{
   li{border-bottom:1px dashed #888888; margin-bottom:5px; padding:5px 0px;
     .post_title{float:left;
       a{font-size:16px; color:#000000; }
@@ -15,7 +11,7 @@
   }
 }
 
-#post_wrapper{@include common; padding-bottom:15px; margin-bottom:15px; border-bottom:1px dashed #888888;
+#post_wrapper{padding-bottom:15px; margin-bottom:15px; border-bottom:1px dashed #888888;
   #post_title{font-size:22px; font-weight:bold;}
   #post_author_date{margin:10px 0px; font-style:italic; color:#333333;}
   #post_content{text-indent:2em; line-height: 25px;

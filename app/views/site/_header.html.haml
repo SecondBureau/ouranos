@@ -1,11 +1,15 @@
 #global_search
-  = text_field :search_key, :size => 30, :textholder => "input the key word you wanna search"
+  = text_field :search_key, :size => 30
   = image_tag("icons/search128.png")
   .clear
+#local_switch
+  %ul
+    %li= link_to image_tag("flags/fr.png"), ""
+    %li= link_to image_tag("flags/zh.png"), ""
+    %li= link_to image_tag("flags/en.png"), ""
 #head_nav
   %ul
     %li= link_to t("home.title"), main_app.root_path
-    %li= link_to "Nav Item"
     %li= link_to t("blog.title"), main_app.posts_path
     %li= link_to t("about.title"), main_app.page_path(:about)
 .clear

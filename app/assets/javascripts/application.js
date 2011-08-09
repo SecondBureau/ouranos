@@ -11,32 +11,3 @@
 //= require comments
 //= require pages
 //= require messages
-
-function activePlaceholders() {
-	var inputs = $("input");
-	for(var i = 0; i < inputs.length; i++) {
-		var input = inputs[i];
-		console.log(input);
-
-		if(input.attr("type") == "text") {
-			if(input.attr("textholder") && input.attr("textholder").length > 0) {
-				input.attr("value") = input.attr("textholder");
-				input.click(function() {
-					if($(this).attr("value") == $(this).attr("textholder")) {
-						$(this).attr("value") = "";
-					}
-				});
-				input.blur(function() {
-					if($(this).attr("value").length < 1) {
-						$(this).attr("value") = $(this).attr("textholder");
-					}
-				});
-			}
-		}
-	}
-}
-
-$(function() {
-	alert("htisdlfksldf");
-	activePlaceholders();
-});

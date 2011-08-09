@@ -1,5 +1,6 @@
 #admin_title
-  %h1= t("admin_ui.header.title")
+  %h1.site= link_to t("admin_ui.site.title"), main_app.root_path
+  %h1.admin= t("admin_ui.header.title")
 .clear
 #header_nav
   %ul
