@@ -7,6 +7,7 @@ Ouranos::Application.routes.draw do
     resources :categories
     match "/post/print/:id" => "posts#print", :as => :post_print
     match "/page/:permalink"   => "pages#show", :as => :page, :requirements => { "permalink" => /[-_a-z0-9]/ }
+    match "/users/:id/opers/:oper" => "users#show", :as => :user_oper
     mount RorshackAdminUi::Engine => "/iadmin", :as => "iadmin"
   end
   

@@ -1,4 +1,7 @@
 =render "sidebar"
 #current_content
-  
+  - if current_user.role.name == :member
+    = current_user.role.name
+  - else 
+    dddddddddddddddddddddddddddddddddd  not a member
 .clear

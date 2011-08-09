@@ -147,6 +147,8 @@ fr:
   one_day_event: "ON <span class='hilight'>%{date}</span>"
   many_days_event: "FROM <span class='hilight'>%{start_date}</span> TO <span class='hilight'>%{end_date}</span>"
   contact_us_explanation: contact us
+  successfully_logged_in: Successfully Logged In
+  successfully_logged_out: Successfully Logged Out
   signup: Signup
   admin:
     title: Admin
@@ -176,6 +178,10 @@ fr:
     account:
       title: User Center
       edit: Edit Profile
+      informations: Informations
+      membership: Membership
+      subscribes: Subscribes
+      settings: Settings
   page: Pages
   settings: Settings
   static: Statics

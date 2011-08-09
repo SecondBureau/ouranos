@@ -19,11 +19,13 @@
       -# for the main content
       #notice= flash[:notice]
       :javascript
-        if("#{flash[:notice]}".length > 0){
-          $("#notice").slideDown("slow");
-        }else{
-          $("#notice").css("display", "none");
-        }
+        $(function(){
+          if("#{flash[:notice]}".length > 0){
+            $("#notice").slideDown("slow");
+          }else{
+            $("#notice").css("display", "none");
+          }
+        });
       #content= yield
       .clear
 

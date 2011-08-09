@@ -1,7 +1,7 @@
 - if signed_in?
   %span= link_to t("logout"), iauth.logout_path
   %span= raw "|"
-  %span= link_to t("users.account.title"), main_app.user_path(current_user)
+  %span= link_to t("users.account.title"), main_app.user_oper_path(current_user, :informations)
   - if current_user.role.name == "administrators"
     %span= raw "|"
     %span= link_to t("administration"), iadmin.root_path

@@ -6,7 +6,16 @@ class UsersController < ApplicationController
   end
   
   def show
-    @user = User.find params[:id]
+    case params[:oper]
+    when "informations"
+    when "membership"
+    when "subscribes"
+      @subscribes = "fffffffffffffffffffffffffffffffffffffff"
+    when "settings"
+      @settings = "dddddddddssssssssssssssssssssssssss"
+    end
+    puts params[:oper] + "   ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+    render params[:oper]
   end
   
   def edit
@@ -15,7 +24,11 @@ class UsersController < ApplicationController
   
   def update
     User.update(params[:id], params[:user])
-    redirect_to main_app.user_path(current_user), :notice => "Update information successfully!"
+    redirect_to main_app.user_oper_path(current_user, "informations"), :notice => "Update information successfully!"
+  end
+  
+  def membership
+    @user = current_user
   end
   
 private
