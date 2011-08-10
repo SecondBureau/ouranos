@@ -41,9 +41,9 @@
     }
   
     function show_guest_alert(){
-      $("form").slideUp("fast", function(){ $("#alert_for_guest").slideDown("fast"); });
+      $("form").slideUp("slow", function(){ $("#alert_for_guest").slideDown("slow"); });
       if($("#alert_for_guest").css("display") == "block"){
-        $("#alert_for_guest").fadeOut("fast", function(){ $(this).fadeIn(); });
+        $("#alert_for_guest").fadeOut("slow", function(){ $(this).fadeIn(); });
       }
       return false;
     }
@@ -64,11 +64,11 @@
     });
     
     if("#{@has_unvalid_commented}" == "true"){
-      $("form").slideUp("fast", function(){ $("#alert_for_user").slideDown("fast"); }); 
+      $("form").slideUp("slow", function(){ $("#alert_for_user").slideDown("slow"); }); 
     }
     
     if("#{flash.alert}" != "nil"){
-      $(".form_errors").slideDown("fast"); 
+      $(".form_errors").slideDown("slow"); 
     }
     
   });
