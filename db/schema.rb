@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(:version => 20110803140016) do
   create_table "posts", :force => true do |t|
     t.string   "title"
     t.text     "content"
+    t.string   "post_type"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"

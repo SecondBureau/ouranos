@@ -2,112 +2,138 @@ article1:
   title: test title 1
   content: Before DLR, we were classifying operations into two cases (not counting eval), bound during compilation and bound during run time. The goal for Phalanger as dynamic language compiler is to compile as much as possible as compile-time bound operations and use runtime-bound operations only for cases that can’t be determined during compilation. DLR caching system allows compiling operation at run time when we know particular types for the operation and store compiled operation into cache. This can work efficiently because of the idea that when particular operation occurs, there is a big chance that the next time operands will have the same type.
   user_id: "{:nickname => 'gilles'}"
+  post_type: public
 article2:
-  title: test title 1
+  title: test title 12
   content: Before DLR, we were classifying operations into two cases (not counting eval), bound during compilation and bound during run time. The goal for Phalanger as dynamic language compiler is to compile as much as possible as compile-time bound operations and use runtime-bound operations only for cases that can’t be determined during compilation. DLR caching system allows compiling operation at run time when we know particular types for the operation and store compiled operation into cache. This can work efficiently because of the idea that when particular operation occurs, there is a big chance that the next time operands will have the same type.
   user_id: "{:nickname => 'gilles'}"
+  post_type: public
 article3:
-  title: test title 1
+  title: test title 13 for member
   content: Before DLR, we were classifying operations into two cases (not counting eval), bound during compilation and bound during run time. The goal for Phalanger as dynamic language compiler is to compile as much as possible as compile-time bound operations and use runtime-bound operations only for cases that can’t be determined during compilation. DLR caching system allows compiling operation at run time when we know particular types for the operation and store compiled operation into cache. This can work efficiently because of the idea that when particular operation occurs, there is a big chance that the next time operands will have the same type.
   user_id: "{:nickname => 'gilles'}"
+  post_type: member
 article4:
-  title: test title 1
+  title: test title 14
   content: Before DLR, we were classifying operations into two cases (not counting eval), bound during compilation and bound during run time. The goal for Phalanger as dynamic language compiler is to compile as much as possible as compile-time bound operations and use runtime-bound operations only for cases that can’t be determined during compilation. DLR caching system allows compiling operation at run time when we know particular types for the operation and store compiled operation into cache. This can work efficiently because of the idea that when particular operation occurs, there is a big chance that the next time operands will have the same type.
   user_id: "{:nickname => 'gilles'}"
+  post_type: public
 article5:
-  title: test title 1
+  title: test title 15
   content: Before DLR, we were classifying operations into two cases (not counting eval), bound during compilation and bound during run time. The goal for Phalanger as dynamic language compiler is to compile as much as possible as compile-time bound operations and use runtime-bound operations only for cases that can’t be determined during compilation. DLR caching system allows compiling operation at run time when we know particular types for the operation and store compiled operation into cache. This can work efficiently because of the idea that when particular operation occurs, there is a big chance that the next time operands will have the same type.
   user_id: "{:nickname => 'gilles'}"
 articl6:
-  title: test title 1
+  title: test title 16
   content: Before DLR, we were classifying operations into two cases (not counting eval), bound during compilation and bound during run time. The goal for Phalanger as dynamic language compiler is to compile as much as possible as compile-time bound operations and use runtime-bound operations only for cases that can’t be determined during compilation. DLR caching system allows compiling operation at run time when we know particular types for the operation and store compiled operation into cache. This can work efficiently because of the idea that when particular operation occurs, there is a big chance that the next time operands will have the same type.
   user_id: "{:nickname => 'gilles'}"
+  post_type: public
 article7:
-  title: test title 1
+  title: test title 17 for member
   content: Before DLR, we were classifying operations into two cases (not counting eval), bound during compilation and bound during run time. The goal for Phalanger as dynamic language compiler is to compile as much as possible as compile-time bound operations and use runtime-bound operations only for cases that can’t be determined during compilation. DLR caching system allows compiling operation at run time when we know particular types for the operation and store compiled operation into cache. This can work efficiently because of the idea that when particular operation occurs, there is a big chance that the next time operands will have the same type.
   user_id: "{:nickname => 'gilles'}"
+  post_type: member
 article8:
-  title: test title 1
+  title: test title 18
   content: Before DLR, we were classifying operations into two cases (not counting eval), bound during compilation and bound during run time. The goal for Phalanger as dynamic language compiler is to compile as much as possible as compile-time bound operations and use runtime-bound operations only for cases that can’t be determined during compilation. DLR caching system allows compiling operation at run time when we know particular types for the operation and store compiled operation into cache. This can work efficiently because of the idea that when particular operation occurs, there is a big chance that the next time operands will have the same type.
   user_id: "{:nickname => 'gilles'}"
+  post_type: public
 article9:
-  title: test title 1
+  title: test title 112
   content: Before DLR, we were classifying operations into two cases (not counting eval), bound during compilation and bound during run time. The goal for Phalanger as dynamic language compiler is to compile as much as possible as compile-time bound operations and use runtime-bound operations only for cases that can’t be determined during compilation. DLR caching system allows compiling operation at run time when we know particular types for the operation and store compiled operation into cache. This can work efficiently because of the idea that when particular operation occurs, there is a big chance that the next time operands will have the same type.
   user_id: "{:nickname => 'gilles'}"
+  post_type: public
 article10:
-  title: test title 1
+  title: test title 113
   content: Before DLR, we were classifying operations into two cases (not counting eval), bound during compilation and bound during run time. The goal for Phalanger as dynamic language compiler is to compile as much as possible as compile-time bound operations and use runtime-bound operations only for cases that can’t be determined during compilation. DLR caching system allows compiling operation at run time when we know particular types for the operation and store compiled operation into cache. This can work efficiently because of the idea that when particular operation occurs, there is a big chance that the next time operands will have the same type.
   user_id: "{:nickname => 'gilles'}"
+  post_type: public
 article11:
-  title: test title 1
+  title: test title 114
   content: Before DLR, we were classifying operations into two cases (not counting eval), bound during compilation and bound during run time. The goal for Phalanger as dynamic language compiler is to compile as much as possible as compile-time bound operations and use runtime-bound operations only for cases that can’t be determined during compilation. DLR caching system allows compiling operation at run time when we know particular types for the operation and store compiled operation into cache. This can work efficiently because of the idea that when particular operation occurs, there is a big chance that the next time operands will have the same type.
   user_id: "{:nickname => 'gilles'}"
 article12:
-  title: test title 1
+  title: test title 115
   content: Before DLR, we were classifying operations into two cases (not counting eval), bound during compilation and bound during run time. The goal for Phalanger as dynamic language compiler is to compile as much as possible as compile-time bound operations and use runtime-bound operations only for cases that can’t be determined during compilation. DLR caching system allows compiling operation at run time when we know particular types for the operation and store compiled operation into cache. This can work efficiently because of the idea that when particular operation occurs, there is a big chance that the next time operands will have the same type.
   user_id: "{:nickname => 'gilles'}"
+  post_type: public
 article13:
-  title: test title 1
+  title: test title 116
   content: Before DLR, we were classifying operations into two cases (not counting eval), bound during compilation and bound during run time. The goal for Phalanger as dynamic language compiler is to compile as much as possible as compile-time bound operations and use runtime-bound operations only for cases that can’t be determined during compilation. DLR caching system allows compiling operation at run time when we know particular types for the operation and store compiled operation into cache. This can work efficiently because of the idea that when particular operation occurs, there is a big chance that the next time operands will have the same type.
   user_id: "{:nickname => 'gilles'}"
+  post_type: public
 article14:
-  title: test title 1
+  title: test title 1sdf
   content: Before DLR, we were classifying operations into two cases (not counting eval), bound during compilation and bound during run time. The goal for Phalanger as dynamic language compiler is to compile as much as possible as compile-time bound operations and use runtime-bound operations only for cases that can’t be determined during compilation. DLR caching system allows compiling operation at run time when we know particular types for the operation and store compiled operation into cache. This can work efficiently because of the idea that when particular operation occurs, there is a big chance that the next time operands will have the same type.
   user_id: "{:nickname => 'gilles'}"
+  post_type: public
 article15:
-  title: test title 1
+  title: test title 113123 for member
   content: Before DLR, we were classifying operations into two cases (not counting eval), bound during compilation and bound during run time. The goal for Phalanger as dynamic language compiler is to compile as much as possible as compile-time bound operations and use runtime-bound operations only for cases that can’t be determined during compilation. DLR caching system allows compiling operation at run time when we know particular types for the operation and store compiled operation into cache. This can work efficiently because of the idea that when particular operation occurs, there is a big chance that the next time operands will have the same type.
   user_id: "{:nickname => 'gilles'}"
+  post_type: member
 article16:
-  title: test title 1
+  title: test title 1fghfgh
   content: Before DLR, we were classifying operations into two cases (not counting eval), bound during compilation and bound during run time. The goal for Phalanger as dynamic language compiler is to compile as much as possible as compile-time bound operations and use runtime-bound operations only for cases that can’t be determined during compilation. DLR caching system allows compiling operation at run time when we know particular types for the operation and store compiled operation into cache. This can work efficiently because of the idea that when particular operation occurs, there is a big chance that the next time operands will have the same type.
   user_id: "{:nickname => 'gilles'}"
+  post_type: public
 article17:
-  title: test title 1
+  title: test title 1sdfsdf
   content: Before DLR, we were classifying operations into two cases (not counting eval), bound during compilation and bound during run time. The goal for Phalanger as dynamic language compiler is to compile as much as possible as compile-time bound operations and use runtime-bound operations only for cases that can’t be determined during compilation. DLR caching system allows compiling operation at run time when we know particular types for the operation and store compiled operation into cache. This can work efficiently because of the idea that when particular operation occurs, there is a big chance that the next time operands will have the same type.
   user_id: "{:nickname => 'gilles'}"
+  post_type: public
 article18:
-  title: test title 1
+  title: test title 1sdfasdf
   content: Before DLR, we were classifying operations into two cases (not counting eval), bound during compilation and bound during run time. The goal for Phalanger as dynamic language compiler is to compile as much as possible as compile-time bound operations and use runtime-bound operations only for cases that can’t be determined during compilation. DLR caching system allows compiling operation at run time when we know particular types for the operation and store compiled operation into cache. This can work efficiently because of the idea that when particular operation occurs, there is a big chance that the next time operands will have the same type.
   user_id: "{:nickname => 'gilles'}"
+  post_type: public
 article19:
-  title: test title 1
+  title: test title 1dfgdfgdfgdfgffffffffff
   content: Before DLR, we were classifying operations into two cases (not counting eval), bound during compilation and bound during run time. The goal for Phalanger as dynamic language compiler is to compile as much as possible as compile-time bound operations and use runtime-bound operations only for cases that can’t be determined during compilation. DLR caching system allows compiling operation at run time when we know particular types for the operation and store compiled operation into cache. This can work efficiently because of the idea that when particular operation occurs, there is a big chance that the next time operands will have the same type.
   user_id: "{:nickname => 'gilles'}"
+  post_type: public
 article20:
-  title: test title 1
+  title: test title 1sdfsdfsdf
   content: Before DLR, we were classifying operations into two cases (not counting eval), bound during compilation and bound during run time. The goal for Phalanger as dynamic language compiler is to compile as much as possible as compile-time bound operations and use runtime-bound operations only for cases that can’t be determined during compilation. DLR caching system allows compiling operation at run time when we know particular types for the operation and store compiled operation into cache. This can work efficiently because of the idea that when particular operation occurs, there is a big chance that the next time operands will have the same type.
   user_id: "{:nickname => 'gilles'}"
+  post_type: public
 article21:
-  title: test title 1
+  title: test title 1aaaaaaaaaaaaaaaaaa
   content: Before DLR, we were classifying operations into two cases (not counting eval), bound during compilation and bound during run time. The goal for Phalanger as dynamic language compiler is to compile as much as possible as compile-time bound operations and use runtime-bound operations only for cases that can’t be determined during compilation. DLR caching system allows compiling operation at run time when we know particular types for the operation and store compiled operation into cache. This can work efficiently because of the idea that when particular operation occurs, there is a big chance that the next time operands will have the same type.
   user_id: "{:nickname => 'gilles'}"
+  post_type: public
 article22:
-  title: test title 1
+  title: test title 1sdfsdfsdf
   content: Before DLR, we were classifying operations into two cases (not counting eval), bound during compilation and bound during run time. The goal for Phalanger as dynamic language compiler is to compile as much as possible as compile-time bound operations and use runtime-bound operations only for cases that can’t be determined during compilation. DLR caching system allows compiling operation at run time when we know particular types for the operation and store compiled operation into cache. This can work efficiently because of the idea that when particular operation occurs, there is a big chance that the next time operands will have the same type.
   user_id: "{:nickname => 'gilles'}"
+  post_type: public
 article23:
-  title: test title 1
+  title: test title 1dfgdfgdfgdfg
   content: Before DLR, we were classifying operations into two cases (not counting eval), bound during compilation and bound during run time. The goal for Phalanger as dynamic language compiler is to compile as much as possible as compile-time bound operations and use runtime-bound operations only for cases that can’t be determined during compilation. DLR caching system allows compiling operation at run time when we know particular types for the operation and store compiled operation into cache. This can work efficiently because of the idea that when particular operation occurs, there is a big chance that the next time operands will have the same type.
   user_id: "{:nickname => 'gilles'}"
+  post_type: public
 article24:
-  title: test title 1
+  title: test title 1sdfsdfasdf
   content: Before DLR, we were classifying operations into two cases (not counting eval), bound during compilation and bound during run time. The goal for Phalanger as dynamic language compiler is to compile as much as possible as compile-time bound operations and use runtime-bound operations only for cases that can’t be determined during compilation. DLR caching system allows compiling operation at run time when we know particular types for the operation and store compiled operation into cache. This can work efficiently because of the idea that when particular operation occurs, there is a big chance that the next time operands will have the same type.
   user_id: "{:nickname => 'gilles'}"
+  post_type: public
 article25:
-  title: test title 1
+  title: test title 1dhfghfgh
   content: Before DLR, we were classifying operations into two cases (not counting eval), bound during compilation and bound during run time. The goal for Phalanger as dynamic language compiler is to compile as much as possible as compile-time bound operations and use runtime-bound operations only for cases that can’t be determined during compilation. DLR caching system allows compiling operation at run time when we know particular types for the operation and store compiled operation into cache. This can work efficiently because of the idea that when particular operation occurs, there is a big chance that the next time operands will have the same type.
   user_id: "{:nickname => 'gilles'}"
+  post_type: public
 article26:
-  title: test title 1
+  title: test title 1asdasd
   content: Before DLR, we were classifying operations into two cases (not counting eval), bound during compilation and bound during run time. The goal for Phalanger as dynamic language compiler is to compile as much as possible as compile-time bound operations and use runtime-bound operations only for cases that can’t be determined during compilation. DLR caching system allows compiling operation at run time when we know particular types for the operation and store compiled operation into cache. This can work efficiently because of the idea that when particular operation occurs, there is a big chance that the next time operands will have the same type.
   user_id: "{:nickname => 'gilles'}"
+  post_type: public
 article27:
-  title: test title 1
+  title: test title 1dfgsdfg
   content: Before DLR, we were classifying operations into two cases (not counting eval), bound during compilation and bound during run time. The goal for Phalanger as dynamic language compiler is to compile as much as possible as compile-time bound operations and use runtime-bound operations only for cases that can’t be determined during compilation. DLR caching system allows compiling operation at run time when we know particular types for the operation and store compiled operation into cache. This can work efficiently because of the idea that when particular operation occurs, there is a big chance that the next time operands will have the same type.
   user_id: "{:nickname => 'gilles'}"
+  post_type: public
 article28:
-  title: test title 1
+  title: test title 1fsdfgsdfg
   content: Before DLR, we were classifying operations into two cases (not counting eval), bound during compilation and bound during run time. The goal for Phalanger as dynamic language compiler is to compile as much as possible as compile-time bound operations and use runtime-bound operations only for cases that can’t be determined during compilation. DLR caching system allows compiling operation at run time when we know particular types for the operation and store compiled operation into cache. This can work efficiently because of the idea that when particular operation occurs, there is a big chance that the next time operands will have the same type.
   user_id: "{:nickname => 'gilles'}"
+  post_type: public
 

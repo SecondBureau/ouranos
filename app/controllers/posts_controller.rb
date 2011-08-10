@@ -1,7 +1,11 @@
 class PostsController < ApplicationController
   
   def index
-    @posts = Post.order("created_at DESC").page(params[:page]).per(10)
+    if(current_user.is_of_role?(:guests))
+      @posts = Post.public_posts.order("created_at DESC").page(params[:page]).per(10)
+    else
+      @posts = Post.order("created_at DESC").page(params[:page]).per(10)
+    end
   end
 
   def show
