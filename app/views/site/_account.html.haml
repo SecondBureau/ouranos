@@ -5,7 +5,7 @@
   - if current_user.role.name == "administrators"
     %span= raw "|"
     %span= link_to t("administration"), iadmin.root_path
-  - if current_user.role.name == "officer"
+  - if current_user.role.name == "officers"
     %span= raw "|"
     %span= link_to t("officer.management.title"), main_app.managements_path
 - else

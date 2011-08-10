@@ -7,9 +7,9 @@ contact:
   title: contact
   content: content contact
   permalink: contact
-  page_type: member
+  page_type: members
 notice:
   title: notice
   content: content notice
   permalink: notice
-  page_type: member
+  page_type: members

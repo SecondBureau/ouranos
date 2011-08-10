@@ -22,7 +22,7 @@ gilles:
   city: inconnue
   country: France  
   
-user1:
+johnson:
   nickname: johnson
   firstname: Weihan
   lastname: Zhang
@@ -34,7 +34,7 @@ user1:
   city: inconnu
   country: France
 
-user2:
+mark:
   nickname: mark
   firstname: Zhe
   lastname: Li
@@ -46,11 +46,11 @@ user2:
   city: inconnu
   country: France
   
-user3:
+member:
   nickname: member
-  firstname: Zhe
-  lastname: Li
-  role_id: "{:name => 'member'}"
+  firstname: mem
+  lastname: ber
+  role_id: "{:name => 'members'}"
   gender: M.
   birthdate: 01/01/1970
   address: inconnue
@@ -58,11 +58,11 @@ user3:
   city: inconnu
   country: France
   
-user4:
+officer:
   nickname: officer
-  firstname: Zhe
-  lastname: Li
-  role_id: "{:name => 'officer'}"
+  firstname: offi
+  lastname: cer
+  role_id: "{:name => 'officers'}"
   gender: M.
   birthdate: 01/01/1970
   address: inconnue

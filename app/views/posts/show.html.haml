@@ -8,8 +8,8 @@
       = @post.created_at
     #post_content= raw @post.content
     #post_printer
-      = image_tag("icons/printer.png", :width => 24, :height => 24, :title => t("print.print"))
-      = image_tag("icons/pdf.png", :width => 24, :height => 24,:title => t("print.pdf"))
+      = image_tag("icons/printer.png", :width => 24, :height => 24, :title => t("print.print"), :class => "print_icon")
+      = image_tag("icons/pdf.png", :width => 24, :height => 24,:title => t("print.pdf"), :class => "print_icon")
 
   - if flash.alert
     .form_errors
@@ -19,20 +19,42 @@
 
   #add_comment= render "comments/form"
   
-  #alert_for_guest
-    .alert_message= t("alert.guest.comment")
-    #alert_links
-      %span= link_to t("alert.signup"), iauth.signup_path
-      %span= raw "|"
-      %span= link_to t("alert.login"), iauth.login_path
+  - if current_user.is_of_role?(:guests)
+    #alert_for_guest
+      .alert_message= t("alert.guest.comment")
+      #alert_links
+        %span= link_to t("alert.signup"), iauth.signup_path
+        %span= raw "|"
+        %span= link_to t("alert.login"), iauth.login_path
       
-  #alert_for_user
-    .alert_message= raw t("alert.user.comment")
-  #comment_list= render "comment_list"
+  - if current_user.is_of_role?(:users)
+    #alert_for_user
+      .alert_message= raw t("alert.user.comment")
+    #comment_list= render "comment_list"
   
 :javascript
   $(function(){
-    $('img[width=24]').click(function(){
+  
+    function is_guest(){
+      if("#{current_user.is_of_role?(:guests)}"){ return true; }
+      return false;
+    }
+  
+    function show_guest_alert(){
+      $("form").slideUp("fast", function(){ $("#alert_for_guest").slideDown("fast"); });
+      if($("#alert_for_guest").css("display") == "block"){
+        $("#alert_for_guest").fadeOut("fast", function(){ $(this).fadeIn(); });
+      }
+      return false;
+    }
+    
+    if(is_guest()){
+      $("textarea").mousedown(show_guest_alert);
+      $("form").submit(show_guest_alert);
+    }
+
+    $(".print_icon").click(function(){
+      if(is_guest()){ show_guest_alert(); return;}
       var w = 1020;
       var left = (screen.width/2)-(w/2);
       var printwindow = window.open ("#{main_app.post_print_path(@post)}", "print",
@@ -40,16 +62,6 @@
       printwindow.moveTo(left, 0);
       printwindow.focus();
     });
-    
-    if("#{current_user.role.name}" == "guests"){
-      $("textarea").mousedown(function(){
-        $("form").slideUp("fast", function(){ $("#alert_for_guest").slideDown("fast"); }); 
-      });
-      $("form").submit(function(){
-        $("form").slideUp("fast", function(){ $("#alert_for_guest").slideDown("fast"); }); 
-        return false;
-      });
-    }
     
     if("#{@has_unvalid_commented}" == "true"){
       $("form").slideUp("fast", function(){ $("#alert_for_user").slideDown("fast"); }); 
@@ -59,4 +71,4 @@
       $(".form_errors").slideDown("fast"); 
     }
     
-  })
+  });

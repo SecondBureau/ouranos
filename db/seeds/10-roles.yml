@@ -19,17 +19,17 @@ admins:
     :image: 31
     :message: 31
   is_default_role: false
-officer:
+officers:
   uniq: [name]
-  name: officer
+  name: officers
   permissions:
     :category: 31
-member:
+members:
   uniq: [name]
-  name: member
+  name: members
   permissions:
     :category: 31
-user:
+users:
   uniq: [name]
   name: users
   permissions:
