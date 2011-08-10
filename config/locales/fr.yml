@@ -39,7 +39,7 @@ fr:
     login: Click here to login
     signup: Click here to signup
     guest:
-      comment: Guest are not allowed to comment the post.
+      comment: Guest are not allowed to do this.
     user:
       comment: Your message is being processed and will be displayed soon. <br/> Become a member of the association if you want to display it immediately.
   date:

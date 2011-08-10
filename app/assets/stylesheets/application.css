@@ -11,6 +11,7 @@
  *= require managements
  *= require comments 
  *= require messages
+ *= require auth
  *= require message_dialog
 */
 

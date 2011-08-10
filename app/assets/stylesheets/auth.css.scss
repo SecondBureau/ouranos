@@ -1,0 +1,10 @@
+@mixin fieldsets(){
+  fieldset{border:3px solid #777777; border-radius:10px; -moz-border-radius:10px; margin:10px 0px; padding:0px 30px 15px 30px; display:inline; text-align:left;
+    legend{font-weight:bold; font-size:16px; padding:3px;}
+  }
+}
+
+#login{padding:10px; text-align:center; @include fieldsets;}
+#registration{padding:10px; text-align:center; @include fieldsets;}
+
+
