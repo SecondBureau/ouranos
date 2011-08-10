@@ -40,7 +40,7 @@ gem "database_cleaner" , :group => :test
 gem "acts_as_indexed"
 
 gem "fastercsv"
- 
+
 #group :production do
   gem 'therubyracer-heroku'
   gem "fog"
