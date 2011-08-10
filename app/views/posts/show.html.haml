@@ -30,13 +30,13 @@
   - if current_user.is_of_role?(:users)
     #alert_for_user
       .alert_message= raw t("alert.user.comment")
-    #comment_list= render "comment_list"
+  #comment_list= render "comment_list"
   
 :javascript
   $(function(){
   
     function is_guest(){
-      if("#{current_user.is_of_role?(:guests)}"){ return true; }
+      if("#{current_user.is_of_role?(:guests)}" == "true"){ return true; }
       return false;
     }
   
