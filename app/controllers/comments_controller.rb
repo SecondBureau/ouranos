@@ -9,7 +9,9 @@ class CommentsController < ApplicationController
       @comment.save
       redirect_to main_app.post_path(@comment.post), :notice => t("comment.valid.added")
     else
-      redirect_to main_app.post_path(@comment.post), :notice => t("comment.checked.added")
+      @comment.is_valid = 0
+      @comment.save
+      redirect_to main_app.post_path(@comment.post)
     end
   end
   

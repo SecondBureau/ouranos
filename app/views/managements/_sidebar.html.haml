@@ -1,0 +1,14 @@
+#side_bar
+  #title= link_to t("officer.management.title"), main_app.user_path(current_user)
+  #side_operations
+    %ul
+      %li= link_to t("officer.management.index"), main_app.managements_path, :class => "index"
+      %li= link_to t("officer.management.user"), main_app.management_oper_path(:user), :class => "user"
+      %li= link_to t("officer.management.post"), main_app.management_oper_path(:post), :class => "post"
+      %li= link_to t("officer.management.survey"), main_app.management_oper_path(:survey), :class => "survey"
+:javascript
+  if($('a[class="#{params[:oper]}"]').length == 0){
+    $('a[class="index"]').addClass("select");
+  }else{
+    $('a[class="#{params[:oper]}"]').addClass("select");
+  }

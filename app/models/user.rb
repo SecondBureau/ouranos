@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
 
   accepts_nested_attributes_for :account , :allow_destroy => true
   
+  scope :members, lambda{all.select{|user| user.role.name == "member" }}
+  
   def email
     self.account.email
   end

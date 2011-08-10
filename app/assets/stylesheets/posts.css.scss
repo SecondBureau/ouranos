@@ -26,3 +26,12 @@ nav.pagination{margin-top:10px; float:right;
   .current{color:#A0180A; font-weight:bold; font-size:18px;}
   a{color:#000000}
 }
+
+#alert_for_guest{display:none; text-align:center; background:#FF5555; padding:10px;
+  .alert_message{font-weight:bold; font-size:18px; color:000000;}
+  a{font-weight:bold; color:#000000; text-decoration:underline;}
+}
+
+#alert_for_user{display:none; text-align:center; background:#FF5555; padding:10px;
+  .alert_message{font-weight:bold; font-size:18px; color:000000;}
+}

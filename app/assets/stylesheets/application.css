@@ -8,6 +8,7 @@
  *= require users 
  *= require pages 
  *= require posts 
+ *= require managements
  *= require comments 
  *= require messages
  *= require message_dialog

@@ -7,8 +7,12 @@ class PostsController < ApplicationController
   def show
     @post = Post.find params[:id]
     @comment = @post.comments.build
+    @comment.is_valid = 0
     @comments = @post.comments.valid
     @comments_size = @comments.size
+    if(current_user.role.name == "users" && @post.comments.has_unvalid_commented(current_user).size > 0)
+      @has_unvalid_commented = true
+    end
   end
   
   def print

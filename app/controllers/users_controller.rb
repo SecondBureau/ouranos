@@ -10,11 +10,10 @@ class UsersController < ApplicationController
     when "informations"
     when "membership"
     when "subscribes"
-      @subscribes = "fffffffffffffffffffffffffffffffffffffff"
+      @subscribes = "subscribes"
     when "settings"
-      @settings = "dddddddddssssssssssssssssssssssssss"
+      @settings = "settings"
     end
-    puts params[:oper] + "   ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
     render params[:oper]
   end
   

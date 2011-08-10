@@ -15,7 +15,33 @@ fr:
       added: "Successfully add a new comment!"
     checked:
       added: "Successfully add a new comment! The comment will not be visible before the administrator checks it"
-  management: Management
+  officer:
+    management:
+      title: Management
+      index: Dashboard
+      user: Users
+      post: Posts
+      survey: Surveys
+  management:
+    user: 
+      count: User Count
+      title: Users
+      nickname: Nickname
+      fullname: Fullname
+      role: User Type
+    member:
+      count: Member Count
+    post: 
+      title: Posts
+    survey: 
+      title: Surveys
+  alert:
+    login: Click here to login
+    signup: Click here to signup
+    guest:
+      comment: Guest are not allowed to comment the post.
+    user:
+      comment: Your message is being processed and will be displayed soon. <br/> Become a member of the association if you want to display it immediately.
   date:
     formats:
       default: "%d/%m/%Y"

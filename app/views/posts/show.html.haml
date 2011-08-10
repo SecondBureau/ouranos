@@ -11,6 +11,14 @@
       = image_tag("icons/printer.png", :width => 24, :height => 24, :title => t("print.print"))
       = image_tag("icons/pdf.png", :width => 24, :height => 24,:title => t("print.pdf"))
   #add_comment= render "comments/form"
+  #alert_for_guest
+    .alert_message= t("alert.guest.comment")
+    #alert_links
+      %span= link_to t("alert.signup"), iauth.signup_path
+      %span= raw "|"
+      %span= link_to t("alert.login"), iauth.login_path
+  #alert_for_user
+    .alert_message= raw t("alert.user.comment")
   #comment_list= render "comment_list"
 :javascript
   $(function(){
@@ -22,4 +30,14 @@
       printwindow.moveTo(left, 0);
       printwindow.focus();
     });
+    
+    if("#{current_user.role.name}" == "guests"){
+      $("textarea").mousedown(function(){
+        $("form").slideUp("fast", function(){ $("#alert_for_guest").slideDown("fast"); }); 
+      });
+    }
+    
+    if("#{@has_unvalid_commented}" == "true"){
+      $("form").slideUp("fast", function(){ $("#alert_for_user").slideDown("fast"); }); 
+    }
   })
