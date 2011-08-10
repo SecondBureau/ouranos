@@ -2,3 +2,14 @@ about:
   title: about
   content: content about
   permalink: about
+  page_type: public
+contact:
+  title: contact
+  content: content contact
+  permalink: contact
+  page_type: member
+notice:
+  title: notice
+  content: content notice
+  permalink: notice
+  page_type: member

@@ -10,6 +10,8 @@
     #post_printer
       = image_tag("icons/printer.png", :width => 24, :height => 24, :title => t("print.print"))
       = image_tag("icons/pdf.png", :width => 24, :height => 24,:title => t("print.pdf"))
+  - if @comment.errors.any?
+    .error= @comment.errors
   #add_comment= render "comments/form"
   #alert_for_guest
     .alert_message= t("alert.guest.comment")

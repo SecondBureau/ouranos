@@ -1,2 +1,2 @@
-= render :partial => "sidebar"
-#current_content= render :partial => @page.permalink
+= render :partial => "sidebar", :object => @page.title, :as => :title
+#current_content= raw @page.content

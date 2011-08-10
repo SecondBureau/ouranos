@@ -9,6 +9,7 @@
 seeds_path = File.join(File.dirname(__FILE__), 'seeds')
 
 Dir["#{seeds_path}/*"].select { |file| /(yml)$/ =~ file }.sort.each do |file|
+  puts file
   klass = File.basename(file, '.yml').gsub(/[0-9]+\-/,'').singularize.gsub("::" , "/").camelize.constantize
   #YAML.load_file(file).each  do |key, params|
   klass.delete_all if klass == User
@@ -28,7 +29,6 @@ Dir["#{seeds_path}/*"].select { |file| /(yml)$/ =~ file }.sort.each do |file|
       if att[-3,3].eql?('_id')
         reflection_name = att.gsub('_id','')
         puts "==================================#{klass}"
-        puts "==================================#{klass.reflect_on_association(reflection_name.to_sym)}"
         target_klass = klass.reflect_on_association(reflection_name.to_sym).klass
         val = target_klass.where(eval(val)).first.id
       end

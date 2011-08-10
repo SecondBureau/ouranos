@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(:version => 20110803140016) do
     t.string   "title"
     t.text     "content"
     t.string   "permalink"
+    t.string   "page_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

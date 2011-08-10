@@ -7,8 +7,17 @@ class ApplicationController < ActionController::Base
   before_filter :set_locale
   before_filter :create_account_for_guest
   before_filter :meta_defaults
+  before_filter :ready_pages
 
   private 
+  
+  def ready_pages
+    if(%w{guests users}.include? current_user.role.name)
+      @pages = Page.public_pages
+    else
+      @pages = Page.all
+    end
+  end
   
   def default_url_options(options={})
     {:locale => I18n.locale}
