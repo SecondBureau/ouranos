@@ -8,7 +8,7 @@ gem 'sqlite3'
 # Asset template engines
 gem 'json'
 gem "sass" , "3.1.4"
-gem "sprockets" , "2.0.0.beta.10"
+gem "sprockets"
 gem 'sass-rails', "3.1.0.rc.4"
 gem 'coffee-script'
 gem 'uglifier'
@@ -26,10 +26,6 @@ gem 'rspec-rails', '>= 2.0.1', :group => [:development, :test]
 gem 'sqlite3', :group => [:development, :test]
 gem "ruby-debug", :group => [:development, :test]
 
-gem 'heroku_s3_backup'
-gem 'heroku_san'
-gem 'heroku'
-
 gem "forgery" , "0.3.10"
 gem 'machinist'
 
@@ -41,10 +37,16 @@ gem "acts_as_indexed"
 
 gem "fastercsv"
 
-#group :production do
+gem 'pdfkit', "~> 0.5.2"
+
+gem 'heroku_s3_backup'
+gem 'heroku_san'
+gem 'heroku'
+
+group :production do
   gem 'therubyracer-heroku'
   gem "fog"
-#end
+end
 
 
 path "./vendor/gems" do
