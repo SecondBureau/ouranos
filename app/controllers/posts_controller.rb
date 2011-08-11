@@ -23,5 +23,10 @@ class PostsController < ApplicationController
     @post = Post.find params[:id]
     render :layout => false
   end
+  
+  def to_pdf
+    kit = PDFKit.new("www.google.com")
+    kit.to_pdf
+  end
 
 end

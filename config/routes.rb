@@ -6,7 +6,8 @@ Ouranos::Application.routes.draw do
     resources :users
     resources :comments
     resources :categories
-    match "/post/print/:id" => "posts#print", :as => :post_print
+    match "/posts/print/:id" => "posts#print", :as => :post_print
+    match "/posts/pdf/:id" => "posts#to_pdf", :as => :post_to_pdf
     match "/page/:permalink"   => "pages#show", :as => :page, :requirements => { "permalink" => /[-_a-z0-9]/ }
     match "/users/:id/opers/:oper" => "users#show", :as => :user_oper
     match "/managements/opers/:oper" => "managements#show", :as => :management_oper
