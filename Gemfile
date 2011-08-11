@@ -7,9 +7,9 @@ gem 'sqlite3'
 
 # Asset template engines
 gem 'json'
-gem "sass" , "3.1.4"
+gem "sass" , "3.1.7"
 gem "sprockets", "2.0.0.beta.13"
-gem 'sass-rails', "3.1.0.rc.4"
+gem 'sass-rails', "3.1.0.rc.5"
 gem 'coffee-script'
 gem 'uglifier'
 
