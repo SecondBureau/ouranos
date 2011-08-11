@@ -5,11 +5,12 @@ about:
   page_type: public
 contact:
   title: contact
-  content: content contact
+  content: content contact (just for members)
   permalink: contact
   page_type: members
 notice:
   title: notice
-  content: content notice
+  content: content notice (just for members)
   permalink: notice
   page_type: members
+
