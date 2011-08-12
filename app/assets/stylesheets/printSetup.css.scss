@@ -1,4 +1,24 @@
-@import "print_common";
+
+body{
+  font-family: "Helvetica Neue",Helvetica,Arial,freesans;
+  font-size: 16px;
+}
+
+.clear{clear:both;}
+
+#print_for_2buro_wrapper{border-bottom:1px solid #CCCCCC; padding:10px;
+  #print_for_2buro{float:right; margin-top:10px; color:#FF0000;
+    img{border:none; position:relative; top:7px;}
+  }
+}
+#print_content{padding:10px;
+  #print_for_copyright{float:right; color:#FF0000;}
+  #print_for_title{font-size:200%; font-weight:bold; margin:10px 0px 20px 0px;}
+  #print_for_content{text-indent:2em; line-height:30px;
+    &:first-letter{font-size:150%; font-weight:bold; margin-right:1px;}
+  }
+}
+
 $bg_shadow: 0px 0px 5px #333333;
 
 body{background:#CCCCCC;}
@@ -8,3 +28,4 @@ body{background:#CCCCCC;}
     img{cursor:pointer;}
   }
 }
+
