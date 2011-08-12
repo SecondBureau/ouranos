@@ -69,6 +69,8 @@ module RorshackAdminUi
           render "form_has_one",:f => f , :association => association , :resource => resource
         when :has_many
           render "form_has_many",:f => f , :association => association , :resource => resource
+        when :has_and_belongs_to_many
+          render "form_has_and_belongs_to_many",:f => f , :association => association , :resource => resource
         end
     end
     
@@ -85,7 +87,15 @@ module RorshackAdminUi
     
     def render_object_characteristic(object)
       col = [:name , :title , :email , :nickname , :id].detect{|c| object.respond_to?(c)}
-      content_tag(:span){ truncate(object.send(col) , :length => 50) }
+      truncate_length = case action_name
+                          when "index"
+                            30
+                          when "show"
+                            200
+                          else
+                            50
+                        end
+      content_tag(:span , :title => object.send(col)){ truncate(object.send(col) , :length => truncate_length) }
     end
     
     def render_logo(object)

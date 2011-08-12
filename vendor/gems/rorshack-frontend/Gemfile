@@ -6,7 +6,7 @@ gem "jeweler"
 gem 'rorshack-support'
 gem 'haml-rails'
 gem 'formtastic'
-gem "sass" , "3.1.7"
+gem "sass"
 gem "hpricot"
 gem "ruby_parser"
 

@@ -6,7 +6,7 @@ module RorshackAdminUi
     
     helper "rorshack_admin_ui/admin_ui"
     
-    layout "admin_ui"
+    layout "rorshack_admin_ui/admin_ui"
     protected
 
       def update_resource_class
@@ -31,12 +31,11 @@ module RorshackAdminUi
           }
           
           unless configured_assoc.nil? 
-            pp configured_assoc.values.first
             collection_datas = collection_datas.includes( *configured_assoc.values.first )
           end
-          
-#          collection_datas = collection_datas.page( params[:page] )
-          
+
+          collection_datas = collection_datas.page( params[:page] )
+
           collection_datas = collection_datas.order("#{sort_column} #{sort_direction}")
           
           set_collection_ivar( collection_datas )

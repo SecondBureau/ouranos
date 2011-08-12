@@ -13,18 +13,10 @@ body{
   #body_wrapper{ margin: 0 auto; width: 99%; background: #FFFFFF;
     #header{border-bottom: 5px solid $nav_border_color; padding: $container_padding; padding-bottom: 0px; background: #1B1B1B;
       #admin_title{
-        .admin{
-          padding: 10px;
-          color: #FFFFFF;
-          float: right;
-        }
-        .site{
-          padding: 10px;
-          color: #FFFFFF;
-          float: left;
-        }
+        padding: 10px;
+        color: #FFFFFF;
+        float: right;
       }
-      
       #header_nav{float: left; margin-top: 15px;
         ul{ list-style-type: none;
           li{ float: left;

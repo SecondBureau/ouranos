@@ -5,24 +5,12 @@
 // the compiled file.
 //
 //= require jquery.wysiwyg
-//= require i18n/wysiwyg.i18n
-//= require i18n/lang.en
-//= require i18n/lang.fr
-//= require i18n/lang.zh-cn
 //= require controls/wysiwyg.image
 //= require controls/wysiwyg.link
 //= require controls/wysiwyg.table
-
-$(document).ready(function() {
-	$('.jwysiwyg').wysiwyg({
-		plugins : {
-			autoload : true,
-			i18n : {
-				lang : "en"
-			},
-			rmFormat : {
-				rmMsWordMarkup : true
-			}
-		}
-	});
+$(function($) {
+  $(document).ready(function() {
+    $('.jwysiwyg').wysiwyg();
+  });
 });
+

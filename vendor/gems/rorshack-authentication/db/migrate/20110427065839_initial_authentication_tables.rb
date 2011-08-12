@@ -10,6 +10,7 @@ class InitialAuthenticationTables < ActiveRecord::Migration
     end
 
     create_table "rorshack_authentication_accounts" do |t|
+      t.integer  :user_id
       t.string   "email",                                                   :null => false
       t.string   "crypted_password",   :limit => 128, :default => "",       :null => false
       t.string   "password_salt",                     :default => "",       :null => false
