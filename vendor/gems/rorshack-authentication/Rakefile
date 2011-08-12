@@ -42,7 +42,7 @@ Jeweler::Tasks.new do |gem|
   gem.add_runtime_dependency 'authlogic', ">= 3.0.3"
   gem.add_runtime_dependency 'haml-rails', ">= 0.3.4"
   gem.add_runtime_dependency 'formtastic' , ">= 1.2.4"
-  gem.add_runtime_dependency "rails" , ">= 3.1.0.rc4"
+  gem.add_runtime_dependency "rails" , ">= 3.1.0.rc5"
   gem.add_runtime_dependency 'rack-recaptcha' , ">= 0.6.0"
 end
 Jeweler::RubygemsDotOrgTasks.new

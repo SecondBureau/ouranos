@@ -13,13 +13,15 @@ module Kaminari
       end
 
       def page_url_for(page)
-        @template.send(detect_route_scope(@params)).url_for @params.merge(@param_name => (page <= 1 ? nil : page))
-      end
-      protected
-      def detect_route_scope(params)
-        path_scope = params[:controller].split("/").first
-        route_scope = MOUNTED_ROUTES.detect{|mr| mr[:path_scope] == path_scope }
-        (route_scope.nil? ? "main_app" : route_scope[:name]).to_sym
+        begin
+          @template.main_app.url_for @params.merge(@param_name => (page <= 1 ? nil : page))
+        rescue 
+          MOUNTED_ROUTES.each do|mr|
+            mounted_route  = @template.send(mr[:name].to_sym)
+            return mounted_route.url_for @params.merge(@param_name => (page <= 1 ? nil : page)) rescue next
+          end
+          raise $!
+        end
       end
     end
   end

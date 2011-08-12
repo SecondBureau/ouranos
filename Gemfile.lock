@@ -22,7 +22,7 @@ PATH
       kaminari
       machinist (= 1.0.6)
       rails
-      rails (>= 3.1.0.rc4)
+      rails (>= 3.1.0.rc5)
       rake
       rorshack-authentication
       rorshack-authentication
@@ -50,8 +50,8 @@ PATH
       omniauth (>= 0.2.6)
       rack-recaptcha
       rack-recaptcha (>= 0.6.0)
-      rails (>= 3.1.0.rc4)
-      rails (>= 3.1.0.rc4)
+      rails (>= 3.1.0.rc5)
+      rails (>= 3.1.0.rc5)
       rorshack-frontend
       rorshack-frontend
       rorshack-support
@@ -141,6 +141,11 @@ GEM
       activesupport (~> 3.0)
     childprocess (0.2.1)
       ffi (~> 1.0.6)
+    coffee-rails (3.1.0.rc.5)
+      actionpack (~> 3.1.0.rc1)
+      coffee-script (>= 2.2.0)
+      railties (~> 3.1.0.rc1)
+      sprockets (>= 2.0.0.beta.9)
     coffee-script (2.2.0)
       coffee-script-source
       execjs
@@ -178,7 +183,7 @@ GEM
       net-ssh (>= 2.1.4)
       nokogiri (>= 1.4.4)
       ruby-hmac
-    forgery (0.3.10)
+    forgery (0.3.12)
       nokogiri (~> 1.4)
     formatador (0.2.0)
     formtastic (1.2.4)
@@ -384,12 +389,12 @@ DEPENDENCIES
   acts_as_indexed
   capybara
   carrierwave
-  coffee-script
+  coffee-rails (~> 3.1.0.rc)
   cucumber-rails
   database_cleaner
   fastercsv
   fog
-  forgery (= 0.3.10)
+  forgery
   heroku
   heroku_s3_backup
   heroku_san
@@ -397,10 +402,9 @@ DEPENDENCIES
   json
   kaminari
   machinist
-  pdfkit (~> 0.5.2)
+  pdfkit
   pg
   rails (= 3.1.0.rc5)
-  rake
   rmagick
   rorshack!
   rorshack-admin-ui!
@@ -408,11 +412,9 @@ DEPENDENCIES
   rorshack-frontend!
   rorshack-permission!
   rorshack-support!
-  rspec-rails (>= 2.0.1)
+  rspec-rails
   ruby-debug
-  sass (= 3.1.7)
-  sass-rails (= 3.1.0.rc.5)
-  sprockets (= 2.0.0.beta.13)
+  sass-rails (~> 3.1.0.rc)
   sqlite3
   therubyracer-heroku
   uglifier

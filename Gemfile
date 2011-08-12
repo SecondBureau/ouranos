@@ -2,16 +2,33 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.1.0.rc5'
 
-gem "rake"
-gem 'sqlite3'
-
-# Asset template engines
 gem 'json'
-gem "sass" , "3.1.7"
-gem "sprockets", "2.0.0.beta.13"
-gem 'sass-rails', "3.1.0.rc.5"
-gem 'coffee-script'
-gem 'uglifier'
+
+# Gems used only for assets and not required
+# in production environments by default.
+group :assets do
+  gem 'sass-rails', "~> 3.1.0.rc"
+  gem 'coffee-rails', "~> 3.1.0.rc"
+  gem 'uglifier'
+end
+
+group :test do
+  gem 'capybara'
+  gem 'cucumber-rails'
+  gem "database_cleaner"
+end
+
+gem 'rspec-rails', :group => [:development, :test]
+gem 'sqlite3', :group => [:development, :test]
+gem "ruby-debug", :group => [:development, :test]
+
+gem "forgery"
+gem 'machinist'
+
+
+gem "acts_as_indexed"
+
+gem "fastercsv"
 
 gem "carrierwave"
 gem 'rmagick'
@@ -20,34 +37,17 @@ gem "kaminari"
 
 gem 'jquery-rails'
 
-gem 'capybara', :group => :test
-gem 'cucumber-rails', :group => :test
-gem 'rspec-rails', '>= 2.0.1', :group => [:development, :test]
-gem 'sqlite3', :group => [:development, :test]
-gem "ruby-debug", :group => [:development, :test]
-
-gem "forgery" , "0.3.10"
-gem 'machinist'
-
-gem 'pg', :group => :production
-
-gem "database_cleaner" , :group => :test
-
-gem "acts_as_indexed"
-
-gem "fastercsv"
-
-gem 'pdfkit', "~> 0.5.2"
+gem 'pdfkit'
 
 gem 'heroku_s3_backup'
 gem 'heroku_san'
 gem 'heroku'
 
 group :production do
+  gem 'pg'
   gem 'therubyracer-heroku'
   gem "fog"
 end
-
 
 path "./vendor/gems" do
   gem "rorshack-permission"
@@ -57,3 +57,4 @@ path "./vendor/gems" do
   gem "rorshack-authentication"
   gem "rorshack"
 end
+

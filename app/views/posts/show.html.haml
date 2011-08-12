@@ -3,7 +3,7 @@
   #post_wrapper
     #post_title= @post.title
     #post_author_date
-      = @post.user.nickname.capitalize!
+      = @post.user.nickname.capitalize! if @post.user
       = raw "&nbsp;|&nbsp;" 
       = @post.created_at
     #post_content= raw @post.content
