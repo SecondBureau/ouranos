@@ -18,6 +18,8 @@ module Ouranos
       Devise::RegistrationsController.layout "sign"
       Devise::PasswordsController.layout "sign"
     end
+    
+    config.i18n.default_locale = :fr
 
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"

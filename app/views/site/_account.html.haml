@@ -2,16 +2,16 @@
   %span= link_to t("logout"), destroy_user_session_path, :method => :delete
   - if current_user.is_of_role? :admin
     %span= raw "|"
-    %span= link_to t("administration"), rails_admin.dashboard_path
+    %span= link_to t("administration"), admin.dashboard_path
   - elsif current_user.is_of_role? :officer
     %span= raw "|"
-    %span= link_to t("officer.management.title"), rails_admin.dashboard_path
+    %span= link_to t("officer.management.title"), admin.dashboard_path
   - else
     %span= raw "|"
-    %span= link_to t("users.account.title"), rails_admin.dashboard_path
+    %span= link_to t("users.account.title"), admin.dashboard_path
     - if current_user.is_of_role? :user
       %span= raw "|"
-      %span= link_to t("users.account.member"), rails_admin.dashboard_path
+      %span= link_to t("users.account.member"), admin.dashboard_path
 - else
   %span= link_to t("signup"), new_user_registration_path
   %span= raw "|"
