@@ -8,8 +8,6 @@ gem 'json'
 
 gem 'haml-rails'
 
-# Gems used only for assets and not required
-# in production environments by default.
 group :assets do
   gem 'sass-rails', "~> 3.1.0.rc"
   gem 'coffee-rails', "~> 3.1.0.rc"
@@ -34,8 +32,6 @@ gem 'rails_admin', :git => 'git://github.com/mark-secondbureau/rails_admin.git',
 
 gem 'hpricot'
 gem 'ruby_parser'
-
-gem 'sunspot_rails'
 
 group :production do
   gem 'pg'
