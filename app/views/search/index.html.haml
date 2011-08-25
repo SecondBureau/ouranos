@@ -1,0 +1,5 @@
+= render "side_bar"
+#current_content
+  %ul
+    - @results.each do |item|
+      %li= item

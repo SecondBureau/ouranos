@@ -1,6 +1,7 @@
 Ouranos::Application.routes.draw do
 
   devise_for :users
+  get "search/index", :as => :search
 
   scope "(/:locale)" do
     resources :events

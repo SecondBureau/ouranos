@@ -1,5 +1,7 @@
 #global_search
-  = text_field :search_key, :size => 30
+  = form_tag search_path, :method => :get do
+    %p= text_field_tag :search, params[:search], :size => 30
+
   = image_tag("icons/search128.png")
   .clear
 #local_switch
