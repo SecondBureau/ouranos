@@ -3,5 +3,5 @@
   - if can? :manage, Event
     #side_operations
       %ul
-        %li= link_to "Add new Event", ""
-        %li= link_to "Manage Events", ""
+        %li= link_to "Add new Event", admin.new_path(:event)
+        %li= link_to "Manage Events", admin.list_path(:event)

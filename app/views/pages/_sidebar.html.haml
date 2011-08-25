@@ -3,5 +3,6 @@
   - if can? :manage, Post
     #side_operations
       %ul
-        %li= link_to "Edit #{@page.title}", ""
-        %li= link_to "Add new page", ""
+        %li= link_to "Edit #{@page.title}", admin.edit_path(:page, @page)
+        %li= link_to "Add new page", admin.new_path(:page)
+        %li= link_to "Manage pages", admin.list_path(:page)
