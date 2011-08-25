@@ -1,5 +1,0 @@
-require "rorshack-frontend"
-require "rorshack-support"
-require "rorshack-authentication"
-require "rorshack-permission"
-require "rorshack-admin-ui"

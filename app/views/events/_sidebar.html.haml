@@ -1,0 +1,7 @@
+#side_bar
+  #title= link_to t("event.title"), main_app.events_path
+  - if can? :manage, Event
+    #side_operations
+      %ul
+        %li= link_to "Add new Event", ""
+        %li= link_to "Manage Events", ""

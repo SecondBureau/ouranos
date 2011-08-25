@@ -1,15 +1,19 @@
-- if signed_in?
-  %span= link_to t("logout"), iauth.logout_path
-  %span= raw "|"
-  %span= link_to t("users.account.title"), main_app.user_oper_path(current_user, :informations)
-  - if current_user.role.name == "administrators"
+- if user_signed_in?
+  %span= link_to t("logout"), destroy_user_session_path, :method => :delete
+  - if current_user.is_of_role? :admin
     %span= raw "|"
-    %span= link_to t("administration"), iadmin.root_path
-  - if current_user.role.name == "officers"
+    %span= link_to t("administration"), rails_admin.dashboard_path
+  - elsif current_user.is_of_role? :officer
     %span= raw "|"
-    %span= link_to t("officer.management.title"), main_app.managements_path
+    %span= link_to t("officer.management.title"), rails_admin.dashboard_path
+  - else
+    %span= raw "|"
+    %span= link_to t("users.account.title"), rails_admin.dashboard_path
+    - if current_user.is_of_role? :user
+      %span= raw "|"
+      %span= link_to t("users.account.member"), rails_admin.dashboard_path
 - else
-  %span= link_to t("signup"), iauth.signup_path
+  %span= link_to t("signup"), new_user_registration_path
   %span= raw "|"
-  %span= link_to t("login"), iauth.login_path
+  %span= link_to t("login"), new_user_session_path
 .clear

@@ -3,5 +3,9 @@
     %li{:id => "comment#{@comments_size - index - 1}"}
       .index= (@comments_size - index)
       .comment_content= raw comment.content
-      .date= comment.created_at
+      .date
+        = comment.created_at
+        - if can? :manage, comment
+          = raw "&nbsp;"
+          = link_to image_tag("icons/delete.png"), "#"
       .clear

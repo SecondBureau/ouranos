@@ -13,7 +13,8 @@
 
 #post_wrapper{padding-bottom:15px; margin-bottom:15px; border-bottom:1px dashed #888888;
   #post_title{font-size:22px; font-weight:bold;}
-  #post_author_date{margin:10px 0px; font-style:italic; color:#333333;}
+  #post_author_date{margin:10px 0px; font-style:italic; color:#333333; float:left;}
+  #post_opers{margin:10px 10px 10px 0px; float:right;}
   #post_content{line-height: 25px;
     &:first-letter{font-size:200%; font-weight:bold; margin-right:2px;}
   }

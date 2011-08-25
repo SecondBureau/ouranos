@@ -10,7 +10,9 @@
 #head_nav
   %ul
     %li= link_to t("home.title"), main_app.root_path
+    %li= link_to t("event.title"), main_app.events_path
     %li= link_to t("blog.title"), main_app.posts_path
-    - for page in @pages
-      %li= link_to page.title, main_app.page_path(page.permalink)
+    - if @pages
+      - for page in @pages
+        %li= link_to page.title, main_app.page_path(page.permalink)
 .clear

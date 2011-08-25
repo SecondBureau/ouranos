@@ -1,0 +1,17 @@
+
+.year_selector{
+  select{float:right; width:150px; border:1px solid #888888; padding:3px;}
+}
+.month_of_events{font-size:18px; font-weight:bold;}
+.events_list{margin:5px 0px 15px 0px;
+  li{border-bottom:1px dashed #888888; margin-bottom:2px; padding:3px 0px;
+    a{font-size:16px; color:#000000;}
+    .event_date{float:right; font-style:italic;}
+  }
+}
+
+#event_title{font-size:18px; font-weight:bold;}
+#event_date_show{margin:10px 0px; font-style:italic; color:#333333;}
+#event_content{line-height: 25px;
+    &:first-letter{font-size:200%; font-weight:bold; margin-right:2px;}
+}

@@ -51,6 +51,7 @@ body{
 
   #body_wrapper{margin: 0px auto 30px auto; width:$page_width; background:#A2A2A2; box-shadow: $bg_shadow; -moz-box-shadow: $bg_shadow; padding-top:1px;
     #notice{display:none; padding:20px 0px; background:#333333; color:#FFFFFF; text-align:center; font-size:16px; margin:10px 15px 0px 15px; font-weight:bold;}
+    #alert{display:none; padding:20px 0px; background:#F47A7A; color:#FFFFFF; text-align:center; font-size:16px; margin:10px 15px 0px 15px; font-weight:bold;}
     #content{
       #current_content{min-height:400px; width:730px; float:right; margin:35px 15px 15px 0px; padding-top:40px; line-height:25px;}
       #side_bar{width:200px; float:left; margin-top:35px; margin-bottom:20px;

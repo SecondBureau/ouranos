@@ -1,2 +1,7 @@
 #side_bar
   #title= link_to t("blog.title"), main_app.posts_path
+  - if can? :manage, Post
+    #side_operations
+      %ul
+        %li= link_to "Add new post", ""
+        %li= link_to "Manage posts", ""

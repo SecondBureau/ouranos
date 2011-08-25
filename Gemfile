@@ -1,8 +1,12 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.0.rc5'
+gem 'rails', '3.1.0.rc6'
+
+gem 'sqlite3'
 
 gem 'json'
+
+gem 'haml-rails'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -12,49 +16,29 @@ group :assets do
   gem 'uglifier'
 end
 
-group :test do
-  gem 'capybara'
-  gem 'cucumber-rails'
-  gem "database_cleaner"
-end
-
-gem 'rspec-rails', :group => [:development, :test]
-gem 'sqlite3', :group => [:development, :test]
-gem "ruby-debug", :group => [:development, :test]
-
-gem "forgery"
-gem 'machinist'
-
-
-gem "acts_as_indexed"
-
-gem "fastercsv"
-
-gem "carrierwave"
-gem 'rmagick'
-
 gem "kaminari"
+gem 'formtastic'
+gem 'sprockets', "= 2.0.0.beta.13"
 
 gem 'jquery-rails'
 
-gem 'pdfkit'
+gem "ckeditor", :git => "git://github.com/galetahub/ckeditor.git"
 
-gem 'heroku_s3_backup'
-gem 'heroku_san'
-gem 'heroku'
+gem "carrierwave"
+gem "mini_magick"
+
+gem 'cancan'
+gem 'fastercsv'
+gem 'devise'
+gem 'rails_admin', :git => 'git://github.com/mark-secondbureau/rails_admin.git', :branch => 'ouranos'
+
+gem 'hpricot'
+gem 'ruby_parser'
+
+gem 'sunspot_rails'
 
 group :production do
   gem 'pg'
   gem 'therubyracer-heroku'
   gem "fog"
 end
-
-path "./vendor/gems" do
-  gem "rorshack-permission"
-  gem "rorshack-support"
-  gem "rorshack-frontend"
-  gem "rorshack-admin-ui"
-  gem "rorshack-authentication"
-  gem "rorshack"
-end
-

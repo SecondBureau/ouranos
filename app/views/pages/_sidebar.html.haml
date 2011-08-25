@@ -1,2 +1,7 @@
 #side_bar
   #title= link_to title, main_app.page_path(@page.permalink)
+  - if can? :manage, Post
+    #side_operations
+      %ul
+        %li= link_to "Edit #{@page.title}", ""
+        %li= link_to "Add new page", ""

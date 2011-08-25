@@ -1,20 +1,29 @@
 class User < ActiveRecord::Base
-  include RorshackPermission::UserModelExt
-  after_create :set_default_role
-  has_one :account , :class_name => "RorshackAuthentication::Account" , :dependent => :destroy
+  # Include default devise modules. Others available are:
+  # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable, :confirmable
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
 
-  accepts_nested_attributes_for :account , :allow_destroy => true
+  # Setup accessible (or protected) attributes for your model
+  attr_accessible :email, :password, :password_confirmation, :remember_me
+  belongs_to :role
+  after_create :set_default_role
   
-  scope :members, lambda{all.select{|user| user.role.name == "member" }}
-  
-  def email
-    self.account.email
+  def is_of_role? role_name
+    return role.name == role_name.to_s
   end
   
-  protected
-
-    def set_default_role
-      self.role!( Role.default ) if self.role.nil?
+  def self.guest
+    if @guest == nil
+      @guest = User.new
+      @guest.role = Role.where("name = ?", "guest").first
     end
-
+    @guest
+  end
+  
+  private 
+    def set_default_role
+      role = Role.where("name = ?", "user") if !role
+      save
+    end
+  
 end

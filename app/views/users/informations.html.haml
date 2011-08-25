@@ -3,26 +3,11 @@
   %table{:width => "60%"}
     %tr
       %td= t("user.name")
-      %td= current_user.firstname + " " + current_user.lastname
-    %tr
-      %td= t("user.nickname")
-      %td= current_user.nickname
-    %tr
-      %td= t("user.birthdate")
-      %td= current_user.birthdate.to_s
-    %tr
-      %td= t("user.address")
-      %td= current_user.address
-    %tr
-      %td= t("user.city")
-      %td= current_user.city
-    %tr
-      %td= t("user.country")
-      %td= current_user.country
+      %td= current_user.firstname
     %tr
       %td= t("user.role")
       %td= current_user.role.name
     %tr
-      %td
-      %td.edit_link= link_to t("users.account.edit"), main_app.edit_user_path(current_user), :class => "button_link"
+      -# %td
+      -# %td.edit_link= link_to t("users.account.edit"), main_app.edit_user_path(current_user), :class => "button_link"
 .clear
