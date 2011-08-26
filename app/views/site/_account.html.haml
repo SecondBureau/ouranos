@@ -1,19 +1,18 @@
 - if user_signed_in?
-  %span= link_to t("logout"), destroy_user_session_path, :method => :delete
-  - if current_user.is_of_role? :admin
+  %span= link_to t("signout"), destroy_user_session_path, :method => :delete
+  - if (current_user.is_of_role? :admin) || (current_user.is_of_role? :officer)
     %span= raw "|"
-    %span= link_to t("administration"), admin.dashboard_path
-  - elsif current_user.is_of_role? :officer
-    %span= raw "|"
-    %span= link_to t("officer.management.title"), admin.dashboard_path
+    %span= link_to t("management"), admin.dashboard_path
   - else
     %span= raw "|"
-    %span= link_to t("users.account.title"), admin.dashboard_path
+    %span= link_to t("account.title"), admin.dashboard_path
     - if current_user.is_of_role? :user
       %span= raw "|"
-      %span= link_to t("users.account.member"), admin.dashboard_path
+      %span= link_to t("account.member"), admin.dashboard_path
 - else
   %span= link_to t("signup"), new_user_registration_path
   %span= raw "|"
-  %span= link_to t("login"), new_user_session_path
+  %span= link_to t("signin"), new_user_session_path
+%span= raw "|"
+%span= link_to t("subscribe.title"), main_app.subscribe_path
 .clear

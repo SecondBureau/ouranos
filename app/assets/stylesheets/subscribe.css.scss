@@ -1,0 +1,10 @@
+// Place all the styles related to the subscribe controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#subscribe_content{padding:10px;
+  label{display:block; width:150px; text-align:right; float:left;}
+  select{width:150px; border:1px solid #888888; padding:3px; margin-left:20px;}
+  input{border:1px solid #888888; padding:3px; margin-left:20px; width:80px;}
+  p{padding:10px 0px;}
+}

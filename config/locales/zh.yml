@@ -1,0 +1,45 @@
+zh:
+  home:
+    title: 主页
+  event:
+    title: 活动
+  blog:
+    title: 日志
+  print:
+    print: 打印此文章
+    pdf: 导出此文章为PDF文件
+  comment:
+    valid:
+      added: "添加评论成功！"
+  alert:
+    login: 登录
+    signup: 注册
+    guest:
+      comment: 未登录用户不允许评论文章！
+    user:
+      comment: 添加评论成功！直到管理员检查此评论后，此评论才能显示到评论列表中！ <br/> 成为此组织的会员则可立即显示您的评论。
+  signin: 登录
+  signup: 注册
+  signout: 注销
+  management: 后台管理
+  confirm_delete: "确定执行此操作吗？"
+  account:
+    title: 用户中心
+    member: 成为会员？
+  subscribe:
+    title: 订阅中心
+    cycle: 发送周期：
+    button: 订  阅
+    description:
+      title: 选择订阅的内容和投递时间
+    results:
+      title: 已经存在的订阅
+    posts: 最近文章数：
+    events: 最近活动数：
+  search:
+    title: 搜索
+    posts: 搜索到的文章
+    events: 搜索到的活动
+    postsnothing: 未找到相关的文章
+    eventsnothing: 为找到相关的活动
+    

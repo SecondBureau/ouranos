@@ -12,6 +12,7 @@
  *= require messages
  *= require events
  *= require search
+ *= require subscribe
 */
 
 /******************************************
