@@ -1,5 +1,18 @@
 = render "side_bar"
 #current_content
-  %ul
-    - @results.each do |item|
-      %li= item
+  #results_item
+    %h2 Searched Posts
+    %ul
+      - if @posts.length == 0
+        %li= "No post matches #{params[:search]}"
+      - else 
+        - @posts.each do |post|
+          %li= link_to post.title, main_app.post_path(post)
+  #results_item
+    %h2 Searched Events
+    %ul
+      - if @events.length == 0
+        %li= "No event matches #{params[:search]}"
+      - else 
+        - @events.each do |event|
+          %li= link_to event.title, main_app.event_path(event)

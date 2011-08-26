@@ -4,8 +4,14 @@ class SearchController < ApplicationController
     @search = Post.search do
       fulltext params[:search]
     end
-    @results = @search.results
-
+    @posts = @search.results
+    
+    @search = Event.search do
+      fulltext params[:search]
+    end
+    @events = @search.results
+    
+    @results = [@posts, @events]
   end
 
 end

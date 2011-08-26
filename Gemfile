@@ -30,7 +30,7 @@ gem 'fastercsv'
 gem 'devise'
 gem 'rails_admin', :git => 'git://github.com/mark-secondbureau/rails_admin.git', :branch => 'ouranos'
 
-gem 'hpricot'
+# gem 'hpricot'
 gem 'ruby_parser'
 
 gem 'sunspot_rails'
