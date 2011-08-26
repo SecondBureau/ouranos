@@ -1,1 +1,1 @@
-$available_locales  = ENV['AVAILABLE_LOCALES'].nil? ? %w[fr en zh] : ENV['AVAILABLE_LOCALES'].split(',')
+$available_locales  = ENV['AVAILABLE_LOCALES'].nil? ? %w[fr en zh_cn] : ENV['AVAILABLE_LOCALES'].split(',')
