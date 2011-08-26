@@ -1,6 +1,6 @@
 #side_bar
   #title= link_to title, main_app.page_path(@page.permalink)
-  - if can? :manage, Post
+  - if can? :manage, Page
     #side_operations
       %ul
         %li= link_to "Edit #{@page.title}", admin.edit_path(:page, @page)

@@ -3,8 +3,9 @@ Ouranos::Application.routes.draw do
   devise_for :users
 
   scope "(/:locale)" do
-    match "/subscribe/index" => "subscribe#index", :as => :subscribe
-    match "/search/index" => "search#index", :as => :search
+    match "/be_a_member" => "membership#index", :as => :be_member
+    match "/subscribe" => "subscribe#index", :as => :subscribe
+    match "/search" => "search#index", :as => :search
     resources :events
     resources :posts
     resources :comments
