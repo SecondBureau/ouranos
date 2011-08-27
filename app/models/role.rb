@@ -1,3 +1,3 @@
 class Role < ActiveRecord::Base
-  include Rorshack::Permission::RoleModelMethods
+  has_many :users
 end

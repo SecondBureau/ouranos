@@ -1,11 +1,18 @@
-- if signed_in?
-  %span= link_to "Logout", iauth.logout_path
-  %span= raw "|"
-  %span= link_to "User Account", main_app.user_path(current_user)
-  %span= raw "|"
-  %span= link_to "Administration", iadmin.root_path
+- if user_signed_in?
+  %span= link_to t("signout"), destroy_user_session_path, :method => :delete
+  - if (current_user.is_of_role? :admin) || (current_user.is_of_role? :officer)
+    %span= raw "|"
+    %span= link_to t("management"), admin.dashboard_path
+  - else
+    %span= raw "|"
+    %span= link_to t("account.title"), admin.dashboard_path
+    - if current_user.is_of_role? :user
+      %span= raw "|"
+      %span= link_to t("account.member"), main_app.be_member_path
 - else
-  %span= link_to "Sign up", iauth.signup_path
+  %span= link_to t("signup"), new_user_registration_path
   %span= raw "|"
-  %span= link_to "Login", iauth.login_path
+  %span= link_to t("signin"), new_user_session_path
+%span= raw "|"
+%span= link_to t("subscribe.title"), main_app.subscribe_path
 .clear

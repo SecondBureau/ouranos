@@ -1,0 +1,19 @@
+= render "sidebar"
+#current_content
+  #subscribe_title
+    %h2= t("subscribe.description.title")
+  #subscribe_content
+    %p
+      %label= t("subscribe.posts")
+      = select( "option", "id", @posts_options)
+    %p
+      %label= t("subscribe.events")
+      = select( "option", "id", @events_options)
+    %p
+      %label= t("subscribe.cycle")
+      = select( "cycle", "id", @cycle_options)
+      = submit_tag t("subscribe.button")
+  #subscribe_results
+    %h2= t("subscribe.results.title")
+    
+.clear

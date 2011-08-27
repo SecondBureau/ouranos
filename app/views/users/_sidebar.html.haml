@@ -1,0 +1,10 @@
+#side_bar
+  #title= link_to t("users.account.title"), main_app.user_path(current_user)
+  #side_operations
+    %ul
+      %li= link_to t("users.account.informations"), main_app.user_oper_path(current_user, :informations), :class => "informations"
+      %li= link_to t("users.account.settings"), main_app.user_oper_path(current_user, :settings), :class => "settings"
+      %li= link_to t("users.account.membership"), main_app.user_oper_path(current_user, :membership), :class => "membership"
+      %li= link_to t("users.account.subscribes"), main_app.user_oper_path(current_user, :subscribes), :class => "subscribes"
+:javascript
+  $('a[class="#{params[:oper]}"]').addClass("select");

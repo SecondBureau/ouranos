@@ -1,14 +1,21 @@
 Ouranos::Application.routes.draw do
 
+  devise_for :users
+
   scope "(/:locale)" do
+    match "/be_a_member" => "membership#index", :as => :be_member
+    match "/subscribe" => "subscribe#index", :as => :subscribe
+    match "/search" => "search#index", :as => :search
+    resources :events
     resources :posts
-    resources :users
-    match '/page/:permalink'   => "pages#show", :as => :page, :requirements => { "permalink" => /[-_a-z0-9]/ }
-    mount RorshackAdminUi::Engine => "/iadmin", :as => "iadmin"
+    resources :comments
+    # resources :categories
+    match "/posts/print/:id" => "posts#print", :as => :post_print
+    match "/posts/pdf/:id" => "posts#to_pdf", :as => :post_to_pdf
+    match "/page/:permalink"   => "pages#show", :as => :page, :requirements => { "permalink" => /[-_a-z0-9]/ }
+    mount RailsAdmin::Engine => '/iadmin', :as => 'admin'
   end
   
-  mount RorshackAuthentication::Engine => "/iauth", :as => "iauth"
+  root :to => 'pages#index'
 
-  # the root of the website
-  root :to => "pages#index"
 end

@@ -1,0 +1,14 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+[remote "origin"]
+	url = git@github.com:SecondBureau/ouranos.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "master"]
+	remote = origin
+	merge = refs/heads/master
+[remote "secondbureau"]
+	url = gitolite@175.41.255.66:ouranos.git
+	fetch = +refs/heads/*:refs/remotes/origin/*

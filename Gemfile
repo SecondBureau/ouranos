@@ -1,57 +1,42 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.0.rc4'
+gem 'rails', '3.1.0.rc5'
 
-gem "rake"
 gem 'sqlite3'
 
-# Asset template engines
 gem 'json'
-gem "sass" , "3.1.4"
-gem "sprockets" , "2.0.0.beta.10"
-gem 'sass-rails', "3.1.0.rc.4"
-gem 'coffee-script'
-gem 'uglifier'
 
-gem "carrierwave"
-gem 'rmagick'
+gem 'haml-rails'
+
+group :assets do
+  gem 'sass-rails', "~> 3.1.0.rc"
+  gem 'coffee-rails', "~> 3.1.0.rc"
+  gem 'uglifier'
+end
 
 gem "kaminari"
+gem 'formtastic'
+gem 'sprockets', "= 2.0.0.beta.13"
 
 gem 'jquery-rails'
 
-gem 'capybara', :group => :test
-gem 'cucumber-rails', :group => :test
-gem 'rspec-rails', '>= 2.0.1', :group => [:development, :test]
-gem 'sqlite3', :group => [:development, :test]
-gem "ruby-debug", :group => [:development, :test]
+gem "ckeditor", :git => "git://github.com/galetahub/ckeditor.git"
 
-gem 'heroku_s3_backup'
-gem 'heroku_san'
-gem 'heroku'
+gem "carrierwave"
+gem "mini_magick"
 
-gem "forgery" , "0.3.10"
-gem 'machinist'
+gem 'cancan'
+gem 'fastercsv'
+gem 'devise'
+gem 'rails_admin', :git => 'git://github.com/mark-secondbureau/rails_admin.git', :branch => 'ouranos'
 
-gem 'pg', :group => :production
+# gem 'hpricot'
+gem 'ruby_parser'
 
-gem "database_cleaner" , :group => :test
+gem 'sunspot_rails'
 
-gem "acts_as_indexed"
-
-gem "fastercsv"
-
-#group :production do
+group :production do
+  gem 'pg'
   gem 'therubyracer-heroku'
   gem "fog"
-#end
-
-
-path "./vendor/gems" do
-  gem "rorshack-permission"
-  gem "rorshack-support"
-  gem "rorshack-frontend"
-  gem "rorshack-admin-ui"
-  gem "rorshack-authentication"
-  gem "rorshack"
 end

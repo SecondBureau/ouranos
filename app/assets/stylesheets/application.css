@@ -3,7 +3,16 @@
  * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
  * the top of the compiled file, but it's generally better to create a new file per style scope.
  *= require_self
- *= require_tree . 
+ *= require common 
+ *= require layout 
+ *= require users 
+ *= require pages 
+ *= require posts 
+ *= require comments 
+ *= require messages
+ *= require events
+ *= require search
+ *= require subscribe
 */
 
 /******************************************
@@ -11,7 +20,7 @@
  ******************************************/
 
 html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
@@ -28,6 +37,12 @@ time, mark, audio, video {
 	border: 0;
 	font-size: 100%;
 	font: inherit;
+	vertical-align: baseline;
+}
+h1, h2, h3, h4, h5, h6{
+	margin: 0;
+	padding: 0;
+	border: 0;
 	vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */

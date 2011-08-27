@@ -1,5 +1,0 @@
-= semantic_form_for @post, :url => main_app.polymorphic_path(@post) do |f|
-  = f.input :user_id , :as => :hidden , :value => current_user.id
-  = f.input :title
-  = f.input :content, :input_html => {:cols => 80, :rows => 20}
-  = f.submit

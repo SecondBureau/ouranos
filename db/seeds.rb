@@ -1,47 +1,47 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
-#   Mayor.create(:name => 'Daley', :city => cities.first)
 
-seeds_path = File.join(File.dirname(__FILE__), 'seeds')
+roles = Role.create([
+  {:name => 'admin'},
+  {:name => 'officer'},
+  {:name => 'member'},
+  {:name => 'user'}
+])
 
-Dir["#{seeds_path}/*"].select { |file| /(yml)$/ =~ file }.sort.each do |file|
-  klass = File.basename(file, '.yml').gsub(/[0-9]+\-/,'').singularize.gsub("::" , "/").camelize.constantize
-  #YAML.load_file(file).each  do |key, params|
-  klass.delete_all if klass == User
-  YAML::load(ERB.new(IO.read(file)).result).each  do |key, params|
-    conditions = {}
-    klass = params['type'].constantize unless params['type'].nil?
-    unless params['uniq'].nil?
-      params['uniq'] = [params['uniq']] unless params['uniq'].is_a?(Array)
-      params['uniq'].each {|c| conditions[c.to_sym] = params[c]}
-      params.delete('uniq')
-      o = klass.find(:first, :conditions => conditions) || klass.new
-    else
-      o = klass.new
-    end
-    #o.update_attributes(params)
-    params.each do |att, val|
-      if att[-3,3].eql?('_id')
-        reflection_name = att.gsub('_id','')
-        puts "==================================#{klass}"
-        puts "==================================#{klass.reflect_on_association(reflection_name.to_sym)}"
-        target_klass = klass.reflect_on_association(reflection_name.to_sym).klass
-        val = target_klass.where(eval(val)).first.id
-      end
-      if att[-4,4].eql?('_ids')
-        reflection_name = att.gsub('_ids','')
-        target_klass = klass.reflect_on_association(reflection_name.to_sym).klass
-        val = Array.wrap( val )
-        vals = []
-        val.each {|v| vals << target_klass.where(eval(v)).collect(&:id)}
-        val = vals.flatten
-      end
-      o.send("#{att}=", val)
-    end
-    o.save(:callback => false)
-  end
-end
+admin = Role.where("name = ?", "admin").first
+officer = Role.where("name = ?", "officer").first
+member = Role.where("name = ?", "member").first
+user = Role.where("name = ?", "user").first
+
+users = User.create([
+  {:email => 'amin@secondbureau.com', :password => 'secret', :firstname => 'Amin', :lastname => 'Rafinejad'},
+  {:email => 'gilles@secondbureau.com', :password => 'secret', :firstname => 'Gilles', :lastname => 'Crofils'},
+  {:email => 'johnson@secondbureau.com', :password => 'secret', :firstname => 'Johnson', :lastname => 'Zhang'},
+  {:email => 'mark@secondbureau.com', :password => 'secret', :firstname => 'Mark', :lastname => 'Li'},
+  {:email => 'dany@secondbureau.com', :password => 'secret', :firstname => 'Dany', :lastname => 'Yang'}
+])
+
+users[0].role = admin
+users[0].firstname = "Amin"
+users[0].lastname = "Rafinejad"
+
+users[1].role = admin
+users[1].firstname = "Gilles"
+users[1].lastname = "Crofils"
+
+users[2].role = officer
+users[2].firstname = "Johnson"
+users[2].lastname = "Zhang"
+
+users[3].role = member
+users[3].firstname = "Mark"
+users[3].lastname = "Li"
+
+users[4].role = user
+users[4].firstname = "Dany"
+users[4].lastname = "Yang"
+
+users.each{|user| user.save }
+
+pages = Page.create([
+  {:title => 'About', :permalink => 'about', :content => 'some thing about about', :page_type => 'for_all'},
+  {:title => 'Help', :permalink => 'help', :content => 'some thing about help', :page_type => 'for_all'}
+])

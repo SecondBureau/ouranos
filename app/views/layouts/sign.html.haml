@@ -1,0 +1,27 @@
+!!!
+%html
+  %head
+    %title Sign
+    = stylesheet_link_tag       "sign"
+    = javascript_include_tag    "sign"
+    = csrf_meta_tags
+  %body
+    #header
+      %h1= link_to "APE", main_app.root_path
+    #sign_box_wrapper  
+      #alert= flash[:alert]
+      :javascript
+        $(function(){
+          if("#{flash[:alert]}".length > 0){
+            $("#alert").slideDown("slow");
+          }
+        });
+      #notice= flash[:notice]
+      :javascript
+        $(function(){
+          if("#{flash[:notice]}".length > 0){
+            $("#notice").slideDown("slow");
+          }
+        });
+      #sign_box= yield
+    #poweredby= image_tag("2buro.png")

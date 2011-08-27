@@ -10,10 +10,43 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110803145943) do
+ActiveRecord::Schema.define(:version => 20110825104702) do
 
-# Could not dump table "comments" because of following StandardError
-#   Unknown type 'belongs_to' for column 'user'
+  create_table "ckeditor_assets", :force => true do |t|
+    t.string   "data_file_name",                  :null => false
+    t.string   "data_content_type"
+    t.integer  "data_file_size"
+    t.integer  "assetable_id"
+    t.string   "assetable_type",    :limit => 30
+    t.string   "type",              :limit => 30
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "ckeditor_assets", ["assetable_type", "assetable_id"], :name => "idx_ckeditor_assetable"
+  add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], :name => "idx_ckeditor_assetable_type"
+
+  create_table "comments", :force => true do |t|
+    t.text     "content"
+    t.integer  "user_id"
+    t.integer  "post_id"
+    t.boolean  "is_valid",   :default => true
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "comments", ["post_id"], :name => "index_comments_on_post_id"
+
+  create_table "events", :force => true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.integer  "priority"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "event_type"
+  end
 
   create_table "messages", :force => true do |t|
     t.string   "firstname"
@@ -31,6 +64,7 @@ ActiveRecord::Schema.define(:version => 20110803145943) do
     t.string   "title"
     t.text     "content"
     t.string   "permalink"
+    t.string   "page_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -39,41 +73,33 @@ ActiveRecord::Schema.define(:version => 20110803145943) do
     t.string   "title"
     t.text     "content"
     t.integer  "user_id"
+    t.string   "post_type"
+    t.string   "permalink"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "can_be_subscribed", :default => true
+  end
+
+  add_index "posts", ["user_id"], :name => "index_posts_on_user_id"
+
+  create_table "rails_admin_histories", :force => true do |t|
+    t.string   "message"
+    t.string   "username"
+    t.integer  "item"
+    t.string   "table"
+    t.integer  "month",      :limit => 2
+    t.integer  "year",       :limit => 5
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
 
   create_table "roles", :force => true do |t|
     t.string   "name"
-    t.boolean  "is_default_role", :default => false, :null => false
-    t.string   "permissions"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  create_table "rorshack_authentication_accounts", :force => true do |t|
-    t.string   "email",                                            :null => false
-    t.integer  "user_id"
-    t.string   "crypted_password",  :limit => 128, :default => "", :null => false
-    t.string   "password_salt",                    :default => "", :null => false
-    t.string   "persistence_token"
-    t.string   "perishable_token",                 :default => "", :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "rorshack_authentication_accounts", ["email"], :name => "index_accounts_on_email", :unique => true
-
-  create_table "rorshack_authentication_authentications", :force => true do |t|
-    t.integer  "account_id"
-    t.string   "provider"
-    t.string   "access_token"
-    t.string   "uid"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "rorshack_authentication_authentications", ["account_id"], :name => "index_authentications_on_account_id"
 
   create_table "settings", :force => true do |t|
     t.string   "name"
@@ -88,20 +114,25 @@ ActiveRecord::Schema.define(:version => 20110803145943) do
   add_index "settings", ["name", "locale"], :name => "index_settings_on_name_and_locale", :unique => true
 
   create_table "users", :force => true do |t|
-    t.string   "nickname"
+    t.string   "email",                                 :default => "", :null => false
+    t.string   "encrypted_password",     :limit => 128, :default => "", :null => false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",                         :default => 0
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.integer  "role_id"
     t.string   "firstname"
     t.string   "lastname"
-    t.string   "gender"
-    t.date     "birthdate"
-    t.string   "address"
-    t.string   "zipcode"
-    t.string   "city"
-    t.string   "country",    :default => "France"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "role_id"
   end
 
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+  add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
   add_index "users", ["role_id"], :name => "index_users_on_role_id"
 
 end

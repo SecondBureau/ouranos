@@ -1,9 +1,7 @@
 !!! 5
 %html
   %head
-    -# %title=Setting.local_value("title")
     %title Ouranos
-    %link{:href => "/favicon.ico", :rel => "icon", :type => "image/x-icon"}
     = stylesheet_link_tag     "application"
     = javascript_include_tag  "application"
     = csrf_meta_tags
@@ -16,6 +14,20 @@
       
     #body_wrapper
       -# for the main content
+      #alert= flash[:alert]
+      :javascript
+        $(function(){
+          if("#{flash[:alert]}".length > 0){
+            $("#alert").slideDown("slow");
+          }
+        });
+      #notice= flash[:notice]
+      :javascript
+        $(function(){
+          if("#{flash[:notice]}".length > 0){
+            $("#notice").slideDown("slow");
+          }
+        });
       #content= yield
       .clear
 

@@ -1,7 +1,41 @@
 fr:
   home:
     title: Home
+  event:
+    title: Event
   blog:
     title: Blog
-  about:
-    title: About us
+  print:
+    print: Print this post
+    pdf: Export this post to a PDF
+  comment:
+    valid:
+      added: Sucessfully add a comment!
+    guest:
+      comment: Guest are not allowed to do this.
+    user:
+      comment: Your message is being processed and will be displayed soon. <br/> Become a member of the association if you want to display it immediately.
+  signin: Sign in
+  signup: Sign up
+  signout: Sign out
+  management: Management
+  confirm_delete: Are you sure?
+  account:
+    title: User Center
+    member: Be a member?
+  subscribe:
+    title: Subscribe Center
+    cycle: Cycle：
+    button: Subscribe
+    description:
+      title: Choose content and cycle
+    results:
+      title: Already exsites subscribtions
+    posts: Number of latest posts
+    events: Number of latest events
+  search:
+    title: Search
+    posts: Searched posts
+    events: Searched events
+    postsnothing: Can not find any posts
+    eventsnothing: Can not find any events

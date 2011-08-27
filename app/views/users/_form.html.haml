@@ -1,0 +1,7 @@
+=semantic_form_for @user do |form|
+  =form.input :id, :as => :hidden
+  =form.input :nickname
+  =form.input :firstname
+  =form.input :lastname
+  = form.buttons do
+    = form.commit_button

@@ -1,10 +1,20 @@
 #global_search
-  = text_field :search_key, :size => 30
+  = form_tag search_path, :method => :get do
+    %p= text_field_tag :search, params[:search], :size => 30
+
+  = image_tag("icons/search128.png")
   .clear
+#local_switch
+  %ul
+    %li= link_to_switch_locale("fr")
+    %li= link_to_switch_locale("zh_cn")
+    %li= link_to_switch_locale("en")
 #head_nav
   %ul
     %li= link_to t("home.title"), main_app.root_path
-    %li= link_to "Nav Item"
+    %li= link_to t("event.title"), main_app.events_path
     %li= link_to t("blog.title"), main_app.posts_path
-    %li= link_to t("about.title"), main_app.page_path(:about)
+    - if @pages
+      - for page in @pages
+        %li= link_to page.title, main_app.page_path(page.permalink)
 .clear
