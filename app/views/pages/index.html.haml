@@ -1,10 +1,19 @@
 #home_wrapper
+  #slide_pictures
+    
   %ul
-    %li 
-    %li 
-    %li 
-    %li 
-    %li 
-    %li 
-    %li 
-    %li 
+    %li.latest_posts
+      .home_item_title= t("blog.latest")
+      .home_item_content
+        %ul
+          %li= link_to "A test post", "#"
+          %li= link_to "A test post", "#"
+          %li= link_to "A test post", "#"
+          %li= link_to "A test post", "#"
+          %li= link_to "A test post", "#"
+          %li= link_to "A test post", "#"
+          %li= link_to "A test post", "#"
+      .home_item_more
+    %li.latest_events
+      .home_item_title= t("event.latest")
+    .clear

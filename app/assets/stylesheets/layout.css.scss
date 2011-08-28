@@ -40,7 +40,7 @@ body{
       #head_nav{float:right;
         ul{
           li{float:left;
-            a{display:block; text-align:center; padding:5px 0px; min-width:130px; background:#1D1D1D; margin-left:5px; @include nav_border;
+            a{display:block; text-align:center; padding:6px 0px; min-width:130px; background:#1D1D1D; margin-left:5px; @include nav_border; font-size:16px; font-weight:bold;
               &:hover{text-decoration:none; background:#5F5F5F; }
             }
           }
@@ -49,7 +49,7 @@ body{
     }
   }
 
-  #body_wrapper{margin: 0px auto 30px auto; width:$page_width; background:#A2A2A2; box-shadow: $bg_shadow; -moz-box-shadow: $bg_shadow; padding-top:1px;
+  #body_wrapper{margin: 0px auto 10px auto; width:$page_width; background:#A2A2A2; box-shadow: $bg_shadow; -moz-box-shadow: $bg_shadow; padding-top:1px;
     #notice{display:none; padding:20px 0px; background:#333333; color:#FFFFFF; text-align:center; font-size:16px; margin:10px 15px 0px 15px; font-weight:bold;}
     #alert{display:none; padding:20px 0px; background:#F47A7A; color:#FFFFFF; text-align:center; font-size:16px; margin:10px 15px 0px 15px; font-weight:bold;}
     #content{
