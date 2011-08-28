@@ -6,7 +6,7 @@ class Post < ActiveRecord::Base
   scope :public_posts, lambda{where("post_type = ?", "for_all")}
   
   searchable do
-    string :title
+    text :title
     text :content
   end
   

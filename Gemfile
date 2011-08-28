@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.0.rc5'
+gem 'rails', '3.1.0.rc6'
 
 gem 'sqlite3'
 
@@ -35,8 +35,8 @@ gem 'ruby_parser'
 
 gem 'sunspot_rails'
 
-group :production do
-  gem 'pg'
-  gem 'therubyracer-heroku'
-  gem "fog"
-end
+# group :production do
+  # gem 'pg'
+  # gem 'therubyracer-heroku'
+  # gem "fog"
+# end
