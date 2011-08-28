@@ -12,6 +12,13 @@
 
 ActiveRecord::Schema.define(:version => 20110828034313) do
 
+  create_table "articles", :force => true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "ckeditor_assets", :force => true do |t|
     t.string   "data_file_name",                  :null => false
     t.string   "data_content_type"
