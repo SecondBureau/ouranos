@@ -64,22 +64,27 @@ Before using Heroku there are three simple requirements:
 
 """
 
-10.times do |i|
-  Post.create({
-    :title => "Test post title #{i}",
-    :content => content,
-    :user => users[0],
-    :post_type => "for_all",
-    :can_be_subscribed => true
-  })
-end
+Post.create([
+  {:title => "Test post title 1", :content => content, :user => users[0], :post_type => "for_all", :can_be_subscribed => true},
+  {:title => "Test post title 2", :content => content, :user => users[0], :post_type => "for_all", :can_be_subscribed => true},
+  {:title => "Test post title 3", :content => content, :user => users[0], :post_type => "for_all", :can_be_subscribed => true},
+  {:title => "Test post title 4", :content => content, :user => users[0], :post_type => "for_all", :can_be_subscribed => true},
+  {:title => "Test post title 5", :content => content, :user => users[0], :post_type => "for_all", :can_be_subscribed => true},
+  {:title => "Test post title 6", :content => content, :user => users[0], :post_type => "for_all", :can_be_subscribed => true},
+  {:title => "Test post title 7", :content => content, :user => users[0], :post_type => "for_all", :can_be_subscribed => true},
+  {:title => "Test post title 8", :content => content, :user => users[0], :post_type => "for_all", :can_be_subscribed => true},
+  {:title => "Test post title 9", :content => content, :user => users[0], :post_type => "for_all", :can_be_subscribed => true},
+])
 
-10.times do |i|
-  event = Event.create({
-    :title => "Test Event #{i}", 
-    :content => content, 
-    :start_date => Time.local(20011, i + 1, 9),
-    :end_date => Time.local(20011, i + 3, 9),
-  })
-  puts "==> #{event}"
-end
+events = Event.create([
+  {:title => "Test Event 1", :content => content, :start_date => Time.local(20011, 9, 1),:end_date => Time.local(20011, 9, 2)},
+  {:title => "Test Event 2", :content => content, :start_date => Time.local(20011, 9, 10),:end_date => Time.local(20011, 9, 20)},
+  {:title => "Test Event 3", :content => content, :start_date => Time.local(20011, 9, 21),:end_date => Time.local(20011, 9, 25)},
+  {:title => "Test Event 4", :content => content, :start_date => Time.local(20011, 10, 1),:end_date => Time.local(20011, 10, 2)},
+  {:title => "Test Event 5", :content => content, :start_date => Time.local(20011, 10, 1),:end_date => Time.local(20011, 10, 12)},
+  {:title => "Test Event 6", :content => content, :start_date => Time.local(20011, 10, 1),:end_date => Time.local(20011, 10, 22)},
+  {:title => "Test Event 7", :content => content, :start_date => Time.local(20011, 10, 1),:end_date => Time.local(20011, 11, 12)},
+  {:title => "Test Event 8", :content => content, :start_date => Time.local(20011, 11, 1),:end_date => Time.local(20011, 11, 8)},
+  {:title => "Test Event 9", :content => content, :start_date => Time.local(20011, 11, 1),:end_date => Time.local(20011, 11, 22)},
+  {:title => "Test Event 10", :content => content, :start_date => Time.local(20011, 12, 1),:end_date => Time.local(20011, 12, 2)}
+])
