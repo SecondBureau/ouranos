@@ -2,11 +2,11 @@
 %html
   %head
     %title Newsletter
-    = stylesheet_link_tag       "newsletter"
+    = stylesheet_link_tag       url_for("/assets/newsletter.css")
   %body
     #body_wrapper
       #header
-        %h1= link_to "APE", main_app.root_path
+        %h1= link_to "APE", url_for(:host => "localhost", :controller => "pages", :action => "index")
       #main_content
         %h1 Another title
         = yield
