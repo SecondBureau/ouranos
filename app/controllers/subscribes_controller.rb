@@ -1,6 +1,7 @@
 class SubscribesController < ApplicationController
   
   layout "newsletter", :only => [:show]
+  layout "application", :only => [:index]
   
   def index
     @posts_options = {
