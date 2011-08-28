@@ -1,4 +1,5 @@
 fr:
+  ok: OK
   home:
     title: Home
   event:
@@ -33,6 +34,8 @@ fr:
       title: Already exsites subscribtions
     posts: Number of latest posts
     events: Number of latest events
+    inputemail: Input your email to subscribe our public content
+    recommend: To be an user or member to get our other content
   search:
     title: Search
     posts: Searched posts

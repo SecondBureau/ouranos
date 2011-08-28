@@ -5,7 +5,10 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
+  
   belongs_to :role
+  has_many :subscribes
+  
   after_create :set_default_role
   
   def is_of_role? role_name

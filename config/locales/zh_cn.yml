@@ -1,4 +1,5 @@
 zh_cn:
+  ok: 确定
   home:
     title: 主页
   event:
@@ -11,9 +12,6 @@ zh_cn:
   comment:
     valid:
       added: "添加评论成功！"
-  alert:
-    login: 登录
-    signup: 注册
     guest:
       comment: 未登录用户不允许评论文章！
     user:
@@ -36,6 +34,8 @@ zh_cn:
       title: 已经存在的订阅
     posts: 最近文章数：
     events: 最近活动数：
+    inputemail: 输入Email地址以订阅我们的内容
+    recommend: 注册或者登录我们的网站以获得额外的内容
   search:
     title: 搜索
     posts: 搜索到的文章

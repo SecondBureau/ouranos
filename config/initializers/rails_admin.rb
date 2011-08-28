@@ -1,7 +1,7 @@
 RailsAdmin.config do |config|
   config.authorize_with :cancan
   
-  config.included_models = ["User", "Comment", "Post", "Event", "Page", "Message", "Role", "Setting"]
+  config.included_models = ["User", "Comment", "Post", "Event", "Page", "Message", "Role", "Setting", "Subscribe"]
   
   config.model User do
     object_label_method do

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110825041210) do
+ActiveRecord::Schema.define(:version => 20110828034313) do
 
   create_table "ckeditor_assets", :force => true do |t|
     t.string   "data_file_name",                  :null => false
@@ -112,6 +112,18 @@ ActiveRecord::Schema.define(:version => 20110825041210) do
   end
 
   add_index "settings", ["name", "locale"], :name => "index_settings_on_name_and_locale", :unique => true
+
+  create_table "subscribes", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "type"
+    t.integer  "num_of_events"
+    t.integer  "num_of_posts"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "cycle"
+  end
+
+  add_index "subscribes", ["user_id"], :name => "index_subscribes_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false

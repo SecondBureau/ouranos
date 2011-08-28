@@ -1,19 +1,40 @@
 = render "sidebar"
 #current_content
-  #subscribe_title
-    %h2= t("subscribe.description.title")
-  #subscribe_content
-    %p
-      %label= t("subscribe.posts")
-      = select( "option", "id", @posts_options)
-    %p
-      %label= t("subscribe.events")
-      = select( "option", "id", @events_options)
-    %p
-      %label= t("subscribe.cycle")
-      = select( "cycle", "id", @cycle_options)
-      = submit_tag t("subscribe.button")
-  #subscribe_results
-    %h2= t("subscribe.results.title")
-    
+  #subscribe{:style => "display:#{@display}"}
+    #subscribe_title
+      %h2= t("subscribe.description.title")
+    #subscribe_content
+      %p
+        %label= t("subscribe.posts")
+        = select( "option", "id", @posts_options)
+      %p
+        %label= t("subscribe.events")
+        = select( "option", "id", @events_options)
+      %p
+        %label= t("subscribe.cycle")
+        = select( "cycle", "id", @cycle_options)
+        = submit_tag t("subscribe.button")
+    #subscribe_results
+      %h2= t("subscribe.results.title")
+  - if !user_signed_in?
+    #nonymous_user
+      %h2= t("subscribe.inputemail")
+      %p
+        = email_field_tag :email
+        = submit_tag t("ok"), :id => "ok_button"
+      %h2= t("subscribe.recommend")
+      #recommend_links
+        %span= link_to t("signup"), new_user_registration_path
+        %span= raw "|"
+        %span= link_to t("signin"), new_user_session_path
 .clear
+:javascript
+  $(function(){
+  
+    $("#ok_button").click(function(){
+      $("#nonymous_user").slideUp("fast", function(){
+        $("#subscribe").slideDown("slow");
+      });
+    });
+  
+  });

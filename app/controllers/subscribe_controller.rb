@@ -24,6 +24,7 @@ class SubscribeController < ApplicationController
       6 => 6,
       7 => 7
     }
+    @display = user_signed_in?? "block":"none";
   end
 
 end

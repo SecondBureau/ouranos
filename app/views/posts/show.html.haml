@@ -26,14 +26,14 @@
     #add_comment= render "comments/form"
   - if !current_user
     #alert_for_guest
-      .alert_message= t("alert.guest.comment")
+      .alert_message= t("comment.guest.comment")
       #alert_links
-        %span= link_to t("alert.signup"), new_user_registration_path
+        %span= link_to t("signup"), new_user_registration_path
         %span= raw "|"
-        %span= link_to t("alert.login"), new_user_session_path
+        %span= link_to t("signin"), new_user_session_path
   - elsif current_user.is_of_role?(:user)
     #alert_for_user
-      .alert_message= raw t("alert.user.comment")
+      .alert_message= raw t("comment.user.comment")
   #comment_list= render "comment_list"
   
 :javascript
