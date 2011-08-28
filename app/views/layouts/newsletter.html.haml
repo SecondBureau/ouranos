@@ -1,0 +1,13 @@
+!!!
+%html
+  %head
+    %title Newsletter
+    = stylesheet_link_tag       "newsletter"
+  %body
+    #body_wrapper
+      #header
+        %h1= link_to "APE", main_app.root_path
+      #main_content
+        %h1 Another title
+        = yield
+      #poweredby= image_tag("2buro.png")

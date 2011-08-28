@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class SubscribeControllerTest < ActionController::TestCase
+class SubscribesControllerTest < ActionController::TestCase
   test "should get index" do
     get :index
     assert_response :success

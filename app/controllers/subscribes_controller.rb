@@ -1,8 +1,10 @@
-class SubscribeController < ApplicationController
+class SubscribesController < ApplicationController
+  
+  layout "newsletter", :only => [:show]
   
   def index
     @posts_options = {
-       5 => 5,
+      5 => 5,
       10 => 10,
       15 => 15,
       20 => 20,
@@ -25,6 +27,11 @@ class SubscribeController < ApplicationController
       7 => 7
     }
     @display = user_signed_in?? "block":"none";
+  end
+  
+  def show
+    newsletter = Newsletter.newsletter(current_user)
+    newsletter.deliver
   end
 
 end

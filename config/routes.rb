@@ -4,7 +4,8 @@ Ouranos::Application.routes.draw do
 
   scope "(/:locale)" do
     match "/be_a_member" => "membership#index", :as => :be_member
-    match "/subscribe" => "subscribe#index", :as => :subscribe
+    match "/subscribes" => "subscribes#index", :as => :subscribes
+    match "/subscribes/:id" => "subscribes#show", :as => :subscribe
     match "/search" => "search#index", :as => :search
     resources :events
     resources :posts
