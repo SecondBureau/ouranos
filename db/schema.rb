@@ -10,14 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110828034313) do
-
-  create_table "articles", :force => true do |t|
-    t.string   "title"
-    t.text     "content"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(:version => 20110828033335) do
 
   create_table "ckeditor_assets", :force => true do |t|
     t.string   "data_file_name",                  :null => false
@@ -125,9 +118,9 @@ ActiveRecord::Schema.define(:version => 20110828034313) do
     t.string   "type"
     t.integer  "num_of_events"
     t.integer  "num_of_posts"
+    t.integer  "cycle"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "cycle"
   end
 
   add_index "subscribes", ["user_id"], :name => "index_subscribes_on_user_id"

@@ -5,6 +5,7 @@ class CreateSubscribes < ActiveRecord::Migration
       t.string :type
       t.integer :num_of_events
       t.integer :num_of_posts
+      t.integer :cycle
 
       t.timestamps
     end

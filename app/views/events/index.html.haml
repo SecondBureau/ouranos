@@ -1,6 +1,6 @@
 =render "sidebar"
 #current_content
-  .year_selector= select_year(Date.today, :start_year => 2010, :end_year => 2015)
+  -# .year_selector= select_year(Date.today, :start_year => 2010, :end_year => 2015)
   - @events_by_month.each do |monthname, events|
     .month_of_events= monthname
     .clear

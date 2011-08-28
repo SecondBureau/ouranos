@@ -31,7 +31,6 @@ class ApplicationController < ActionController::Base
     def set_locale
       I18n.locale = params[:locale] if available_locales.include?(params[:locale])
       I18n.locale = available_locales.first unless available_locales.include?(I18n.locale.to_s)
-      puts "==============================  " + I18n.locale.to_s
     end
 
     def ready_pages
