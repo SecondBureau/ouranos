@@ -6,15 +6,23 @@ $item_color: #DDDDDD;
 
 #home_wrapper{padding:10px 10px;
   #slide_pictures{height:350px; background:$item_color; border:1px solid #999999; background:url("students.png") no-repeat;
-                  box-shadow:0px 0px 4px #000000; -moz-box-shadow:0px 0px 4px #000000;
+                  box-shadow:0px 0px 4px #000000; -moz-box-shadow:0px 0px 4px #000000; margin-bottom:10px;
   }
-  ul{margin-top:10px;
+  ul{
     li{
-      &.latest_posts{float:left; width:520px; min-height:200px; margin-right:10px; background:$item_color; border:1px solid #999999;}
-      &.latest_events{float:left; width:406px; min-height:200px; background:$item_color; border:1px solid #999999;}
+      &.latest_posts{float:left; width:520px; min-height:100px; margin-right:10px; background:$item_color; border:1px solid #999999;}
+      &.latest_events{float:left; width:406px; min-height:100px; background:$item_color; border:1px solid #999999;}
     }
   }
 }
 
-.home_item_title{padding:5px; font-size:16px; font-weight:bold; color:$item_color; background:#555555;}
-.home_item_content{min-height:0px;}
+.home_item_title{padding:5px; font-size:16px; font-weight:bold; color:$item_color; background:#555555;
+  span{float:right; font-size:12px; text-decoration:underline;}
+}
+.home_item_content{padding:5px; line-height:25px;
+  ul{
+    li{
+      a{color:#000000;}
+    }
+  }
+}

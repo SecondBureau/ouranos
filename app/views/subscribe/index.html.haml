@@ -14,7 +14,7 @@
         %label= t("subscribe.cycle")
         = select( "cycle", "id", @cycle_options)
         = submit_tag t("subscribe.button")
-    #subscribe_results
+    #subscribe_results{:style => "display:#{@display}"}
       %h2= t("subscribe.results.title")
   - if !user_signed_in?
     #nonymous_user

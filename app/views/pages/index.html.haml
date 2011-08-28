@@ -3,17 +3,19 @@
     
   %ul
     %li.latest_posts
-      .home_item_title= t("blog.latest")
+      .home_item_title
+        = t("blog.latest")
+        %span= link_to t("more"), main_app.posts_path
       .home_item_content
         %ul
-          %li= link_to "A test post", "#"
-          %li= link_to "A test post", "#"
-          %li= link_to "A test post", "#"
-          %li= link_to "A test post", "#"
-          %li= link_to "A test post", "#"
-          %li= link_to "A test post", "#"
-          %li= link_to "A test post", "#"
-      .home_item_more
+          - @latest_posts.each do |post|
+            %li= link_to post.title, main_app.post_path(post)
     %li.latest_events
-      .home_item_title= t("event.latest")
+      .home_item_title
+        = t("event.latest")
+        %span= link_to t("more"), main_app.events_path
+      .home_item_content
+        %ul
+          - @latest_events.each do |event|
+            %li= link_to event.title, main_app.event_path(event)
     .clear
