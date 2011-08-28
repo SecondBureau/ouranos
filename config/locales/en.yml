@@ -4,8 +4,10 @@ en:
     title: Home
   event:
     title: Event
+    latest: Latest events
   blog:
     title: Blog
+    latest: Latest posts
   print:
     print: Print this post
     pdf: Export this post to a PDF
@@ -42,3 +44,4 @@ en:
     events: Searched events
     postsnothing: Can not find any posts
     eventsnothing: Can not find any events
+  more: more
