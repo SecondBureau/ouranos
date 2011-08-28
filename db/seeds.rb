@@ -74,6 +74,15 @@ Post.create([
   {:title => "Test post title 7", :content => content, :user => users[0], :post_type => "for_all", :can_be_subscribed => true},
   {:title => "Test post title 8", :content => content, :user => users[0], :post_type => "for_all", :can_be_subscribed => true},
   {:title => "Test post title 9", :content => content, :user => users[0], :post_type => "for_all", :can_be_subscribed => true},
+  {:title => "Test post title 1", :content => content, :user => users[0], :post_type => "for_all", :can_be_subscribed => true},
+  {:title => "Test post title 2", :content => content, :user => users[0], :post_type => "for_all", :can_be_subscribed => true},
+  {:title => "Test post title 3", :content => content, :user => users[0], :post_type => "for_all", :can_be_subscribed => true},
+  {:title => "Test post title 4", :content => content, :user => users[0], :post_type => "for_all", :can_be_subscribed => true},
+  {:title => "Test post title 5", :content => content, :user => users[0], :post_type => "for_all", :can_be_subscribed => true},
+  {:title => "Test post title 6", :content => content, :user => users[0], :post_type => "for_all", :can_be_subscribed => true},
+  {:title => "Test post title 7", :content => content, :user => users[0], :post_type => "for_all", :can_be_subscribed => true},
+  {:title => "Test post title 8", :content => content, :user => users[0], :post_type => "for_all", :can_be_subscribed => true},
+  {:title => "Test post title 9", :content => content, :user => users[0], :post_type => "for_all", :can_be_subscribed => true}
 ])
 
 events = Event.create([

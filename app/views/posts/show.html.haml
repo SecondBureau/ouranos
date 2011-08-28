@@ -45,7 +45,7 @@
     }
   
     function show_guest_alert(){
-      $("form").slideUp("slow", function(){ $("#alert_for_guest").slideDown("slow"); });
+      $("#add_comment").slideUp("slow", function(){ $("#alert_for_guest").slideDown("slow"); });
       if($("#alert_for_guest").css("display") == "block"){
         $("#alert_for_guest").fadeOut("slow", function(){ $(this).fadeIn(); });
       }
