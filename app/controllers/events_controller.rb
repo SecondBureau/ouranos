@@ -4,8 +4,11 @@ class EventsController < ApplicationController
     @year = params[:year]
     if !@year
       @year = Time.now.year
+    else
+      @year = @year.to_i
     end
-    @events_by_month = Event.where("start_date LIKE ?", "#{@year}%").group_by { |event| event.start_date.strftime("%B") }
+    
+    @events_by_month = Event.all.select{|event| event.start_date.year == @year }.group_by { |event| event.start_date.strftime("%B") }
     @events_by_month = [] if !@events_by_month
   end
   

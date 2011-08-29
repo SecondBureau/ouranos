@@ -9,6 +9,7 @@ Ouranos::Application.routes.draw do
     match "/subscribes/:id" => "subscribes#show", :as => :subscribe
     match "/search" => "search#index", :as => :search
     resources :events
+    match "/events/year/:year" => "events#index", :as => :events_year
     resources :posts
     resources :comments
     # resources :categories

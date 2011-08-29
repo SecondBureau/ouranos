@@ -21,8 +21,10 @@
 :javascript
   $(function(){
     var select = $("#date_year");
+    select.val("#{@year}");
     select.change(function(){
-      alert(select);
-      alert(select.selectedIndex);
+      var year = select.val();
+      var path = "#{main_app.events_year_path(111)}".replace("111", year);
+      location.href = path;
     });
   });
