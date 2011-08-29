@@ -2,12 +2,10 @@
 %html
   %head
     %title Newsletter
-    = stylesheet_link_tag       url_for("/assets/newsletter.css")
-  %body
-    #body_wrapper
-      #header
-        %h1= link_to "APE", url_for(:host => "localhost", :controller => "pages", :action => "index")
-      #main_content
-        %h1 Another title
+  %body{:style => "padding:10px 0px; margin:0px; background:#4E4E4E;"}
+    #body_wrapper{:style => "background:#6B696A; padding:10px; width:700px; margin:0px auto;"}
+      %table{:style => "width:100%; border:none; background:#DDDDDD; padding:0px 0px 10px 0px;"}
+        %tr
+          %td{:style => "padding:10px; margin:0px; background:#333333; color:#FFFFFF;"}
+            %h3{:style => "margin:5px 0px;"}= "APE LFIP Newsletter #{Time.now}"
         = yield
-      #poweredby= image_tag("2buro.png")

@@ -29,9 +29,11 @@ class SubscribesController < ApplicationController
   end
   
   def show
-    newsletter = Newsletter.newsletter(current_user)
+    @posts = Post.limit(5)
+    @events = Event.limit(5)
+    newsletter = Newsletter.newsletter(current_user, @posts, @events)
     newsletter.deliver
-    render :layout => "newsletter"
+    render :layout => "newsletter", :template => "newsletter/newsletter"
   end
 
 end

@@ -10,7 +10,7 @@ Bundler.require *Rails.groups(:assets) if defined?(Bundler)
 module Ouranos
   class Application < Rails::Application
     
-    config.action_mailer.default_url_options = { :host => 'beijing.secondbureau.com:3008' }
+    config.action_mailer.default_url_options = { :host => "localhost:3008" }
     
     # Configure the layout of the Devise on sign in and sign up and forget password pages
     config.to_prepare do
