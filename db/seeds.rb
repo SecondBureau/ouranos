@@ -86,14 +86,14 @@ Post.create([
 ])
 
 events = Event.create([
-  {:title => "Test Event 1", :content => content, :start_date => Time.local(20011, 9, 1),:end_date => Time.local(20011, 9, 2)},
-  {:title => "Test Event 2", :content => content, :start_date => Time.local(20011, 9, 10),:end_date => Time.local(20011, 9, 20)},
-  {:title => "Test Event 3", :content => content, :start_date => Time.local(20011, 9, 21),:end_date => Time.local(20011, 9, 25)},
-  {:title => "Test Event 4", :content => content, :start_date => Time.local(20011, 10, 1),:end_date => Time.local(20011, 10, 2)},
-  {:title => "Test Event 5", :content => content, :start_date => Time.local(20011, 10, 1),:end_date => Time.local(20011, 10, 12)},
-  {:title => "Test Event 6", :content => content, :start_date => Time.local(20011, 10, 1),:end_date => Time.local(20011, 10, 22)},
-  {:title => "Test Event 7", :content => content, :start_date => Time.local(20011, 10, 1),:end_date => Time.local(20011, 11, 12)},
-  {:title => "Test Event 8", :content => content, :start_date => Time.local(20011, 11, 1),:end_date => Time.local(20011, 11, 8)},
-  {:title => "Test Event 9", :content => content, :start_date => Time.local(20011, 11, 1),:end_date => Time.local(20011, 11, 22)},
-  {:title => "Test Event 10", :content => content, :start_date => Time.local(20011, 12, 1),:end_date => Time.local(20011, 12, 2)}
+  {:title => "Test Event 1", :content => content, :start_date => Time.local(2011, 9, 1),:end_date => Time.local(2011, 9, 2)},
+  {:title => "Test Event 2", :content => content, :start_date => Time.local(2011, 9, 10),:end_date => Time.local(2011, 9, 20)},
+  {:title => "Test Event 3", :content => content, :start_date => Time.local(2011, 9, 21),:end_date => Time.local(2011, 9, 25)},
+  {:title => "Test Event 4", :content => content, :start_date => Time.local(2011, 10, 1),:end_date => Time.local(2011, 10, 2)},
+  {:title => "Test Event 5", :content => content, :start_date => Time.local(2011, 10, 1),:end_date => Time.local(2011, 10, 12)},
+  {:title => "Test Event 6", :content => content, :start_date => Time.local(2011, 10, 1),:end_date => Time.local(2011, 10, 22)},
+  {:title => "Test Event 7", :content => content, :start_date => Time.local(2011, 10, 1),:end_date => Time.local(2011, 11, 12)},
+  {:title => "Test Event 8", :content => content, :start_date => Time.local(2011, 11, 1),:end_date => Time.local(2011, 11, 8)},
+  {:title => "Test Event 9", :content => content, :start_date => Time.local(2011, 11, 1),:end_date => Time.local(2011, 11, 22)},
+  {:title => "Test Event 10", :content => content, :start_date => Time.local(2011, 12, 1),:end_date => Time.local(2011, 12, 2)}
 ])

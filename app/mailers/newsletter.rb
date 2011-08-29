@@ -6,7 +6,7 @@ class Newsletter < ActionMailer::Base
     @subject = "Newsletter from APE LFIP #{Time.now}"
     @posts = posts
     @events = events
-    mail(:to => "lnz013@qq.com", :subject => @subject) do |format|
+    mail(:to => user.email, :subject => @subject) do |format|
       format.html
     end
   end

@@ -1,4 +1,5 @@
-
+#year_title{margin-bottom:10px; padding-bottom:10px; font-weight:bold; border-bottom:1px solid #555555;}
+.current_year{float:left;}
 .year_selector{
   select{float:right; width:150px; border:1px solid #888888; padding:3px;}
 }
@@ -11,7 +12,7 @@
 }
 
 #event_title{font-size:18px; font-weight:bold;}
-#event_date_show{margin:10px 0px; font-style:italic; color:#333333;}
+#event_date_show{margin:10px 0px; font-weight:bold; color:#A0180A; text-decoration:underline;}
 #event_content{line-height: 25px;
     &:first-letter{font-size:200%; font-weight:bold; margin-right:2px;}
 }

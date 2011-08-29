@@ -3,17 +3,7 @@
   #subscribe{:style => "display:#{@display}"}
     #subscribe_title
       %h2= t("subscribe.description.title")
-    #subscribe_content
-      %p
-        %label= t("subscribe.posts")
-        = select( "option", "id", @posts_options)
-      %p
-        %label= t("subscribe.events")
-        = select( "option", "id", @events_options)
-      %p
-        %label= t("subscribe.cycle")
-        = select( "cycle", "id", @cycle_options)
-        = submit_tag t("subscribe.button")
+    #subscribe_content= render "form"
     #subscribe_results{:style => "display:#{@display}"}
       %h2= t("subscribe.results.title")
   - if !user_signed_in?
@@ -31,10 +21,24 @@
 :javascript
   $(function(){
   
+    var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+  
     $("#ok_button").click(function(){
+      var emailaddressVal = $("input[name='email']").val();
+      if(emailaddressVal == '') {
+        alert("please input your email address!");
+        return;
+      }else if(!emailReg.test(emailaddressVal)) {
+        alert("please input a valid email address!");
+        return;
+      }
       $("#nonymous_user").slideUp("fast", function(){
         $("#subscribe").slideDown("slow");
       });
+    });
+    
+    $("#subscribe_button").click(function(){
+      
     });
   
   });

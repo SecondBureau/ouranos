@@ -1,6 +1,9 @@
 =render "sidebar"
 #current_content
-  -# .year_selector= select_year(Date.today, :start_year => 2010, :end_year => 2015)
+  #year_title
+    %h1.current_year= "Events in #{@year}"
+    .year_selector= select_year(Date.today, :start_year => 2010, :end_year => 2015)
+    .clear
   - @events_by_month.each do |monthname, events|
     .month_of_events= monthname
     .clear
@@ -15,3 +18,11 @@
               = raw("#{event.start_date} ~ #{event.end_date}")
           .clear
 .clear
+:javascript
+  $(function(){
+    var select = $("#date_year");
+    select.change(function(){
+      alert(select);
+      alert(select.selectedIndex);
+    });
+  });

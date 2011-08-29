@@ -25,6 +25,7 @@ class SubscribesController < ApplicationController
       7 => 7
     }
     @display = user_signed_in?? "block":"none";
+    @subscribe = Subscribe.new
     render :layout => "application"
   end
   
@@ -34,6 +35,11 @@ class SubscribesController < ApplicationController
     newsletter = Newsletter.newsletter(current_user, @posts, @events)
     newsletter.deliver
     render :layout => "newsletter", :template => "newsletter/newsletter"
+  end
+  
+  def create
+    Subscribe.create params[:subscribe]
+    redirect_to subscribes_path, :notice => "Create subscribe successfully!"
   end
 
 end

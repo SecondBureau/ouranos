@@ -1,0 +1,12 @@
+= form_for @subscribe do |f|
+  %p
+    = f.hidden_field :user_id, :value => current_user.id if user_signed_in?
+    = f.label :num_of_posts, t("subscribe.posts")
+    = f.select :num_of_posts, @posts_options, :id => "posts"
+  %p
+    = f.label :num_of_events, t("subscribe.events")
+    = f.select :num_of_events, @events_options , :id => "events"
+  %p
+    = f.label :cycle, t("subscribe.cycle")
+    = f.select :cycle, @cycle_options
+    = f.submit t("subscribe.button"), :id => "subscribe_button"

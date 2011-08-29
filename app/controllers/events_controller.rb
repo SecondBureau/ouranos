@@ -1,8 +1,11 @@
 class EventsController < ApplicationController
   
   def index
-    @years = [2011, 2012, 2013]
-    @events_by_month = Event.all.group_by { |event| event.start_date.strftime("%B") }
+    @year = params[:year]
+    if !@year
+      @year = Time.now.year
+    end
+    @events_by_month = Event.where("start_date LIKE ?", "#{@year}%").group_by { |event| event.start_date.strftime("%B") }
     @events_by_month = [] if !@events_by_month
   end
   
