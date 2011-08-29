@@ -1,14 +1,18 @@
 %tr
-  %td{:style => "padding:5px; margin:5px;"}
-    %h3{:style => "margin:5px 0px;"} Latest posts
+  %td{:style => "padding:5px;"}
+    %h3{:style => "margin:5px 0px; font-size:18px; font-weight:bold; background:#888888; padding:10px;"} Latest posts
+    .powered_by{:style => "float:right; padding:5px; "}
+      #powered_by_text{:style => "position:relative; margin:22px 10px 0px 0px; float:left; font-size:14px; font-weight:bold;"} 
+        = link_to "This newsletter is powered by", "http://www.secondbureau.com"
+      = link_to image_tag("https://www.google.com/a/secondbureau.com/images/logo.gif", :style => "border:none;", :width => 143, :height => 59), "http://www.secondbureau.com"
 - @posts.each do |post|
   %tr
     %td{:style => "padding:0px 20px 20px 20px;"}
-      .post_title{:style => "font-size:16px; font-weight:bold; margin-bottom:8px;"}
+      .post_title{:style => "font-size:14px; font-weight:bold; margin-bottom:8px;"}
         = link_to post.title, url_for(:controller => "posts", :action => "show", :id => post.id, :locale => "en", :only_path => false)
         %span{:style => "float:right; font-weight:normal; font-size:10px; font-style:italic; color:#555555; margin-top:8px;"}= post.created_at
       .clear{:style => "clear:both;"}
       .post_content{:style => "font-size:12px; line-height:20px;"}
-        = image_tag("https://a248.e.akamai.net/assets.github.com/images/modules/header/logov6-hover.png", :width => 150, :style => "float:left; margin:0px 10px 10px 0px;")
+        = image_tag("https://www.google.com/a/secondbureau.com/images/logo.gif", :width => 150, :style => "float:left; margin:0px 10px 10px 0px;")
         = post.content
       .clear{:style => "clear:both;"}
