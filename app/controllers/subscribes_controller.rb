@@ -32,10 +32,10 @@ class SubscribesController < ApplicationController
   def show
     @posts = Post.limit(5)
     @events = Event.limit(5)
-    newsletter = Newsletter.newsletter(current_user, @posts, @events)
+    newsletter = OuranosMailer.newsletter(current_user, @posts, @events)
     newsletter.deliver
     @date = Time.now.strftime("%m/%d/%Y")
-    render :layout => "newsletter", :template => "newsletter/newsletter"
+    render :layout => "newsletter", :template => "ouranos_mailer/newsletter"
   end
   
   def create
@@ -43,7 +43,7 @@ class SubscribesController < ApplicationController
     @posts = Post.limit(subscribe.num_of_posts)
     @events = Event.limit(subscribe.num_of_events)
     binding.pry
-    newsletter = Newsletter.newsletter(current_user, @posts, @events)
+    newsletter = OuranosMailer.newsletter(current_user, @posts, @events)
     newsletter.deliver
     redirect_to subscribes_path, :notice => "Create subscribe successfully!"
   end

@@ -3,7 +3,9 @@ Ouranos::Application.routes.draw do
   devise_for :users
 
   scope "(/:locale)" do
-    match "/be_a_member" => "membership#index", :as => :be_member
+    match "/member/be_a_member" => "membership#index", :as => :be_member
+    match "/member/confirming" => "membership#show", :as => :member_confirming
+    match "/member/conrimed" => "membership#update", :as => :member_confirmed
     match "/subscribes" => "subscribes#index", :as => :subscribes, :via => :get
     match "/subscribes" => "subscribes#create", :as => :subscribes, :via => :post
     match "/subscribes/testlink" => "subscribes#show", :as => :subscribe_testlink

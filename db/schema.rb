@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110828033335) do
+ActiveRecord::Schema.define(:version => 20110830093306) do
 
   create_table "ckeditor_assets", :force => true do |t|
     t.string   "data_file_name",                  :null => false
@@ -47,6 +47,25 @@ ActiveRecord::Schema.define(:version => 20110828033335) do
     t.datetime "updated_at"
     t.string   "event_type"
   end
+
+  create_table "member_confirms", :force => true do |t|
+    t.integer  "user_id"
+    t.date     "send_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "token"
+  end
+
+  add_index "member_confirms", ["user_id"], :name => "index_member_confirms_on_user_id"
+
+  create_table "memberconfirms", :force => true do |t|
+    t.integer  "user_id"
+    t.date     "send_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "memberconfirms", ["user_id"], :name => "index_memberconfirms_on_user_id"
 
   create_table "messages", :force => true do |t|
     t.string   "firstname"

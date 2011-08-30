@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  user: 
+  send_date: 2011-08-30
+
+two:
+  user: 
+  send_date: 2011-08-30
