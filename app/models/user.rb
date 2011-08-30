@@ -9,9 +9,8 @@ class User < ActiveRecord::Base
   belongs_to :role
   has_many :subscribes
   
-  after_create :set_default_role
-  
   def is_of_role? role_name
+    self.role = Role.where("name = ?", "user").first if !self.role
     return role.name == role_name.to_s
   end
   
@@ -22,11 +21,5 @@ class User < ActiveRecord::Base
     end
     @guest
   end
-  
-  private 
-    def set_default_role
-      role = Role.where("name = ?", "user") if !role
-      save
-    end
   
 end
