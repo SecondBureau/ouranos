@@ -14,6 +14,10 @@ group :assets do
   gem 'uglifier'
 end
 
+group :development do
+  gem 'pry'
+end
+
 gem "kaminari"
 gem 'formtastic'
 gem 'sprockets', "= 2.0.0.beta.13"

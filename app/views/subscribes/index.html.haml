@@ -1,19 +1,16 @@
 = render "sidebar"
 #current_content
-  #subscribe{:style => "display:#{@display}"}
-    #subscribe_title
-      %h2= t("subscribe.description.title")
-    #subscribe_content= render "form"
-    #subscribe_test_link= link_to t("subscribe.testlink"), main_app.subscribe_testlink_path
-    #subscribe_results{:style => "display:#{@display}"}
-      %h2= t("subscribe.results.title")
-  - if !user_signed_in?
+  - if user_signed_in?
+    #subscribe
+      #subscribe_title
+        %h2= t("subscribe.description.title")
+      #subscribe_content= render "form"
+      #subscribe_test_link= link_to t("subscribe.testlink"), main_app.subscribe_testlink_path
+      #subscribe_results
+        %h2= t("subscribe.results.title")
+  - else
     #nonymous_user
-      %h2= t("subscribe.inputemail")
-      %p
-        = email_field_tag :email
-        = submit_tag t("ok"), :id => "ok_button"
-      %h2= t("subscribe.recommend")
+      %h2= t("subscribe.nonymous_user")
       #recommend_links
         %span= link_to t("signup"), new_user_registration_path
         %span= raw "|"

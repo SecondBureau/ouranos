@@ -39,7 +39,12 @@ class SubscribesController < ApplicationController
   end
   
   def create
-    Subscribe.create params[:subscribe]
+    subscribe = Subscribe.create params[:subscribe]
+    @posts = Post.limit(subscribe.num_of_posts)
+    @events = Event.limit(subscribe.num_of_events)
+    binding.pry
+    newsletter = Newsletter.newsletter(current_user, @posts, @events)
+    newsletter.deliver
     redirect_to subscribes_path, :notice => "Create subscribe successfully!"
   end
 

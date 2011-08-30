@@ -36,8 +36,7 @@ zh_cn:
       title: 已经存在的订阅
     posts: 最近文章数：
     events: 最近活动数：
-    inputemail: 输入Email地址以订阅我们的内容
-    recommend: 注册或者登录我们的网站以获得额外的内容
+    nonymous_user: 请登录以订阅 APE LFIP 的内容
     testlink: 接收一封测试邮件？ （点击链接后请检查您的邮箱。）
   search:
     title: 搜索
