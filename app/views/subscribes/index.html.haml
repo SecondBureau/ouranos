@@ -4,6 +4,7 @@
     #subscribe_title
       %h2= t("subscribe.description.title")
     #subscribe_content= render "form"
+    #subscribe_test_link= link_to t("subscribe.testlink"), main_app.subscribe_testlink_path
     #subscribe_results{:style => "display:#{@display}"}
       %h2= t("subscribe.results.title")
   - if !user_signed_in?

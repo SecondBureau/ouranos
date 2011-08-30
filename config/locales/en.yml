@@ -38,6 +38,7 @@ en:
     events: Number of latest events
     inputemail: Input your email to subscribe our public content
     recommend: To be an user or member to get our other content
+    testlink: Get a test newsletter to see what it is like? (After click, please check your email.)
   search:
     title: Search
     posts: Searched posts

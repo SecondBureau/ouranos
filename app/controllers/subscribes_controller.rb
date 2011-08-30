@@ -34,6 +34,7 @@ class SubscribesController < ApplicationController
     @events = Event.limit(5)
     newsletter = Newsletter.newsletter(current_user, @posts, @events)
     newsletter.deliver
+    @date = Time.now.strftime("%m/%d/%Y")
     render :layout => "newsletter", :template => "newsletter/newsletter"
   end
   

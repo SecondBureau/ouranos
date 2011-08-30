@@ -6,7 +6,7 @@ Ouranos::Application.routes.draw do
     match "/be_a_member" => "membership#index", :as => :be_member
     match "/subscribes" => "subscribes#index", :as => :subscribes, :via => :get
     match "/subscribes" => "subscribes#create", :as => :subscribes, :via => :post
-    match "/subscribes/:id" => "subscribes#show", :as => :subscribe
+    match "/subscribes/testlink" => "subscribes#show", :as => :subscribe_testlink
     match "/search" => "search#index", :as => :search
     resources :events
     match "/events/year/:year" => "events#index", :as => :events_year

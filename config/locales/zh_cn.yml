@@ -38,6 +38,7 @@ zh_cn:
     events: 最近活动数：
     inputemail: 输入Email地址以订阅我们的内容
     recommend: 注册或者登录我们的网站以获得额外的内容
+    testlink: 接收一封测试邮件？ （点击链接后请检查您的邮箱。）
   search:
     title: 搜索
     posts: 搜索到的文章
