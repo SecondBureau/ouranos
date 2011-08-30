@@ -4,19 +4,22 @@
     %h1.current_year= "Events in #{@year}"
     .year_selector= select_year(Date.today, :start_year => 2010, :end_year => 2015)
     .clear
-  - @events_by_month.each do |monthname, events|
-    .month_of_events= monthname
-    .clear
-    %ul.events_list
-      - events.each do |event|
-        %li
-          = link_to event.title, main_app.event_path(event)
-          .event_date
-            - if !event.end_date
-              = event.start_date
-            - else
-              = raw("#{event.start_date} ~ #{event.end_date}")
-          .clear
+  - if @events_by_month.length == 0
+    .month_of_events= t("event.none")
+  - else
+    - @events_by_month.each do |monthname, events|
+      .month_of_events= monthname
+      .clear
+      %ul.events_list
+        - events.each do |event|
+          %li
+            = link_to event.title, main_app.event_path(event)
+            .event_date
+              - if !event.end_date
+                = event.start_date
+              - else
+                = raw("#{event.start_date} ~ #{event.end_date}")
+            .clear
 .clear
 :javascript
   $(function(){

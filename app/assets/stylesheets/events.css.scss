@@ -1,9 +1,9 @@
-#year_title{margin-bottom:10px; padding-bottom:10px; font-weight:bold; border-bottom:1px solid #555555;}
+#year_title{margin-bottom:10px; padding-bottom:10px; font-weight:bold; border-bottom:2px solid #333333;}
 .current_year{float:left;}
 .year_selector{
   select{float:right; width:150px; border:1px solid #888888; padding:3px;}
 }
-.month_of_events{font-size:18px; font-weight:bold;}
+.month_of_events{font-size:18px; font-weight:bold; margin-top:10px;}
 .events_list{margin:5px 0px 15px 0px;
   li{border-bottom:1px dashed #888888; margin-bottom:2px; padding:3px 0px;
     a{font-size:16px; color:#000000;}

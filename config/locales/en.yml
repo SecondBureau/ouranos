@@ -5,6 +5,7 @@ en:
   event:
     title: Event
     latest: Latest events
+    none: There are no events available in this year
   blog:
     title: Blog
     latest: Latest posts
