@@ -12,14 +12,17 @@ class MembershipController < ApplicationController
       member_confirm = OuranosMailer.membership_confirm(current_user, token)
       member_confirm.deliver
       MemberConfirm.create({:user => current_user, :send_date => Time.now, :token => token})
-      puts "======================================================================================"
     end
   end
   
   def update
     user = User.find params[:id]
     token = params[:token]
-    puts "========================================== #{user.member_confirm.token == token}"
+    if user.member_confirm.token == token
+      user.role = Role.where("name = ?", "member").first
+      user.save
+      redirect_to main_app.root_path, :notice => "You are a member now."
+    end
   end
   
 private

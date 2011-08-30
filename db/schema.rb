@@ -58,15 +58,6 @@ ActiveRecord::Schema.define(:version => 20110830093306) do
 
   add_index "member_confirms", ["user_id"], :name => "index_member_confirms_on_user_id"
 
-  create_table "memberconfirms", :force => true do |t|
-    t.integer  "user_id"
-    t.date     "send_date"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "memberconfirms", ["user_id"], :name => "index_memberconfirms_on_user_id"
-
   create_table "messages", :force => true do |t|
     t.string   "firstname"
     t.string   "lastname"
