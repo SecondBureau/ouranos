@@ -9,7 +9,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find params[:id]
+    @post = Post.where("permalink = ?", params[:permalink]).first
     @comment = @post.comments.build
     @comment.is_valid = 0
     @comments = @post.comments.valid

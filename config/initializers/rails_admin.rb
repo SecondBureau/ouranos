@@ -49,7 +49,6 @@ RailsAdmin.config do |config|
         label "subscribed"
       end
       field :post_type
-      field :permalink
       field :user
     end
   end
