@@ -27,6 +27,12 @@ zh_cn:
   account:
     title: 用户中心
     member: 成为会员？
+    bemember: 我想要成为一名会员
+    alreadymember: 您现在已经成为了我们的会员
+    memberdesc: 成为会员可以从 APE LFIP 获得更多的信息
+    memberdesc_getemail: 点击下面的链接以获得一封会员确认Email
+    has_send_member_confirmation: 我们已经给您的邮箱发送了一封会员确认Email
+    please_check_email: 请检查您的邮箱，并确认相关信息
   subscribe:
     title: 订阅中心
     cycle: 发送周期：
