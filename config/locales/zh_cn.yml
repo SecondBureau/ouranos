@@ -25,6 +25,12 @@ zh_cn:
   management: 后台管理
   confirm_delete: "确定执行此操作吗？"
   account:
+    email: 电子邮件地址
+    password: 密码
+    password_confirm: 密码确认
+    send_me_password: 发送给我密码重置说明
+    remember_me: 记住
+    forgot_password: 忘记密码？
     title: 用户中心
     member: 成为会员？
     bemember: 我想要成为一名会员

@@ -3,7 +3,7 @@
   #post_wrapper
     #post_title= @post.title
     #post_author_date
-      = raw(@post.user.email)
+      = raw(@post.user.firstname)
       = raw "&nbsp;|&nbsp;" 
       = @post.created_at
     - if can? :manage, @post

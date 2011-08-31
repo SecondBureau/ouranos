@@ -25,6 +25,12 @@ fr:
   management: Management
   confirm_delete: Are you sure?
   account:
+    email: Email
+    password: Password
+    password_confirm: Password confirm
+    send_me_password: Send me reset password instructions
+    remember_me: Remember me
+    forgot_password: Forgot password
     title: User Center
     member: Be a member?
     bemember: I want to be a member

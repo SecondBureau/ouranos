@@ -23,5 +23,12 @@
             $("#notice").slideDown("slow");
           }
         });
+      #error= flash[:error]
+      :javascript
+        $(function(){
+          if("#{flash[:error]}".length > 0){
+            $("#error").slideDown("slow");
+          }
+        });
       #sign_box= yield
     #poweredby= image_tag("2buro.png")
