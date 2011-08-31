@@ -16,10 +16,15 @@ class MembershipController < ApplicationController
   end
   
   def update
-    sign_in(User.find(params[:id]))
-    user = User.find params[:id]
-    token = params[:token]
-    if user.member_confirm.token == token
+    user = User.find(params[:id])
+    if !current_user
+      sign_in(user)
+    elsif current_user.email != user.email
+      sign_out(current_user)
+      sign_in(user)
+    end
+    
+    if user.member_confirm.token == params[:token]
       user.role = Role.where("name = ?", "member").first
       user.member_confirm.delete
       user.save
