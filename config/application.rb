@@ -19,6 +19,7 @@ module Ouranos
       Devise::PasswordsController.layout "sign"
     end
     
+    config.i18n.fallbacks = true
     config.i18n.default_locale = :fr
 
     # Configure the default encoding used in templates for Ruby 1.9.
