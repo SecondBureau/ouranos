@@ -16,10 +16,12 @@ class MembershipController < ApplicationController
   end
   
   def update
+    sign_in(User.find(params[:id]))
     user = User.find params[:id]
     token = params[:token]
     if user.member_confirm.token == token
       user.role = Role.where("name = ?", "member").first
+      user.member_confirm.delete
       user.save
       redirect_to main_app.root_path, :notice => "You are a member now."
     end
@@ -28,7 +30,7 @@ class MembershipController < ApplicationController
 private
   
   def check_member_confirmation
-    if current_user.is_of_role?(:user) && current_user.member_confirm
+    if current_user && current_user.is_of_role?(:user) && current_user.member_confirm
       @has_send_confirm_email = true
     end
   end
