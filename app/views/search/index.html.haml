@@ -5,14 +5,16 @@
     %ul
       - if @posts.length == 0
         %li= t('search.postsnothing')
-      - else 
-        - @posts.each do |post|
+      - elsif @posts.length > 5
+        %h3= link_to t("more"), main_app.search_more_path(:Post)
+        - @posts[0..4].each do |post|
           %li= link_to post.title, main_app.post_path(post)
   .results_item
     %h2= t("search.events")
     %ul
       - if @events.length == 0
         %li= t('search.eventsnothing')
-      - else 
+      - elsif @events.length > 5
+        %h3= link_to t("more"), main_app.search_more_path(:Event)
         - @events.each do |event|
           %li= link_to event.title, main_app.event_path(event)

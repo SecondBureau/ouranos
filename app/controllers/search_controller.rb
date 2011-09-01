@@ -10,8 +10,14 @@ class SearchController < ApplicationController
       fulltext params[:search]
     end
     @events = @search.results
-    
-    @results = [@posts, @events]
+  end
+  
+  def show
+    model = param[:model].constantize
+    @search = model.search do
+      fulltext params[:search]
+    end
+    @results = @search.results
   end
 
 end

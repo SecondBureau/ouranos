@@ -2,7 +2,7 @@
   - @comments.each_with_index do |comment, index|
     %li{:id => "comment#{@comments_size - index - 1}"}
       .index= (@comments_size - index)
-      .comment_content= raw comment.content
+      .comment_content= comment.content
       .date
         = comment.created_at
         - if can? :manage, comment

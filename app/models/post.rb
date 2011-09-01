@@ -6,10 +6,10 @@ class Post < ActiveRecord::Base
   scope :public_posts, lambda{where("post_type = ?", "for_all")}
   after_save :set_permalink
   
-  # searchable do
-    # text :title
-    # text :content
-  # end
+  searchable do
+    text :title
+    text :content
+  end
   
   def post_type_enum
     [['for all', 'for_all'], ['for member', 'for_member']]

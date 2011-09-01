@@ -37,10 +37,10 @@ gem 'rails_admin', :git => 'git://github.com/mark-secondbureau/rails_admin.git',
 # gem 'hpricot'
 gem 'ruby_parser'
 
-# gem 'sunspot_rails'
+gem 'sunspot_rails'
 
-# group :production do
-  # gem 'pg'
-  # gem 'therubyracer-heroku'
-  # gem "fog"
-# end
+group :production do
+  gem 'pg'
+  gem 'therubyracer-heroku'
+  gem "fog"
+end
