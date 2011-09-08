@@ -1,0 +1,3 @@
+apps:
+  production: production-ouranos
+  demo: demo-ouranos

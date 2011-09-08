@@ -16,6 +16,7 @@ end
 
 group :development do
   gem 'pry'
+  gem 'heroku_san'
 end
 
 gem "kaminari"
