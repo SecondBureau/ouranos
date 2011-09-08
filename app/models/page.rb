@@ -67,7 +67,7 @@ class Page < ActiveRecord::Base
   
   def lipsum_content
     content = ''
-    (1..(1+rand(3))).each { |i| content = "#{content}\n\n\nh2. #{lipsum_title}\n\n#{lipsum_body_part}"}
+    (1..(1+rand(3))).each { |i| content = "#{content}<h2>#{lipsum_title}</h2><p>#{lipsum_body_part}</p>"}
     content
   end
 
