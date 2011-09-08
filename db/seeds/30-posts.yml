@@ -1,0 +1,123 @@
+lecture-fr:
+  uniq: [permalink, locale]
+  title: Lecture
+  permalink: lecture
+  locale: fr
+  meta_keywords: lipsum
+  meta_description: lipsum
+  post_type: for_all
+  user_id: "{:email => 'isabelle.roux@ape-pekin.com'}"
+  content_textilize: |
+    Nous voila arrivés à Pékin. Les conteneurs sont encore sur quelques océans. Nos valises étaient trop petites. La bibliothèque nos parait bien vide. Que faire pour motiver nos enfants à continuer a lire.
+    A Pékin, nous avons plusieurs sources de lecture.
+    
+    A emprunter :
+    Le LFIP propose un important choix de livres à emprunter à la Bibliothèque pour le primaire
+    (BCD) et au centre documentaire pour le collège (le CDI).
+    L’alliance francaise propose elle aussi une bibliotheque. L’acces est gratuite pour les enfants de moins de 12 ans.
+    http://www.afbeijing.org.cn/Informations-et-coordonnees.html
+
+    A acheter :
+    Book store a wangfujing
+    Amazon.fr livre chez vous a Pekin : www.amazon.fr
+    Librairie « L’arbre du Voyageur »
+    http://www.ccfpekin.org/L-arbre-du-Voyageur:8083.html
+
+    Pour s’abonner a des revues
+    Contact bayard sur Pekin : UNI Info press
+
+sport-fr:
+  uniq: [permalink, locale]
+  title: Activités Sportives pour nos enfants
+  permalink: activites-sportives-pour-nos-enfants
+  locale: fr
+  meta_keywords: lipsum
+  meta_description: lipsum
+  post_type: for_all
+  user_id: "{:email => 'isabelle.roux@ape-pekin.com'}"
+  content_textilize: |
+    Activites sportives pour nos enfants
+    ASC : responsable Mme LeGuillou : demarrage vers le 15 Octobre
+    Sport Beijing
+    6th Sense
+    Etc…
+
+
+porteouverte-fr:
+  uniq: [permalink, locale]
+  title: Bilan de la porte ouverte 2011
+  permalink: bilan-de-la-porte-ouverte-2011
+  locale: fr
+  meta_keywords: lipsum
+  meta_description: lipsum
+  post_type: for_all
+  user_id: "{:email => 'isabelle.roux@ape-pekin.com'}"
+  content_textilize: |
+    Samedi 3 septembre 2011
+
+    9h30 – 10h30 : visite de la maternelle
+    - Virginie Gustin accompagnée de Maud en MS,
+    - Sandrine Jeanneteau accompagnée de Gabriel en CP,
+
+    Les plus :
+    Présence de Mme Testa
+    Présence de Mme Catherine … : pour valider les inscriptions des Bus et de la cantine (demandée par
+    l’APE)
+    Présence de Mr Martel, directeur du primaire
+    La table de l’APE avec les jus de fruits et les formulaires d’inscription
+
+    Les moins :
+    Une présentation des actions de l’APE, une carte de visite à distribuer de l’APE, Un repère visuel des
+    membres de l’APE
+
+    10h30-11h30 visite du site principal (élémentaire et collège)
+    - Caroline Mocquiaux,
+    - Marie Bénédicte Miao accompagnée de Constance en CE1,
+    - Sandrine Jeanneteau accompagnée de Gabriel en CP,
+    - Martine De Wilde accompagnée d’Eléonore en CM2 et de Bérenger en 3eme,
+    - Isabelle ROUX.
+
+    Les plus :
+    Présence de Mme Testa
+    Présence de Mme Catherine … : pour valider les inscriptions des Bus et a la cantine
+    Présence de Mr Sachet, proviseur du lycée et de Mr Martel, directeur du primaire
+    Bonne repartition en trois groupes : batiment C, batiment B et College
+
+    Les moins :
+    Manque une présentation des actions de l’APE,
+    Une carte de visite à distribuer de l’APE, Un repère visuel des membres de l’APE
+    Une table pour l’APE
+    Pas assez de membres pour organiser les visites
+
+    14h00-15h00 visite du lycée (site 3)
+    - Martine De Wilde accompagnée de Margaux en 1ere,
+    - Laurence Wattrelos.
+
+    Les plus :
+    Présence de Mme Testa
+    Présence de Mr Fournier, proviseur adjoint
+    Les trois groupes : 2 groupes de secondes, 1 groupe 1er et terminale
+
+    Les moins :
+    Manque une présentation des actions de l’APE,
+    Une carte de visite à distribuer de l’APE,
+    Un repère visuel des membres de l’APE
+    Une table pour l’APE
+    Pas assez de membres pour organiser les visites
+
+    A faire l’année prochaine :
+    Demander le nombre de nouvelles familles par niveau pour évaluer les nombres de volontaires nécessaire
+    Inviter les CP, les 6emes et les 2nds a la porte ouverte en plus des nouveaux arrivants
+    Avoir une permanence de l’APE avec repère visuel fixe sur chaque site (présidente ne fait pas les visites)
+    Présence du CPE au collège et au lycée.
+    Ecrire la FAQ pour le site web
+
+    Lister la liste des questions que nous avons eues lors des portes ouvertes
+
+    Ou acheter les fournitures,
+    Combien d’argent est il nécessaire de mettre sur la carte de cantine (a partir de la 4eme) ?
+    Ou s’arrête les bus ?
+    Les enfants sont ils laisses seuls sur la rue le soir ?
+    Etc…
+
+

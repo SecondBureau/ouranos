@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110830093306) do
+ActiveRecord::Schema.define(:version => 20110908172512) do
 
   create_table "ckeditor_assets", :force => true do |t|
     t.string   "data_file_name",                  :null => false
@@ -46,6 +46,10 @@ ActiveRecord::Schema.define(:version => 20110830093306) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "event_type"
+    t.string   "locale"
+    t.string   "meta_keywords"
+    t.string   "meta_description"
+    t.string   "permalink"
   end
 
   create_table "member_confirms", :force => true do |t|
@@ -77,6 +81,9 @@ ActiveRecord::Schema.define(:version => 20110830093306) do
     t.string   "page_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "locale"
+    t.string   "meta_keywords"
+    t.string   "meta_description"
   end
 
   create_table "posts", :force => true do |t|
@@ -88,6 +95,9 @@ ActiveRecord::Schema.define(:version => 20110830093306) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "can_be_subscribed", :default => true
+    t.string   "locale"
+    t.string   "meta_keywords"
+    t.string   "meta_description"
   end
 
   add_index "posts", ["user_id"], :name => "index_posts_on_user_id"

@@ -1,0 +1,104 @@
+aboutus-fr:
+  uniq: [permalink, locale]
+  title: APE
+  permalink: aboutus
+  locale: fr
+  meta_keywords: lipsum
+  meta_description: lipsum
+  content: lipsum
+  page_type: for_all
+  
+contact-fr:
+  uniq: [permalink, locale]
+  title: Contacts
+  permalink: contact
+  locale: fr
+  meta_keywords: lipsum
+  meta_description: lipsum
+  page_type: for_all
+  content_textilize: | 
+    h1. COMPOSITION DU NOUVEAU CONSEIL D’ADMINISTRATION DE L’APE-LFIP
+    
+    p. Réunion de CA de l’association en date du 2 Juin 2011
+
+    h2. Les 5 membres du Bureau sont :
+
+    * PRESIDENTE Isabelle ROUX
+    ** Kempinski Appartement
+    ** 50 liangmaqiao road
+    ** Chaoyang District
+    ** Beijing, 100125
+    ** Tel : 158 1156 2265
+    * VICE PRESIDENTE Caroline MOCQUIAUX
+    ** Nationalité Française
+    ** East Lake Villas E 1103
+    ** 35 Dongzhimen wai Dajie
+    ** BEIJING 100027
+    ** Tel : 6467 8066
+    * VICE PRESIDENTE Marie Bénédicte MIAO
+    ** Nationalité française
+    ** Park appartement D2501
+    ** BEIJING 10027
+    ** Tel 85958036
+    * TRESORIER Virginie GUSTIN
+    ** Nationalité française
+    ** Park appartement C2502
+    ** BEIJING 100125
+    ** Tel: 85959130
+    * SECRETAIRE Alexia MADY
+    ** Nationalité Française
+    ** East Lake Villas E 1703
+    ** 35 Dongzhimen wai Dajie
+    ** BEIJING 100027
+    ** Tel: 64 67 79 83
+
+    h2. Les membres permanents sont :
+
+    * Etienne PERIN
+    ** Nationalité française
+    ** Park appartement C1502
+    ** BEIJING 100027
+    ** Tel: 156 117 37414
+    * Stephane TESTA
+    ** Nationalité Française
+    ** Beijing International Friendship Garden 1 # 15G
+    ** 2 A Zuo Jia Zhuang Jie
+    ** Beijing 100028
+    ** Tel: 64663972
+    * Rébecca WIART
+    ** Nationalité française
+    ** Résidence Sun City Building 4, 2005
+    ** 18 Xinzhong Jing Jie
+    ** Dongcheng District
+    ** BEIJING 100027
+    ** Tel: 8447 2991
+
+    h2. Les membres suppléants sont :
+
+    * Stephanie BALME
+    ** Nationalite Francaise
+    ** Xingfu Ercun Bat 1 residence 202
+    ** Chaoyang District
+    ** Beijing 100027
+    ** Tel: 136 9920 8391
+    * Sandrine JEANNETEAU
+    ** Nationalité Française
+    ** Central park, tower22, appt 1605
+    ** Chaowai street
+    ** Chaoyang district,
+    ** 100020 Beijing
+    ** Tel : 134 2639 4821
+    * Laurence WATTRELOS
+    ** Nationalité Française
+    ** River Garden 932
+    ** Houshayu – Shunyi district
+    ** Beijing 101300
+    ** Tel : 80462990
+    * Martine DE WILDE
+    ** Nationalité Française
+    ** Parkview tower 2-17-C
+    ** Chaoyang Park - Xi Lu
+    ** Chaoyang District
+    ** 100026 Beijing
+    ** Tel: 6538 6839
+

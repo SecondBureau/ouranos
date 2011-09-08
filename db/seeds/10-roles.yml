@@ -1,0 +1,12 @@
+admins:
+  uniq: [name]
+  name: admin
+officers:
+  uniq: [name]
+  name: officer
+members:
+  uniq: [name]
+  name: member
+users:
+  uniq: [name]
+  name: user  

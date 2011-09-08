@@ -44,3 +44,7 @@ group :production do
   gem 'therubyracer-heroku'
   gem "fog"
 end
+
+gem 'rack-cache'
+
+gem 'RedCloth'
