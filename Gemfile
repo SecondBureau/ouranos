@@ -2,10 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.1.0.rc6'
 
-gem 'sqlite3'
-
 gem 'json'
-
 gem 'haml-rails'
 
 group :assets do
@@ -15,6 +12,7 @@ group :assets do
 end
 
 group :development do
+  gem 'sqlite3'
   gem 'pry'
   gem 'heroku_san'
 end
@@ -35,7 +33,6 @@ gem 'fastercsv'
 gem 'devise'
 gem 'rails_admin', :git => 'git://github.com/mark-secondbureau/rails_admin.git', :branch => 'ouranos'
 
-# gem 'hpricot'
 gem 'ruby_parser'
 
 gem 'sunspot_rails'
