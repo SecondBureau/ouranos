@@ -11,8 +11,17 @@ class User < ActiveRecord::Base
   has_one :member_confirm
   
   def is_of_role? role_name
-    self.role = Role.where("name = ?", "user").first if !self.role
+    be_user if !self.role
+    if self.role.name == :member && self.expiry_date < Time.now
+      be_user
+    end
     return role.name == role_name.to_s
   end
+  
+  private
+    def be_user
+      self.role = Role.where("name = ?", "user").first
+      save
+    end
   
 end

@@ -33,6 +33,7 @@ member:
   password: secret
   password_confirmation: secret
   role_id: "{:name => 'member'}"
+  expiry_date: "2100-12-12"
 
 user:
   uniq: [email]
