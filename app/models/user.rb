@@ -15,12 +15,4 @@ class User < ActiveRecord::Base
     return role.name == role_name.to_s
   end
   
-  def self.guest
-    if @guest == nil
-      @guest = User.new
-      @guest.role = Role.where("name = ?", "guest").first
-    end
-    @guest
-  end
-  
 end

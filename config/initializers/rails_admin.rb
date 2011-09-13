@@ -12,6 +12,7 @@ RailsAdmin.config do |config|
       field :role
       field :firstname
       field :lastname
+      field :expiry_date
       field :sign_in_count
       field :current_sign_in_at
       field :last_sign_in_at
@@ -22,6 +23,7 @@ RailsAdmin.config do |config|
       field :firstname
       field :role
       field :email
+      field :expiry_date
       field :sign_in_count
       field :last_sign_in_at
     end
