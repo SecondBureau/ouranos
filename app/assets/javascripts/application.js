@@ -6,8 +6,3 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require common
-//= require posts
-//= require comments
-//= require pages
-//= require messages
