@@ -1,33 +1,40 @@
 =render "sidebar"
 #current_content
-  #year_title
-    %h1.current_year= "Events in #{@year}"
-    .year_selector= select_year(Date.today, :start_year => 2010, :end_year => 2015)
-    .clear
-  - if @events_by_month.length == 0
-    .month_of_events= t("event.none")
-  - else
-    - @events_by_month.each do |monthname, events|
-      .month_of_events= monthname
-      .clear
-      %ul.events_list
-        - events.each do |event|
-          %li
-            = link_to event.title, main_app.event_path(event)
-            .event_date
-              - if !event.end_date
-                = event.start_date
-              - else
-                = raw("#{event.start_date} ~ #{event.end_date}")
-            .clear
-.clear
+  #calendar
 :javascript
   $(function(){
-    var select = $("#date_year");
-    select.val("#{@year}");
-    select.change(function(){
-      var year = select.val();
-      var path = "#{main_app.events_year_path(111)}".replace("111", year);
-      location.href = path;
-    });
+      $("#calendar").fullCalendar({
+        header: {
+          left: 'prev,next today',
+          center: 'title',
+          right: 'month,basicWeek,basicDay'
+        },
+        editable: true, 
+        events: "#{main_app.events_path}.json",
+        loading: function(loading){
+          if (loading){
+            $('#calendar').block({ 
+                message: '<h3>Processing</h3>',
+                showOverlay: true,
+                overlayCSS: { 
+                  backgroundColor: '#000', 
+                  opacity: 0.5
+                },
+                css: { 
+                  width:    '350px', 
+                  top:      '10px', 
+                  border:   'none', 
+                  padding:  '15px', 
+                  color:    '#fff', 
+                  backgroundColor: '#222222', 
+                  '-webkit-border-radius': '10px', 
+                  '-moz-border-radius':    '10px' 
+                }
+            }); 
+          }else{
+            $('#calendar').unblock(); 
+          }
+        }
+      })
   });
+

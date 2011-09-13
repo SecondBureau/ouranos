@@ -5,15 +5,14 @@
  *= require_self
  *= require common 
  *= require layout 
- *= require users 
  *= require pages 
  *= require posts 
  *= require comments 
- *= require messages
  *= require events
  *= require search
  *= require subscribes
  *= require membership
+ *= require fullcalendar
 */
 
 /******************************************

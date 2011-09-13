@@ -1,15 +1,19 @@
 class EventsController < ApplicationController
   
   def index
-    @year = params[:year]
-    if !@year
-      @year = Time.now.year
-    else
-      @year = @year.to_i
+    @events = Event.all
+    @events_json = []
+    @events.each do |event|
+      if event.end_date
+        @events_json << { :start => event.start_date, :end => event.end_date, :title => event.title, :url => main_app.event_path(event) }
+      else
+        @events_json << { :start => event.start_date, :title => event.title, :url => main_app.event_path(event) }
+      end
     end
-    
-    @events_by_month = Event.all.select{|event| event.start_date.year == @year }.group_by { |event| event.start_date.strftime("%B") }
-    @events_by_month = [] if !@events_by_month
+    respond_to do |format|
+      format.html
+      format.json { render :json => @events_json }
+    end
   end
   
   def show
