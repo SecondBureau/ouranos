@@ -16,5 +16,6 @@
     %li= link_to t("blog.title"), main_app.posts_path
     - if @pages
       - for page in @pages
-        %li= link_to page.title, main_app.page_path(page.permalink)
+        - if page.is_on_top
+          %li= link_to page.title, main_app.page_path(page.permalink)
 .clear
