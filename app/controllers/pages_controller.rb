@@ -7,6 +7,7 @@ class PagesController < ApplicationController
   
   def show
     @page = Page.find_by_permalink params[:permalink]
+    @pages = Page.all
   end
   
 end

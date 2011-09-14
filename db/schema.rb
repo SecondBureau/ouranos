@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110913024553) do
+ActiveRecord::Schema.define(:version => 20110914061931) do
 
   create_table "ckeditor_assets", :force => true do |t|
     t.string   "data_file_name",                  :null => false
@@ -84,6 +84,7 @@ ActiveRecord::Schema.define(:version => 20110913024553) do
     t.string   "locale"
     t.string   "meta_keywords"
     t.string   "meta_description"
+    t.boolean  "is_on_top"
   end
 
   create_table "posts", :force => true do |t|

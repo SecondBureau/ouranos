@@ -1,12 +1,16 @@
 desc "the cron task for newsletter and membership notice"
 task :cron => :environment do
   if Time.now.day == 1
-    # send news letter
+    User.all.each do |user|
+      newsletter = OuranosMailer.newsletter user
+      newsletter.deliver
+    end
   end
 
-  if Time.now.hour == 0
-    User.all.each do |user|
-      #check membership expiry date and send email
+  User.all.each do |user|
+    if user.is_of_role? :member && (user.expiry_date.month - Time.now.month) == 1
+      membership_notice = OuranosMailer.membership_notice user
+      membership_notice.deliver
     end
   end
 end
