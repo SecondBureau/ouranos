@@ -3,7 +3,7 @@ class Post < ActiveRecord::Base
   require 'lipsum'
   
   belongs_to :user
-  has_many :comments
+  has_many :comments, :as => :commentable
   
   default_scope :order => 'created_at DESC'
   scope :public_posts, lambda{where("post_type = ?", "for_all")}

@@ -1,6 +1,5 @@
 class Comment < ActiveRecord::Base
-  belongs_to :post
-  belongs_to :user
+  belongs_to :commentable, :polymorphic => true
   
   default_scope :order => 'created_at DESC'
   scope :valid, lambda{where(:is_valid => true)}

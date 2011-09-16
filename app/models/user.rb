@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   
   belongs_to :role
   has_many :subscribes
+  has_many :comments, :as => :commentable
   has_one :member_confirm
   
   def is_of_role? role_name

@@ -14,7 +14,6 @@ Ouranos::Application.routes.draw do
     resources :events
     match "/events/year/:year" => "events#index", :as => :events_year
     resources :comments
-    # resources :categories
     match "/posts" => "posts#index", :as => :posts
     match "/post/:permalink" => "posts#show", :as => :post, :requirements => { "permalink" => /[-_a-z0-9]/ }
     match "/posts/print/:id" => "posts#print", :as => :post_print
