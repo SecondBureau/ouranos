@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.0.rc6'
+gem 'rails', '3.1.0'
 
 gem 'json'
 gem 'haml-rails'
@@ -19,7 +19,6 @@ end
 
 gem "kaminari"
 gem 'formtastic'
-gem 'sprockets', "= 2.0.0.beta.13"
 
 gem 'jquery-rails'
 
