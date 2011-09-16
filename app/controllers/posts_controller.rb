@@ -13,7 +13,6 @@ class PostsController < ApplicationController
     @comment = @post.comments.build
     @comment.is_valid = 0
     @comments = @post.comments.valid
-    binding.pry
     @comments_size = @comments.size
     if !current_user
       @has_unvalid_commented = false

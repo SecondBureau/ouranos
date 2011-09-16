@@ -2,7 +2,6 @@ class CommentsController < ApplicationController
   
   def create
     @comment = Comment.create params[:comment]
-    binding.pry
     post = Post.find @comment.commentable_id
     if @comment.errors.any?
       redirect_to main_app.post_path(post), :alert => @comment.errors
