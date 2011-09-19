@@ -4,11 +4,6 @@ class Event < ActiveRecord::Base
   
   before_save :lipsum
   
-  searchable do
-    text :title
-    text :content
-  end
-  
   def event_type_enum
     [['for all', 'for_all'], ['for member', 'for_member']]
   end

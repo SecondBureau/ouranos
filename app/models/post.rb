@@ -10,11 +10,6 @@ class Post < ActiveRecord::Base
   before_save :lipsum
   after_save :set_permalink
   
-  searchable do
-    text :title
-    text :content
-  end
-  
   def post_type_enum
     [['for all', 'for_all'], ['for member', 'for_member']]
   end

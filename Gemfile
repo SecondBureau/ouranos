@@ -34,12 +34,12 @@ gem 'rails_admin', :git => 'git://github.com/mark-secondbureau/rails_admin.git',
 
 gem 'ruby_parser'
 
-gem 'searchlogic'
+gem 'meta_search'
 
 group :production do
   gem 'pg'
   gem 'therubyracer-heroku'
-  gem "fog"
+  gem 'fog'
 end
 
 gem 'rack-cache'
