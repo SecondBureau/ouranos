@@ -34,7 +34,7 @@ gem 'rails_admin', :git => 'git://github.com/mark-secondbureau/rails_admin.git',
 
 gem 'ruby_parser'
 
-gem 'sunspot_rails'
+gem 'searchlogic'
 
 group :production do
   gem 'pg'
