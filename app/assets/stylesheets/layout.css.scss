@@ -29,7 +29,7 @@ body{
         }
       }
     }
-    #header{position:relative; margin: 0px auto; width:$page_width - 30px; padding:0px 15px; background:#979797; box-shadow: $header_shadow; -moz-box-shadow: $header_shadow;
+    #header{position:relative; margin: 0px auto; width:$page_width - 20px; padding:0px 10px; background:#979797; box-shadow: $header_shadow; -moz-box-shadow: $header_shadow;
       #global_search{padding-top:30px; position:relative; overflow:hidden; padding-bottom:80px;
         input{padding-left:30px; width:210px; float:right; vertical-align:middle; height:27px; border:1px solid #CCCCCC; background:#CACACA; border-radius:5px; -moz-border-radius:5px;
           &:focus{background:#FFFFFF;}

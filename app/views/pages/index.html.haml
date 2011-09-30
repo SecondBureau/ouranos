@@ -1,22 +1,14 @@
 #home_wrapper
-  #slide_pictures
-    #infor
-      %h1= link_to "Something about APE LFIP", main_app.page_path(:about)
-  %ul
-    %li.latest_posts
-      .home_item_title
-        = t("blog.latest")
-        %span= link_to t("more"), main_app.posts_path
-      .home_item_content
-        %ul
-          - @latest_posts.each do |post|
-            %li= link_to post.title, main_app.post_path(post)
-    %li.latest_events
-      .home_item_title
-        = t("event.latest")
-        %span= link_to t("more"), main_app.events_path
-      .home_item_content
-        %ul
-          - @latest_events.each do |event|
-            %li= link_to event.title, main_app.event_path(event)
+  =render "home_left_sidebar"
+  #home_content.latest_posts
+    .home_item_title
+      %h2= t("blog.latest")
+      %span= link_to t("more"), main_app.posts_path
+    .home_item_content
+      %ul
+        - @latest_posts.each do |post|
+          %li.post_title= link_to post.title, main_app.post_path(post)
+          %li.post_content= raw truncate(post.content, :length => 325, :omission => '... (continued)')
     .clear
+  =render "home_right_sidebar"
+  .clear
