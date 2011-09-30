@@ -4,6 +4,7 @@ class Post < ActiveRecord::Base
   
   belongs_to :user
   has_many :comments, :as => :commentable
+  has_and_belongs_to_many :categories
   
   default_scope :order => 'created_at DESC'
   scope :public_posts, lambda{where("post_type = ?", "for_all")}
