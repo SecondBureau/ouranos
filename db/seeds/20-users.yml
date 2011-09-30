@@ -23,7 +23,7 @@ officer:
   email: officer@ape-pekin.com
   password: secret
   password_confirmation: secret
-  role_id: "{:name => 'officer'}"
+  role_id: "{:name => 'admin'}"
   
 member:
   uniq: [email]
@@ -42,4 +42,4 @@ user:
   email: user@ape-pekin.com
   password: secret
   password_confirmation: secret
-  role_id: "{:name => 'user'}"
+  role_id: "{:name => 'member'}"

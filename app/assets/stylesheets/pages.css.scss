@@ -23,10 +23,10 @@ $item_color: #DDDDDD;
   #right_side_bar{float:right;}
   .latest_posts{
     .home_item_title{
-      h2{display:inline;}
+      h2{display:inline-block; margin:10px 0px;}
     }
   }
-  #calendar, #survey, #categories{margin-bottom:10px; background:#333333; height:100px;}
+  #calendar, #survey, #categories{margin-bottom:10px; border:1px solid #666666; height:100px;}
 }
 
 .home_item_title{padding:5px; font-size:16px; font-weight:bold; color:#000000;
