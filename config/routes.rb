@@ -1,5 +1,6 @@
 Ouranos::Application.routes.draw do
 
+
   devise_for :users
 
   scope "(/:locale)" do
@@ -14,11 +15,15 @@ Ouranos::Application.routes.draw do
     resources :events
     match "/events/year/:year" => "events#index", :as => :events_year
     resources :comments
-    match "/posts" => "posts#index", :as => :posts
+		match "categories/index" => "categories#index", :as => :categories
+		match "categories/show/:id" => "categories#show", :as => :category
+		match "/posts" => "posts#index", :as => :posts
+    match "/posts/category/:category_id" => "posts#index", :as => :posts_with_category
     match "/post/:permalink" => "posts#show", :as => :post, :requirements => { "permalink" => /[-_a-z0-9]/ }
     match "/posts/print/:id" => "posts#print", :as => :post_print
     match "/posts/pdf/:id" => "posts#to_pdf", :as => :post_to_pdf
     match "/page/:permalink"   => "pages#show", :as => :page, :requirements => { "permalink" => /[-_a-z0-9]/ }
+    match "/page/events/:year/:month/:day" => "pages#index", :as => :page_events
     mount RailsAdmin::Engine => '/iadmin', :as => 'admin'
   end
   

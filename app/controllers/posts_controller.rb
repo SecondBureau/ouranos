@@ -1,11 +1,11 @@
 class PostsController < ApplicationController
   
   def index
-    if !current_user || current_user.is_of_role?(:user)
-      @posts = Post.public_posts.page(params[:page]).per(10)
-    else
-      @posts = Post.page(params[:page]).per(10)
-    end
+  	if params[:id]
+  		@posts = Category.where("id = ?", params[:category_id]).posts
+		else
+			@posts = Post.page(params[:page]).per(10)
+  	end
   end
 
   def show
@@ -19,6 +19,10 @@ class PostsController < ApplicationController
     elsif(current_user.is_of_role?(:user) && @post.comments.unvalid(current_user).size > 0)
       @has_unvalid_commented = true
     end
+  end
+  
+  def with_category
+  	@posts = Category.find params[:id]
   end
   
   def print

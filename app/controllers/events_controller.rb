@@ -19,5 +19,9 @@ class EventsController < ApplicationController
   def show
     @event = Event.find params[:id]
   end
+  
+  def of_day
+  	@events = Event.where("start_date = ?", params[:date])
+  end
 
 end

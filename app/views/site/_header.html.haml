@@ -11,7 +11,6 @@
 #head_nav
   %ul
     %li= link_to t("home.title"), main_app.root_path
-    %li= link_to t("event.title"), main_app.events_path
     %li= link_to t("blog.title"), main_app.posts_path
     - if @pages
       - for page in @pages

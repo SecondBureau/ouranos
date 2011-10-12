@@ -18,15 +18,45 @@ $item_color: #DDDDDD;
 }
 
 #home_wrapper{padding:10px 10px;
-  #left_side_bar, #right_side_bar, #home_content{float:left; width:170px;}
-  #home_content{width:580px; margin-left:10px;}
+  #left_side_bar, #right_side_bar, #home_content{float:left; width:210px;}
+  #home_content{width:500px; margin-left:10px;}
   #right_side_bar{float:right;}
-  .latest_posts{
+   .latest_posts{
     .home_item_title{
       h2{display:inline-block; margin:10px 0px;}
     }
   }
-  #calendar, #survey, #categories{margin-bottom:10px; border:1px solid #666666; height:100px;}
+  #calendar, #slides, #categories, #most_read_posts, #recent_comments, #coming_events{
+  	margin-bottom:10px; border:1px solid #777777; background:#999999; min-height:100px; line-height:25px;
+  	a{color:#000;}
+  	h3{background:#333; color:#EEE;padding:3px;}
+  }
+  #categories, #most_read_posts, #recent_comments, #coming_events{
+  	ul{padding:3px;}
+  }
+  #slides{text-align:center;}
+  #calendar{border:1px solid #333;}
+  #calendar{
+  	#calendar_month_year{text-align:center; font-size:18px; padding:5px 0px; background:#333; color:#EEE;}
+  	#calendar_dates{padding:5px; background:#CCCCCC;
+  		a{color:#333333; margin:3px; padding:1px;
+  			&:hover{background:#333333; color:#EEEEEE; text-decoration:none;}
+  		}
+  	}
+  	#calendar_today{text-align:center; font-size:20px; font-weight:bold; padding:5px 0px; background:#A0180A; color:#FFF;}
+		h3{background:#333; color:#EEE; padding:3px; text-align:center;}
+  	#calendar_events{padding:3px 3px 3px 3px; background:#555;
+  		ul{
+  			li{padding:2px; margin-bottom:5px; 
+  				.event_title{
+  					a{color:#FFF; display:block;
+  						&:hover{background:#888; color:#000; text-decoration:none;}
+  					}
+  				}
+  			}
+  		}
+  	}
+  }
 }
 
 .home_item_title{padding:5px; font-size:16px; font-weight:bold; color:#000000;
@@ -39,7 +69,7 @@ $item_color: #DDDDDD;
     li{
       a{color:#222222; text-decoration:underline;}
       &.post_title{font-size:18px; font-weight:bold;}
-      &.post_content{margin-bottom:15px;}
+      &.post_content{padding-bottom:10px; margin-bottom:10px; border-bottom:1px dashed #888;}
     }
   }
   

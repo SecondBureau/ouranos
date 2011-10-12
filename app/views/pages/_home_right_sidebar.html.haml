@@ -1,4 +1,16 @@
 #right_side_bar
-  #calendar
-  #survey
-  #categories
+  #most_read_posts
+    %h3= t("post.mostread")
+    %ul
+      - @most_posts.each do |post|
+        %li= link_to truncate(post.title, :length => 32, :omission => '... '), post_path(post)
+  #recent_comments
+    %h3= t("comment.recent")
+    %ul
+      - @recent_comments.each do |comment|
+        %li= link_to truncate(comment.content, :length => 32, :omission => '... '), post_path(comment.post)
+  #coming_events
+    %h3= t("events.comming")
+    %ul
+      - @comming_events.each do |event|
+        %li= link_to truncate(event.title, :length => 32, :omission => '... '), event_path(event)

@@ -1,0 +1,10 @@
+#categories
+	%h3= t("category")
+	%ul
+		- @categories.each do |category|
+			%li
+				%span= link_to category.title, category_path(category)
+				%ul
+					- category.posts.each do |post|
+						%li= post.title
+				

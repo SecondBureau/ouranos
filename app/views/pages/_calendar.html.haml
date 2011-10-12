@@ -1,0 +1,14 @@
+#calendar
+	#calendar_month_year= "#{Time.now.year} #{Time.now.month}"
+	#calendar_dates
+		- @dates.times do |day|
+			=link_to "#{sprintf '%02d', day + 1}", page_events_path(2011, 12, day + 1)
+	#calendar_today= "#{@wday} #{@today}"
+	%h3 Events in this day
+	#calendar_events
+		%ul
+			- @events.each do |event|
+				%li
+					.event_title= link_to truncate(event.title, :length => 32, :omission => '... '), event_path(event)
+			- if @events.size == 0
+				%li= t("events.none")

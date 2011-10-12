@@ -56,6 +56,7 @@ body{
       #current_content{min-height:400px; width:730px; float:right; margin:35px 15px 15px 0px; padding-top:40px; line-height:25px;}
       #side_bar{width:200px; float:left; margin-top:35px; margin-bottom:20px;
         #title{background:#A0180A; padding:8px 15px 8px 5px; color:#FFFFFF; font-size:18px; font-weight:bold; text-align:right; @include title_border; margin-right:20px; margin-bottom:20px;}
+        h2{text-align:right; margin-right:15px;}
         #side_operations{float:right; text-align:right; padding:10px 0px; border-right:1px dashed #777777;
           ul{
             li{border-bottom:1px solid #999999;

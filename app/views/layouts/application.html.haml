@@ -13,17 +13,13 @@
       #header= render "site/header"
       
     #body_wrapper
-      -# for the main content
       #alert= flash[:alert]
+      #notice= flash[:notice]
       :javascript
         $(function(){
           if("#{flash[:alert]}".length > 0){
             $("#alert").slideDown("slow");
           }
-        });
-      #notice= flash[:notice]
-      :javascript
-        $(function(){
           if("#{flash[:notice]}".length > 0){
             $("#notice").slideDown("slow");
           }
@@ -31,5 +27,4 @@
       #content
         = yield
         .clear
-      -# for the site footer
       #footer= render "site/footer"
