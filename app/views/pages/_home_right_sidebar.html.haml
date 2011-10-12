@@ -1,6 +1,6 @@
 #right_side_bar
   #most_read_posts
-    %h3= t("post.mostread")
+    %h3= t("blog.mostread")
     %ul
       - @most_posts.each do |post|
         %li= link_to truncate(post.title, :length => 32, :omission => '... '), post_path(post)
@@ -10,7 +10,7 @@
       - @recent_comments.each do |comment|
         %li= link_to truncate(comment.content, :length => 32, :omission => '... '), post_path(comment.post)
   #coming_events
-    %h3= t("events.comming")
+    %h3= t("event.comming")
     %ul
       - @comming_events.each do |event|
         %li= link_to truncate(event.title, :length => 32, :omission => '... '), event_path(event)

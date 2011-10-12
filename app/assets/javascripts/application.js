@@ -8,3 +8,4 @@
 //= require jquery_ujs
 //= require fullcalendar
 //= require jquery.blockUI
+//= require calendar

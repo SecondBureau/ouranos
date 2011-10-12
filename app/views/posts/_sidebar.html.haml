@@ -5,7 +5,7 @@
       %ul
         %li= link_to "Add new post", admin.new_path(:post)
         %li= link_to "Manage posts", admin.list_path(:post)
-  %h2= t("category.title")
+  %h2= t("category")
   #side_operations
     %ul
       - Category.all.each do |category|

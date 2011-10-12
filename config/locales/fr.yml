@@ -227,13 +227,17 @@ fr:
     title: Evénement
     latest: En ce moment
     none: Aucun événement sur cette période.
+    comming: Comming events
+  category: Categories
   blog:
     title: Articles
     latest: Derniers articles
+    mostread: Most read posts
   print:
     print: Imprimer cet article
     pdf: Exporter cet article en PDF
   comment:
+    recent: Recent comments
     valid:
       added: Votre commentaire a bien été ajouté.
     guest:
