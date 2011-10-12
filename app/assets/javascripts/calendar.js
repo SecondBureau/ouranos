@@ -10,7 +10,7 @@ function fill_table(month, month_length, year)
 	start_day = today.getDay() + 1;
   // begin the new month table
   document.write("<table id='calendar_table' border=0 cellspacing=1>")
-  document.write("<tr><td colspan=7 align=center style='background:#333;'><a href='#' style='float:left; color:#FFF; margin:3px 0px 0px 5px;'>Pre</a><h3 style='display:inline-block;'>" + month + "   " + year + "</h3><a href='#' style='float:right; color:#FFF; margin:3px 5px 0px 0px;'>Next</a></td></tr>")
+  document.write("<tr><td colspan=7 align=center style='background:#333;'><h3 style='display:inline-block;'>" + month + "   " + year + "</h3></td></tr>")
   // column headings
  	document.write("<tr>");
   day_title("Sun")
@@ -27,7 +27,7 @@ function fill_table(month, month_length, year)
 }
 
 function fill_month(start_day, day, month_length){
-	document.write("<tr>");
+	document.write("<tbody><tr>");
   for (var i=1;i<start_day;i++){
     document.write("<td>");
   }
@@ -47,5 +47,5 @@ function fill_month(start_day, day, month_length){
      // the first day of the next month
      start_day=i
   }
-  document.write("</tr>");
+  document.write("</tr></tbody>");
 }
