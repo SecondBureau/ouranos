@@ -233,6 +233,7 @@ fr:
     title: Articles
     latest: Derniers articles
     mostread: Most read posts
+    pinned: Pinned articles
   print:
     print: Imprimer cet article
     pdf: Exporter cet article en PDF
@@ -282,4 +283,4 @@ fr:
     events: Searched events
     postsnothing: Can not find any posts
     eventsnothing: Can not find any events
-  more: more
+  more: MORE

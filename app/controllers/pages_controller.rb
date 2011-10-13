@@ -3,7 +3,8 @@ class PagesController < ApplicationController
   before_filter :authenticate_user!, :except => :index
   
   def index
-    @latest_posts = Post.limit(5)
+    @latest_posts = Post.where("is_pinned = ?", 0).limit(5)
+    @pinned_posts = Post.where("is_pinned = ?", 1);
     if params[:year]
     	@events = Event.where("start_date = ?", Date.new(params[:year].to_i, params[:month].to_i, params[:day].to_i))
     else
