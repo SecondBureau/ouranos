@@ -1,5 +1,7 @@
 class PagesController < ApplicationController
   
+  before_filter :authenticate_user!, :except => :index
+  
   def index
     @latest_posts = Post.limit(5)
     if params[:year]

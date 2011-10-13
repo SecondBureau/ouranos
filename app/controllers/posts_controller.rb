@@ -1,8 +1,11 @@
 class PostsController < ApplicationController
   
+  before_filter :authenticate_user!
+  
   def index
   	if params[:id]
-  		@posts = Category.where("id = ?", params[:category_id]).posts
+  		@category =  Category.find(params[:category_id])
+  		@posts = @category.posts
 		else
 			@posts = Post.page(params[:page]).per(10)
   	end

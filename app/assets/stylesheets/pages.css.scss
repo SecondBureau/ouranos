@@ -36,7 +36,15 @@ $item_color: #DDDDDD;
   }
   #slides{text-align:center;}
   #calendar{border:1px solid #333;}
-  #calendar_table{background:#CCC;}
+  #calendar_table{background:#CCC; margin:1px;
+  	tbody{
+  		tr{
+  			td{
+  				&:hover{background:#333; color:#FFF; cursor:pointer;}
+  			}
+  		}
+  	}
+  }
   #calendar{
   	#calendar_month_year{text-align:center; font-size:18px; padding:5px 0px; background:#333; color:#EEE;}
   	#calendar_dates{padding:5px; background:#CCCCCC;
