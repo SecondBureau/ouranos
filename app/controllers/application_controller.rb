@@ -34,11 +34,8 @@ class ApplicationController < ActionController::Base
     end
 
     def ready_pages
-      if(current_user == nil|| current_user.is_of_role?(:user))
-        @pages = Page.public_pages
-      else
-        @pages = Page.all
-      end
+      @pages = Page.all
+      @categories_top = Category.where("shows_at_home_page = ?",  1)
     end
 
 end

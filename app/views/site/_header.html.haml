@@ -12,8 +12,11 @@
   %ul
     %li= link_to t("home.title"), main_app.root_path
     %li= link_to t("blog.title"), main_app.posts_path
+    - if @categories_top
+      - @categories_top.each do |category|
+        %li= link_to category.title, main_app.posts_with_category_path(category)
     - if @pages
-      - for page in @pages
+      - @pages.each do |page|
         - if page.is_on_top
           %li= link_to page.title, main_app.page_path(page.permalink)
 .clear

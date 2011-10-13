@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111012055101) do
+ActiveRecord::Schema.define(:version => 20111013055348) do
 
   create_table "categories", :force => true do |t|
     t.string   "title"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(:version => 20111012055101) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "shows_at_home_page"
+    t.integer  "shows_at_sidebar"
   end
 
   create_table "categories_posts", :id => false, :force => true do |t|
@@ -112,6 +113,7 @@ ActiveRecord::Schema.define(:version => 20111012055101) do
     t.string   "locale"
     t.string   "meta_keywords"
     t.string   "meta_description"
+    t.integer  "is_pinned"
   end
 
   add_index "posts", ["user_id"], :name => "index_posts_on_user_id"

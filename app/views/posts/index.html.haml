@@ -1,5 +1,7 @@
 =render "sidebar"
 #current_content
+  - if @category
+    %h1#category_title= @category.title
   %ul#post_list
     =render :partial => "post_item", :collection => @posts, :as => :post
   = paginate @posts

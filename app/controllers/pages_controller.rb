@@ -15,7 +15,8 @@ class PagesController < ApplicationController
     @wday = days[@wday]
     @today = Time.now.day
     
-    @categories = Category.where("shows_at_home_page = ?",  1)
+    @categories_top = Category.where("shows_at_home_page = ?",  1)
+    @categories_side = Category.where("shows_at_sidebar = ?",  1)
     @events = Event.limit(5)
     @most_posts = Post.limit(5)
     @recent_comments = Comment.limit(5)
