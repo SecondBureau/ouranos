@@ -1,7 +1,7 @@
 RailsAdmin.config do |config|
   config.authorize_with :cancan
   
-  config.included_models = ["User", "Comment", "Post", "Event", "Page", "Message", "Role", "Setting", "Subscribe"]
+  config.included_models = ["Category", "Page", "Post", "Event", "Comment", "User","Role"]
   
   config.model User do
     object_label_method do
@@ -51,6 +51,7 @@ RailsAdmin.config do |config|
         label "subscribed"
       end
       field :post_type
+      field :is_pinned
       field :user
     end
   end
