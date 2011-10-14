@@ -16,12 +16,13 @@ class PagesController < ApplicationController
     @wday = days[@wday]
     @today = Time.now.day
     
-    @categories_top = Category.where("shows_at_home_page = ?",  1)
-    @categories_side = Category.where("shows_at_sidebar = ?",  1)
+    @categories_top = Category.where("shows_at_home_page = ?",  true)
+    @categories_side = Category.where("shows_at_sidebar = ?",  true)
     @events = Event.limit(5)
     @most_posts = Post.limit(5)
     @recent_comments = Comment.limit(5)
     @comming_events = Event.limit(5)
+    @tasks = Event.limit(5).to_a
   end
   
   def show

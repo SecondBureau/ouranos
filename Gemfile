@@ -21,6 +21,7 @@ group :development do
   gem 'heroku_san'
 end
 
+gem 'table_builder', '0.0.3', :git => 'git://github.com/jchunky/table_builder.git'
 gem "kaminari"
 gem 'formtastic'
 
