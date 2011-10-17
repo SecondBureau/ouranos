@@ -24,8 +24,7 @@ $item_color: #DDDDDD;
 		margin-bottom: 10px;
 	}
   #left_side_bar, #right_side_bar, #home_content{float:left; width:210px;}
-  #home_content{width:500px; margin-left:10px;
-  }
+  #home_content{width:500px; margin-left:10px;}
   #right_side_bar{float:right;}
    .latest_posts{
     .home_item_title{
@@ -33,12 +32,37 @@ $item_color: #DDDDDD;
     }
   }
   #calendar, #slides, #categories, #most_read_posts, #recent_comments, #coming_events{
-  	margin-bottom:10px; border:1px solid #777777; background:#999999; min-height:100px; line-height:25px;
-  	a{color:#000;}
-  	h3{background:#333; color:#EEE;padding:3px;}
+  	margin-bottom:10px; min-height:100px; line-height:25px;
+  	color:#FFF;
+  	font-weight:bold;
+  	h3{padding:3px 5px; color:#FFF;}
+  }
+  #calendar, #slides, #categories{
+  	box-shadow: 1px 1px 2px #000;
+  }
+  #most_read_posts, #recent_comments, #coming_events{
+  	h3{
+  		box-shadow: 1px 1px 2px #000;
+  	}
+  }
+  #categories{
+  	background:#a80000;
+  }
+  #most_read_posts{
+  	h3{background:#333;}
+  }
+  #recent_comments{
+  	h3{background:#666;}
+  }
+  #coming_events{
+  	h3{background:#999;}
   }
   #categories, #most_read_posts, #recent_comments, #coming_events{
-  	ul{padding:3px;}
+  	ul{padding:3px;
+  		li{
+  			a{color:#FFF;}
+  		}
+  	}
   }
   #slides{text-align:center;}
   #calendar_table{background:#CCC; margin:1px;
@@ -50,26 +74,12 @@ $item_color: #DDDDDD;
   		}
   	}
   }
-  #calendar{
+  #calendar{background:#646464;
   	td{text-align:center;}
-  	#calendar_month_year{text-align:center; font-size:18px; padding:5px 0px; background:#333; color:#EEE;}
+  	#calendar_month_year{text-align:center; font-size:18px; padding:5px 0px;}
   	#calendar_dates{padding:5px; background:#CCCCCC;
-  		a{color:#333333; margin:3px; padding:1px;
+  		a{color:#333333; margin:3px; padding:1px; font-weight:bold; color:#FFF;
   			&:hover{background:#333333; color:#EEEEEE; text-decoration:none;}
-  		}
-  	}
-  	#event_for_day{height:200px; background:#555;}
-  	#calendar_today{text-align:center; font-size:20px; font-weight:bold; padding:5px 0px; background:#A0180A; color:#FFF;}
-		h3{background:#333; color:#EEE; padding:3px; text-align:center;}
-  	#calendar_events{padding:3px 3px 3px 3px; background:#555;
-  		ul{
-  			li{padding:2px; margin-bottom:5px; 
-  				.event_title{
-  					a{color:#FFF; display:block;
-  						&:hover{background:#888; color:#000; text-decoration:none;}
-  					}
-  				}
-  			}
   		}
   	}
   }
@@ -77,10 +87,10 @@ $item_color: #DDDDDD;
 
 #event_for_day{
 	position:absolute; 
-	top:15px; 
+	top:215px; 
 	width:600px; 
 	height:300px; 
-	left:180px; 
+	left:230px; 
 	background:#DDD;
 	box-shadow: 0px 0px 50px #21070A;
 	-moz-box-shadow: 0px 0px 50px #21070A;
@@ -105,7 +115,7 @@ $item_color: #DDDDDD;
 	}
 }
 
-.home_item_title{padding:5px; font-size:16px; font-weight:bold; color:#000000;
+.home_item_title{padding:5px; font-size:16px; font-weight:bold; color:#FFFFFF;
   span{float:right; font-size:12px;
     a{text-decoration:underline; color:#333333;}
   }
@@ -115,7 +125,7 @@ $item_color: #DDDDDD;
     li{
       a{color:#222222; text-decoration:underline;}
       &.post_title{font-size:18px; font-weight:bold;}
-      &.post_content{padding-bottom:10px; margin-bottom:10px; border-bottom:1px dashed #888;}
+      &.post_content{padding-bottom:10px; margin-bottom:10px; border-bottom:1px dashed #666; color:#FFF;}
     }
   }
   

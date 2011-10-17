@@ -12,8 +12,9 @@ class PagesController < ApplicationController
     @recent_comments = Comment.limit(5)
     @comming_events = Event.limit(5)
     
-    @beginning_of_month = DateTime.new(2011, 9,1)
-    @end_of_month       = DateTime.new(2011, 9, -1)
+    now = DateTime.now
+    @beginning_of_month = DateTime.new(now.year, now.month, 1)
+    @end_of_month       = DateTime.new(now.year, now.month, -1)
   end
   
   def show
