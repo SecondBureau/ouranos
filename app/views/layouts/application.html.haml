@@ -8,9 +8,10 @@
     = yield :header
   %body
     #header_wrapper
-      #account= render "site/account"
-      -# for the site header
-      #header= render "site/header"
+      #header
+        = render "site/header"
+        = render "site/account"
+        .clear
       
     #body_wrapper
       #alert= flash[:alert]
@@ -27,4 +28,5 @@
       #content
         = yield
         .clear
+    #footer_wrapper
       #footer= render "site/footer"

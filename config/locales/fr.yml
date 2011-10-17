@@ -228,6 +228,7 @@ fr:
     latest: En ce moment
     none: Aucun événement sur cette période.
     comming: Comming events
+    ofday: Events in 
   category: Categories
   blog:
     title: Articles

@@ -2,6 +2,9 @@
   %table{:width => "100%"}
     %thead
       %tr
+        %th{:colspan => 7}
+          %h3#calendar_month_year #{@beginning_of_month.month} #{@beginning_of_month.year}
+      %tr
         %th{:width => 35}
           Mon
         %th{:width => 35}
@@ -18,26 +21,11 @@
           Sun
     %tbody
       %tr
-        - @beginning_of_month = DateTime.new(2011, 10,1)
-        - @end_of_month       = DateTime.new(2011, 10, -1)
         - (@beginning_of_month..@end_of_month).each do |d|
           - t = d.wday == 0 ? 6 : d.wday - 1
           - if d == @beginning_of_month
             - t.times do # offset beginning of calendar
               %td.offset
           - if t == 0 #restart the week
-            </tr><tr>
+            </tr><tr class = "dddddddd">
           %td{:class => "tday #{d}" }= link_to "#{d.day}", events_of_day_path(d.year, d.month, d.day), :remote => true
-  :javascript
-    $(function(){
-      $(".tday").click(function(){
-        $("#event_for_day").slideDown(function(){
-          $("#close_image").show();
-        });
-        $("#close_image").click(function(){
-          $("#close_image").hide();
-            $("#event_for_day").slideUp();
-        });
-      });
-    });
-  #calendar_today= "#{@wday} #{@today}"

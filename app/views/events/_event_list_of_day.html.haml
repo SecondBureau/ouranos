@@ -1,6 +1,7 @@
+%h2= "#{t("event.ofday")} #{@date.strftime('%m/%d/%Y')}"
 #events_list
 	%ul
 		- @events.each do |event|
-			%li.event_title= link_to truncate(event.title, :length => 32, :omission => '...'), event_path(event)
+			%li.event_title= link_to truncate(event.title, :length => 132, :omission => '...'), event_path(event)
 		- if @events.size == 0
 			%li= t("events.none")

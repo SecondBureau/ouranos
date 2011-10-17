@@ -21,41 +21,83 @@ $header_shadow: 0px -2px 5px #333333;
 
 body{
   background: #6B696A;
-  #header_wrapper{background:#4E4E4E; padding-top:20px;
-    #account{margin: 0px auto 10px auto; width:$page_width - 15px; padding-right:15px;
-      span{float:right; margin-left:10px;
-        a{color:#000000; font-weight:bold;
-          &:hover{color:#AAAAAA;}
-        }
-      }
-    }
-    #header{position:relative; margin: 0px auto; width:$page_width - 20px; padding:0px 10px; background:#979797; box-shadow: $header_shadow; -moz-box-shadow: $header_shadow;
-      #global_search{padding-top:30px; position:relative; overflow:hidden; padding-bottom:80px;
-        input{padding-left:30px; width:210px; float:right; vertical-align:middle; height:27px; border:1px solid #CCCCCC; background:#CACACA; border-radius:5px; -moz-border-radius:5px;
-          &:focus{background:#FFFFFF;}
-        }
-        img{position:absolute; top:-30px; left:600px;}
-      }
-      #local_switch{float:right; position:absolute; right:-24px; top:25px;}
-      #head_nav{float:right;
+  #header_wrapper{background:#000000;
+    #header{position:relative; margin: 0px auto; width:$page_width; padding:10px 0px;
+      #head_nav{float:left;
         ul{
           li{float:left;
-            a{display:block; text-align:center; padding:6px 0px; min-width:130px; background:#1D1D1D; margin-left:5px; @include nav_border; font-size:16px; font-weight:bold;
-              &:hover{text-decoration:none; background:#5F5F5F; }
+            a{
+            	padding:3px 5px; 
+            	margin-right:8px; 
+            	font-weight:bold;
             }
           }
         }
       }
     }
+    #account{float:right;
+      ul{
+        li{float:left;
+          a{
+          	padding:3px 5px; 
+          	margin-right:8px; 
+          	font-weight:bold;
+          }
+        }
+      }
+    }
+  }
+  #footer_wrapper{
+  	background:#a80000;
+  	#footer{text-align:center; padding:15px 0px;}
   }
 
-  #body_wrapper{margin: 0px auto 10px auto; width:$page_width; background:#A2A2A2; box-shadow: $bg_shadow; -moz-box-shadow: $bg_shadow; padding-top:1px;
-    #notice{display:none; padding:20px 0px; background:#333333; color:#FFFFFF; text-align:center; font-size:16px; margin:10px 15px 0px 15px; font-weight:bold;}
-    #alert{display:none; padding:20px 0px; background:#F47A7A; color:#FFFFFF; text-align:center; font-size:16px; margin:10px 15px 0px 15px; font-weight:bold;}
+  #body_wrapper{
+  	margin: 0px auto; 
+  	width:$page_width; 
+  	background:#868686; 
+  	padding-top:1px;
+    #notice{
+    	display:none; 
+    	padding:20px 0px; 
+    	background:#333333; 
+    	color:#FFFFFF; 
+    	text-align:center; 
+    	font-size:16px; 
+    	margin:10px 15px 0px 15px; 
+    	font-weight:bold;
+   	}
+    #alert{
+    	display:none; 
+    	padding:20px 0px; 
+    	background:#F47A7A; 
+    	color:#FFFFFF; 
+    	text-align:center; 
+    	font-size:16px; 
+    	margin:10px 15px 0px 15px; 
+    	font-weight:bold;
+    }
     #content{
-      #current_content{min-height:400px; width:730px; float:right; margin:35px 15px 15px 0px; padding-top:40px; line-height:25px;}
+      #current_content{
+      	min-height:400px; 
+      	width:730px; 
+      	float:right; 
+      	margin:35px 15px 15px 0px; 
+      	padding-top:40px; 
+      	line-height:25px;
+      }
       #side_bar{width:200px; float:left; margin-top:35px; margin-bottom:20px;
-        #title{background:#A0180A; padding:8px 15px 8px 5px; color:#FFFFFF; font-size:18px; font-weight:bold; text-align:right; @include title_border; margin-right:20px; margin-bottom:20px;}
+        #title{
+        	background:#A0180A; 
+        	padding:8px 15px 8px 5px; 
+        	color:#FFFFFF; 
+        	font-size:18px; 
+        	font-weight:bold; 
+        	text-align:right; 
+        	@include title_border; 
+        	margin-right:20px; 
+        	margin-bottom:20px;
+        }
         h2{text-align:right; margin-right:15px;}
         #side_operations{float:right; text-align:right; padding:10px 0px; border-right:1px dashed #777777;
           ul{
@@ -69,7 +111,6 @@ body{
         }
       }
     }
-    #footer{height: 40px; text-align:center; padding:$padding; background:#979797; padding-top:10px;}
   }
 
 }
