@@ -61,6 +61,11 @@ body{
   	padding: 34px 0px 44px 0px;
   	width:$page_width; 
   	background:#868686; 
+  	#home_banner{
+			border: 1px solid #666666;
+			height:200px;
+			margin: 10px 10px 0px 10px;
+		}
     #notice{
     	display:none; 
     	padding:20px 0px; 
@@ -86,11 +91,11 @@ body{
       	min-height:400px; 
       	width:730px; 
       	float:right; 
-      	margin:35px 15px 15px 0px; 
-      	padding-top:40px; 
+      	margin:15px 15px 15px 0px; 
+      	padding-top:20px; 
       	line-height:25px;
       }
-      #side_bar{width:200px; float:left; margin-top:35px; margin-bottom:20px;
+      #side_bar{width:200px; float:left; margin-top:15px; margin-bottom:20px;
         #title{
         	background:#A0180A; 
         	padding:8px 15px 8px 5px; 
