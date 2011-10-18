@@ -1,5 +1,9 @@
 = render "side_bar"
 #current_content
+  #search_form
+    = form_tag(main_app.search_path) do 
+      = text_field_tag(:search) 
+      = submit_tag(t("search.title")) 
   .results_item
     %h2= t("search.posts")
     %ul
