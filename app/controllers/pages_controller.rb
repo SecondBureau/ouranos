@@ -6,8 +6,9 @@ class PagesController < ApplicationController
     @latest_posts = Post.where("is_pinned = ?", 0).limit(5)
     @pinned_posts = Post.where("is_pinned = ?", 1);
     
-    @categories_top = Category.where("shows_at_home_page = ?",  true)
-    @categories_side = Category.where("shows_at_sidebar = ?",  true)
+    @categories_top = Category.where(:shows_at_home_page => true)
+    @categories_side = Category.where(:shows_at_sidebar => true)
+    binding.pry
     @most_posts = Post.limit(5)
     @recent_comments = Comment.limit(5)
     @comming_events = Event.limit(5)

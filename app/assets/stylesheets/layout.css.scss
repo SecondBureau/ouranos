@@ -44,17 +44,26 @@ body{
         	&.locale{
         		background:#969696;
         	}
+        	&.alocale{
+        		background:#999999;
+        		display:none;
+        	}
         	&.user{
         		background:#666666;
         	}
         	margin-left:2px; 
           a{
-          	font-weight:bold;
+          	font-weight: bolder;
+          	font-size: 16px;
           	display: block;
           	height: 34px;
           	width: 35px;
           	img{
           		margin: 5px 0px 0px 5px;
+          	}
+          	span{
+          		margin: 10px 0px 0px 7px;
+          		display: inline-block;
           	}
           }
         }

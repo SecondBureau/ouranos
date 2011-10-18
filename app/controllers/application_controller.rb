@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
     end
   
     def available_locales
-      $available_locales || ["en"]
+      $available_locales || ["fr"]
     end
   
     def display_locales

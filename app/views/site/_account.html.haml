@@ -4,6 +4,10 @@
       %li.user= link_to image_tag("gear.png"), main_app.destroy_user_session_path, :method => :delete
     - else
       %li.user= link_to image_tag("gear.png"), main_app.new_user_session_path
-    %li.locale= link_to ""
+    %li.locale= link_to_switch_locale(current_locale)
+    - $available_locales.map do |locale|
+      - if !locale.eql?(current_locale.to_s)
+        %li.alocale= link_to_switch_locale(locale)
     %li.search= link_to image_tag("search.png"), main_app.search_path
-
+:javascript
+  $(".locale").hover(function(){ $(".alocale").show(); });
