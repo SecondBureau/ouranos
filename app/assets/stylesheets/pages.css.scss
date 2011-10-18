@@ -26,7 +26,7 @@ $item_color: #DDDDDD;
       h2{display:inline-block; margin:10px 0px;}
     }
   }
-  #calendar, #slides, #categories, #most_read_posts, #recent_comments, #coming_events{
+  #calendar, #categories, #most_read_posts, #recent_comments, #coming_events{
   	margin-bottom:10px; min-height:100px; line-height:25px;
   	color:#FFF;
   	font-weight:bold;
@@ -59,16 +59,6 @@ $item_color: #DDDDDD;
   		}
   	}
   }
-  #slides{text-align:center;}
-  #calendar_table{background:#CCC; margin:1px;
-  	tbody{
-  		tr{
-  			td{
-  				&:hover{background:#333; color:#FFF; cursor:pointer;}
-  			}
-  		}
-  	}
-  }
   #calendar{background:#646464;
   	td{text-align:center;}
   	#calendar_month_year{text-align:center; font-size:18px; padding:5px 0px;}
@@ -77,12 +67,17 @@ $item_color: #DDDDDD;
   			&:hover{background:#333333; color:#EEEEEE; text-decoration:none;}
   		}
   	}
+  	h4{display:inline;}
+  	.c_l_arrow{float:left; margin-left:5px;}
+  	.c_r_arrow{float:right; margin-right:5px;}
+  	.teventday{background:#333; color:#FFF; border-bottom:1px solid #C5FF00;}
   }
 }
+.current_day{background:#a80000; color:#FFF;}
 
 #event_for_day{
 	position:absolute; 
-	top:215px; 
+	top:15px; 
 	width:600px; 
 	height:300px; 
 	left:230px; 

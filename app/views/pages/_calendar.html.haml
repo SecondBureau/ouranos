@@ -2,8 +2,11 @@
   %table{:width => "100%"}
     %thead
       %tr
-        %th{:colspan => 7}
-          %h3#calendar_month_year #{@beginning_of_month.month} #{@beginning_of_month.year}
+        %th{:colspan => 7, :id => "calendar_month_year"}
+          %span{:class => "c_l_arrow"}= link_to image_tag("la.png"), page_calendar_path("pre", @current_date.year, @current_date.month)
+          %h4 #{Date::MONTHNAMES[@beginning_of_month.month]} #{@beginning_of_month.year}
+          %span{:class => "c_r_arrow"}= link_to image_tag("ra.png"), page_calendar_path("next", @current_date.year, @current_date.month)
+          .clear
       %tr
         %th{:width => 35}
           Mon
@@ -27,5 +30,14 @@
             - t.times do # offset beginning of calendar
               %td.offset
           - if t == 0 #restart the week
-            </tr><tr class = "dddddddd">
-          %td{:class => "tday #{d}" }= link_to "#{d.day}", events_of_day_path(d.year, d.month, d.day), :remote => true
+            </tr><tr>
+          - if @events_day.include?(d.day)
+            %td{:class => "tday teventday #{d.year}_#{d.month}_#{d.day}" }
+              = link_to "#{d.day}", events_of_day_path(d.year, d.month, d.day), :remote => true            
+          - else
+            %td{:class => "tday #{d.year}_#{d.month}_#{d.day}" } #{d.day}
+:javascript
+  $(function(){
+    $(".#{@current_day.year}_#{@current_day.month}_#{@current_day.day}").addClass("current_day");
+  });
+

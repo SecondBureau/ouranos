@@ -22,6 +22,7 @@ Ouranos::Application.routes.draw do
     match "/post/:permalink" => "posts#show", :as => :post, :requirements => { "permalink" => /[-_a-z0-9]/ }
     match "/posts/print/:id" => "posts#print", :as => :post_print
     match "/posts/pdf/:id" => "posts#to_pdf", :as => :post_to_pdf
+    match "/page/:calendar_option/:year/:month" => "pages#index", :as => :page_calendar
     match "/page/:permalink"   => "pages#show", :as => :page, :requirements => { "permalink" => /[-_a-z0-9]/ }
     match "/events/:year/:month/:day" => "events#index", :as => :events_of_day
     mount RailsAdmin::Engine => '/iadmin', :as => 'admin'
