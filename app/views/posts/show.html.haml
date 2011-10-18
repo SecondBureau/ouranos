@@ -22,46 +22,16 @@
       %ul
         - flash.alert.full_messages.each do |msg|
           %li= msg
-  - if !@has_unvalid_commented
-    #add_comment= render "comments/form"
-  - if !current_user
-    #alert_for_guest
-      .alert_message= t("comment.guest.comment")
-      #alert_links
-        %span= link_to t("signup"), new_user_registration_path
-        %span= raw "|"
-        %span= link_to t("signin"), new_user_session_path
-  - elsif current_user.is_of_role?(:user)
-    #alert_for_user
-      .alert_message= raw t("comment.user.comment")
+  #add_comment= render "comments/form"
   #comment_list= render "comment_list"
   
 :javascript
   $(function(){
   
-    function is_guest(){
-      if("#{!current_user}" == "true"){ return true; }
-      return false;
-    }
-  
-    function show_guest_alert(){
-      $("#add_comment").slideUp("slow", function(){ $("#alert_for_guest").slideDown("slow"); });
-      if($("#alert_for_guest").css("display") == "block"){
-        $("#alert_for_guest").fadeOut("slow", function(){ $(this).fadeIn(); });
-      }
-      return false;
-    }
-    
-    if(is_guest()){
-      $("textarea").mousedown(show_guest_alert);
-      $("form").submit(show_guest_alert);
-    }
-
     $(".print_icon").click(function(){
-      if(is_guest()){ show_guest_alert(); return;}
       var w = 1020;
       var left = (screen.width/2)-(w/2);
-      var printwindow = window.open ("#{main_app.post_print_path(@post)}", "print",
+      var printwindow = window.open ("#{main_app.post_print_path(@post.id)}", "print",
         "status=no, location=no, menubar=no, toolbar=no, scrollbars=yes, width=1020, height=800");
       printwindow.moveTo(left, 0);
       printwindow.focus();
