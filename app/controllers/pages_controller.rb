@@ -3,11 +3,10 @@ class PagesController < ApplicationController
   before_filter :authenticate_user!, :except => :index
   
   def index
-    @latest_posts = Post.where("is_pinned = ?", 0).limit(5)
-    @pinned_posts = Post.where("is_pinned = ?", 1);
+    @latest_posts = Post.where(:is_pinned => false).limit(5)
+    @pinned_posts = Post.where(:is_pinned => true);
     
-    @categories_top = Category.where(:shows_at_home_page => true)
-    @categories_side = Category.where(:shows_at_sidebar => true)
+    @categories_side = Category.where(:shows_at => :left)
     @most_posts = Post.limit(5)
     @recent_comments = Comment.limit(5)
     @comming_events = Event.limit(5)

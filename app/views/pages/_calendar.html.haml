@@ -33,7 +33,7 @@
             </tr><tr>
           - if @events_day.include?(d.day)
             %td{:class => "tday teventday #{d.year}_#{d.month}_#{d.day}" }
-              = link_to "#{d.day}", events_of_day_path(d.year, d.month, d.day), :remote => true            
+              = link_to "#{d.day}", events_of_day_path(d.year, d.month, d.day), :remote => true
           - else
             %td{:class => "tday #{d.year}_#{d.month}_#{d.day}" } #{d.day}
 :javascript

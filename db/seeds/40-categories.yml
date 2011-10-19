@@ -1,6 +1,6 @@
 Meetings:
   title: Meetings
-  shows_at_home_page: 1
+  shows_at: top
 NextYear:
   title: Next year
-  shows_at_sidebar: 1
+  shows_at: left

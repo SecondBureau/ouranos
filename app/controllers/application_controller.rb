@@ -35,7 +35,7 @@ class ApplicationController < ActionController::Base
 
     def ready_pages
       @pages = Page.all
-      @categories_top = Category.where(:shows_at_home_page => true)
+      @categories_top = Category.where(:shows_at => :top)
     end
 
 end
