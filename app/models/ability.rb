@@ -28,6 +28,7 @@ class Ability
   #
   def as_admin user
     can :manage, :all
+    cannot :new, Comment
   end
   
   #

@@ -1,7 +1,7 @@
 RailsAdmin.config do |config|
   config.authorize_with :cancan
   
-  config.included_models = ["Category", "Page", "Post", "Event", "Comment", "User","Role"]
+  config.excluded_models = ["MemberConfirm", "Subscribe", "Ckeditor::Asset", "Ckeditor::AttachmentFile", "Ckeditor::Picture"]
   
   config.model User do
     object_label_method do
@@ -41,6 +41,27 @@ RailsAdmin.config do |config|
     end
   end
   
+  config.model Comment do
+    list do
+      field :content
+      field :user
+    end
+    edit do
+      field :content, :text do
+        ckeditor true
+      end
+      field :user_id do
+        view_helper :hidden_field
+        partial :form_field
+        def value
+          bindings[:view]._current_user.id
+        end
+        label "_"
+        help "" 
+      end 
+    end
+  end
+  
   config.model Post do
     list do
       field :title
@@ -69,12 +90,9 @@ RailsAdmin.config do |config|
     list do
       field :title
       field :created_at
-      field :page_type
     end
     edit do
       field :title
-      field :permalink
-      field :page_type
       field :content, :text do
         ckeditor true
       end
