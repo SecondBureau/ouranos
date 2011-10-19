@@ -67,6 +67,10 @@ $item_color: #DDDDDD;
   			&:hover{background:#333333; color:#EEEEEE; text-decoration:none;}
   		}
   	}
+  	table{width:100%;}
+  	.weekdays{
+  		th{width:35px;}
+  	}
   	h4{display:inline;}
   	.c_l_arrow{float:left; margin-left:5px;}
   	.c_r_arrow{float:right; margin-right:5px;}

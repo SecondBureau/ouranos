@@ -1,5 +1,5 @@
 #calendar
-  %table{:width => "100%"}
+  %table
     %thead
       %tr
         %th{:colspan => 7, :id => "calendar_month_year"}
@@ -7,20 +7,20 @@
           %h4 #{Date::MONTHNAMES[@beginning_of_month.month]} #{@beginning_of_month.year}
           %span{:class => "c_r_arrow"}= link_to image_tag("ra.png"), page_calendar_path("next", @current_date.year, @current_date.month)
           .clear
-      %tr
-        %th{:width => 35}
+      %tr.weekdays
+        %th
           Mon
-        %th{:width => 35}
+        %th
           Tue
-        %th{:width => 35}
+        %th
           Wed
-        %th{:width => 35}
+        %th
           Thu
-        %th{:width => 35}
+        %th
           Fri
-        %th{:width => 35}
+        %th
           Sat
-        %th{:width => 35}
+        %th
           Sun
     %tbody
       %tr
