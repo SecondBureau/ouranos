@@ -1,11 +1,10 @@
 class CreatePosts < ActiveRecord::Migration
   def change
     create_table :posts do |t|
-      t.string :title
-      t.text :content
-      t.belongs_to :user
-      t.string :post_type
-      t.string :permalink
+      t.string :title, :null => false
+      t.text :content, :null => false
+      t.belongs_to :user, :null => false
+      t.string :permalink, :null => false
 
       t.timestamps
     end

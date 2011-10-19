@@ -6,8 +6,6 @@ aboutus-fr:
   meta_keywords: lipsum
   meta_description: lipsum
   content: lipsum
-  page_type: for_all
-  is_on_top: true
   
 contact-fr:
   uniq: [permalink, locale]
@@ -16,8 +14,6 @@ contact-fr:
   locale: fr
   meta_keywords: lipsum
   meta_description: lipsum
-  page_type: for_all
-  is_on_top: true
   content_textilize: | 
     h1. COMPOSITION DU NOUVEAU CONSEIL D’ADMINISTRATION DE L’APE-LFIP
     

@@ -2,14 +2,7 @@ class Event < ActiveRecord::Base
   default_scope :order => "start_date DESC"
   
   before_save :lipsum
-  
-  def event_type_enum
-    [['for all', 'for_all'], ['for member', 'for_member']]
-  end
-  
-  def date
-    self.start_date
-  end
+  validates_presence_of :title, :content, :start_date
   
   private
   

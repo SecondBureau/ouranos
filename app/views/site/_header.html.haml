@@ -7,5 +7,4 @@
         %li= link_to category.title, main_app.posts_with_category_path(category)
     - if @pages
       - @pages.each do |page|
-        - if page.is_on_top
-          %li= link_to page.title, main_app.page_path(page.permalink)
+        %li= link_to page.title, main_app.page_path(page.permalink)

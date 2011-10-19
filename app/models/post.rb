@@ -6,14 +6,12 @@ class Post < ActiveRecord::Base
   has_many :comments, :as => :commentable
   has_and_belongs_to_many :categories
   
+  validates_presence_of :title, :content
+  
   default_scope :order => 'created_at DESC'
   scope :public_posts, lambda{where("post_type = ?", "for_all")}
   before_save :lipsum
   after_save :set_permalink
-  
-  def post_type_enum
-    [['for all', 'for_all'], ['for member', 'for_member']]
-  end
   
   def to_param
     self.permalink

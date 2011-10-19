@@ -5,7 +5,6 @@ lecture-fr:
   locale: fr
   meta_keywords: lipsum
   meta_description: lipsum
-  post_type: for_all
   user_id: "{:email => 'isabelle.roux@ape-pekin.com'}"
   content_textilize: |
     Nous voila arrivés à Pékin. Les conteneurs sont encore sur quelques océans. Nos valises étaient trop petites. La bibliothèque nos parait bien vide. Que faire pour motiver nos enfants à continuer a lire.
@@ -33,7 +32,6 @@ sport-fr:
   locale: fr
   meta_keywords: lipsum
   meta_description: lipsum
-  post_type: for_all
   user_id: "{:email => 'isabelle.roux@ape-pekin.com'}"
   content_textilize: |
     Activites sportives pour nos enfants
@@ -50,7 +48,6 @@ porteouverte-fr:
   locale: fr
   meta_keywords: lipsum
   meta_description: lipsum
-  post_type: for_all
   user_id: "{:email => 'isabelle.roux@ape-pekin.com'}"
   content_textilize: |
     Samedi 3 septembre 2011

@@ -42,17 +42,26 @@ RailsAdmin.config do |config|
   end
   
   config.model Post do
+    list do
+      field :title
+      field :user
+      field :created_at
+    end
     edit do
       field :title
       field :content, :text do
         ckeditor true
       end
-      field :can_be_subscribed do
-        label "subscribed"
-      end
-      field :post_type
       field :is_pinned
-      field :user
+      field :user_id do
+        view_helper :hidden_field
+        partial :form_field
+        def value
+          bindings[:view]._current_user.id
+        end
+        label "_"
+        help "" 
+      end 
     end
   end
   

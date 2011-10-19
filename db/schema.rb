@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(:version => 20111019032951) do
 
   create_table "categories", :force => true do |t|
-    t.string   "title"
+    t.string   "title",                           :null => false
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -41,9 +41,8 @@ ActiveRecord::Schema.define(:version => 20111019032951) do
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], :name => "idx_ckeditor_assetable_type"
 
   create_table "comments", :force => true do |t|
-    t.text     "content"
-    t.integer  "user_id"
-    t.boolean  "is_valid",         :default => true
+    t.text     "content",          :null => false
+    t.integer  "user_id",          :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "commentable_id"
@@ -51,14 +50,12 @@ ActiveRecord::Schema.define(:version => 20111019032951) do
   end
 
   create_table "events", :force => true do |t|
-    t.string   "title"
-    t.text     "content"
-    t.date     "start_date"
+    t.string   "title",            :null => false
+    t.text     "content",          :null => false
+    t.date     "start_date",       :null => false
     t.date     "end_date"
-    t.integer  "priority"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "event_type"
     t.string   "locale"
     t.string   "meta_keywords"
     t.string   "meta_description"
@@ -75,37 +72,22 @@ ActiveRecord::Schema.define(:version => 20111019032951) do
 
   add_index "member_confirms", ["user_id"], :name => "index_member_confirms_on_user_id"
 
-  create_table "messages", :force => true do |t|
-    t.string   "firstname"
-    t.string   "lastname"
-    t.string   "email"
-    t.text     "content"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "messages", ["user_id"], :name => "index_messages_on_user_id"
-
   create_table "pages", :force => true do |t|
-    t.string   "title"
-    t.text     "content"
-    t.string   "permalink"
-    t.string   "page_type"
+    t.string   "title",            :null => false
+    t.text     "content",          :null => false
+    t.string   "permalink",        :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "locale"
     t.string   "meta_keywords"
     t.string   "meta_description"
-    t.boolean  "is_on_top"
   end
 
   create_table "posts", :force => true do |t|
-    t.string   "title"
-    t.text     "content"
-    t.integer  "user_id"
-    t.string   "post_type"
-    t.string   "permalink"
+    t.string   "title",                                :null => false
+    t.text     "content",                              :null => false
+    t.integer  "user_id",                              :null => false
+    t.string   "permalink",                            :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "can_be_subscribed", :default => true
@@ -131,22 +113,10 @@ ActiveRecord::Schema.define(:version => 20111019032951) do
   add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
 
   create_table "roles", :force => true do |t|
-    t.string   "name"
+    t.string   "name",       :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  create_table "settings", :force => true do |t|
-    t.string   "name"
-    t.string   "value"
-    t.string   "locale"
-    t.string   "tooltip"
-    t.boolean  "admin_only", :default => false, :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "settings", ["name", "locale"], :name => "index_settings_on_name_and_locale", :unique => true
 
   create_table "subscribes", :force => true do |t|
     t.integer  "user_id"
@@ -171,9 +141,9 @@ ActiveRecord::Schema.define(:version => 20111019032951) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.integer  "role_id"
-    t.string   "firstname"
-    t.string   "lastname"
+    t.integer  "role_id",                                               :null => false
+    t.string   "firstname",                                             :null => false
+    t.string   "lastname",                                              :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "expiry_date"

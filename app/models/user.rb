@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
   has_many :comments, :as => :commentable
   has_one :member_confirm
   
+  validates_presence_of :firstname, :lastname
+  
   def is_of_role? role_name
     be_user if !self.role
     if self.role.name == :member && self.expiry_date < Time.now

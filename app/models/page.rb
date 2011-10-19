@@ -2,7 +2,6 @@ class Page < ActiveRecord::Base
   
   require 'lipsum'
   
-  scope :public_pages, lambda{ where("page_type = 'for_all'") }
   scope :available, lambda { where(:locale => $available_locales)}
   scope :notme, lambda {|id| id.nil? ? where('1=1') : where('id <> ?', id)}
   
@@ -16,10 +15,6 @@ class Page < ActiveRecord::Base
   before_validation :check_locale
   before_validation :check_permalink
   before_save :lipsum
-  
-  def page_type_enum
-    [['for all', 'for_all'], ['for member', 'for_member']]
-  end
   
   private
   
