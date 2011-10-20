@@ -13,12 +13,12 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem 'therubyracer'
 
 group :development do
   gem 'sqlite3'
   gem 'pry'
   gem 'heroku_san'
+  gem 'therubyracer'
 end
 
 gem 'table_builder', '0.0.3', :git => 'git://github.com/jchunky/table_builder.git'
@@ -44,10 +44,11 @@ gem 'meta_search'
 
 group :production do
   gem 'pg'
-  gem 'therubyracer-heroku'
+  #gem 'therubyracer-heroku'
   gem 'fog'
 end
 
 gem 'rack-cache'
 
 gem 'RedCloth'
+

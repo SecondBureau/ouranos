@@ -25,7 +25,8 @@ Ouranos::Application.routes.draw do
     match "/events/:year/:month/:day" => "events#index", :as => :events_of_day
     mount RailsAdmin::Engine => '/admin', :as => 'admin'
   end
-  
+
   root :to => 'pages#index'
 
 end
+
