@@ -98,6 +98,9 @@ RailsAdmin.config do |config|
       end
     end
   end
+  
+  config.model Category do
+  end
 
   def custom_label_method
     "[#{self.role.name}] #{self.firstname} #{self.lastname}"
