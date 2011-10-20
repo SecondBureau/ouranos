@@ -1,225 +1,4 @@
-# French translations for Ruby on Rails
-# by Christian Lescuyer (christian@flyingcoders.com)
-# contributors:
-#  - Sebastien Grosjean - ZenCocoon.com
-#  - Bruno Michel - http://github.com/nono
-#  - Tsutomu Kuroda - http://github.com/kuroda (t-kuroda@oiax.jp)
-
 fr:
-  date:
-    formats:
-      default: "%d/%m/%Y"
-      short: "%e %b"
-      long: "%e %B %Y"
-    day_names:
-      - dimanche
-      - lundi
-      - mardi
-      - mercredi
-      - jeudi
-      - vendredi
-      - samedi
-    abbr_day_names:
-      - dim
-      - lun
-      - mar
-      - mer
-      - jeu
-      - ven
-      - sam
-    month_names:
-      - ~
-      - janvier
-      - février
-      - mars
-      - avril
-      - mai
-      - juin
-      - juillet
-      - août
-      - septembre
-      - octobre
-      - novembre
-      - décembre
-    abbr_month_names:
-      - ~
-      - jan.
-      - fév.
-      - mar.
-      - avr.
-      - mai
-      - juin
-      - juil.
-      - août
-      - sept.
-      - oct.
-      - nov.
-      - déc.
-    order:
-      - :day
-      - :month
-      - :year
-
-  time:
-    formats:
-      default: "%d %B %Y %H:%M:%S"
-      short: "%d %b %H:%M"
-      long: "%A %d %B %Y %H:%M"
-    am: 'am'
-    pm: 'pm'
-
-  datetime:
-    distance_in_words:
-      half_a_minute: "une demi-minute"
-      less_than_x_seconds:
-        zero:  "moins d'une seconde"
-        one:   "moins d'une seconde"
-        other: "moins de %{count} secondes"
-      x_seconds:
-        one:   "1 seconde"
-        other: "%{count} secondes"
-      less_than_x_minutes:
-        zero:  "moins d'une minute"
-        one:   "moins d'une minute"
-        other: "moins de %{count} minutes"
-      x_minutes:
-        one:   "1 minute"
-        other: "%{count} minutes"
-      about_x_hours:
-        one:   "environ une heure"
-        other: "environ %{count} heures"
-      x_days:
-        one:   "1 jour"
-        other: "%{count} jours"
-      about_x_months:
-        one:   "environ un mois"
-        other: "environ %{count} mois"
-      x_months:
-        one:   "1 mois"
-        other: "%{count} mois"
-      about_x_years:
-        one:   "environ un an"
-        other: "environ %{count} ans"
-      over_x_years:
-        one:   "plus d'un an"
-        other: "plus de %{count} ans"
-      almost_x_years:
-        one:   "presqu'un an"
-        other: "presque %{count} ans"
-    prompts:
-      year:   "Année"
-      month:  "Mois"
-      day:    "Jour"
-      hour:   "Heure"
-      minute: "Minute"
-      second: "Seconde"
-
-  number:
-    format:
-      separator: ","
-      delimiter: " "
-      precision: 3
-      significant: false
-      strip_insignificant_zeros: false
-    currency:
-      format:
-        format: "%n %u"
-        unit: "€"
-        separator: ","
-        delimiter: " "
-        precision: 2
-        significant: false
-        strip_insignificant_zeros: false
-    percentage:
-      format:
-        delimiter: ""
-    precision:
-      format:
-        delimiter: ""
-    human:
-      format:
-        delimiter: ""
-        precision: 2
-        significant: true
-        strip_insignificant_zeros: true
-      storage_units:
-        format: "%n %u"
-        units:
-          byte:
-            one:   "octet"
-            other: "octets"
-          kb: "ko"
-          mb: "Mo"
-          gb: "Go"
-          tb: "To"
-      decimal_units:
-        format: "%n %u"
-        units:
-          unit: ""
-          thousand: "millier"
-          million: "million"
-          billion: "milliard"
-          trillion: "billion"
-          quadrillion: "million de milliards"
-
-  support:
-    array:
-      words_connector: ", "
-      two_words_connector: " et "
-      last_word_connector: " et "
-    select:
-      prompt: "Veuillez sélectionner"
-
-  helpers:
-    select:
-      prompt: "Veuillez sélectionner"
-    submit:
-      create: "Créer un(e) %{model}"
-      update: "Modifier ce(tte) %{model}"
-      submit: "Enregistrer ce(tte) %{model}"
-
-  attributes:
-    created_at: "Créé le"
-    updated_at: "Modifié le"
-
-  errors:
-    format: "Le %{attribute} %{message}"
-    messages: &errors_messages
-      inclusion: "n'est pas inclus(e) dans la liste"
-      exclusion: "n'est pas disponible"
-      invalid: "n'est pas valide"
-      confirmation: "ne concorde pas avec la confirmation"
-      accepted: "doit être accepté(e)"
-      empty: "doit être rempli(e)"
-      blank: "doit être rempli(e)"
-      too_long: "est trop long (pas plus de %{count} caractères)"
-      too_short: "est trop court (au moins %{count} caractères)"
-      wrong_length: "ne fait pas la bonne longueur (doit comporter %{count} caractères)"
-      not_a_number: "n'est pas un nombre"
-      not_an_integer: "doit être un nombre entier"
-      greater_than: "doit être supérieur à %{count}"
-      greater_than_or_equal_to: "doit être supérieur ou égal à %{count}"
-      equal_to: "doit être égal à %{count}"
-      less_than: "doit être inférieur à %{count}"
-      less_than_or_equal_to: "doit être inférieur ou égal à %{count}"
-      odd: "doit être impair"
-      even: "doit être pair"
-    template: &errors_template
-      header:
-        one:   "Impossible d'enregistrer ce(tte) %{model} : 1 erreur"
-        other: "Impossible d'enregistrer ce(tte) %{model} : %{count} erreurs"
-      body: "Veuillez vérifier les champs suivants : "
-
-  activerecord:
-    errors:
-      messages:
-        taken: "n'est pas disponible"
-        record_invalid: "La validation a échoué : %{errors}"
-        <<: *errors_messages
-      template:
-        <<: *errors_template
-      full_messages:
-        format: "%{attribute} %{message}"
   ok: OK
   home:
     title: Accueil
@@ -227,19 +6,19 @@ fr:
     title: Evénement
     latest: En ce moment
     none: Aucun événement sur cette période.
-    comming: Comming events
-    ofday: Events in 
-  category: Categories
+    comming: Prochains événéments
+    ofday: Aujourd'hui
+  category: Catégories
   blog:
     title: Articles
     latest: Derniers articles
-    mostread: Most read posts
-    pinned: Pinned articles
+    mostread: Les plus lus
+    pinned: Actualités
   print:
     print: Imprimer cet article
     pdf: Exporter cet article en PDF
   comment:
-    recent: Recent comments
+    recent: Derniers commentaires
     valid:
       added: Votre commentaire a bien été ajouté.
     guest:
@@ -258,30 +37,31 @@ fr:
     send_me_password: Envoyez-moi mon mot de passe.
     remember_me: Se souvenir de moi
     forgot_password: Mot de passe oublié ?
-    title: User Center
+    title: Votre compte
     member: Membre?
     bemember: Je veux devenir membre.
     alreadymember: Vous êtes membre.
     memberdesc: Devenez membre pour recevoir davantage d'information.
-    memberdesc_getemail: Click the following red button to get a confirm email.
-    has_send_member_confirmation: You have been sent a confirm email. 
-    please_check_email: Please check your email.
+    memberdesc_getemail: Cliquez sur le bouton rouge pour recevoir les informations demandées.
+    has_send_member_confirmation: Vous allez recevoir un email de confirmation.
+    please_check_email: Veuillez vérifier votre boite aux lettres électroniques.
   subscribe:
-    title: Subscribe Center
-    cycle: Cycle：
-    button: Subscribe
+    title: Abonnements
+    cycle: Périodicité：
+    button: S'abonner
     description:
-      title: Choose content and cycle
+      title: Choisissez la périodicité
     results:
-      title: Already exsites subscribtions
-    posts: Number of latest posts
-    events: Number of latest events
-    nonymous_user: Please sign in to subscribe content of APE LFIP
-    testlink: Get a test newsletter to see what it is like? (After click, please check your email.)
+      title: Abonnements actuels
+    posts: Nombre d'articles
+    events: Nombre d'événements
+    nonymous_user: Connectez-vous pour vous abonner à la newsletter de l'APE.
+    testlink: Cliquez pour recevoir un exemplaire de démonstration.
   search:
-    title: Search
-    posts: Searched posts
-    events: Searched events
-    postsnothing: Can not find any posts
-    eventsnothing: Can not find any events
-  more: MORE
+    title: Chercher
+    posts: Articles correspondants à votre recherche
+    events: Evénements correspondants à votre recherche
+    postsnothing: Aucun
+    eventsnothing: Aucune
+  more: D'avantage
+
