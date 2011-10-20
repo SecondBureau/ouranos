@@ -1,129 +1,32 @@
-// Place all the styles related to the Pages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
 
-$item_color: #DDDDDD;
-
-#pages {
-  h1 {font-size:17px;}
-  h2 {font-size:15px;}
-  p {font-size:13px;}
-  ul {font-size:13px; margin:6px 0 0 20px; list-style:disc; 
-    li {margin:0px; padding:0px; line-height:17px; 
-      ul {margin:0px 0 0 30px; list-style:none; 
-        li {font-style:italic;}
-      }
-    }
-  }
+@mixin box-shadow(){
+	box-shadow: 1px 2px 2px #333;
+	-moz-box-shadow: 1px 2px 2px #333;
+	-webkit-box-shadow: 1px 2px 2px #333;
 }
 
-#home_wrapper{padding:10px 10px; position:relative;
-  #left_side_bar, #right_side_bar, #home_content{float:left; width:210px;}
-  #home_content{width:500px; margin-left:10px;}
-  #right_side_bar{float:right;}
-   .latest_posts{
-    .home_item_title{
-      h2{display:inline-block; margin:10px 0px;}
-    }
-  }
-  #calendar, #categories, #most_read_posts, #recent_comments, #coming_events{
-  	margin-bottom:10px; min-height:100px; line-height:25px;
-  	color:#FFF;
-  	font-weight:bold;
-  	h3{padding:3px 5px; color:#FFF;}
-  }
-  #calendar, #slides, #categories{
-  	box-shadow: 1px 1px 2px #000;
-  }
-  #most_read_posts, #recent_comments, #coming_events{
-  	h3{
-  		box-shadow: 1px 1px 2px #000;
-  	}
-  }
-  #categories{
-  	background:#a80000;
-  }
-  #most_read_posts{
-  	h3{background:#333;}
-  }
-  #recent_comments{
-  	h3{background:#666;}
-  }
-  #coming_events{
-  	h3{background:#999;}
-  }
-  #categories, #most_read_posts, #recent_comments, #coming_events{
-  	ul{padding:3px;
-  		li{
-  			a{color:#FFF;}
-  		}
-  	}
-  }
-  #categories{
-  	ul{margin:0px 7px;}
-  }
-  #calendar{background:#646464;
-  	td{text-align:center;}
-  	#calendar_month_year{text-align:center; font-size:18px; padding:5px 0px;}
-  	#calendar_dates{padding:5px; background:#CCCCCC;
-  		a{color:#333333; margin:3px; padding:1px; font-weight:bold; color:#FFF;
-  			&:hover{background:#333333; color:#EEEEEE; text-decoration:none;}
-  		}
-  	}
-  	table{width:100%;}
-  	.weekdays{
-  		th{width:35px;}
-  	}
-  	h4{display:inline;}
-  	.c_l_arrow{float:left; margin-left:5px;}
-  	.c_r_arrow{float:right; margin-right:5px;}
-  	.teventday{background:#333; color:#FFF; border-bottom:1px solid #C5FF00;}
-  }
-}
-.current_day{background:#a80000; color:#FFF;}
-
-#event_for_day{
-	position:absolute; 
-	top:15px; 
-	width:600px; 
-	height:300px; 
-	left:230px; 
-	background:#DDD;
-	box-shadow: 0px 0px 50px #21070A;
-	-moz-box-shadow: 0px 0px 50px #21070A;
-	-webkit-box-shadow: 0px 0px 50px #21070A;
-	border-radius: 4px;
-	-moz-border-radius: 4px;
-	-webkit-border-radius: 4px;
-	#close_image{
-		display: none;
-		cursor: pointer;
-		position: absolute;
-		right: -8px;
-		top: -8px;
+#current_content_wrapper{padding:30px 20px;
+	.home_item_title{padding:5px; font-size:16px; font-weight:bold; color:#EEE; font-family:tahoma;
+		h1{display:inline-block; margin:10px 0px;}
+		span{float:right; font-size:12px;
+			a{text-decoration:underline; color:#333333;}
+		}
 	}
-	a{
-		color: #000;
+	.home_item_content{padding:5px;
+		ul{
+			li{
+			  a{color:#000000;}
+			  &.post_title{font-size:18px; font-weight:bold;}
+			  &.post_content{color:#FFF; line-height:25px;}
+			  &.post_split_line{border-bottom:1px dashed #333; margin:20px 150px;}
+			}
+		}
 	}
-	#events_content{
-		padding: 20px;
-		display: none;
-		h2{margin-bottom:15px;}
+	.main_split_line{margin:15px 20px 10px 20px; border-bottom:1px dashed #555;}
+	
+	#page_content{line-height:25px;
+		h1{line-height:45px;}
+		h2{line-height:35px;}
+		h3{line-height:25px;}
 	}
-}
-
-.home_item_title{padding:5px; font-size:16px; font-weight:bold; color:#FFFFFF;
-  span{float:right; font-size:12px;
-    a{text-decoration:underline; color:#333333;}
-  }
-}
-.home_item_content{padding:5px; line-height:25px;
-  ul{
-    li{
-      a{color:#000000;}
-      &.post_title{font-size:18px; font-weight:bold;}
-      &.post_content{padding-bottom:10px; margin-bottom:10px; border-bottom:1px dashed #666; color:#FFF;}
-    }
-  }
-  
 }

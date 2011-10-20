@@ -5,9 +5,9 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.recoverable
       t.rememberable
       t.trackable
-      t.belongs_to :role, :null => false
-      t.string :firstname, :null => false
-      t.string :lastname, :null => false
+      t.belongs_to :role
+      t.string :firstname, :null => false, :default => "Firs tName"
+      t.string :lastname, :null => false, :default => "Last Name"
 
 
       t.timestamps

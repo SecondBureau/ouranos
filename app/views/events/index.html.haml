@@ -1,9 +1,8 @@
-=render "sidebar"
-#current_content
-  #calendar
+#current_content_wrapper
+  #big_calendar
 :javascript
   $(function(){
-      $("#calendar").fullCalendar({
+      $("#big_calendar").fullCalendar({
         header: {
           left: 'prev,next today',
           center: 'title',
@@ -13,7 +12,7 @@
         events: "#{main_app.events_path}.json",
         loading: function(loading){
           if (loading){
-            $('#calendar').block({ 
+            $('#big_calendar').block({ 
                 message: '<h3>Processing</h3>',
                 showOverlay: true,
                 overlayCSS: { 
@@ -32,7 +31,7 @@
                 }
             }); 
           }else{
-            $('#calendar').unblock(); 
+            $('#big_calendar').unblock(); 
           }
         }
       })

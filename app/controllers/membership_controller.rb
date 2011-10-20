@@ -1,6 +1,6 @@
 class MembershipController < ApplicationController
   
-  before_filter :check_member_confirmation
+  before_filter :authenticate_user!, :check_member_confirmation
   
   def index
     @wana_be_member = true
@@ -12,6 +12,7 @@ class MembershipController < ApplicationController
       member_confirm = OuranosMailer.membership_confirm(current_user, token)
       member_confirm.deliver
       MemberConfirm.create({:user => current_user, :send_date => Time.now, :token => token})
+      redirect_to main_app.root_path
     end
   end
   
@@ -32,12 +33,12 @@ class MembershipController < ApplicationController
     end
   end
   
-private
-  
-  def check_member_confirmation
-    if current_user && current_user.is_of_role?(:user) && current_user.member_confirm
-      @has_send_confirm_email = true
+  private
+    
+    def check_member_confirmation
+      if current_user && current_user.is_of_role?(:user) && current_user.member_confirm
+        @has_send_confirm_email = true
+      end
     end
-  end
 
 end

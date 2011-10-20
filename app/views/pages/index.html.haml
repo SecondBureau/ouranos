@@ -1,26 +1,4 @@
-#home_wrapper
-  #event_for_day{:style => "display:none;"}
-    #close_image= image_tag("apple-close.png")
-    #events_content
-      #events_list
-  =render "home_left_sidebar"
-  #home_content.latest_posts
-    .home_item_title
-      %h2= t("blog.pinned")
-    .home_item_content
-      %ul
-        - @pinned_posts.each do |post|
-          %li.post_title= link_to post.title, main_app.post_path(post)
-          %li.post_content= raw truncate(post.content, :length => 325, :omission => '... (continued)')
-    #split_line{:style => "margin:10px 0px; border-bottom:2px solid #555;"}
-    .home_item_title
-      %h2= t("blog.latest")
-      %span= link_to t("more"), main_app.posts_path
-    .home_item_content
-      %ul
-        - @latest_posts.each do |post|
-          %li.post_title= link_to post.title, main_app.post_path(post)
-          %li.post_content= raw truncate(post.content, :length => 325, :omission => '... (continued)')
-    .clear
-  =render "home_right_sidebar"
-  .clear
+#current_content_wrapper
+  = render "pinned_posts"
+  .main_split_line
+  = render "recent_posts"

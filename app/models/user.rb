@@ -23,7 +23,7 @@ class User < ActiveRecord::Base
   
   private
     def be_user
-      self.role = Role.where("name = ?", "user").first
+      self.role = Role.where("name = ?", "member").first
       save
     end
   

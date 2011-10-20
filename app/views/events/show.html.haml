@@ -1,5 +1,4 @@
-=render "sidebar"
-#current_content
+#current_content_wrapper
   #event_title= @event.title
   #event_date_show
     - if !@event.end_date
@@ -7,4 +6,3 @@
     - else
       = raw("#{@event.start_date} ~ #{@event.end_date}")
   #event_content= @event.content
-.clear

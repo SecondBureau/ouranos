@@ -1,0 +1,49 @@
+.home_side_block#calendar
+  %h3.home_side_block_title= link_to t("events"), main_app.events_path
+  .home_side_block_content
+    %table
+      %thead
+        %tr
+          %th{:colspan => 7, :id => "calendar_month_year"}
+            %span{:class => "c_l_arrow"}= link_to image_tag("la.png"), page_calendar_path("pre", @current_date.year, @current_date.month)
+            %h4 #{Date::MONTHNAMES[@beginning_of_month.month]} #{@beginning_of_month.year}
+            %span{:class => "c_r_arrow"}= link_to image_tag("ra.png"), page_calendar_path("next", @current_date.year, @current_date.month)
+            .clear
+        %tr.weekdays
+          %th
+            Mon
+          %th
+            Tue
+          %th
+            Wed
+          %th
+            Thu
+          %th
+            Fri
+          %th
+            Sat
+          %th
+            Sun
+      %tbody
+        %tr
+          - (@beginning_of_month..@end_of_month).each do |d|
+            - t = d.wday == 0 ? 6 : d.wday - 1
+            - if d == @beginning_of_month
+              - t.times do # offset beginning of calendar
+                %td.offset
+            - if t == 0 #restart the week
+              </tr><tr>
+            - if @events_day.include?(d.day)
+              %td{:class => "tday teventday #{d.year}_#{d.month}_#{d.day}" }
+                = link_to "#{d.day}", events_of_day_path(d.year, d.month, d.day), :remote => true
+            - else
+              %td{:class => "tday #{d.year}_#{d.month}_#{d.day}" } #{d.day}
+    #calendar_split_line
+    %ul#comming_events
+      - @comming_events.each do |event|
+        %li= link_to truncate(event.title, :length => 38, :omission => '... '), event_path(event)
+:javascript
+  $(function(){
+    $(".#{@current_day.year}_#{@current_day.month}_#{@current_day.day}").addClass("current_day");
+  });
+

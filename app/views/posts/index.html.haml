@@ -1,8 +1,8 @@
-=render "sidebar"
-#current_content
+#current_content_wrapper
   - if @category
     %h1#category_title= @category.title
+  - else
+    %h1#category_title= t("blog.title")
   %ul#post_list
     =render :partial => "post_item", :collection => @posts, :as => :post
   = paginate @posts
-.clear

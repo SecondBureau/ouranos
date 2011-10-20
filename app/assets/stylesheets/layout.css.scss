@@ -19,11 +19,18 @@ $header_shadow: 0px -2px 5px #333333;
   -moz-box-shadow:2px 1px 3px #333333;
 }
 
+@mixin box-shadow(){
+	box-shadow: 1px 2px 2px #333;
+	-moz-box-shadow: 1px 2px 2px #333;
+	-webkit-box-shadow: 1px 2px 2px #333;
+}
+
 body{
-  background: #6B696A;
+  background: #7D7874;
   #header_wrapper{background:#000000; position:fixed; width:100%; z-index:1000;
     #header{margin: 0px auto; width:$page_width;
-      #head_nav{float:left; padding:10px 0px;
+    	#home_link{display:inline; float:left;}
+      #head_nav{float:left; padding:8px 0px;
         ul{
           li{float:left;
             a{
@@ -37,34 +44,34 @@ body{
     }
     #account{float:right; position:relative;
       ul{
-        li{float:left;
+        li{float:left; margin-left:2px;
         	&.search{background:#a70000;}
         	&.locale{background:#969696;}
         	&.user{background:#666666;}
-        	margin-left:2px; 
+        	&.locale, &.user{
+        		img{margin:3px 0px 0px 3px;}
+        	}
           a{
           	font-weight: bolder;
           	font-size: 16px;
           	display: block;
-          	height: 34px;
-          	width: 35px;
-          	img{margin: 5px 0px 0px 5px;}
-          	span{margin: 10px 0px 0px 7px;display: inline-block;}
+          	height: 30px;
+          	width: 30px;
           }
         }
       }
       .locales{
       	position: absolute;
       	display: none;
-      	top: 34px;
-      	left: 37px;
+      	top: 30px;
+      	left: 32px;
       	li{background:#666;}
       }
       .user_links{
       	position: absolute;
       	background: #666;
       	display: none;
-      	top: 34px;
+      	top: 30px;
       }
     }
   }
@@ -74,75 +81,107 @@ body{
   	bottom:0px;
   	width:100%; 
   	z-index:1000;
-  	#footer{text-align:center; padding:15px 0px; margin: 0px auto; width:$page_width;}
+  	#footer{text-align:center; padding:10px 0px; margin: 0px auto; width:$page_width;}
   }
 
-  #body_wrapper{
-  	margin: 0px auto; 
-  	padding: 34px 0px 44px 0px;
+  #body_wrapper{position:relative;
+  	margin: 0px auto 20px auto; 
+  	padding: 30px 0px 44px 0px;
   	width:$page_width; 
-  	background:#868686; 
-  	#home_banner{
-			border: 1px solid #666666;
-			height:200px;
-			margin: 10px 10px 0px 10px;
-		}
     #notice{
+    	position:fixed;
+    	top: 30px;
+    	width: $page_width;
     	display:none; 
-    	padding:20px 0px; 
-    	background:#333333; 
+    	padding:30px 0px; 
+    	background:#555; 
     	color:#FFFFFF; 
     	text-align:center; 
     	font-size:16px; 
-    	margin:10px 15px 0px 15px; 
+    	margin:0px 0px 10px 0px; 
     	font-weight:bold;
+    	z-index:100;
    	}
     #alert{
+    	position:fixed;
+    	top: 30px;
+    	width: $page_width;
     	display:none; 
-    	padding:20px 0px; 
+    	padding:30px 0px; 
     	background:#F47A7A; 
     	color:#FFFFFF; 
     	text-align:center; 
     	font-size:16px; 
-    	margin:10px 15px 0px 15px; 
+    	margin:0px 0px 10px 0px; 
     	font-weight:bold;
     }
-    #content{
-      #current_content{
-      	min-height:400px; 
-      	width:730px; 
-      	float:right; 
-      	margin:15px 15px 15px 0px; 
-      	padding-top:20px; 
-      	line-height:25px;
-      }
-      #side_bar{width:200px; float:left; margin-top:15px; margin-bottom:20px;
-        #title{
-        	background:#A0180A; 
-        	padding:8px 15px 8px 5px; 
-        	color:#FFFFFF; 
-        	font-size:18px; 
-        	font-weight:bold; 
-        	text-align:right; 
-        	@include title_border; 
-        	margin-right:20px; 
-        	margin-bottom:20px;
-        }
-        h2{text-align:right; margin-right:15px;}
-        #side_operations{float:right; text-align:right; padding:10px 0px; border-right:1px dashed #777777;
-          ul{
-            li{border-bottom:1px solid #999999;
-              a{display:block; padding:10px 15px; font-size:16px; color:#333333; font-weight:bold; text-decoration:none;
-                &:hover{background:#959595; color:#FFFFFF;}
-                &.select{background:#808080; color:#FFFFFF;}
-              }
-            }
-          }
-        }
-      }
+    #content{position:relative;
+    	#side_bar{float:left; width:310px;
+				#site_logo{padding:30px 0px 40px 10px;}
+				.home_side_block{margin-bottom:10px; line-height:25px; color:#FFF;
+					.home_side_block_title{@include box-shadow(); padding:3px 15px; color:#FFF; background:#333; position:relative;}
+					.home_side_block_content{margin:0px 6px; padding:5px 10px; background:#9b9591; @include box-shadow();
+						li{
+							a{color:#FFF;}
+						}
+					}
+				}
+				#calendar{
+					td{text-align:center;}
+					#calendar_month_year{text-align:center; font-size:18px; padding:5px 0px;}
+					#calendar_dates{padding:5px; background:#CCCCCC;
+						a{color:#333333; margin:3px; padding:1px; font-weight:bold; color:#FFF;
+							&:hover{background:#333333; color:#EEEEEE; text-decoration:none;}
+						}
+					}
+					table{width:100%; font-weight:bold;}
+					#calendar_split_line{border-bottom:1px dashed #333; margin:20px 50px 15px 50px;}
+					#comming_events{margin-bottom:10px;}
+					.weekdays{
+						th{width:35px;}
+					}
+					h4{display:inline;}
+					.c_l_arrow{float:left; margin-left:35px;}
+					.c_r_arrow{float:right; margin-right:35px;}
+					.teventday{background:#333; color:#FFF; border-bottom:1px solid #C5FF00;}
+				}
+			}
+			#current_content{float:left; width:620px; margin-left:30px; background:#9b9591; @include box-shadow();
+				#site_image{height:189px; background:url("home_image.jpg") no-repeat;}
+				#current_content_wrapper{padding:30px 20px;}
+			}
     }
   }
 
+}
+
+.current_day{background:#a80000; color:#FFF;}
+
+#event_for_day{
+	position:absolute; 
+	top:165px; 
+	width:600px; 
+	height:300px; 
+	left:180px; 
+	background:#DDD;
+	box-shadow: 0px 0px 50px #21070A;
+	-moz-box-shadow: 0px 0px 50px #21070A;
+	-webkit-box-shadow: 0px 0px 50px #21070A;
+	#close_image{
+		display: none;
+		cursor: pointer;
+		position: absolute;
+		right: -8px;
+		top: -8px;
+	}
+	a{
+		color: #000;
+	}
+	#events_content{
+		padding: 20px;
+		display: none;
+		h2{margin-bottom:15px;}
+	}
 }
 
 .form_errors{display:hidden; text-align:center; background:#FF5555; padding:10px; font-weight:bold;}
