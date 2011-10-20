@@ -1,6 +1,5 @@
 .home_item_title
   %h1= t("blog.latest")
-  %span= link_to t("more"), main_app.posts_path
 .home_item_content
   %ul
     - @latest_posts.each do |post|
