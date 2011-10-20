@@ -1,4 +1,4 @@
-unless $init_rails_admin.nil? do
+unless $init_rails_admin
 
 RailsAdmin.config do |config|
   config.authorize_with :cancan
