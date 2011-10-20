@@ -13,7 +13,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem 'therubyracer'
+#gem 'therubyracer'
 
 group :development do
   gem 'sqlite3'
@@ -44,10 +44,11 @@ gem 'meta_search'
 
 group :production do
   gem 'pg'
-  gem 'therubyracer-heroku'
+  #gem 'therubyracer-heroku'
   gem 'fog'
 end
 
 gem 'rack-cache'
 
 gem 'RedCloth'
+

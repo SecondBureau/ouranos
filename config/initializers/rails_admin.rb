@@ -1,8 +1,10 @@
+unless $init_rails_admin.nil? do
+
 RailsAdmin.config do |config|
   config.authorize_with :cancan
-  
+
   config.excluded_models = ["MemberConfirm", "Subscribe", "Ckeditor::Asset", "Ckeditor::AttachmentFile", "Ckeditor::Picture"]
-  
+
   config.model User do
     object_label_method do
       :custom_label_method
@@ -27,7 +29,7 @@ RailsAdmin.config do |config|
       field :sign_in_count
       field :last_sign_in_at
     end
-    edit do 
+    edit do
       field :email
       field :role do
         visible do
@@ -40,7 +42,7 @@ RailsAdmin.config do |config|
       field :password_confirmation
     end
   end
-  
+
   config.model Comment do
     list do
       field :content
@@ -57,11 +59,11 @@ RailsAdmin.config do |config|
           bindings[:view]._current_user.id
         end
         label "_"
-        help "" 
-      end 
+        help ""
+      end
     end
   end
-  
+
   config.model Post do
     list do
       field :title
@@ -81,11 +83,11 @@ RailsAdmin.config do |config|
           bindings[:view]._current_user.id
         end
         label "_"
-        help "" 
-      end 
+        help ""
+      end
     end
   end
-  
+
   config.model Page do
     list do
       field :title
@@ -104,3 +106,6 @@ RailsAdmin.config do |config|
   end
 
 end
+
+end
+
