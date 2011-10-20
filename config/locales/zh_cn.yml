@@ -58,3 +58,6 @@ zh_cn:
     postsnothing: 未找到相关的文章
     eventsnothing: 为找到相关的活动
   more: 更多
+  system:
+  	link:
+  		expired: 链接已经失效

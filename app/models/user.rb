@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
   has_many :comments, :as => :commentable
   has_one :member_confirm
   
+  after_create :send_membership_email
+  
   validates_presence_of :firstname, :lastname
   
   def is_of_role? role_name
@@ -25,6 +27,13 @@ class User < ActiveRecord::Base
     def be_user
       self.role = Role.where("name = ?", "member").first
       save
+    end
+    
+    def send_membership_email
+      token = SecureRandom.hex(16)
+      member_confirm = OuranosMailer.membership_confirm(self, token)
+      member_confirm.deliver
+      MemberConfirm.create({:user => self, :send_date => Time.now, :token => token})
     end
   
 end

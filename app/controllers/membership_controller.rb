@@ -18,19 +18,20 @@ class MembershipController < ApplicationController
   
   def update
     user = User.find(params[:id])
-    if !current_user
-      sign_in(user)
-    elsif current_user.email != user.email
-      sign_out(current_user)
-      sign_in(user)
-    end
-    
     if user.member_confirm.token == params[:token]
-      user.role = Role.where("name = ?", "member").first
+      if !current_user
+        sign_in(user)
+      elsif current_user.email != user.email
+        sign_out(current_user)
+        sign_in(user)
+      end
       user.member_confirm.delete
       user.save
-      redirect_to main_app.root_path, :notice => "You are a member now."
+      redirect_to main_app.root_path, :notice => t("account.alreadymember")
+    else
+      redirect_to main_app.root_path, :notice => t("system.link.expired")
     end
+    
   end
   
   private
