@@ -6,7 +6,7 @@ lecture-fr:
   meta_keywords: lipsum
   meta_description: lipsum
   is_pinned: true
-  user_id: "{:email => 'gilles@secondbureau.com'}"
+  user_id: "{:email => 'isabelle.roux@ape-pekin.com'}"
   content_textilize: |
     Nous voila arrivés à Pékin. Les conteneurs sont encore sur quelques océans. Nos valises étaient trop petites. La bibliothèque nos parait bien vide. Que faire pour motiver nos enfants à continuer a lire.
     A Pékin, nous avons plusieurs sources de lecture.
@@ -33,7 +33,7 @@ sport-fr:
   locale: fr
   meta_keywords: lipsum
   meta_description: lipsum
-  user_id: "{:email => 'gilles@secondbureau.com'}"
+  user_id: "{:email => 'isabelle.roux@ape-pekin.com'}"
   content_textilize: |
     Activites sportives pour nos enfants
     ASC : responsable Mme LeGuillou : demarrage vers le 15 Octobre
@@ -49,7 +49,7 @@ porteouverte-fr:
   locale: fr
   meta_keywords: lipsum
   meta_description: lipsum
-  user_id: "{:email => 'gilles@secondbureau.com'}"
+  user_id: "{:email => 'isabelle.roux@ape-pekin.com'}"
   content_textilize: |
     Samedi 3 septembre 2011
 
