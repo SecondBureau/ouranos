@@ -25,9 +25,10 @@ Ouranos::Application.routes.draw do
     match "/page/:calendar_option/:year/:month" => "pages#index", :as => :page_calendar
     match "/page/:permalink"   => "pages#show", :as => :page, :requirements => { "permalink" => /[-_a-z0-9]/ }
     match "/events/:year/:month/:day" => "events#index", :as => :events_of_day
-    mount RailsAdmin::Engine => '/admin', :as => 'admin'
+    #mount RailsAdmin::Engine => '/admin', :as => 'admin'
   end
-  
+
   root :to => 'pages#index'
 
 end
+
