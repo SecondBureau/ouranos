@@ -16,7 +16,11 @@
     #body_wrapper
       = render "site/notice_alert"
       #content
-        = yield
+        = render "site/sidebar"
+        = render "site/event_for_the_day"
+        #current_content
+          #site_image
+          = yield
         .clear
         
     #footer_wrapper

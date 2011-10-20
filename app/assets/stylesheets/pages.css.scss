@@ -1,8 +1,3 @@
-// Place all the styles related to the Pages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
-$item_color: #DDDDDD;
 
 @mixin box-shadow(){
 	box-shadow: 1px 2px 2px #333;
@@ -10,85 +5,28 @@ $item_color: #DDDDDD;
 	-webkit-box-shadow: 1px 2px 2px #333;
 }
 
-#home_content{float:left; width:620px; margin-left:30px; background:#9A9591; @include box-shadow();
-	#home_image{background:#888; height:189px; background:url("home_image.jpg") no-repeat;}
-	#home_main_content_wrapper{padding:30px 20px;
-		.home_item_title{padding:5px; font-size:16px; font-weight:bold; color:#FFFFFF;
-			h2{display:inline-block; margin:10px 0px;}
-			span{float:right; font-size:12px;
-				a{text-decoration:underline; color:#333333;}
-			}
+#current_content_wrapper{padding:30px 20px;
+	.home_item_title{padding:5px; font-size:16px; font-weight:bold; color:#EEE;
+		h1{display:inline-block; margin:10px 0px;}
+		span{float:right; font-size:12px;
+			a{text-decoration:underline; color:#333333;}
 		}
-		.home_item_content{padding:5px;
-			ul{
-				li{
-				  a{color:#000000;}
-				  &.post_title{font-size:18px; font-weight:bold;}
-				  &.post_content{color:#FFF; line-height:25px;}
-				  &.post_split_line{border-bottom:1px dashed #333; margin:20px 150px;}
-				}
-			}
-		}
-		.main_split_line{margin:10px 50px; border-bottom:1px dashed #555;}
 	}
-}
-
-#home_side_bar{float:left; width:310px;
-	#site_logo{padding:30px 0px 40px 10px;}
-	.home_side_block{margin-bottom:10px; line-height:25px; color:#FFF;
-		.home_side_block_title{@include box-shadow(); padding:3px 15px; color:#FFF; background:#333;}
-		.home_side_block_content{margin:0px 10px; padding:5px 10px; background:#9A9591; @include box-shadow();
+	.home_item_content{padding:5px;
+		ul{
 			li{
-				a{color:#FFF;}
+			  a{color:#000000;}
+			  &.post_title{font-size:18px; font-weight:bold;}
+			  &.post_content{color:#FFF; line-height:25px;}
+			  &.post_split_line{border-bottom:1px dashed #333; margin:20px 150px;}
 			}
 		}
 	}
-	#calendar{
-		td{text-align:center;}
-		#calendar_month_year{text-align:center; font-size:18px; padding:5px 0px;}
-		#calendar_dates{padding:5px; background:#CCCCCC;
-			a{color:#333333; margin:3px; padding:1px; font-weight:bold; color:#FFF;
-				&:hover{background:#333333; color:#EEEEEE; text-decoration:none;}
-			}
-		}
-		table{width:100%;}
-		.weekdays{
-			th{width:35px;}
-		}
-		h4{display:inline;}
-		.c_l_arrow{float:left; margin-left:5px;}
-		.c_r_arrow{float:right; margin-right:5px;}
-		.teventday{background:#333; color:#FFF; border-bottom:1px solid #C5FF00;}
+	.main_split_line{margin:10px 20px; border-bottom:1px dashed #555;}
+	
+	#page_content{line-height:25px;
+		h1{line-height:45px;}
+		h2{line-height:35px;}
+		h3{line-height:25px;}
 	}
 }
-
-.current_day{background:#a80000; color:#FFF;}
-
-#event_for_day{
-	position:absolute; 
-	top:15px; 
-	width:600px; 
-	height:300px; 
-	left:230px; 
-	background:#DDD;
-	box-shadow: 0px 0px 50px #21070A;
-	-moz-box-shadow: 0px 0px 50px #21070A;
-	-webkit-box-shadow: 0px 0px 50px #21070A;
-	#close_image{
-		display: none;
-		cursor: pointer;
-		position: absolute;
-		right: -8px;
-		top: -8px;
-	}
-	a{
-		color: #000;
-	}
-	#events_content{
-		padding: 20px;
-		display: none;
-		h2{margin-bottom:15px;}
-	}
-}
-
-

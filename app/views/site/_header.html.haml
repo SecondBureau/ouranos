@@ -1,6 +1,7 @@
+#home_link= link_to image_tag("xue.png"), main_app.root_path
 #head_nav
   %ul
-    %li= link_to t("home.title"), main_app.root_path
+    %li= link_to t("event.title"), main_app.events_path
     %li= link_to t("blog.title"), main_app.posts_path
     - if @categories_top
       - @categories_top.each do |category|
@@ -8,3 +9,4 @@
     - if @pages
       - @pages.each do |page|
         %li= link_to page.title, main_app.page_path(page.permalink)
+

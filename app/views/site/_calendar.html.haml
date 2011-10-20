@@ -1,5 +1,5 @@
 .home_side_block#calendar
-  %h3.home_side_block_title= t("events")
+  %h3.home_side_block_title= link_to t("events"), main_app.events_path
   .home_side_block_content
     %table
       %thead
