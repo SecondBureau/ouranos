@@ -3,9 +3,9 @@
 :javascript
   $(function(){
     if("#{flash[:alert]}".length > 0){
-      $("#alert").stop(true, false).slideDown("slow").delay(1000).slideUp("slow");
+      $("#alert").slideDown("slow").delay(1000).slideUp("slow");
     }
     if("#{flash[:notice]}".length > 0){
-      $("#notice").stop(true, false).slideDown("slow").delay(1000).slideUp("slow");
+      $("#notice").slideDown("slow").delay(1000).slideUp("slow");
     }
   });
