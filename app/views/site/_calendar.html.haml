@@ -38,6 +38,10 @@
                 = link_to "#{d.day}", events_of_day_path(d.year, d.month, d.day), :remote => true
             - else
               %td{:class => "tday #{d.year}_#{d.month}_#{d.day}" } #{d.day}
+    #calendar_split_line
+    %ul#comming_events
+      - @comming_events.each do |event|
+        %li= link_to truncate(event.title, :length => 38, :omission => '... '), event_path(event)
 :javascript
   $(function(){
     $(".#{@current_day.year}_#{@current_day.month}_#{@current_day.day}").addClass("current_day");

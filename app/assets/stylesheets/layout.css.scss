@@ -97,7 +97,6 @@ body{
     	font-size:16px; 
     	margin:0px 0px 10px 0px; 
     	font-weight:bold;
-    	@include box-shadow();
    	}
     #alert{
     	display:none; 
@@ -108,7 +107,6 @@ body{
     	font-size:16px; 
     	margin:0px 0px 10px 0px; 
     	font-weight:bold;
-    	@include box-shadow();
     }
     #content{position:relative;
     	#side_bar{float:left; width:310px;
@@ -121,7 +119,7 @@ body{
 						}
 					}
 				}
-				#calendar{font-weight:bold;
+				#calendar{
 					td{text-align:center;}
 					#calendar_month_year{text-align:center; font-size:18px; padding:5px 0px;}
 					#calendar_dates{padding:5px; background:#CCCCCC;
@@ -129,7 +127,9 @@ body{
 							&:hover{background:#333333; color:#EEEEEE; text-decoration:none;}
 						}
 					}
-					table{width:100%;}
+					table{width:100%; font-weight:bold;}
+					#calendar_split_line{border-bottom:1px dashed #333; margin:20px 50px 15px 50px;}
+					#comming_events{margin-bottom:10px;}
 					.weekdays{
 						th{width:35px;}
 					}

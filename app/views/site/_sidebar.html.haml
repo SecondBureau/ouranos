@@ -9,23 +9,17 @@
           %h4= link_to category.title, posts_with_category_path(category)
           %ul
             - category.posts.each do |post|
-              %li= link_to truncate(post.title, :length => 30, :omission => '... '), main_app.post_path(post)
+              %li= link_to truncate(post.title, :length => 38, :omission => '... '), main_app.post_path(post)
 						  
   .home_side_block#most_read_posts
     %h3.home_side_block_title= t("blog.mostread")
     %ul.home_side_block_content
       - @most_posts.each do |post|
-        %li= link_to truncate(post.title, :length => 32, :omission => '... '), post_path(post)
+        %li= link_to truncate(post.title, :length => 38, :omission => '... '), post_path(post)
         
   .home_side_block#recent_comments
     %h3.home_side_block_title= t("comment.recent")
     %ul.home_side_block_content
       - @recent_comments.each do |comment|
-        %li= link_to truncate(comment.content, :length => 32, :omission => '... '), post_path(comment.commentable)
-        
-  .home_side_block#coming_events
-    %h3.home_side_block_title= t("event.comming")
-    %ul.home_side_block_content
-      - @comming_events.each do |event|
-        %li= link_to truncate(event.title, :length => 32, :omission => '... '), event_path(event)
+        %li= link_to truncate(comment.content, :length => 38, :omission => '... '), post_path(comment.commentable)
   
