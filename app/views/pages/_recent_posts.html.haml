@@ -1,0 +1,9 @@
+.home_item_title
+  %h2= t("blog.latest")
+  %span= link_to t("more"), main_app.posts_path
+.home_item_content
+  %ul
+    - @latest_posts.each do |post|
+      %li.post_title= link_to post.title, main_app.post_path(post)
+      %li.post_content= raw truncate(post.content, :length => 325, :omission => '... (continued)')
+      %li.post_split_line

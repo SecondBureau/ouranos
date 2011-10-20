@@ -1,0 +1,11 @@
+#alert= flash[:alert]
+#notice= flash[:notice]
+:javascript
+  $(function(){
+    if("#{flash[:alert]}".length > 0){
+      $("#alert").slideDown("slow");
+    }
+    if("#{flash[:notice]}".length > 0){
+      $("#notice").slideDown("slow");
+    }
+  });

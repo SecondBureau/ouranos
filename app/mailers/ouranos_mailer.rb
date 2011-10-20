@@ -1,6 +1,6 @@
 class OuranosMailer < ActionMailer::Base
   
-  default :from => "ape-lfip @ape.com"
+  default :from => "ape-lfip@ape-pekin.com"
   
   def newsletter(user)
     @date = Time.now.strftime("%m/%d/%Y")

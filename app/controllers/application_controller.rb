@@ -9,7 +9,10 @@ class ApplicationController < ActionController::Base
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to main_app.root_url, :alert => exception.message
   end
-
+  
+  def after_sign_up_path_for(resource)
+      stored_location_for(resource) || main_app.member_confirming_path
+  end
 
   private
     def default_url_options(options={})
