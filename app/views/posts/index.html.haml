@@ -1,8 +1,9 @@
 #current_content_wrapper
-  - if @category
-    %h1#category_title= @category.title
-  - else
-    %h1#category_title= t("blog.title")
-  %ul#post_list
-    =render :partial => "post_item", :collection => @posts, :as => :post
+  .home_item_title
+    - if @category
+      %h1#category_title= @category.title
+      .category_description= @category.description
+    - else
+      %h1#category_title= t("blog.title")
+  = render "site/posts_list"
   = paginate @posts

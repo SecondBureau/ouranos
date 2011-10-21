@@ -6,6 +6,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.cookie
+//= require pages
 //= require fullcalendar
 //= require jquery.blockUI
 //= require spin.min
