@@ -7,12 +7,6 @@ GIT
       orm_adapter (~> 0.0.5)
 
 GIT
-  remote: git://github.com/jchunky/table_builder.git
-  revision: 861e57bc1c1cddcf877db950fb400226be15ea71
-  specs:
-    table_builder (0.0.3)
-
-GIT
   remote: git://github.com/sferik/rails_admin.git
   revision: c1d9613c65f36cf450a40d822fc4d93409cc36e4
   specs:
@@ -240,6 +234,5 @@ DEPENDENCIES
   ruby_parser
   sass-rails (~> 3.1.4)
   sqlite3
-  table_builder (= 0.0.3)!
   therubyracer
   uglifier (>= 1.0.3)
