@@ -1,5 +1,5 @@
 unless $init_rails_admin
-
+Rails.logger.info "Start initialize rails_admin"
 RailsAdmin.config do |config|
   config.authorize_with :cancan
 
