@@ -9,12 +9,15 @@ class Post < ActiveRecord::Base
   validates_presence_of :title, :content
   
   default_scope :order => 'created_at DESC'
-  scope :public_posts, lambda{where("post_type = ?", "for_all")}
   before_save :lipsum
   after_save :set_permalink
   
   def to_param
     self.permalink
+  end
+  
+  def self.top_posts
+    Post.unscoped.order("readed desc").limit(5)
   end
   
 private

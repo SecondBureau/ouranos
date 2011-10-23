@@ -88,6 +88,7 @@ ActiveRecord::Schema.define(:version => 20111019032951) do
     t.text     "content",                              :null => false
     t.integer  "user_id",                              :null => false
     t.string   "permalink",                            :null => false
+    t.integer  "readed",            :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "can_be_subscribed", :default => true

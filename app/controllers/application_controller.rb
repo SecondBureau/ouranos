@@ -34,7 +34,7 @@ class ApplicationController < ActionController::Base
       @latest_posts = Post.where(:is_pinned => false).limit(5)
       @pinned_posts = Post.where(:is_pinned => true);
       
-      @most_posts = Post.limit(5)
+      @most_posts = Post.top_posts
       @categories_side = Category.where(:shows_at => :left)
       @recent_comments = Comment.limit(5)
       @comming_events = Event.limit(5)

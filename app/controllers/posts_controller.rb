@@ -13,6 +13,8 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.where("permalink = ?", params[:permalink]).first
+    @post.readed = @post.readed + 1
+    @post.save
     @comments = @post.comments
     @comments_size = @comments.size
     @comment = @post.comments.build
