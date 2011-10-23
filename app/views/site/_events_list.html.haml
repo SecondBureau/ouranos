@@ -1,0 +1,6 @@
+.home_item_content
+  %ul
+    - @events.each do |event|
+      %li.post_title= link_to event.title, main_app.event_path(event)
+      %li.post_content= strip_tags(truncate(event.content, :length => 325, :omission => '...'))
+      %li.post_split_line

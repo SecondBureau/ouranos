@@ -3,13 +3,13 @@ class EventsController < ApplicationController
   before_filter :authenticate_user!, :except => [:index]
   
   def index
-    @year = params[:year]
-    if !@year
-      @year = Time.now.year
+    @events_year = params[:events_year]
+    if !@events_year
+      @events_year = Time.now.year
     else
-      @year = @year.to_i
+      @events_year = @events_year.to_i
     end
-    @events_by_month = Event.all.select{|event| event.start_date.year == @year }.group_by { |event| event.start_date.strftime("%B") }
+    @events_by_month = Event.all.select{|event| event.start_date.year == @events_year }.group_by { |event| event.start_date.strftime("%B") }
     @events_by_month = [] if !@events_by_month
   end
   

@@ -1,6 +1,6 @@
 #current_content_wrapper
   #search_form
-    = form_tag(main_app.search_path) do 
+    = form_tag(main_app.search_path, :method => :get) do 
       = text_field_tag(:search) 
       = submit_tag(t("search.title")) 
   .results_item
@@ -9,13 +9,11 @@
       - if @posts.length == 0
         %li= t('search.postsnothing')
       - else
-        - @posts[0..4].each do |post|
-          %li= link_to post.title, main_app.post_path(post)
+        = render "site/posts_list"
   .results_item
     %h2= t("search.events")
     %ul
       - if @events.length == 0
         %li= t('search.eventsnothing')
       - else
-        - @events.each do |event|
-          %li= link_to event.title, main_app.event_path(event)
+        = render "site/events_list"

@@ -13,7 +13,7 @@ Ouranos::Application.routes.draw do
     match "/search" => "search#index", :as => :search
     match "/search/more/:model" => "search#show", :as => :search_more
     resources :events
-    match "/events/year/:year" => "events#index", :as => :events_year
+    match "/events/year/:events_year" => "events#index", :as => :events_year
     resources :comments
 		match "/posts" => "posts#index", :as => :posts
     match "/posts/category/:category_id" => "posts#index", :as => :posts_with_category

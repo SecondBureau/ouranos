@@ -1,6 +1,6 @@
 #current_content_wrapper
   #year_title
-    %h1.current_year= "Events in #{@year}"
+    %h1.current_year= "Events in #{@events_year}"
     .year_selector= select_year(Date.today, :start_year => 2010, :end_year => 2015)
     .clear
   - if @events_by_month.length == 0
@@ -24,7 +24,7 @@
 :javascript
   $(function(){
     var select = $(".year_selector > select");
-    select.val("#{@year}");
+    select.val("#{@events_year}");
     select.change(function(){
       var year = select.val();
       var path = "#{main_app.events_year_path(111)}".replace("111", year);
