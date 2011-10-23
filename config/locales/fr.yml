@@ -1,3 +1,4 @@
+# encoding: utf-8
 fr:
   ok: OK
   home:
@@ -63,6 +64,15 @@ fr:
     events: Evénements correspondants à votre recherche
     postsnothing: Aucun
     eventsnothing: Aucune
+  weekdays:
+    mon: LUN
+    tue: MAR
+    wed: MER
+    thu: JEU
+    fri: VEN
+    sat: SAM
+    sun: DIM
   more: D'avantage
   contact: 
     title: Contact
+

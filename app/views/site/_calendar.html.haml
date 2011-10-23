@@ -10,20 +10,13 @@
             %span{:class => "c_r_arrow"}= link_to image_tag("ra.png"), page_calendar_path("next", @current_date.year, @current_date.month)
             .clear
         %tr.weekdays
-          %th
-            Mon
-          %th
-            Tue
-          %th
-            Wed
-          %th
-            Thu
-          %th
-            Fri
-          %th
-            Sat
-          %th
-            Sun
+          %th= t("weekdays.mon")
+          %th= t("weekdays.tue")
+          %th= t("weekdays.wed")
+          %th= t("weekdays.thu")
+          %th= t("weekdays.fri")
+          %th= t("weekdays.sat")
+          %th= t("weekdays.sun")
       %tbody
         %tr
           - (@beginning_of_month..@end_of_month).each do |d|

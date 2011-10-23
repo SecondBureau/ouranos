@@ -9,16 +9,18 @@ zh_cn:
   blog:
     title: 日志
     latest: 最新的文章
+    mostread: 热门文章
+    pinned: 置顶文章
   print:
     print: 打印此文章
     pdf: 导出此文章为PDF文件
   comment:
     valid:
       added: "添加评论成功！"
-    guest:
-      comment: 未登录用户不允许评论文章！
-    user:
-      comment: 添加评论成功！直到管理员检查此评论后，此评论才能显示到评论列表中！ <br/> 成为此组织的会员则可立即显示您的评论。
+    recent: 最新评论
+  contact:
+    title: 联系
+  category: 目录
   signin: 登录
   signup: 注册
   signout: 注销
@@ -58,6 +60,11 @@ zh_cn:
     postsnothing: 未找到相关的文章
     eventsnothing: 为找到相关的活动
   more: 更多
-  system:
-    link:
-      expired: 链接已经失效
+  weekdays:
+    mon: 一
+    tue: 二
+    wed: 三
+    thu: 四
+    fri: 五
+    sat: 六
+    sun: 日
