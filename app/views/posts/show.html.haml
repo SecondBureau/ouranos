@@ -14,7 +14,7 @@
     #post_content= raw @post.content
     #post_printer
       = image_tag("icons/printer.png", :width => 24, :height => 24, :title => t("print.print"), :class => "print_icon")
-      = image_tag("icons/pdf.png", :width => 24, :height => 24,:title => t("print.pdf"), :class => "print_icon")
+      - # = image_tag("icons/pdf.png", :width => 24, :height => 24,:title => t("print.pdf"), :class => "print_icon")
 
   - if flash.alert
     .form_errors

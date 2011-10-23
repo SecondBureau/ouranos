@@ -1,6 +1,8 @@
 Meetings:
   title: Meetings
+  description: Some description about Meetings
   shows_at: top
 NextYear:
   title: Next year
+  description: Some description about Next year
   shows_at: left
