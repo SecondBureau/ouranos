@@ -4,5 +4,5 @@
   %ul
     - @latest_posts.each do |post|
       %li.post_title= link_to post.title, main_app.post_path(post)
-      %li.post_content= truncate(post.content, :length => 325, :omission => '...')
+      %li.post_content= strip_tags(truncate(post.content, :length => 325, :omission => '...'))
       %li.post_split_line

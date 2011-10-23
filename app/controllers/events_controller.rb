@@ -3,23 +3,14 @@ class EventsController < ApplicationController
   before_filter :authenticate_user!, :except => [:index]
   
   def index
-    if params[:year]
-      of_day
+    @year = params[:year]
+    if !@year
+      @year = Time.now.year
     else
-      @events = Event.all
-      @events_json = []
-      @events.each do |event|
-        if event.end_date
-          @events_json << { :start => event.start_date, :end => event.end_date, :title => event.title, :url => main_app.event_path(event) }
-        else
-          @events_json << { :start => event.start_date, :title => event.title, :url => main_app.event_path(event) }
-        end
-      end
-      respond_to do |format|
-        format.html
-        format.json { render :json => @events_json }
-      end
+      @year = @year.to_i
     end
+    @events_by_month = Event.all.select{|event| event.start_date.year == @year }.group_by { |event| event.start_date.strftime("%B") }
+    @events_by_month = [] if !@events_by_month
   end
   
   def show

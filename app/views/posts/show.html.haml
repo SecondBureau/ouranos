@@ -4,7 +4,7 @@
     #post_author_date
       = raw(@post.user.firstname)
       = raw "&nbsp;|&nbsp;" 
-      = @post.created_at
+      = @post.created_at.strftime("%m-%d-%Y")
     - if can? :manage, @post
       #post_opers
         = link_to image_tag("icons/edit.png"), admin.edit_path(:post, @post.id)
