@@ -1,36 +1,7 @@
 .home_side_block#calendar
   %h3.home_side_block_title= t("event.title")
   .home_side_block_content
-    %table
-      %thead
-        %tr
-          %th{:colspan => 7, :id => "calendar_month_year"}
-            %span{:class => "c_l_arrow"}= link_to image_tag("la.png"), page_calendar_path("pre", @current_date.year, @current_date.month)
-            %h4 #{Date::MONTHNAMES[@beginning_of_month.month]} #{@beginning_of_month.year}
-            %span{:class => "c_r_arrow"}= link_to image_tag("ra.png"), page_calendar_path("next", @current_date.year, @current_date.month)
-            .clear
-        %tr.weekdays
-          %th= t("weekdays.mon")
-          %th= t("weekdays.tue")
-          %th= t("weekdays.wed")
-          %th= t("weekdays.thu")
-          %th= t("weekdays.fri")
-          %th= t("weekdays.sat")
-          %th= t("weekdays.sun")
-      %tbody
-        %tr
-          - (@beginning_of_month..@end_of_month).each do |d|
-            - t = d.wday == 0 ? 6 : d.wday - 1
-            - if d == @beginning_of_month
-              - t.times do # offset beginning of calendar
-                %td.offset
-            - if t == 0 #restart the week
-              </tr><tr>
-            - if @events_day.include?(d.day)
-              %td{:class => "tday teventday #{d.year}_#{d.month}_#{d.day}" }
-                = link_to "#{d.day}", events_of_day_path(d.year, d.month, d.day), :remote => true
-            - else
-              %td{:class => "tday #{d.year}_#{d.month}_#{d.day}" } #{d.day}
+    = render "site/calendar_table"
     #calendar_split_line
     %ul#comming_events
       - @comming_events.each do |event|

@@ -3,6 +3,12 @@ class PagesController < ApplicationController
   before_filter :authenticate_user!, :except => :index
   
   def index
+    if params[:calendar_option]
+      calendar_events
+      respond_to do |format|
+    	  format.js {render "calendar"}
+	    end
+    end
   end
   
   def show

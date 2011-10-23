@@ -1,8 +1,10 @@
 var hide_events = function(){ $("#events_content").hide(); };
 var show_events = function(){ $("#close_image").show(); $("#events_content").fadeIn(); }
 var fade_content = function(){ $("#events_list").html(events_list); $("#events_content").fadeIn(); };
+
 $("#event_for_day").slideDown(show_events);
 $("#close_image").click(function(){ $("#close_image").hide(); $("#event_for_day").fadeOut(hide_events); });
+
 var events_list = #{raw render(:partial=> "events/event_list_of_day").inspect};
 if($("#events_content").css("display") == "none"){
 $("#events_list").html(events_list);
