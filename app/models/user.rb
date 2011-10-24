@@ -30,10 +30,12 @@ class User < ActiveRecord::Base
     end
     
     def send_membership_email
-      token = SecureRandom.hex(16)
-      member_confirm = OuranosMailer.membership_confirm(self, token)
-      member_confirm.deliver
-      MemberConfirm.create({:user => self, :send_date => Time.now, :token => token})
+      if Setting.first.send_email_after_user_created
+        token = SecureRandom.hex(16)
+        member_confirm = OuranosMailer.membership_confirm(self, token)
+        member_confirm.deliver
+        MemberConfirm.create({:user => self, :send_date => Time.now, :token => token})
+      end
     end
   
 end

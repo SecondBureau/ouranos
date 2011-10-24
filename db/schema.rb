@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111024014316) do
+ActiveRecord::Schema.define(:version => 20111024023220) do
 
   create_table "categories", :force => true do |t|
     t.string   "title",                           :null => false
@@ -124,6 +124,7 @@ ActiveRecord::Schema.define(:version => 20111024014316) do
     t.string   "contact_email"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "send_email_after_user_created", :default => false
   end
 
   create_table "subscribes", :force => true do |t|
