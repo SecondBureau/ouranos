@@ -4,7 +4,7 @@ class CreatePosts < ActiveRecord::Migration
       t.string :title, :null => false
       t.text :content, :null => false
       t.belongs_to :user, :null => false
-      t.string :permalink, :null => false
+      t.string :permalink
       t.integer :readed, :default => 0
 
       t.timestamps
