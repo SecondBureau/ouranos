@@ -87,7 +87,7 @@ ActiveRecord::Schema.define(:version => 20111024023220) do
     t.string   "title",                                :null => false
     t.text     "content",                              :null => false
     t.integer  "user_id",                              :null => false
-    t.string   "permalink",                            :null => false
+    t.string   "permalink"
     t.integer  "readed",            :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"

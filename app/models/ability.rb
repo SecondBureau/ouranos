@@ -29,6 +29,16 @@ class Ability
   def as_admin user
     can :manage, :all
     cannot :new, Comment
+    cannot :new, Role
+    cannot :new, Setting
+    cannot :show, Post
+    cannot :show, Category
+    cannot :update, Role
+    cannot :destroy, Role
+    cannot :show, Role
+    cannot :show, Comment
+    cannot :show, Event
+    cannot :show, Page
   end
   
   #

@@ -5,6 +5,12 @@ if ENV['init_rails_admin']
 
     config.excluded_models = ["MemberConfirm", "Subscribe", "Ckeditor::Asset", "Ckeditor::AttachmentFile", "Ckeditor::Picture"]
 
+    config.model Role do
+      list do
+        field :name
+      end
+    end
+
     config.model User do
       object_label_method do
         :custom_label_method
@@ -27,7 +33,6 @@ if ENV['init_rails_admin']
         field :email
         field :expiry_date
         field :sign_in_count
-        field :last_sign_in_at
       end
       edit do
         field :email
@@ -42,11 +47,33 @@ if ENV['init_rails_admin']
         field :password_confirmation
       end
     end
+    
+    config.model Event do
+      edit do
+        field :title
+        field :content, :text do
+          ckeditor true
+        end
+        field :start_date
+        field :end_date
+      end
+      list do
+        field :title
+        field :start_date
+        field :end_date
+      end
+      show do
+        field :title
+        field :start_date
+        field :end_date
+      end
+    end
 
     config.model Comment do
       list do
         field :content
         field :user
+        field :created_at
       end
       edit do
         field :content, :text do
@@ -69,6 +96,10 @@ if ENV['init_rails_admin']
         field :title
         field :user
         field :created_at
+      end
+      show do
+        field :title
+        field :user
       end
       edit do
         field :title
@@ -103,6 +134,11 @@ if ENV['init_rails_admin']
     end
     
     config.model Category do
+      list do
+        field :title
+        field :description
+        field :shows_at
+      end
       edit do
         field :title
         field :description
