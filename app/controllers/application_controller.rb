@@ -29,6 +29,7 @@ class ApplicationController < ActionController::Base
     end
 
     def ready_resources
+      @setting = Setting.first
       @pages = Page.all
       @categories_top = Category.where(:shows_at => :top)
       @latest_posts = Post.where(:is_pinned => false).limit(5)

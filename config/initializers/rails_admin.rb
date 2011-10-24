@@ -1,5 +1,5 @@
 unless $init_rails_admin
-Rails.logger.info "Start initialize rails_admin"
+
 RailsAdmin.config do |config|
   config.authorize_with :cancan
 
@@ -72,6 +72,7 @@ RailsAdmin.config do |config|
     end
     edit do
       field :title
+      field :categories
       field :content, :text do
         ckeditor true
       end
@@ -102,6 +103,15 @@ RailsAdmin.config do |config|
   end
   
   config.model Category do
+    edit do
+      field :title
+      field :description
+      field :shows_at, :enum do
+        enum do
+          ['top', 'left']
+        end
+      end
+    end
   end
 
   def custom_label_method
