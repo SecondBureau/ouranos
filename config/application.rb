@@ -30,5 +30,6 @@ module Ouranos
 
     # Enable the asset pipeline
     config.assets.enabled = true
+    config.assets.initialize_on_precompile = false
   end
 end
