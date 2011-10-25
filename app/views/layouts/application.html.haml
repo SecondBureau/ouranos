@@ -12,14 +12,13 @@
         = render "site/header"
         = render "site/account"
         .clear
-      
     #body_wrapper
       = render "site/notice_alert"
       #content
         = render "site/sidebar"
         = render "site/event_for_the_day"
         #current_content
-          #site_image
+          #site_image= image_tag @banner_image_url
           = yield
         .clear
         

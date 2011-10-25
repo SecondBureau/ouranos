@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111024023220) do
+ActiveRecord::Schema.define(:version => 20111025090402) do
 
   create_table "categories", :force => true do |t|
     t.string   "title",                           :null => false
@@ -60,6 +60,17 @@ ActiveRecord::Schema.define(:version => 20111024023220) do
     t.string   "meta_keywords"
     t.string   "meta_description"
     t.string   "permalink"
+  end
+
+  create_table "images", :force => true do |t|
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "image_owner_id"
+    t.string   "image_owner_type"
+    t.string   "title",              :default => "unamed image"
   end
 
   create_table "member_confirms", :force => true do |t|
@@ -125,6 +136,10 @@ ActiveRecord::Schema.define(:version => 20111024023220) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "send_email_after_user_created", :default => false
+    t.string   "banner_image_file_name"
+    t.string   "banner_image_content_type"
+    t.integer  "banner_image_file_size"
+    t.datetime "banner_image_updated_at"
   end
 
   create_table "subscribes", :force => true do |t|

@@ -21,6 +21,8 @@ group :development do
   gem 'therubyracer'
 end
 
+gem "paperclip"
+
 gem "kaminari"
 gem 'formtastic'
 

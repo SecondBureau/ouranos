@@ -26,4 +26,5 @@ Ouranos::Application.configure do
 
   # Do not compress assets
   config.assets.compress = false
+  Paperclip.options[:command_path] = "/usr/local/bin/"
 end

@@ -1,9 +1,11 @@
-if ENV['init_rails_admin']
+if ENV['init_rails_admin'] || true
 
   RailsAdmin.config do |config|
     config.authorize_with :cancan
-
-    config.excluded_models = ["MemberConfirm", "Subscribe", "Ckeditor::Asset", "Ckeditor::AttachmentFile", "Ckeditor::Picture"]
+    config.main_app_name = [ "APE FLIP", "Administration" ]
+    config.included_models = ["Post", "Category", "Comment", "Event", "Page", "Role", "User", "Setting", "Image"]
+    config.compact_show_view = false
+    config.total_columns_width = 500
 
     config.model Role do
       list do
@@ -133,6 +135,15 @@ if ENV['init_rails_admin']
       end
     end
     
+    config.model Image do
+      list do
+        field :title
+        field(:image, :paperclip_file) do
+          thumb_method :thumb
+        end
+      end
+    end
+    
     config.model Category do
       list do
         field :title
@@ -147,6 +158,20 @@ if ENV['init_rails_admin']
             ['top', 'left']
           end
         end
+      end
+    end
+    
+    config.model Setting do
+      label "Global Settings"
+      list do 
+        field :site_name
+        field :contact_email
+      end
+      edit do
+        field :images
+        field :site_name
+        field :contact_email
+        field :send_email_after_user_created
       end
     end
 

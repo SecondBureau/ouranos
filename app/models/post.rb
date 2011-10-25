@@ -3,7 +3,7 @@ class Post < ActiveRecord::Base
   require 'lipsum'
   
   belongs_to :user
-  has_many :comments, :as => :commentable
+  has_many :comments, :as => :commentable, :dependent => :destroy
   has_and_belongs_to_many :categories
   
   validates_presence_of :title, :content
