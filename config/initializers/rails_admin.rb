@@ -163,6 +163,7 @@ if ENV['init_rails_admin'] || true
             ['top', 'left']
           end
         end
+        field :posts
       end
     end
     

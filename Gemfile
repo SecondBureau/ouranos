@@ -36,8 +36,9 @@ gem "mini_magick"
 gem 'cancan'
 gem 'fastercsv'
 gem 'devise'
-gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
-#gem 'rails_admin', :git => 'git://github.com/mark-secondbureau/rails_admin.git', :branch => 'ouranos'
+
+#gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
+gem 'rails_admin', :git => 'git://github.com/mark-secondbureau/rails_admin.git', :branch => 'second'
 
 gem 'ruby_parser'
 
