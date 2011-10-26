@@ -105,6 +105,11 @@ if ENV['init_rails_admin'] || true
       end
       edit do
         field :title
+        field :locale, :enum do
+          enum do
+            [['French', 'fr'], ['Chinese', 'zh_cn']]
+          end
+        end
         field :categories
         field :content, :text do
           ckeditor true

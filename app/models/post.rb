@@ -6,11 +6,13 @@ class Post < ActiveRecord::Base
   has_many :comments, :as => :commentable, :dependent => :destroy
   has_and_belongs_to_many :categories
   
-  validates_presence_of :title, :content
+  validates_presence_of :title, :content, :locale
   
-  default_scope :order => 'created_at DESC'
   before_save :lipsum
   after_save :set_permalink
+  
+  default_scope :order => 'created_at DESC'
+  scope :locale_posts, lambda{ |locale| where(:locale => locale) }
   
   def to_param
     self.permalink

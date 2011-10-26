@@ -11,6 +11,8 @@
   }
 }
 
+.post_locale_switcher{float:right;}
+
 #category_title{margin-bottom:30px;}
 
 #post_wrapper{padding-bottom:15px; margin-bottom:15px; border-bottom:1px dashed #888888;
@@ -28,13 +30,4 @@
 nav.pagination{margin-top:10px; float:right;
   .current{color:#A0180A; font-weight:bold; font-size:18px;}
   a{color:#000000}
-}
-
-#alert_for_guest{display:none; text-align:center; background:#FF5555; padding:10px;
-  .alert_message{font-weight:bold; font-size:18px; color:000000;}
-  a{font-weight:bold; color:#000000; text-decoration:underline;}
-}
-
-#alert_for_user{display:none; text-align:center; background:#45DF56; padding:10px;
-  .alert_message{font-weight:bold; font-size:18px; color:000000;}
 }

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111025090402) do
+ActiveRecord::Schema.define(:version => 20111026042031) do
 
   create_table "categories", :force => true do |t|
     t.string   "title",                           :null => false
@@ -62,6 +62,11 @@ ActiveRecord::Schema.define(:version => 20111025090402) do
     t.string   "permalink"
   end
 
+  create_table "fr_cn_posts", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "images", :force => true do |t|
     t.string   "image_file_name"
     t.string   "image_content_type"
@@ -103,7 +108,7 @@ ActiveRecord::Schema.define(:version => 20111025090402) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "can_be_subscribed", :default => true
-    t.string   "locale"
+    t.string   "locale",            :default => "fr"
     t.string   "meta_keywords"
     t.string   "meta_description"
     t.boolean  "is_pinned",         :default => false

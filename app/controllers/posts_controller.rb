@@ -5,9 +5,9 @@ class PostsController < ApplicationController
   def index
   	if params[:category_id]
   		@category =  Category.find(params[:category_id])
-  		@posts = @category.posts.page(params[:page]).per(10)
+  		@posts = @category.posts.locale_posts(params[:locale]).page(params[:page]).per(10)
 		else
-			@posts = Post.page(params[:page]).per(10)
+			@posts = Post.locale_posts(params[:locale]).page(params[:page]).per(10)
   	end
   end
 

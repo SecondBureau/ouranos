@@ -5,5 +5,9 @@
       .category_description= @category.description
     - else
       %h1#category_title= t("blog.title")
+  .post_locale_switcher
+    =link_to image_tag("flags/zh_cn.png"), "#"
+    =link_to image_tag("flags/fr.png"), "#"
+  .clear
   = render "site/posts_list"
   = paginate @posts
