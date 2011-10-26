@@ -3,11 +3,13 @@ class PostsController < ApplicationController
   before_filter :authenticate_user!
   
   def index
+    locale = params[:post_locale] if params[:post_locale]
+    locale = params[:locale] if !params[:post_locale]
   	if params[:category_id]
   		@category =  Category.find(params[:category_id])
-  		@posts = @category.posts.locale_posts(params[:locale]).page(params[:page]).per(10)
+  		@posts = @category.posts.locale_posts(locale).page(params[:page]).per(10)
 		else
-			@posts = Post.locale_posts(params[:locale]).page(params[:page]).per(10)
+			@posts = Post.locale_posts(locale).page(params[:page]).per(10)
   	end
   end
 

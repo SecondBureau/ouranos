@@ -6,8 +6,8 @@
     - else
       %h1#category_title= t("blog.title")
   .post_locale_switcher
-    =link_to image_tag("flags/zh_cn.png"), "#"
-    =link_to image_tag("flags/fr.png"), "#"
+    =link_to image_tag("flags/zh_cn.png"), "#{main_app.posts_path}?post_locale=zh_cn"
+    =link_to image_tag("flags/fr.png"), "#{main_app.posts_path}?post_locale=fr"
   .clear
   = render "site/posts_list"
   = paginate @posts
