@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111026042031) do
+ActiveRecord::Schema.define(:version => 20111027030832) do
 
   create_table "categories", :force => true do |t|
     t.string   "title",                           :null => false
@@ -141,10 +141,6 @@ ActiveRecord::Schema.define(:version => 20111026042031) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "send_email_after_user_created", :default => false
-    t.string   "banner_image_file_name"
-    t.string   "banner_image_content_type"
-    t.integer  "banner_image_file_size"
-    t.datetime "banner_image_updated_at"
   end
 
   create_table "subscribes", :force => true do |t|
