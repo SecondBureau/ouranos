@@ -1,7 +1,5 @@
 admin1:
   uniq: [email]
-  firstname: Isabelle
-  lastname: Roux
   email: isabelle.roux@ape-pekin.com
   password: secret
   password_confirmation: secret
@@ -9,8 +7,6 @@ admin1:
 
 admin2:
   uniq: [email]
-  firstname: Etienne
-  lastname: Perrin
   email: etienne.perrin@ape-pekin.com
   password: secret
   password_confirmation: secret
@@ -18,8 +14,6 @@ admin2:
   
 officer:
   uniq: [email]
-  firstname: John
-  lastname: Doe
   email: officer@ape-pekin.com
   password: secret
   password_confirmation: secret
@@ -27,8 +21,6 @@ officer:
   
 member:
   uniq: [email]
-  firstname: Paul
-  lastname: Smith
   email: member@ape-pekin.com
   password: secret
   password_confirmation: secret
@@ -37,9 +29,21 @@ member:
 
 user:
   uniq: [email]
-  firstname: Aude
-  lastname: Durand
   email: user@ape-pekin.com
+  password: secret
+  password_confirmation: secret
+  role_id: "{:name => 'member'}"
+  
+family_user1:
+  uniq: [email]
+  email: zhangsan@email.com
+  password: secret
+  password_confirmation: secret
+  role_id: "{:name => 'member'}"
+  
+family_user2:
+  uniq: [email]
+  email: lisi@email.com
   password: secret
   password_confirmation: secret
   role_id: "{:name => 'member'}"

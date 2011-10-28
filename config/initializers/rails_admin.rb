@@ -1,17 +1,9 @@
-if ENV['init_rails_admin'] || true
+if ENV['init_rails_admin']
 
   RailsAdmin.config do |config|
     config.authorize_with :cancan
     config.main_app_name = [ "APE FLIP", "Administration" ]
-    config.included_models = ["Post", "Category", "Comment", "Event", "Page", "Role", "User", "Setting", "Image"]
-    config.compact_show_view = false
-    config.total_columns_width = 500
-
-    config.model Role do
-      list do
-        field :name
-      end
-    end
+    config.included_models = ["Post", "Category", "Comment", "Event", "Page", "Role", "User", "Setting", "Image", "Person", "Family"]
 
     config.model User do
       object_label_method do
@@ -38,13 +30,7 @@ if ENV['init_rails_admin'] || true
       end
       edit do
         field :email
-        field :role do
-          visible do
-            bindings[:view].current_user.email != bindings[:object].email
-          end
-        end
-        field :firstname
-        field :lastname
+        field :role
         field :password
         field :password_confirmation
       end

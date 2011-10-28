@@ -1,0 +1,30 @@
+kid1:
+  firstname: f1
+  lastname: l1
+  fa_type: kid
+  family_id: "{:name => 'zhangsan'}"
+father1:
+  firstname: f2
+  lastname: l2
+  fa_type: father
+  family_id: "{:name => 'zhangsan'}"
+mother1:
+  firstname: f3
+  lastname: l3
+  fa_type: mother
+  family_id: "{:name => 'zhangsan'}"
+kid2:
+  firstname: f6
+  lastname: l6
+  fa_type: kid
+  family_id: "{:name => 'lisi'}"
+father2:
+  firstname: f4
+  lastname: l4
+  fa_type: father
+  family_id: "{:name => 'lisi'}"
+mother2:
+  firstname: f5
+  lastname: l5
+  fa_type: mother
+  family_id: "{:name => 'lisi'}"

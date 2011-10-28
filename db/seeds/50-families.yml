@@ -1,0 +1,6 @@
+First:
+  name: zhangsan
+  user_id: "{:email => 'zhangsan@email.com'}"
+Second:
+  name: lisi
+  user_id: "{:email => 'lisi@email.com'}"
