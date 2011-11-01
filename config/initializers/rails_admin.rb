@@ -1,4 +1,4 @@
-if ENV['init_rails_admin'] || true
+if ENV['init_rails_admin']
 
   RailsAdmin.config do |config|
     config.authorize_with :cancan
