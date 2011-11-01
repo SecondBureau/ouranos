@@ -30,7 +30,7 @@ gem 'formtastic'
 gem 'jquery-rails'
 
 gem "ckeditor", :git => "git://github.com/galetahub/ckeditor.git"
-
+gem 'carrierwave'
 gem "mini_magick"
 
 gem 'cancan'

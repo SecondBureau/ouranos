@@ -63,6 +63,8 @@ GEM
       sass-rails (~> 3.1.0)
     builder (3.0.0)
     cancan (1.6.7)
+    carrierwave (0.5.7)
+      activesupport (~> 3.0)
     cocaine (0.2.0)
     coderay (0.9.8)
     coffee-rails (3.1.1)
@@ -224,6 +226,7 @@ DEPENDENCIES
   RedCloth
   aws-s3
   cancan
+  carrierwave
   ckeditor!
   coffee-rails (~> 3.1.1)
   devise
