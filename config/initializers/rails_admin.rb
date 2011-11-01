@@ -10,12 +10,28 @@ if ENV['init_rails_admin']
       object_label_method do
         :person_label_method
       end
+      list do
+        field :firstname
+        field :lastname
+        field :fa_type
+        field :family
+        field :email
+        field :birthdate
+      end
+      show do
+        field :firstname
+        field :lastname
+        field :fa_type
+        field :family
+        field :email
+        field :birthdate
+      end
       edit do
         field :firstname
         field :lastname
+        field :family
         field :email
         field :birthdate
-        field :family
         field :fa_type, :enum do
           enum do
             [['Mother', 'mother'], ['Father', 'father'], ['Kid', 'kid']]
@@ -36,6 +52,24 @@ if ENV['init_rails_admin']
     config.model Family do
       navigation_label 'Members management'
       weight -3
+      list do
+        field :name
+        field :user do
+          label 'Account'
+        end
+      end
+      edit do
+        field :name
+        field :user do
+          label 'Account'
+        end
+      end
+      show do
+        field :name
+        field :user do
+          label 'Account'
+        end
+      end
     end
 
     config.model User do
@@ -95,7 +129,9 @@ if ENV['init_rails_admin']
         field :commentable do
           label "On"
         end
-        field :user
+        field :user do
+          label 'Account'
+        end
         field :created_at
       end
       edit do
@@ -121,10 +157,16 @@ if ENV['init_rails_admin']
         field :title
         field :user
         field :created_at
+        field :readed do
+          label 'Readed times'
+        end
       end
       show do
         field :title
         field :user
+        field :readed do
+          label 'Readed times'
+        end
       end
       edit do
         field :title
