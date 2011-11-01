@@ -2,8 +2,6 @@
   #post_wrapper
     #post_title= @post.title
     #post_author_date
-      = raw(@post.user.firstname)
-      = raw "&nbsp;|&nbsp;" 
       = @post.created_at.strftime("%m-%d-%Y")
     - if can? :manage, @post
       #post_opers

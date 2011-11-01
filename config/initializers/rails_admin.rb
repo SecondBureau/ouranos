@@ -1,19 +1,51 @@
-if ENV['init_rails_admin']
+if ENV['init_rails_admin'] || true
 
   RailsAdmin.config do |config|
     config.authorize_with :cancan
     config.main_app_name = [ "APE FLIP", "Administration" ]
     config.included_models = ["Post", "Category", "Comment", "Event", "Page", "Role", "User", "Setting", "Image", "Person", "Family"]
+    
+    config.model Person do
+      parent Family
+      object_label_method do
+        :person_label_method
+      end
+      edit do
+        field :firstname
+        field :lastname
+        field :email
+        field :birthdate
+        field :family
+        field :fa_type, :enum do
+          enum do
+            [['Mother', 'mother'], ['Father', 'father'], ['Kid', 'kid']]
+          end
+        end
+      end
+    end
+    
+    config.model User do
+      parent Role
+    end
+    
+    config.model Role do
+      navigation_label 'Accounts'
+      weight -1
+    end
+    
+    config.model Family do
+      navigation_label 'Members management'
+      weight -3
+    end
 
     config.model User do
       object_label_method do
-        :custom_label_method
+        :user_label_method
       end
+      label "Accounts"
       show do
         field :email
         field :role
-        field :firstname
-        field :lastname
         field :expiry_date
         field :sign_in_count
         field :current_sign_in_at
@@ -22,7 +54,6 @@ if ENV['init_rails_admin']
         field :last_sign_in_ip
       end
       list do
-        field :firstname
         field :role
         field :email
         field :expiry_date
@@ -58,8 +89,12 @@ if ENV['init_rails_admin']
     end
 
     config.model Comment do
+      parent Post
       list do
         field :content
+        field :commentable do
+          label "On"
+        end
         field :user
         field :created_at
       end
@@ -80,6 +115,8 @@ if ENV['init_rails_admin']
     end
 
     config.model Post do
+      navigation_label 'Post management'
+      weight -2
       list do
         field :title
         field :user
@@ -136,6 +173,7 @@ if ENV['init_rails_admin']
     end
     
     config.model Category do
+      parent Post
       list do
         field :title
         field :description
@@ -167,8 +205,16 @@ if ENV['init_rails_admin']
       end
     end
 
-    def custom_label_method
-      "[#{self.role.name}] #{self.firstname} #{self.lastname}"
+    def user_label_method
+      "#{self.role.name} - #{self.email}"
+    end
+    
+    def family_label_method
+      "#{self.name}"
+    end
+    
+    def person_label_method
+      "#{self.firstname} #{self.lastname}"
     end
 
   end

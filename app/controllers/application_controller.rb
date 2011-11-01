@@ -30,7 +30,12 @@ class ApplicationController < ActionController::Base
 
     def ready_resources
       @setting = Setting.first
-      #@banner_image_url = @setting.images[Random.rand(@setting.images.length)].image.url(:banner_image)
+      if @setting.images[Random.rand(@setting.images.length)]
+        @banner_image_url = @setting.images[Random.rand(@setting.images.length)].image.url(:banner_image)
+      else
+        @banner_image_url = "home_image.jpg"
+      end
+        
       @pages = Page.all
       @categories_top = Category.where(:shows_at => :top)
       @latest_posts = Post.where(:is_pinned => false).limit(5)

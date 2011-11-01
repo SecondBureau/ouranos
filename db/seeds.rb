@@ -10,6 +10,7 @@ require "lipsum"
 seeds_path = File.join(File.dirname(__FILE__), 'seeds')
 
 Dir["#{seeds_path}/*"].select { |file| /(yml)$/ =~ file }.sort.each do |file|
+  puts file
   klass = File.basename(file, '.yml').gsub(/[0-9]+\-/,'').singularize.humanize.constantize
   #YAML.load_file(file).each  do |key, params|
   YAML::load(ERB.new(IO.read(file)).result).each  do |key, params|

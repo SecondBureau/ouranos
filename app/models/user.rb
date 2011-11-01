@@ -4,16 +4,15 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :expiry_date, :role_id
   
   belongs_to :role
   has_many :subscribes
   has_many :comments, :as => :commentable
   has_one :member_confirm
+  has_one :family
   
   after_create :send_membership_email
-  
-  validates_presence_of :firstname, :lastname
   
   def is_of_role? role_name
     be_user if !self.role
