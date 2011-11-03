@@ -91,7 +91,7 @@ if ENV['init_rails_admin']
       list do
         field :role
         field :email
-        field :expiry_date
+        field :is_expiried
         field :sign_in_count
       end
       edit do
@@ -99,7 +99,7 @@ if ENV['init_rails_admin']
         field :role
         field :password
         field :password_confirmation
-        field :is_expiried
+        field :expiry_date
       end
     end
     

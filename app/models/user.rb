@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
   has_one :family
   
   after_create :send_membership_email
+  before_save :set_is_expiried
   
   def is_of_role? role_name
     be_user if !self.role
@@ -35,6 +36,10 @@ class User < ActiveRecord::Base
         member_confirm.deliver
         MemberConfirm.create({:user => self, :send_date => Time.now, :token => token})
       end
+    end
+    
+    def set_is_expiried
+      self.is_expiried = true if self.role.name == "member" && DateTime.now > self.expiry_date
     end
   
 end
