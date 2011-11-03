@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   
-  before_filter :authenticate_user!, :except => [:of_day]
+  before_filter :authenticate_user!, :is_membership_expiried?, :except => [:of_day]
   
   def index
     @events_year = params[:events_year]

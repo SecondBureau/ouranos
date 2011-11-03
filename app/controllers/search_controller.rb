@@ -1,6 +1,6 @@
 class SearchController < ApplicationController
   
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :is_membership_expiried?
   
   def index
     if params[:search]

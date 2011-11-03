@@ -4,8 +4,6 @@ gem 'rails', '3.1.1'
 
 gem 'haml-rails'
 
-# Gems used only for assets and not required
-# in production environments by default.
 group :assets do
   gem 'sass-rails',   '~> 3.1.4'
   gem 'coffee-rails', '~> 3.1.1'
@@ -19,6 +17,11 @@ group :development do
   gem 'pry'
   gem 'heroku_san'
   gem 'therubyracer'
+  
+  gem 'guard'
+  gem 'guard-livereload'
+  gem 'rb-inotify'
+  gem 'libnotify'
 end
 
 gem "paperclip"

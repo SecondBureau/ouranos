@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :is_membership_expiried?
   
   def index
     locale = params[:post_locale] if params[:post_locale]

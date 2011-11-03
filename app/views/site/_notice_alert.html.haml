@@ -1,11 +1,13 @@
+:ruby
+  flash[:alert] = t("account.membership_expiried") if current_user && current_user.is_expiried
 #alert= flash[:alert]
 #notice= flash[:notice]
 :javascript
   $(function(){
     if("#{flash[:alert]}".length > 0){
-      $("#alert").slideDown("slow").delay(1000).fadeOut("slow");
+      $("#alert").slideDown("slow").delay(2000).fadeOut("slow");
     }
     if("#{flash[:notice]}".length > 0){
-      $("#notice").slideDown("slow").delay(1000).fadeOut("slow");
+      $("#notice").slideDown("slow").delay(2000).fadeOut("slow");
     }
   });

@@ -2,7 +2,8 @@ if ENV['init_rails_admin']
 
   RailsAdmin.config do |config|
     config.authorize_with :cancan
-    config.main_app_name = [ "APE FLIP", "Administration" ]
+    config.default_items_per_page = 10
+    config.main_app_name = [ "APE LFIP", "Administration" ]
     config.included_models = ["Post", "Category", "Comment", "Event", "Page", "Role", "User", "Setting", "Image", "Person", "Family"]
     
     config.model Person do
@@ -98,6 +99,7 @@ if ENV['init_rails_admin']
         field :role
         field :password
         field :password_confirmation
+        field :is_expiried
       end
     end
     

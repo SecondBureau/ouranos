@@ -41,6 +41,7 @@ fr:
     title: Votre compte
     member: Membre?
     bemember: Je veux devenir membre.
+    membership_expiried: Your membership has expiried. Please contact the administrator.
     alreadymember: Vous êtes membre.
     memberdesc: Devenez membre pour recevoir davantage d'information.
     memberdesc_getemail: Cliquez sur le bouton rouge pour recevoir les informations demandées.

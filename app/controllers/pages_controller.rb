@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   
-  before_filter :authenticate_user!, :except => :index
+  before_filter :authenticate_user!, :is_membership_expiried?, :except => :index
   
   def index
     if params[:calendar_option]
