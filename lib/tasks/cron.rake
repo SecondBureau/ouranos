@@ -8,7 +8,7 @@ task :cron => :environment do
   end
 
   User.all.each do |user|
-    if user.is_of_role? :member && (user.expiry_date.month - Time.now.month) == 1
+    if user.is_of_role? :member && (user.expiry_date - Time.now)/3600/24 == 30
       membership_notice = OuranosMailer.membership_notice user
       membership_notice.deliver
     end
