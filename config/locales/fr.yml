@@ -9,6 +9,7 @@ fr:
     none: Aucun événement sur cette période.
     comming: Prochains événéments
     ofday: Aujourd'hui
+    in: Events in
   category: Catégories
   blog:
     title: Articles

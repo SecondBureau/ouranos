@@ -9,7 +9,7 @@ class EventsController < ApplicationController
     else
       @events_year = @events_year.to_i
     end
-    @events_by_month = Event.all.select{|event| event.start_date.year == @events_year }.group_by { |event| event.start_date.strftime("%B") }
+    @events_by_month = Event.all.select{|event| event.start_date.year == @events_year }.group_by { |event| I18n.l(event.start_date, :format => "%B").capitalize }
     @events_by_month = [] if !@events_by_month
   end
   
