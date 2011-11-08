@@ -6,7 +6,7 @@
       .date
         = comment.user.email.split("@").first
         &nbsp;|&nbsp;
-        = comment.created_at.strftime("%d/%b/%Y")
+        = comment.created_at.strftime("%H:%M:%S - %d/%b/%Y")
         - if can? :manage, comment
           = raw "&nbsp;"
           = link_to image_tag("icons/delete.png"), admin.destroy_path(:comment, comment), :confirm => "Are you sure?", :method => :delete
