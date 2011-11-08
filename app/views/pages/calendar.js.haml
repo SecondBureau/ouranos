@@ -1,2 +1,3 @@
 var calendar_table = #{raw render(:partial=> "site/calendar_table").inspect};
 $("#calendar > .home_side_block_content > table").html(calendar_table);
+$(".#{@current_day.year}_#{@current_day.month}_#{@current_day.day}").addClass("current_day");
