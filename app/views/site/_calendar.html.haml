@@ -7,7 +7,7 @@
       - @comming_events.each do |event|
         %li
           %a{:href => event_path(event)}
-            .event_date_title= event.start_date.strftime("%m/%d")
+            .event_date_title= event.start_date.strftime("%d/%m")
             = truncate(event.title, :length => 28, :omission => '... ')
 :javascript
   $(function(){
