@@ -1,6 +1,6 @@
 #current_content_wrapper
   #year_title
-    %h1.current_year= "#{t("event.in")} #{@events_year}"
+    %h1.current_year= "#{t("event.in", :year => @events_year)}"
     .year_selector= select_year(Date.today, :start_year => 2010, :end_year => 2019)
     .clear
   - if @events_by_month.length == 0

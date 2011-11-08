@@ -9,7 +9,7 @@ fr:
     none: Aucun événement sur cette période.
     comming: Prochains événéments
     ofday: Aujourd'hui
-    in: Events in
+    in: "Events in %{year}"
   category: Catégories
   blog:
     title: Articles
