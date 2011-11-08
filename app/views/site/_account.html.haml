@@ -3,24 +3,22 @@
     - if current_user
       - if current_user.is_of_role?(:admin)
         %li.user
-          = link_to image_tag("gear.png"), admin.dashboard_path
+          = link_to image_tag("gear.png"), admin.dashboard_path, :title => t("management")
           %ul.user_links
-            %li.user_sign_out= link_to image_tag("exit.png"), main_app.destroy_user_session_path, :method => :delete
+            %li.user_sign_out= link_to image_tag("exit.png"), main_app.destroy_user_session_path, :method => :delete, :title => t("signout")
       - else 
         %li.user
-          = link_to image_tag("gear.png")
-          %ul.user_links
-            %li.user_sign_out= link_to image_tag("exit.png"), main_app.destroy_user_session_path, :method => :delete
+          = link_to image_tag("exit.png"), main_app.destroy_user_session_path, :method => :delete, :title => t("signout")
         
     - else
-      %li.user= link_to image_tag("gear.png"), main_app.new_user_session_path
+      %li.user= link_to image_tag("gear.png"), main_app.new_user_session_path, {:title => t("signin")}
     %li.locale
       = link_to_switch_locale(current_locale)
       %ul.locales
         - $available_locales.map do |locale|
           - if !locale.eql?(current_locale.to_s)
             %li.alocale= link_to_switch_locale(locale)
-    %li.search= link_to image_tag("search.png"), main_app.search_path
+    %li.search= link_to image_tag("search.png"), main_app.search_path, {:title => t("search.title")}
 :javascript
   $(".locale").hover(function(){ $(".locales").slideDown("fast"); }, function(){ $(".locales").slideUp("fast"); });  
   $(".user").hover(function(){ $(".user_links").slideDown("fast"); }, function(){ $(".user_links").slideUp("fast"); });
