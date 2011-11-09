@@ -1,5 +1,5 @@
 .home_side_block#calendar
-  %h3.home_side_block_title= t("event.title")
+  .home_side_block_title= t("event.title")
   .home_side_block_content
     = render "site/calendar_table"
     #calendar_split_line
@@ -8,7 +8,7 @@
         %li
           %a{:href => event_path(event)}
             .event_date_title= event.start_date.strftime("%d/%m")
-            = truncate(event.title, :length => 28, :omission => '... ')
+            = truncate(event.title, :length => 35, :omission => '... ')
 :javascript
   $(function(){
     $(".#{@current_day.year}_#{@current_day.month}_#{@current_day.day}").addClass("current_day");

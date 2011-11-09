@@ -8,12 +8,14 @@
 }
 
 #comment_list{margin:10px 0px; border-top:1px solid #888888;
-  li{margin:10px 0px; padding:5px; border-bottom:1px dashed #DDDDDD; line-height: 20px; background:#BBBBBB;
-    .comment_content{margin-left:50px;}
-    .date{float:right; margin-top:10px; font-style:italic; color:#333333;}
-    .index{float:left; font-size:20px; font-weight:bold; background:#333333; color:#EEEEEE; padding:3px; width:35px; text-align:center;}
-    .opers{
-      a{color:#FF0000;}
-    }
-  }
+	ul{list-style-type:none;
+		li{margin:10px 0px; padding:5px; border-bottom:1px dashed #DDDDDD; line-height: 20px; background:#BBBBBB;
+		  .comment_content{margin-left:50px;}
+		  .date{float:right; margin-top:10px; font-style:italic; color:#333333;}
+		  .index{float:left; font-size:20px; font-weight:bold; background:#333333; color:#EEEEEE; padding:3px; width:35px; text-align:center;}
+		  .opers{
+		    a{color:#FF0000;}
+		  }
+		}
+	}
 }

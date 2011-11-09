@@ -19,7 +19,7 @@
   #post_title{font-size:22px; font-weight:bold;}
   #post_author_date{margin:10px 0px; font-style:italic; color:#333333; float:left;}
   #post_opers{margin:10px 10px 10px 0px; float:right;}
-  #post_content{line-height: 25px;
+  #post_content{
     &:first-letter{font-size:200%; font-weight:bold; margin-right:2px;}
   }
   #post_printer{margin-top:15px;

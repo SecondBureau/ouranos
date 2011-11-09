@@ -13,11 +13,12 @@
 		}
 	}
 	.home_item_content{padding:5px;
-		ul{
+		ul{list-style-type:none;
 			li{
+			  margin-left:0px;
 			  a{color:#000000;}
 			  &.post_title{font-size:18px; font-weight:bold;}
-			  &.post_content{color:#FFF; line-height:25px;}
+			  &.post_content{color:#FFF;}
 			  &.post_split_line{border-bottom:1px dashed #333; margin:20px 150px;}
 			}
 		}

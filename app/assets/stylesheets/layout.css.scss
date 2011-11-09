@@ -29,16 +29,16 @@ body{
   #header_wrapper{background:#000000; position:fixed; width:100%; z-index:1000;
     #header{margin: 0px auto; width:$page_width;
     	#home_link{display:inline; float:left;}
-      #head_nav{float:left; padding:8px 0px;
-        ul{
-          li{float:left;
-            a{padding:3px 5px; margin-right:8px;}
+      #head_nav{float:left; padding:5px 0px;
+        ul{margin-bottom:0px;
+          li{float:left; margin: 0px 8px 0px 0px;
+            a{padding:3px 5px;  color:#FFF;}
           }
         }
       }
     }
     #account{float:right; position:relative;
-      ul{
+      ul{list-style-type:none;
         li{float:left; margin-left:2px;
         	&.search{background:#a70000;}
         	&.locale{background:#969696;}
@@ -93,11 +93,14 @@ body{
     #content{position:relative;
     	#side_bar{float:left; width:310px;
 				#site_logo{padding:30px 0px 40px 10px;}
-				.home_side_block{margin-bottom:10px; line-height:25px; color:#FFF;
+				.home_side_block{margin-bottom:10px;
 					.home_side_block_title{
 						font-family: 'Quicksand', sans-serif;
-						@include box-shadow(); 
-						padding:3px 15px; 
+						font-size: 16px;
+						font-weight: bold;
+						@include box-shadow();
+						margin-bottom:0px;
+						padding:5px 10px; 
 						color:#FFF; 
 						background:#333; 
 						position:relative; 
@@ -108,8 +111,11 @@ body{
 						padding:5px 10px; 
 						background:#9b9591; 
 						@include box-shadow();
+						list-style-type:none;
 						li{
+							color: #FFF;
 							a{color:#FFF;}
+							margin-left: 0px;
 						}
 					}
 				}
@@ -130,19 +136,21 @@ body{
 						}
 					}
 					.weekdays{
-						th{width:35px;}
+						th{text-align:center;}
 					}
 					h4{display:inline;}
-					.c_l_arrow{float:left; margin-left:10px; margin-top:3px;}
-					.c_r_arrow{float:right; margin-right:10px; margin-top:3px;}
-					.teventday{background:#333; color:#FFF; border-bottom:1px solid #C5FF00;}
+					.c_l_arrow{float:left; margin-left:6px; margin-top:3px;}
+					.c_r_arrow{float:right; margin-right:6px; margin-top:3px;}
+					.teventday{background:#333; color:#FFF; border-bottom:1px solid #C5FF00;
+						a{color:#FFF;}
+					}
 				}
 				#categories{
 					.home_side_block_content{background:#9A0606;
-						h4{
-							a{color:#000;}
+						.category_title{
+							a{color:#000; font-size:14px; text-decoration: underline;}
 						}
-						ul{list-style-type:disc; margin-left:15px; margin-bottom:10px;
+						ul{list-style-type:disc; margin-left:15px; margin-bottom:0px;
 							li{
 								a{color:#000;}
 							}
