@@ -107,7 +107,7 @@ if ENV['init_rails_admin']
       edit do
         field :title
         field :content, :text do
-          ckeditor true
+          tinymce true
         end
         field :start_date
         field :end_date
@@ -138,7 +138,7 @@ if ENV['init_rails_admin']
       end
       edit do
         field :content, :text do
-          ckeditor true
+          tinymce true
         end
         field :user_id do
           view_helper :hidden_field
@@ -179,7 +179,7 @@ if ENV['init_rails_admin']
         end
         field :categories
         field :content, :text do
-          ckeditor true
+          tinymce true
         end
         field :is_pinned
         field :user_id do
@@ -202,7 +202,7 @@ if ENV['init_rails_admin']
       edit do
         field :title
         field :content, :text do
-          ckeditor true
+          tinymce true
         end
       end
     end

@@ -18,7 +18,7 @@ class EventsController < ApplicationController
   end
   
   def of_day
-    @date = DateTime.new(params[:year].to_i, params[:month].to_i, params[:day].to_i)
+    @date = Time.zone.parse(params[:daystring]).to_date
   	@events = Event.where(:start_date => @date.beginning_of_day .. @date.end_of_day)
   	respond_to do |format|
   	  format.js {render "of_day"}
