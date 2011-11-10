@@ -19,6 +19,17 @@
           - if !locale.eql?(current_locale.to_s)
             %li.alocale= link_to_switch_locale(locale)
     %li.search= link_to image_tag("search.png"), main_app.search_path, {:title => t("search.title")}
-:javascript
-  $(".locale").hover(function(){ $(".locales").slideDown("fast"); }, function(){ $(".locales").slideUp("fast"); });  
-  $(".user").hover(function(){ $(".user_links").slideDown("fast"); }, function(){ $(".user_links").slideUp("fast"); });
+  
+:coffeescript
+  items = [{key:".locale", value:".locales"}, {key:".user", value:".user_links"}]
+  
+  item_hover = (item) ->
+    $(item.key).hover(
+      -> $(item.value).slideDown("fast")
+      ,
+      -> $(item.value).slideUp("fast")
+    )
+    
+  item_hover(item) for item in items
+    
+

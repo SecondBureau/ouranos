@@ -9,6 +9,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+gem 'coffee-filter'
 gem 'haml-rails'
 gem 'jquery-rails'
 gem 'tinymce-rails'

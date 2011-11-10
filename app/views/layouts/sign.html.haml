@@ -10,25 +10,12 @@
       %h1= link_to "APE", main_app.root_path
     #sign_box_wrapper  
       #alert= flash[:alert]
-      :javascript
-        $(function(){
-          if("#{flash[:alert]}".length > 0){
-            $("#alert").slideDown("slow");
-          }
-        });
       #notice= flash[:notice]
-      :javascript
-        $(function(){
-          if("#{flash[:notice]}".length > 0){
-            $("#notice").slideDown("slow");
-          }
-        });
-      #error= flash[:error]
-      :javascript
-        $(function(){
-          if("#{flash[:error]}".length > 0){
-            $("#error").slideDown("slow");
-          }
-        });
+      :coffeescript
+        $ ->
+          if "#{flash[:alert]}".length > 0
+            $("#alert").slideDown("slow")
+          if "#{flash[:notice]}".length > 0
+            $("#notice").slideDown("down")
       #sign_box= yield
     #poweredby= image_tag("2buro.png")

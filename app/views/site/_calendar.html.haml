@@ -9,8 +9,7 @@
           %a{:href => event_path(event)}
             .event_date_title= event.start_date.strftime("%d/%m")
             = truncate(event.title, :length => 35, :omission => '... ')
-:javascript
-  $(function(){
-    $(".#{@current_day.year}_#{@current_day.month}_#{@current_day.day}").addClass("current_day");
-  });
+:coffeescript
+  $ ->
+    $(".#{@current_day.year}_#{@current_day.month}_#{@current_day.day}").addClass("current_day")
 

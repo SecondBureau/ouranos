@@ -16,27 +16,3 @@
         %span= raw "|"
         %span= link_to t("signin"), new_user_session_path
 .clear
-:javascript
-  $(function(){
-  
-    var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
-  
-    $("#ok_button").click(function(){
-      var emailaddressVal = $("input[name='email']").val();
-      if(emailaddressVal == '') {
-        alert("please input your email address!");
-        return;
-      }else if(!emailReg.test(emailaddressVal)) {
-        alert("please input a valid email address!");
-        return;
-      }
-      $("#nonymous_user").slideUp("fast", function(){
-        $("#subscribe").slideDown("slow");
-      });
-    });
-    
-    $("#subscribe_button").click(function(){
-      
-    });
-  
-  });
