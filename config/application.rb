@@ -10,7 +10,7 @@ Bundler.require *Rails.groups(:assets) if defined?(Bundler)
 module Ouranos
   class Application < Rails::Application
     
-    config.action_mailer.default_url_options = { :host => "http://ape-pekin.com/" }
+    config.action_mailer.default_url_options = { :host => "ape-pekin.com" }
     
     # Configure the layout of the Devise on sign in and sign up and forget password pages
     config.to_prepare do
