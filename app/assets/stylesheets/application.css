@@ -4,11 +4,11 @@
  * the top of the compiled file, but it's generally better to create a new file per style scope.
  *= require reset
  *= require text
- *= require common 
- *= require layout 
- *= require pages 
- *= require posts 
- *= require comments 
+ *= require common
+ *= require layout
+ *= require pages
+ *= require posts
+ *= require comments
  *= require events
  *= require search
  *= require subscribes
@@ -22,13 +22,7 @@ input:focus{
 /*
  * for the application
  */
- 
-@font-face {
-  font-family: 'Quicksand';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Quicksand Regular'), local('Quicksand-Regular'), url('http://themes.googleusercontent.com/static/fonts/quicksand/v1/sKd0EMYPAh5PYCRKSryvWz8E0i7KZn-EPnyo3HZu7kw.woff') format('woff');
-}
+
 
 a:link{
 	text-decoration: none;
@@ -41,3 +35,4 @@ a:hover{
 form > li{
 	margin-left: 0px;
 }
+

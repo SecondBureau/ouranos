@@ -13,13 +13,13 @@ $header_shadow: 0px -2px 5px #333333;
 	position:fixed;
 	top: 30px;
 	width: $page_width;
-	display:none; 
-	padding:30px 0px; 
-	background:#555; 
-	color:#FFFFFF; 
-	text-align:center; 
-	font-size:16px; 
-	margin:0px 0px 10px 0px; 
+	display:none;
+	padding:30px 0px;
+	background:#555;
+	color:#FFFFFF;
+	text-align:center;
+	font-size:16px;
+	margin:0px 0px 10px 0px;
 	font-weight:bold;
 	z-index:100;
 }
@@ -74,21 +74,21 @@ body{
   	background:#a80000;
   	position:fixed;
   	bottom:0px;
-  	width:100%; 
+  	width:100%;
   	z-index:1000;
   	#footer{text-align:center; padding:10px 0px; margin: 0px auto; width:$page_width;}
   }
 
   #body_wrapper{position:relative;
-  	margin: 0px auto 20px auto; 
+  	margin: 0px auto 20px auto;
   	padding: 30px 0px 44px 0px;
-  	width:$page_width; 
+  	width:$page_width;
     #notice{
     	@include notice-box;
    	}
     #alert{
     	@include notice-box;
-    	background:#F47A7A; 
+    	background:#F47A7A;
     }
     #content{position:relative;
     	#side_bar{float:left; width:310px;
@@ -97,19 +97,19 @@ body{
 					.home_side_block_title{
 						font-family: 'Quicksand', sans-serif;
 						font-size: 16px;
-						font-weight: bold;
+						font-weight: 700;
 						@include box-shadow();
 						margin-bottom:0px;
-						padding:5px 10px; 
-						color:#FFF; 
-						background:#333; 
-						position:relative; 
+						padding:5px 10px;
+						color:#FFF;
+						background:#333;
+						position:relative;
 						cursor:pointer;
 					}
 					.home_side_block_content{
-						margin:0px 6px; 
-						padding:5px 10px; 
-						background:#9b9591; 
+						margin:0px 6px;
+						padding:5px 10px;
+						background:#9b9591;
 						@include box-shadow();
 						list-style-type:none;
 						li{
@@ -129,7 +129,7 @@ body{
 					}
 					table{width:100%; line-height:24px; margin-bottom:0px; color:#FFF;}
 					#calendar_split_line{border-bottom:1px dashed #333; margin:20px 50px 15px 50px;}
-					#comming_events{margin:0px 0px 10px 15px; list-style-type:disc; 
+					#comming_events{margin:0px 0px 10px 15px; list-style-type:disc;
 						.event_date_title{display:inline-block; padding:0px 5px;}
 						a{display:block; padding:2px 0px;
 							&:hover{text-decoration:none; background:#888;}
@@ -173,11 +173,11 @@ body{
 .current_day{background:#a80000; color:#FFF;}
 
 #event_for_day{
-	position:absolute; 
-	top:165px; 
-	width:600px; 
-	height:300px; 
-	left:180px; 
+	position:absolute;
+	top:165px;
+	width:600px;
+	height:300px;
+	left:180px;
 	background:#DDD;
 	box-shadow: 0px 0px 50px #21070A;
 	-moz-box-shadow: 0px 0px 50px #21070A;
@@ -214,3 +214,4 @@ form.formtastic{
 .button_link{padding:2px 10px; background:#808080; border:1px solid #555555;; text-decoration:none; color:#000000;
   &:hover{background:#606060; text-decoration:none; }
 }
+

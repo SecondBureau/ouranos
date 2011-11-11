@@ -1,8 +1,8 @@
 class SearchController < ApplicationController
-  
-  before_filter :authenticate_user!, :is_membership_expiried?
+
+  before_filter :authenticate_user!, :is_membership_expired?
   before_filter :check_member_confirmation
-  
+
   def index
     if params[:search]
       condition = {:title_or_content_contains => params[:search]}
@@ -15,3 +15,4 @@ class SearchController < ApplicationController
   end
 
 end
+

@@ -1,6 +1,7 @@
 admins:
   uniq: [name]
-  name: admin
+  name: administrator
 members:
   uniq: [name]
   name: member
+

@@ -1,13 +1,13 @@
 class SubscribesController < ApplicationController
-  
-  before_filter :authenticate_user!, :is_membership_expiried?
-  
+
+  before_filter :authenticate_user!, :is_membership_expired?
+
   def index
     @display = user_signed_in?? "block":"none";
     @subscribe = Subscribe.new
     render :layout => "application"
   end
-  
+
   def show
     @posts = Post.limit(5)
     @events = Event.limit(5)
@@ -16,7 +16,7 @@ class SubscribesController < ApplicationController
     @date = Time.now.strftime("%m/%d/%Y")
     render :layout => "newsletter", :template => "ouranos_mailer/newsletter"
   end
-  
+
   def create
     subscribe = Subscribe.create params[:subscribe]
     @posts = Post.limit(subscribe.num_of_posts)
@@ -28,3 +28,4 @@ class SubscribesController < ApplicationController
   end
 
 end
+

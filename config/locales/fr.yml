@@ -4,7 +4,7 @@ fr:
   home:
     title: Accueil
   event:
-    title: Evénement
+    title: Evénements
     latest: En ce moment
     none: Aucun événement sur cette période.
     comming: Prochains événéments
@@ -42,7 +42,7 @@ fr:
     title: Votre compte
     member: Membre?
     bemember: Je veux devenir membre.
-    membership_expiried: Your membership has expiried. Please contact the administrator.
+    membership_expired: Your membership has expired. Please contact the administrator.
     alreadymember: Vous êtes membre.
     memberdesc: Devenez membre pour recevoir davantage d'information.
     memberdesc_getemail: Cliquez sur le bouton rouge pour recevoir les informations demandées.
@@ -75,6 +75,6 @@ fr:
     sat: SAM
     sun: DIM
   more: D'avantage
-  contact: 
+  contact:
     title: Contact
 

@@ -5,7 +5,7 @@ if ENV['init_rails_admin']
     config.default_items_per_page = 10
     config.main_app_name = [ "APE LFIP", "Administration" ]
     config.included_models = ["Post", "Category", "Comment", "Event", "Page", "Role", "User", "Setting", "Image", "Person", "Family"]
-    
+
     config.model Person do
       parent Family
       object_label_method do
@@ -40,16 +40,16 @@ if ENV['init_rails_admin']
         end
       end
     end
-    
+
     config.model User do
       parent Role
     end
-    
+
     config.model Role do
       navigation_label 'Accounts'
       weight -1
     end
-    
+
     config.model Family do
       navigation_label 'Members management'
       weight -3
@@ -82,7 +82,7 @@ if ENV['init_rails_admin']
       show do
         field :email
         field :role
-        field :expiry_date
+        field :expires_at
         field :sign_in_count
         field :current_sign_in_at
         field :last_sign_in_at
@@ -92,7 +92,6 @@ if ENV['init_rails_admin']
       list do
         field :role
         field :email
-        field :is_expiried
         field :sign_in_count
       end
       edit do
@@ -100,10 +99,10 @@ if ENV['init_rails_admin']
         field :role
         field :password
         field :password_confirmation
-        field :expiry_date
+        field :expires_at
       end
     end
-    
+
     config.model Event do
       edit do
         field :title
@@ -160,14 +159,14 @@ if ENV['init_rails_admin']
         field :title
         field :user
         field :created_at
-        field :readed do
+        field :read_count do
           label 'Readed times'
         end
       end
       show do
         field :title
         field :user
-        field :readed do
+        field :read_count do
           label 'Readed times'
         end
       end
@@ -207,7 +206,7 @@ if ENV['init_rails_admin']
         end
       end
     end
-    
+
     config.model Image do
       list do
         field :title
@@ -216,7 +215,7 @@ if ENV['init_rails_admin']
         end
       end
     end
-    
+
     config.model Category do
       parent Post
       list do
@@ -235,11 +234,11 @@ if ENV['init_rails_admin']
         field :posts
       end
     end
-    
+
     config.model Setting do
       label "Global Settings"
       index :show
-      list do 
+      list do
         field :site_name
         field :contact_email
       end
@@ -254,11 +253,11 @@ if ENV['init_rails_admin']
     def user_label_method
       "#{self.email}"
     end
-    
+
     def family_label_method
       "#{self.name}"
     end
-    
+
     def person_label_method
       "#{self.firstname} #{self.lastname}"
     end

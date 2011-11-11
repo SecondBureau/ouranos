@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111111082122) do
+ActiveRecord::Schema.define(:version => 20111111154152) do
 
   create_table "categories", :force => true do |t|
     t.string   "title",                           :null => false
@@ -120,7 +120,8 @@ ActiveRecord::Schema.define(:version => 20111111082122) do
     t.string   "title",                                :null => false
     t.text     "content",                              :null => false
     t.integer  "user_id",                              :null => false
-    t.string   "permalink",                            :null => false
+    t.string   "permalink"
+    t.integer  "read_count",        :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "can_be_subscribed", :default => true
@@ -157,6 +158,7 @@ ActiveRecord::Schema.define(:version => 20111111082122) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "send_email_after_user_created", :default => false
+    t.integer  "trial_period"
   end
 
   create_table "subscribes", :force => true do |t|
@@ -182,13 +184,10 @@ ActiveRecord::Schema.define(:version => 20111111082122) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.integer  "role_id",                                               :null => false
-    t.string   "firstname"
-    t.string   "lastname"
+    t.integer  "role_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.datetime "expiry_date"
-    t.boolean  "is_expiried"
+    t.datetime "expires_at"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

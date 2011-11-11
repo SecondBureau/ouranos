@@ -3,3 +3,4 @@ class AddIsExpiriedToUser < ActiveRecord::Migration
     add_column :users, :is_expiried, :boolean
   end
 end
+

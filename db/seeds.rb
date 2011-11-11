@@ -5,12 +5,12 @@
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
-require "lipsum"  
-  
+require "lipsum"
+
 seeds_path = File.join(File.dirname(__FILE__), 'seeds')
 
 Dir["#{seeds_path}/*"].select { |file| /(yml)$/ =~ file }.sort.each do |file|
-  puts file
+  #puts file
   klass = File.basename(file, '.yml').gsub(/[0-9]+\-/,'').singularize.humanize.constantize
   #YAML.load_file(file).each  do |key, params|
   YAML::load(ERB.new(IO.read(file)).result).each  do |key, params|
@@ -32,7 +32,7 @@ Dir["#{seeds_path}/*"].select { |file| /(yml)$/ =~ file }.sort.each do |file|
       if att[-4,4].eql?('_ids')
         val = [val] unless val.is_a?(Array)
         vals = []
-        val.each {|v| vals << att.gsub('_ids','').capitalize.constantize.where(eval(v)).first.id} 
+        val.each {|v| vals << att.gsub('_ids','').capitalize.constantize.where(eval(v)).first.id}
         val = vals
       end
       if att[-10,10].eql?('_textilize')
@@ -41,7 +41,7 @@ Dir["#{seeds_path}/*"].select { |file| /(yml)$/ =~ file }.sort.each do |file|
       end
       o.send("#{att}=", val)
     end
-    o.save 
+    o.save!
   end
 end
 
