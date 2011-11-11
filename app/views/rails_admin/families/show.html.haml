@@ -1,0 +1,39 @@
+:ruby
+  @father = @object.people.find_by_fa_type("father")
+  @mother = @object.people.find_by_fa_type("mother")
+  @kids = @object.people.find_all_by_fa_type("kid")
+  
+%div.fieldset
+  %h4=t("admin.new.basic_info")
+  %dl
+    %dt.label ACCOUNT
+    %dd
+      %pre.prettyprint= link_to @object.user, admin.show_path("User", @object.user)
+    %dt.label NAME
+    %dd
+      %pre.prettyprint= @object.name
+    %dt.label FATHER
+    %dd
+      %pre.prettyprint
+        - if @father
+          = link_to @father, admin.show_path("Person", @father)
+        - else
+          = "does not regsitered"
+    %dt.label MONTHER
+    %dd
+      %pre.prettyprint
+        - if @mother
+          = link_to @mother, admin.show_path("Person", @mother)
+        - else
+          = "does not regsitered"
+    %dt.label KIDS
+    %dd
+      %pre.prettyprint
+        - if @kids
+          - if @kids.class == Person
+            = link_to @kids, admin.show_path("Person", @kids)
+          - else
+            - @kids.each do |kid|
+              = link_to kid, admin.show_path("Person", kid)
+        - else
+          = "does not regsitered"

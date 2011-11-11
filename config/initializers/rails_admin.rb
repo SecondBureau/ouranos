@@ -1,4 +1,4 @@
-if ENV['init_rails_admin']
+if ENV['init_rails_admin'] || true
 
   RailsAdmin.config do |config|
     config.authorize_with :cancan
@@ -64,6 +64,7 @@ if ENV['init_rails_admin']
         field :user do
           label 'Account'
         end
+        field :people
       end
       show do
         field :name

@@ -23,6 +23,10 @@ class User < ActiveRecord::Base
     return role.name == role_name.to_s
   end
   
+  def to_s
+    "#{email}"
+  end
+  
   private
     def be_user
       self.role = Role.where("name = ?", "member").first
