@@ -26,6 +26,7 @@ class MembershipController < ApplicationController
         sign_in(user)
       end
       user.role = Role.find_by_name("member")
+      user.expiry_date = DateTime.now + 7.days
       user.member_confirm.delete
       user.save
       redirect_to main_app.root_path, :notice => t("account.alreadymember")
