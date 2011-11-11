@@ -4,6 +4,7 @@
   %ul
     - @pinned_posts.each_with_index do |post, index|
       %li.post_title= link_to post.title, main_app.post_path(post)
-      %li.post_content= truncate(strip_tags(post.content), :length => 500, :omission => '...')
+      %li.post_content= raw truncate(strip_tags(post.content), :length => 500, :omission => '...')
       - if index != (@pinned_posts.length - 1)
         %li.post_split_line
+
