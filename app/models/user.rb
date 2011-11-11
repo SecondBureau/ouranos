@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
   before_save :set_is_expiried
   
   def is_of_role? role_name
-    be_user if !self.role
+    return false if !self.role
     if self.role.name == :member && self.expiry_date < Time.now
       be_user
     end
@@ -43,7 +43,7 @@ class User < ActiveRecord::Base
     end
     
     def set_is_expiried
-      self.is_expiried = true if self.role.name == "member" && DateTime.now > self.expiry_date
+      self.is_expiried = true if self.role && self.role.name == "member" && DateTime.now > self.expiry_date
     end
   
 end

@@ -1,4 +1,4 @@
-if ENV['init_rails_admin'] || true
+if ENV['init_rails_admin']
 
   RailsAdmin.config do |config|
     config.authorize_with :cancan
@@ -252,7 +252,7 @@ if ENV['init_rails_admin'] || true
     end
 
     def user_label_method
-      "#{self.role.name} - #{self.email}"
+      "#{self.email}"
     end
     
     def family_label_method
