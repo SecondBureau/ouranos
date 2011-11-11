@@ -4,6 +4,7 @@ admin1:
   password: secret
   password_confirmation: secret
   role_id: "{:name => 'admin'}"
+  expiry_date: <% Time.now + 3600 %>
   is_expiried: false
 
 admin2:
@@ -12,16 +13,10 @@ admin2:
   password: secret
   password_confirmation: secret
   role_id: "{:name => 'admin'}"
+  expiry_date: "2100-12-12"
   is_expiried: false
-  
-officer:
-  uniq: [email]
-  email: officer@ape-pekin.com
-  password: secret
-  password_confirmation: secret
-  role_id: "{:name => 'admin'}"
-  is_expiried: false
-  
+
+
 member:
   uniq: [email]
   email: member@ape-pekin.com
@@ -31,26 +26,22 @@ member:
   expiry_date: "2100-12-12"
   is_expiried: false
 
-user:
-  uniq: [email]
-  email: user@ape-pekin.com
-  password: secret
-  password_confirmation: secret
-  role_id: "{:name => 'member'}"
-  is_expiried: false
-  
+
 family_user1:
   uniq: [email]
   email: zhangsan@email.com
   password: secret
   password_confirmation: secret
   role_id: "{:name => 'member'}"
+  expiry_date: "2100-12-12"
   is_expiried: false
-  
+
 family_user2:
   uniq: [email]
   email: lisi@email.com
   password: secret
   password_confirmation: secret
   role_id: "{:name => 'member'}"
+  expiry_date: "2100-12-12"
   is_expiried: true
+
