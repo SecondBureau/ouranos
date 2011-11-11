@@ -237,6 +237,7 @@ if ENV['init_rails_admin']
     
     config.model Setting do
       label "Global Settings"
+      index :show
       list do 
         field :site_name
         field :contact_email
