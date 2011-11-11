@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   
   protect_from_forgery
   
-  before_filter :set_locale, :ready_resources, :check_member_confirmation
+  before_filter :set_locale, :ready_resources
   
   helper_method :available_locales, :current_locale
 
@@ -14,6 +14,12 @@ class ApplicationController < ActionController::Base
     redirect_to(main_app.root_path) if current_user && current_user.is_expiried
   end
 
+  def check_member_confirmation
+    if current_user && !current_user.role && current_user.member_confirm
+      redirect_to main_app.root_path, :alert => t("account.please_check_email")
+    end
+  end
+  
   private
     def default_url_options(options={})
       {:locale => I18n.locale }
@@ -32,11 +38,6 @@ class ApplicationController < ActionController::Base
       I18n.locale = available_locales.first unless available_locales.include?(I18n.locale.to_s)
     end
     
-    def check_member_confirmation
-      if current_user && !current_user.role && current_user.member_confirm
-        redirect_to main_app.root_path, :alert => t("account.please_check_email")
-      end
-    end
 
     def ready_resources
       @setting = Setting.first
