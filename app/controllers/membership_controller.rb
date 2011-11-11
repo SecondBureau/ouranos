@@ -18,6 +18,9 @@ class MembershipController < ApplicationController
   
   def update
     user = User.find(params[:id])
+    if !user
+      redirect_to main_app.root_path, :notice => t("system.link.expired")
+    end
     if user.member_confirm.token == params[:token]
       if !current_user
         sign_in(user)
