@@ -15,9 +15,7 @@ class ApplicationController < ActionController::Base
   end
 
   def check_member_confirmation
-    if current_user && !current_user.role && current_user.member_confirm
-      redirect_to main_app.root_path, :alert => t("account.please_check_email")
-    end
+    
   end
   
   private
