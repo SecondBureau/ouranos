@@ -9,7 +9,7 @@ class MembershipController < ApplicationController
     if !user
       redirect_to main_app.root_path, :notice => t("system.link.expired")
     end
-    if user.member_confirm.token && user.member_confirm.token == params[:token]
+    if user.member_confirm && user.member_confirm.token == params[:token]
       if !current_user
         sign_in(user)
       elsif current_user.email != user.email
