@@ -44,9 +44,12 @@ class User < ActiveRecord::Base
     
     def set_is_expiried
       if self.role && self.role.name == "member"
-        self.is_expiried = true if DateTime.now > self.expiry_date
-      else
-        self.is_expiried = true if DateTime.now <= self.expiry_date
+        if DateTime.now > self.expiry_date
+          self.is_expiried = true 
+        else
+          self.is_expiried = false
+        end
+        self.save
       end
     end
   
