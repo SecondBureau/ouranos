@@ -64,6 +64,7 @@ if ENV['init_rails_admin']
         field :user do
           label 'Account'
         end
+        field :people
       end
       show do
         field :name
@@ -251,7 +252,7 @@ if ENV['init_rails_admin']
     end
 
     def user_label_method
-      "#{self.role.name} - #{self.email}"
+      "#{self.email}"
     end
     
     def family_label_method
