@@ -5,8 +5,12 @@
     = stylesheet_link_tag     "application"
     = javascript_include_tag  "application"
     = csrf_meta_tags
+    = render 'site/verification' if $google_site_verification
     = yield :header
+
   %body
+    = render 'site/demo' unless ::Rails.env.eql?('production')
+
     #header_wrapper
       #header
         = render "site/header"
@@ -21,6 +25,9 @@
           #site_image= image_tag(@banner_image_url, :width => 620, :height => 190)
           = yield
         .clear
-        
+
     #footer_wrapper
       #footer= render "site/footer"
+
+    = render 'site/ga' if ::Rails.env.eql?('production')
+
