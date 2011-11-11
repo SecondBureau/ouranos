@@ -1,6 +1,6 @@
 class MembershipController < ApplicationController
   
-  before_filter :authenticate_user!, :check_member_confirmation
+  before_filter :authenticate_user!
   
   def index
     @wana_be_member = true
@@ -38,13 +38,5 @@ class MembershipController < ApplicationController
     end
     
   end
-  
-  private
-    
-    def check_member_confirmation
-      if current_user && current_user.is_of_role?(:user) && current_user.member_confirm
-        @has_send_confirm_email = true
-      end
-    end
 
 end

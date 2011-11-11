@@ -4,7 +4,8 @@
       .index= (@comments_size - index)
       .comment_content= comment.content
       .date
-        = comment.user.email.split("@").first
+        - if comment.user && comment.user.email
+          = comment.user.email.split("@").first
         &nbsp;|&nbsp;
         = comment.created_at.strftime("%H:%M:%S - %d/%b/%Y")
         - if can? :manage, comment
