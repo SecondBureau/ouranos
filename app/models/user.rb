@@ -33,7 +33,7 @@ class User < ActiveRecord::Base
   end
 
   def is_expired?
-    (expires_at.nil? ||  expires_at > Time.now) ? false : true
+    (expires_at.nil? || !expires_at.is_a?(Time) || expires_at > Time.now) ? false : true
   end
 
   # deprecated
