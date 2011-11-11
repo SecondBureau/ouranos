@@ -1,19 +1,7 @@
 class MembershipController < ApplicationController
   
-  before_filter :authenticate_user!
-  
   def index
     @wana_be_member = true
-  end
-  
-  def show
-    if !@has_send_confirm_email
-      token = ActiveSupport::SecureRandom.hex(16)
-      member_confirm = OuranosMailer.membership_confirm(current_user, token)
-      member_confirm.deliver
-      MemberConfirm.create({:user => current_user, :send_date => Time.now, :token => token})
-      redirect_to main_app.root_path
-    end
   end
   
   def update
