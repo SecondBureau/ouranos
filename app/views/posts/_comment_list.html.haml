@@ -4,10 +4,7 @@
       .index= (@comments_size - index)
       .comment_content= comment.content
       .date
-        - if comment.user && comment.user.email
-          = comment.user.email.split("@").first
-        &nbsp;|&nbsp;
-        = comment.created_at.strftime("%H:%M:%S - %d/%b/%Y")
+        = time_ago_in_words(comment.created_at)
         - if can? :manage, comment
           = raw "&nbsp;"
           = link_to image_tag("icons/delete.png"), admin.destroy_path(:comment, comment), :confirm => "Are you sure?", :method => :delete
