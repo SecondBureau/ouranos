@@ -6,5 +6,5 @@
     - else
       %h1#category_title= t("blog.title")
   .clear
-  = render "site/posts_list"
+  = render "posts_list", :posts => @posts
   = paginate @posts

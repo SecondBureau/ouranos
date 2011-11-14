@@ -1,6 +1,0 @@
-.home_item_content
-  %ul
-    - @posts.each do |post|
-      %li.post_title= link_to post.title, main_app.post_path(post)
-      %li.post_content= truncate(strip_tags(post.content), :length => 500, :omission => '...')
-      %li.post_split_line

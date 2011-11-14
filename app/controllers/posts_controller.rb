@@ -11,6 +11,7 @@ class PostsController < ApplicationController
 		else
 			@posts = Post.locale_posts(locale).page(params[:page]).per(10)
   	end
+		@posts = PostDecorator.decorate(@posts)
   end
 
   def show
