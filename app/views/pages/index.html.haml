@@ -1,5 +1,5 @@
 #current_content_wrapper
-  = render "pinned_posts"
+  = render "posts/index_posts_list", :title => t("blog.pinned"), :posts => @pinned_posts
   .main_split_line
-  = render "recent_posts"
+  = render "posts/index_posts_list", :title => t("blog.latest"), :posts => @latest_posts
 

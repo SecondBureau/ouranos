@@ -48,8 +48,6 @@ class ApplicationController < ActionController::Base
 
       @pages = Page.all
       @categories_top = Category.where(:shows_at => :top)
-      @latest_posts = Post.where(:is_pinned => false).limit(5)
-      @pinned_posts = Post.where(:is_pinned => true)
 
       @most_posts = Post.top_posts
       @categories_side = Category.where(:shows_at => :left)

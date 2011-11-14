@@ -12,7 +12,6 @@
  *= require events
  *= require search
  *= require subscribes
- *= require membership
 */
 
 input:focus{
