@@ -2,3 +2,10 @@
   Welcome #{@resource.email}!
 %p You can confirm your account through the link below:
 %p= link_to 'Confirm my account', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token)
+
+%tr
+  %td
+    %h1{:style => "font-size:14px; line-height:25px; text-indent:2em;"} 
+      Welcome #{@resource.email}! This is a membership confirm email from APE LFIP. It is here because of someone has ordered a membership confirm from APE LFIP. If you know what this is, 
+      please click the following link to finish member confirm.
+    %h1{:style => "text-align:center; font-size:16px; font-weight:bold; margin:15px;"}= link_to "Click me to finish membership confirm", confirmation_url(@resource, :confirmation_token => @resource.confirmation_token)
