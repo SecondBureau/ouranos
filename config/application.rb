@@ -17,6 +17,7 @@ module Ouranos
       Devise::SessionsController.layout "sign"
       Devise::RegistrationsController.layout "sign"
       Devise::PasswordsController.layout "sign"
+      Devise::Mailer.layout "devise"
     end
     
     config.i18n.fallbacks = true
