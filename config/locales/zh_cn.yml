@@ -19,6 +19,8 @@ zh_cn:
     valid:
       added: "添加评论成功！"
     recent: 最新评论
+    create:
+      button: "提交评论"
   contact:
     title: 联系
   category: 目录

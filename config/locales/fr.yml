@@ -21,6 +21,8 @@ fr:
     pdf: Exporter cet article en PDF
   comment:
     recent: Derniers commentaires
+    create:
+      button: "Ajouter votre commentaire"
     valid:
       added: Votre commentaire a bien été ajouté.
     guest:
