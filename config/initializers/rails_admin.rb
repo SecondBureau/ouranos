@@ -267,6 +267,9 @@ if $init_rails_admin || Rails.env.development?
         field :site_name
         field :contact_email
         field :trial_period
+        field :images do
+          label "Banner images"
+        end
       end
     end
 
