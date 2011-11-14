@@ -1,5 +1,9 @@
 class PostDecorator < ApplicationDecorator
   decorates :post
+  
+  def short_title
+    h.truncate(post.title, :length => 38, :omission => '... ')
+  end
 
   def created_at
     post.created_at.strftime("%m-%d-%Y")

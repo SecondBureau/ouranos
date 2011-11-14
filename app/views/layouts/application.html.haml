@@ -21,7 +21,7 @@
       = render "site/notice_alert"
       #content
         = render "site/sidebar"
-        = render "site/event_for_the_day"
+        = render "events/event_for_the_day"
         #current_content
           #site_image= image_tag(@banner_image_url, :width => 620, :height => 190)
           = yield

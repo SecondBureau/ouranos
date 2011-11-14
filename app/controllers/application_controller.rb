@@ -47,12 +47,13 @@ class ApplicationController < ActionController::Base
       end
 
       @pages = Page.all
-      @categories_top = Category.where(:shows_at => :top)
 
-      @most_posts = Post.top_posts
-      @categories_side = Category.where(:shows_at => :left)
-      @recent_comments = Comment.limit(5)
-      @comming_events = Event.unscoped.where("start_date >= ?", DateTime.now).order("start_date").limit(5)
+      @most_posts = PostDecorator.decorate(Post.top_posts)
+      @categories_side = CategoryDecorator.decorate(Category.on_the(:left))
+      @categories_top = CategoryDecorator.decorate(Category.on_the(:top))
+      @recent_comments = CommentDecorator.decorate Comment.limit(5)
+      
+      @comming_events = EventDecorator.decorate(Event.comming_events)
 
       calendar_events
     end

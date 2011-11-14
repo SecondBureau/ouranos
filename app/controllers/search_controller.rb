@@ -8,6 +8,9 @@ class SearchController < ApplicationController
       condition = {:title_or_content_contains => params[:search]}
       @posts = Post.search(condition).all
       @events = Event.search(condition).all
+      
+      @posts = PostDecorator.decorate @posts
+      @events = EventDecorator.decorate @events
     else
       @posts = []
       @events = []

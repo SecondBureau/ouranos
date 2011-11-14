@@ -9,11 +9,11 @@
       - if @posts.length == 0
         %li= t('search.postsnothing')
       - else
-        = render "site/posts_list"
+        = render "posts/posts_list", :posts => @posts
   .results_item
     %h2= t("search.events")
     %ul
       - if @events.length == 0
         %li= t('search.eventsnothing')
       - else
-        = render "site/events_list"
+        = render "events/events_list"
