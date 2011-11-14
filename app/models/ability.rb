@@ -3,25 +3,25 @@ class Ability
 
   def initialize(user)
     user ||= User.new # in case of guest
-    
+
     if !user.role
       cannot :access, :all
     else
       can :access, :rails_admin
-    
+
       cannot :manage, Role
       cannot :manage, User
-      
-      case user.role.name.to_sym
-      when :admin
+
+      case user.role.name
+      when Role::ADMIN
         as_admin user
-      when :member
+      when Role::MEMBER
         as_member user
       end
     end
 
   end
-  
+
   private
   #
   # what admin can do
@@ -40,7 +40,7 @@ class Ability
     cannot :show, Event
     cannot :show, Page
   end
-  
+
   #
   # what member can do
   #
@@ -49,5 +49,6 @@ class Ability
     can :update, User, :id => user.id
     can :read, Comment, :user_id => user.id
   end
-  
+
 end
+
