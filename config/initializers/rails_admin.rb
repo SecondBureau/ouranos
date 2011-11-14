@@ -4,7 +4,7 @@ if $init_rails_admin || Rails.env.development?
     config.authorize_with :cancan
     config.default_items_per_page = 10
     config.main_app_name = [ "APE LFIP", "Administration" ]
-    config.included_models = ["Post", "Category", "Comment", "Event", "Page", "Role", "User", "Setting", "Image", "Person", "Family"]
+    config.included_models = ["Post", "Category", "Comment", "Event", "Page", "Role", "User", "Setting", "Image", "Person", "Family", "Resource"]
 
     config.model Person do
       parent Family
@@ -46,7 +46,7 @@ if $init_rails_admin || Rails.env.development?
     end
 
     config.model Role do
-      navigation_label 'Accounts'
+      navigation_label 'Accounts management'
       weight -1
     end
 
@@ -104,6 +104,7 @@ if $init_rails_admin || Rails.env.development?
     end
 
     config.model Event do
+      weight +9
       edit do
         field :title
         field :content, :text do
@@ -195,6 +196,7 @@ if $init_rails_admin || Rails.env.development?
     end
 
     config.model Page do
+      weight +10
       list do
         field :title
         field :created_at
@@ -206,8 +208,23 @@ if $init_rails_admin || Rails.env.development?
         end
       end
     end
+    
+    config.model Resource do
+      navigation_label 'Resources management'
+      weight +1
+      label "Files"
+      object_label_method do
+        :resource_label_method
+      end
+      list do
+        field :title
+        field :resource, :paperclip_file
+      end
+    end
 
     config.model Image do
+      parent Resource
+      weight +1
       list do
         field :title
         field(:image, :paperclip_file) do
@@ -236,22 +253,33 @@ if $init_rails_admin || Rails.env.development?
     end
 
     config.model Setting do
-      label "Global Settings"
+      label "Settings"
       index :show
-      list do
+      weight -10
+      show do
+        field :images
         field :site_name
         field :contact_email
+        field :trial_period
       end
       edit do
         field :images
         field :site_name
         field :contact_email
-        field :send_email_after_user_created
+        field :trial_period
       end
     end
 
     def user_label_method
       "#{self.email}"
+    end
+    
+    def resource_label_method
+      "resource: #{self.title}"
+    end
+    
+    def post_label_method
+      "#{self.title}"
     end
 
     def family_label_method
