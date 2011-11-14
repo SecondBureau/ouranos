@@ -8,6 +8,6 @@ class Image < ActiveRecord::Base
       :access_key_id => $s3_access_key_id  ,
       :secret_access_key => $s3_secret_access_key
     }
-  belongs_to :image_owner , :polymorphic => true
+  belongs_to :setting
 end
 

@@ -254,6 +254,9 @@ if $init_rails_admin || Rails.env.development?
 
     config.model Setting do
       label "Settings"
+      object_label_method do
+        :setting_label_method
+      end
       index :show
       weight -10
       show do
@@ -271,6 +274,10 @@ if $init_rails_admin || Rails.env.development?
           label "Banner images"
         end
       end
+    end
+    
+    def setting_label_method
+      "settings"
     end
 
     def user_label_method
