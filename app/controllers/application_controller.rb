@@ -51,8 +51,7 @@ class ApplicationController < ActionController::Base
       @most_posts = PostDecorator.decorate(Post.top_posts)
       @categories_side = CategoryDecorator.decorate(Category.on_the(:left))
       @categories_top = CategoryDecorator.decorate(Category.on_the(:top))
-      @recent_comments = CommentDecorator.decorate Comment.limit(5)
-      
+      @recent_comments = CommentDecorator.decorate(Comment.recent_comments)
       @comming_events = EventDecorator.decorate(Event.comming_events)
 
       calendar_events

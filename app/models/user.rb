@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
 
   belongs_to :role
   has_many :subscribes
-  has_many :comments, :as => :commentable
+  has_many :comments, :as => :commentable, :dependent => :destroy
   has_one :family
 
   before_create :set_default_attributes
