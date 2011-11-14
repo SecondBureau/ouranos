@@ -4,6 +4,7 @@ admin1:
   password: secret
   password_confirmation: secret
   role_id: "{:name => 'administrator'}"
+  confirmed_at: "2011-11-14 02:45:49 UTC"
 
 admin2:
   uniq: [email]
@@ -11,7 +12,7 @@ admin2:
   password: secret
   password_confirmation: secret
   role_id: "{:name => 'administrator'}"
-
+  confirmed_at: "2011-11-14 02:45:49 UTC"
 
 member:
   uniq: [email]
@@ -19,6 +20,8 @@ member:
   password: secret
   password_confirmation: secret
   role_id: "{:name => 'member'}"
+  confirmed_at: "2011-11-14 02:45:49 UTC"
+  expires_at: "2100-12-12"
 
 
 family_user1:
@@ -27,6 +30,8 @@ family_user1:
   password: secret
   password_confirmation: secret
   role_id: "{:name => 'member'}"
+  confirmed_at: "2011-11-14 02:45:49 UTC"
+  expires_at: "2100-12-12"
 
 family_user2:
   uniq: [email]
@@ -34,5 +39,6 @@ family_user2:
   password: secret
   password_confirmation: secret
   role_id: "{:name => 'member'}"
+  confirmed_at: "2011-11-14 02:45:49 UTC"
   expires_at: "2100-12-12"
 
