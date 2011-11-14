@@ -55,6 +55,9 @@ GEM
       sass-rails (~> 3.1.0)
     builder (3.0.0)
     cancan (1.6.7)
+    cells (3.7.0)
+      actionpack (~> 3.0)
+      railties (~> 3.0)
     cocaine (0.2.0)
     coderay (0.9.8)
     coffee-filter (0.1.1)
@@ -71,6 +74,8 @@ GEM
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.0.3)
       warden (~> 1.0.3)
+    draper (0.9.5)
+      activesupport (>= 2.3.10)
     em-websocket (0.3.5)
       addressable (>= 2.1.1)
       eventmachine (>= 0.12.9)
@@ -227,9 +232,11 @@ DEPENDENCIES
   RedCloth
   aws-s3
   cancan
+  cells
   coffee-filter
   coffee-rails (~> 3.1.1)
   devise
+  draper
   fog
   formtastic
   guard

@@ -1,0 +1,9 @@
+%ul
+  - @comments.each_with_index do |comment, i|
+    %li
+      .index= comment.index(i)
+      .comment_content= comment.content
+      .date
+        = comment.created_at
+        = render "comments/management", :comment => comment
+      .clear

@@ -14,11 +14,10 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.where("permalink = ?", params[:permalink]).first
+    @post = PostDecorator.decorate(Post.where("permalink = ?", params[:permalink]).first)
     @post.read_count = @post.read_count + 1
     @post.save
-    @comments = @post.comments
-    @comments_size = @comments.size
+    @comments = CommentDecorator.decorate(@post.comments)
     @comment = @post.comments.build
     @comments.delete @comment
   end

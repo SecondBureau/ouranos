@@ -2,7 +2,6 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.1.1'
 
-
 group :assets do
   gem 'sass-rails',   '~> 3.1.4'
   gem 'coffee-rails', '~> 3.1.1'
@@ -13,6 +12,9 @@ gem 'coffee-filter'
 gem 'haml-rails'
 gem 'jquery-rails'
 gem 'tinymce-rails'
+
+gem 'draper'
+gem 'cells'
 
 group :development do
   gem 'sqlite3'
