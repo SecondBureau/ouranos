@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
 
+  require 'daryl'
+  
   protect_from_forgery
 
   before_filter :set_locale, :ready_resources
