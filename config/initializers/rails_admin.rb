@@ -138,9 +138,7 @@ if $init_rails_admin || Rails.env.development?
         field :created_at
       end
       edit do
-        field :content, :text do
-          tinymce true
-        end
+        field :content, :text
         field :user_id do
           view_helper :hidden_field
           partial :form_field
