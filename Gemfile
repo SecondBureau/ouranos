@@ -35,8 +35,7 @@ gem 'formtastic'
 gem 'cancan'
 gem 'devise'
 
-#gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
-gem 'rails_admin', :git => 'git://github.com/mark-secondbureau/rails_admin.git', :branch => 'second'
+gem 'rails_admin', :git => 'git://github.com/mark-secondbureau/rails_admin.git', :tag => "v0.1"
 
 gem 'ruby_parser'
 
