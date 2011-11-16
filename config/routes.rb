@@ -27,6 +27,8 @@ Ouranos::Application.routes.draw do
   end
 
   root :to => 'pages#index'
+  
+  match '*path' => 'pages#index'
 
 end
 
