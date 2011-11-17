@@ -1,5 +1,5 @@
 #side_bar
-  #site_logo= link_to image_tag("APE-LOGO.png"), main_app.root_path
+  #site_logo= link_to image_tag("APE-LOGO.png"), main_app.root_path, {:title => t("home.title")}
   = render "events/calendar"
   .home_side_block#categories
     .home_side_block_title= t("category")
