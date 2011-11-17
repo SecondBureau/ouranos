@@ -1,10 +1,8 @@
 class Event < ActiveRecord::Base
-  default_scope :order => "start_date DESC"
-  
   before_save :lipsum
   validates_presence_of :title, :content, :start_date
   
-  scope :comming_events, lambda{ unscoped.where("start_date >= ?", DateTime.now).order("start_date").limit(5) }
+  scope :comming_events, lambda{ where("start_date >= ?", DateTime.now).limit(5) }
   
   private
   
