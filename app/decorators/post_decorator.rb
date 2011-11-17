@@ -10,7 +10,7 @@ class PostDecorator < ApplicationDecorator
   end
   
   def summary
-    h.raw(h.truncate(h.strip_tags(post.content), :length => 500, :omission => '...'))
+    h.raw(h.truncate(h.strip_tags(post.content), :length => 300, :omission => '...'))
   end
   
   def printer
