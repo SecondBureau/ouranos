@@ -10,7 +10,7 @@ fr:
     comming: Prochains événéments
     ofday: Aujourd'hui
     in: "Events in %{year}"
-  category: Catégories
+  category: "Dossiers"
   blog:
     title: Articles
     latest: Derniers articles
