@@ -1,7 +1,8 @@
 #current_content_wrapper
   #year_title
     %h1.current_year= "#{t("event.in", :year => @events_year)}"
-    .year_selector= select_year(Date.today, :start_year => 2010, :end_year => 2019)
+    .year_selector
+      = select_tag "year_selector", options_for_select(Event.years)
     .clear
   - if @events_by_month.length == 0
     .month_of_events= t("event.none")
@@ -12,12 +13,8 @@
       %ul.events_list
         - events.each do |event|
           %li
-            = link_to event.title, main_app.event_path(event)
-            .event_date
-              - if !event.end_date
-                = event.start_date
-              - else
-                = raw("#{event.start_date} ~ #{event.end_date}")
+            %span= link_to event.title, main_app.event_path(event)
+            .event_date= event.date_range
             .clear
 .clear
 

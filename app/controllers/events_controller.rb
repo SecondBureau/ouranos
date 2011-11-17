@@ -5,13 +5,10 @@ class EventsController < ApplicationController
 
   def index
     @events_year = params[:events_year]
-    if !@events_year
-      @events_year = Time.now.year
-    else
-      @events_year = @events_year.to_i
-    end
-    @events_by_month = Event.all.select{|event| event.start_date.year == @events_year }.group_by { |event| I18n.l(event.start_date, :format => "%B").capitalize }
-    @events_by_month = [] if !@events_by_month
+    @events_year.nil? ? Time.now.year : @events_year.to_i
+    
+    @events_by_month = Event.group_by_month_in_a_year @events_year
+    # I18n.l(event.start_date, :format => "%B").capitalize
   end
 
   def show

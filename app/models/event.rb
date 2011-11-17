@@ -4,6 +4,22 @@ class Event < ActiveRecord::Base
   
   scope :comming_events, lambda{ where("start_date >= ?", DateTime.now).limit(5) }
   
+  class << self
+    
+    def years
+      all.group_by{ |event| event.start_date.year }.keys
+    end
+    
+    def year_events year
+      all.select{|event| event.start_date.year == year }
+    end
+    
+    def group_by_month_in_a_year year
+      year_events(year).group_by { |event| event.start_date.month }
+    end
+    
+  end
+  
   private
   
   def lipsum
