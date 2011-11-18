@@ -1,4 +1,4 @@
-%h2= "#{t("event.ofday")} #{@date.strftime('%m/%d/%Y')}"
+%h2= "#{@date.strftime('%d/%m/%Y')}"
 #events_list
 	%ul
 		- @events.each do |event|
