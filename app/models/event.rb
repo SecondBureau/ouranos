@@ -11,7 +11,7 @@ class Event < ActiveRecord::Base
     end
     
     def year_events year
-      all.select{|event| event.start_date.year == year }
+      order("start_date ASC").select{|event| event.start_date.year == year }
     end
     
     def group_by_month_in_a_year year
