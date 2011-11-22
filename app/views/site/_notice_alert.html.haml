@@ -1,10 +1,6 @@
 :ruby
   flash[:alert] = t("account.membership_expired") if current_user && current_user.is_expired?
-#alert
-  - if flash[:alert]
-    %ul
-      - flash[:alert].full_messages.each do |msg|
-        %li= msg
+#alert= flash[:notice]
 #notice= flash[:notice]
 
 :coffeescript
