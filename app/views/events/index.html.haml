@@ -7,8 +7,8 @@
   - if @events_by_month.length == 0
     .month_of_events= t("event.none")
   - else
-    - @events_by_month.each do |monthname, events|
-      .month_of_events= monthname
+    - @events_by_month.each do |month_num, events|
+      .month_of_events= num_to_month_name(month_num)
       .clear
       %ul.events_list
         - events.each do |event|

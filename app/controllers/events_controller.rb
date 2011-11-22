@@ -5,9 +5,10 @@ class EventsController < ApplicationController
 
   def index
     @events_year = params[:events_year]
-    @events_year.nil? ? Time.now.year : @events_year.to_i
+    @events_year = @events_year.nil? ? Time.now.year : @events_year.to_i
     
     @events_by_month = Event.group_by_month_in_a_year @events_year
+    @events_by_month.map{|key, value| @events_by_month[key] = EventDecorator.decorate(value) }
     # I18n.l(event.start_date, :format => "%B").capitalize
   end
 
