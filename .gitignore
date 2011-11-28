@@ -7,3 +7,4 @@ solr/
 log/*.lck
 public/ckeditor_assets
 public/system
+*.csv
