@@ -29,6 +29,14 @@ class OuranosMailer < ActionMailer::Base
       format.html { render :layout => "membership_confirm" }
     end
   end
+  
+  def membership_welcome(user)
+    @date = user.expires_at.strftime("%m/%d/%Y")
+    @subject = "Bienvenue sur le Site de l'APE LFIP"
+    mail(:to => user.email, :subject => @subject) do |format|
+      format.html { render :layout => "ape" }
+    end
+  end
 
 end
 

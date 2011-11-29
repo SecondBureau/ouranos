@@ -1,6 +1,9 @@
 %tr
   %td
     %h1{:style => "font-size:14px; line-height:25px; text-indent:2em;"} 
-      Welcome #{@resource.email}! This is a membership confirm email from APE LFIP. It is here because of someone has ordered a membership confirm from APE LFIP. If you know what this is, 
-      please click the following link to finish member confirm.
-    %h1{:style => "text-align:center; font-size:16px; font-weight:bold; margin:15px;"}= link_to "Click me to finish membership confirm", confirmation_url(@resource, :confirmation_token => @resource.confirmation_token)
+      Bonjour!
+    %p Nous avons bien reçu votre demande d'adhésion à l'Association des Parents d'élèves du Lycée International de Pékin.
+    %p Afin de confirmer votre demande, veuillez cliquer sur le lien ci-dessous : 
+    %h1{:style => "text-align:center; font-size:16px; font-weight:bold; margin:15px;"}= link_to "Je souhaite adhérer à l'APE LFIP'", confirmation_url(@resource, :confirmation_token => @resource.confirmation_token)
+    %br
+    %p APE LFIP
