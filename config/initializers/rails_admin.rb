@@ -206,7 +206,7 @@ if $init_rails_admin || Rails.env.development?
         end
       end
     end
-    
+
     config.model Resource do
       navigation_label 'Resources management'
       weight +1
@@ -273,7 +273,7 @@ if $init_rails_admin || Rails.env.development?
         end
       end
     end
-    
+
     def setting_label_method
       "settings"
     end
@@ -281,11 +281,11 @@ if $init_rails_admin || Rails.env.development?
     def user_label_method
       "#{self.email}"
     end
-    
+
     def resource_label_method
       "resource: #{self.title}"
     end
-    
+
     def post_label_method
       "#{self.title}"
     end
@@ -301,4 +301,3 @@ if $init_rails_admin || Rails.env.development?
   end
 
 end
-
