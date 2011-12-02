@@ -1,6 +1,7 @@
 class OuranosMailer < ActionMailer::Base
 
   default :from => "ape-lfip@ape-pekin.com"
+  layout 'ape'
 
   def newsletter(user)
     @date = Time.now.strftime("%m/%d/%Y")
@@ -27,16 +28,15 @@ class OuranosMailer < ActionMailer::Base
     @user = user
     mail(:to => user.email, :subject => @subject) do |format|
       format.html { render :layout => "membership_confirm" }
+      format.text { render :layout => "membership_confirm" }
     end
   end
-  
+
   def membership_welcome(user)
+
     @date = user.expires_at.strftime("%m/%d/%Y")
     @subject = "Bienvenue sur le Site de l'APE LFIP"
-    mail(:to => user.email, :subject => @subject) do |format|
-      format.html { render :layout => "ape" }
-    end
+    mail(:to => user.email, :subject => @subject)
   end
 
 end
-

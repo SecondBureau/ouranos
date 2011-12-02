@@ -50,3 +50,5 @@ end
 gem 'rack-cache'
 
 gem 'RedCloth'
+
+gem 'premailer-rails3'

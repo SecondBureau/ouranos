@@ -70,6 +70,8 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.1.3)
+    css_parser (1.2.5)
+      addressable
     devise (1.5.0)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.0.3)
@@ -118,6 +120,7 @@ GEM
       heroku (>= 2)
       rails (>= 2)
     hike (1.2.1)
+    htmlentities (4.3.1)
     i18n (0.6.0)
     jquery-rails (1.0.17)
       railties (~> 3.0)
@@ -155,6 +158,12 @@ GEM
     polyamorous (0.5.0)
       activerecord (~> 3.0)
     polyglot (0.3.3)
+    premailer (1.7.3)
+      css_parser (>= 1.1.9)
+      htmlentities (>= 4.0.0)
+    premailer-rails3 (1.0.1)
+      premailer (~> 1.7)
+      rails (~> 3)
     pry (0.9.7.4)
       coderay (~> 0.9.8)
       method_source (~> 0.6.7)
@@ -249,6 +258,7 @@ DEPENDENCIES
   meta_search
   paperclip
   pg
+  premailer-rails3
   pry
   rack-cache
   rails (= 3.1.1)
