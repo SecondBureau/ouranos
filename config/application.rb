@@ -24,6 +24,7 @@ module Ouranos
 
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
+    config.time_zone = 'Beijing'
     
     # emails
     config.host = ENV['host'] || 'localhost:3000'
