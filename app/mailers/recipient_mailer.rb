@@ -8,6 +8,7 @@ class RecipientMailer < ActionMailer::Base
   layout 'mailer/basic'
 
   def welcome(recipient)
+    I18n.locale = :fr
     # manadatory params
     @recipient      = recipient
     @subject        = "Bienvenue sur le Site de l'APE LFIP"

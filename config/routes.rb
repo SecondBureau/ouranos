@@ -24,7 +24,12 @@ Ouranos::Application.routes.draw do
     match "/page/:permalink"   => "pages#show", :as => :page, :requirements => { "permalink" => /[-_a-z0-9]/ }
     match "/event/:daystring" => "events#of_day", :as => :events_of_day
     mount RailsAdmin::Engine => '/admin', :as => 'admin'
+    
+   
+    
   end
+  
+   match '/assets/powered-by-secondbureau.png' => 'recipients#opening_track'
 
   root :to => 'pages#index'
   
