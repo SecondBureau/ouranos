@@ -8,7 +8,7 @@ class RecipientsController < ApplicationController
       recipient.last_read_at = Time.now
       recipient.save
     end
-  send_file File.join(Rails.root, 'app', 'assets', 'images', 'powered-by-secondbureau.png'), :type => 'image/png', :disposition => 'inline'
+  send_file File.join(Rails.root, 'app', 'assets', 'images', 'logo_secondbureau.png'), :type => 'image/png', :disposition => 'inline'
 end
 
 end
