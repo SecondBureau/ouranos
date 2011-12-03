@@ -16,15 +16,15 @@
 %ul 
   %li 
     email :
-    = @user.email
+    = @recipient.user.email
   %li
     mot de passe : 
     = @password
 
-- unless @user.expires_at.nil?    
+- unless @recipient.user.expires_at.nil?    
   %p
     Vous &ecirc;tes membre de l'APE jusqu'au 
-    = I18n.l(@user.expires_at, :format => "%e %B %Y")
+    = I18n.l(@recipient.user.expires_at, :format => "%e %B %Y")
     
 
 %p L&#39;&eacute;quipe APE

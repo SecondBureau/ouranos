@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
   has_many :subscribes
   has_many :comments, :as => :commentable, :dependent => :destroy
   has_one :family
+  has_many :recipients
 
   before_create :set_default_attributes
 
