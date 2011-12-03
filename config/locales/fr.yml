@@ -30,7 +30,7 @@ fr:
     user:
       comment: Votre commentaire est en cours de validation et sera bientôt publié. <br/> Les commentaires des membres de l'association sont immédiatement publiés.
   signin: Connexion
-  signup: Enregistrement
+  signup: Découvrez gratuitement les avantages réservés aux membres.
   signout: Déconnexion
   management: Administration
   confirm_delete: Etes-vous certain(e) de vouloir supprimer cet enregistrement ?
@@ -50,6 +50,7 @@ fr:
     memberdesc_getemail: Cliquez sur le bouton rouge pour recevoir les informations demandées.
     has_send_member_confirmation: Vous allez recevoir un email de confirmation.
     please_check_email: Veuillez vérifier votre boite aux lettres électroniques.
+    did_not_received_confirmation: Vous n'avez pas reçu l'email de confirmation ?
   subscribe:
     title: Abonnements
     cycle: Périodicité：

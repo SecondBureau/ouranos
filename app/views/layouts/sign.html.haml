@@ -1,13 +1,23 @@
-!!!
+!!! 5
 %html
   %head
-    %title Sign
-    = stylesheet_link_tag       "sign"
-    = javascript_include_tag    "sign"
+    %title= @setting.site_name
+    = stylesheet_link_tag     "application", "sign"
+    = javascript_include_tag  "sign"
+    = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Quicksand:400,700'
     = csrf_meta_tags
+    = render 'site/verification' if $google_site_verification
+    = yield :header
+
   %body
-    #header
-      %h1= link_to "APE", main_app.root_path
+    = render 'site/demo' unless ::Rails.env.eql?('production')
+
+    #header_wrapper
+      #header
+        = render "site/header"
+        = render "site/account"
+        .clear
+    
     #sign_box_wrapper  
       #alert= flash[:alert]
       #notice= flash[:notice]
@@ -18,4 +28,9 @@
           if "#{flash[:notice]}".length > 0
             $("#notice").slideDown("down")
       #sign_box= yield
-    #poweredby= image_tag("2buro.png")
+    
+
+    #footer_wrapper
+      #footer= render "site/footer"
+
+    = render 'site/ga' if ::Rails.env.eql?('production')

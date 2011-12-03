@@ -93,5 +93,5 @@
 
                             %td{:valign => "top", :width => "190"}
                               #sbrewards{'sb:edit' => 'sbrewards'}
-                                =ga_link_to image_tag("powered-by-secondbureau.png?token=#{@recipient.token}", :id => "headerImage campaign-icon", :width => "190", :height => "50"), 'http://secondbureau.com?utm_content=power_by_logo'
+                                =ga_link_to image_tag("powered-by-secondbureau.png?token=#{@recipient ? @recipient.token : ''}", :id => "headerImage campaign-icon", :width => "190", :height => "50"), 'http://secondbureau.com?utm_content=power_by_logo'
                                             

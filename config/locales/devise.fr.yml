@@ -17,7 +17,7 @@ fr:
       sign_in_with_omniauth: "Se connecter via %{provider}"
     failure:
       already_authenticated: "Vous êtes déjà connecté !"
-      unauthenticated: "Vous devez vous connecter ou vous inscrire pour continuer."
+      unauthenticated: "L'accès à cette page est réservé aux membres de l'APE. Veuillez vous identifier ou vous inscrire pour continuer."
       unconfirmed: "Vous devez valider votre compte pour continuer."
       locked: "Votre compte est verrouillé."
       invalid: "Email ou mot de passe incorrect."
