@@ -2,10 +2,9 @@
 %html
   %head
     -# Facebook sharing information tags
-    - unless @setting.nil?
-      %meta{'property' => 'og:title', :content => @setting.site_name}
-      %title= @setting.site_name
-    -#= render 'layouts/mailer/styles'
+    - unless @subject.nil?
+      %meta{'property' => 'og:title', :content => @subject}
+      %title= @subject
 
   %body{:leftmargin => "0", :marginwidth => "0", :topmargin => "0", :marginheight => "0", :offset => "0"}
     %center
@@ -22,7 +21,7 @@
                     %tr
                       %td{:valign => "top"}
                         #std_preheader_content{'sb:edit' => 'std_preheader_content'}
-                          Use this area to offer a short teaser of your email's content. Text here will show in the preview area of some email clients.
+                          = @email_extract
 
                       - unless @is_archive_page
                         %td{:valign => "top", :width => 190}
@@ -41,7 +40,7 @@
                       %td.headerContent
 
                         -# Begin Module: Standard Header Image
-                        = image_tag "http://gallery.mailchimp.com/653153ae841fd11de66ad181a/images/placeholder_600.gif", :style => 'max-width:600px;', :id => "headerImage campaign-icon"
+                        = link_to image_tag("ape-pekin-header.png", :alt => 'ape-pekin', :id => "headerImage campaign-icon", :width => "600", :height => "145"), 'http://ape-pekin.com'
 
 
               %tr
@@ -88,9 +87,9 @@
                                 %em
                                   Copyright &copy;
                                   = Time.now.year
-                                  Association des Parents d'élèves du LFIP,
-                                  Tous droits réservés.
+                                  Association des Parents d'&eacute;l&egrave;ves du LFIP,
+                                  Tous droits r&eacute;serv&eacute;s.
 
                             %td{:valign => "top", :width => "190"}
                               #sbrewards{'sb:edit' => 'sbrewards'}
-                                =link_to 'Second Bureau', 'http://secondbureau.com'               
+                                =link_to image_tag("powered-by-secondbureau.png", :id => "headerImage campaign-icon", :width => "190", :height => "50"), 'http://secondbureau.com'               

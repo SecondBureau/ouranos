@@ -10,8 +10,6 @@ Bundler.require *Rails.groups(:assets) if defined?(Bundler)
 module Ouranos
   class Application < Rails::Application
     
-    config.action_mailer.default_url_options = { :host => "ape-pekin.com" }
-    
     # Configure the layout of the Devise on sign in and sign up and forget password pages
     config.to_prepare do
       Devise::SessionsController.layout "sign"
@@ -24,6 +22,11 @@ module Ouranos
 
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
+    
+    # emails
+    config.host = ENV['host'] || 'localhost:3000'
+    config.action_mailer.default_url_options = { :host =>  config.host }
+    config.action_mailer.asset_host = "http://" +  config.host
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
@@ -31,5 +34,6 @@ module Ouranos
     # Enable the asset pipeline
     config.assets.enabled = true
     config.assets.initialize_on_precompile = false
+  
   end
 end

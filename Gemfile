@@ -51,4 +51,5 @@ gem 'rack-cache'
 
 gem 'RedCloth'
 
+gem 'nokogiri'
 gem 'premailer-rails3'

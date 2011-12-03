@@ -1,6 +1,10 @@
+# encoding: utf-8
 class OuranosMailer < ActionMailer::Base
 
-  default :from => "ape-lfip@ape-pekin.com"
+  default :from => "ape-lfip@ape-pekin.com" #,
+          #:host => $host,
+          #:asset_host => "http://" + $host
+
   layout 'ape'
 
   def newsletter(user)
@@ -33,9 +37,12 @@ class OuranosMailer < ActionMailer::Base
   end
 
   def membership_welcome(user)
-
-    @date = user.expires_at.strftime("%m/%d/%Y")
-    @subject = "Bienvenue sur le Site de l'APE LFIP"
+    @user           = user
+    @password       = SecureRandom.hex(3)
+    @subject        = "Bienvenue sur le Site de l'APE LFIP"
+    @email_extract  = "Veuillez trouver votre mot de passe pour acceder au site de l'APE du LFIP."
+    @is_archive_page = true
+    user.update_attributes( :password => @password, :password_confirmation => @password )
     mail(:to => user.email, :subject => @subject)
   end
 
