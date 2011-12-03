@@ -14,7 +14,7 @@ module MailersHelper
       url = url_for(options)
       
       url += url.include?('?') ? '&' : '?'
-      url += {:utm_source =>  Rails.application.config.host, :utm_medium => "email", :utm_campaign => @recipient.template}.to_query
+      url += {:utm_source =>  Rails.application.config.host, :utm_medium => "email", :utm_campaign => (@recipient ? @recipient.template : '')}.to_query
 
       href = html_options['href']
       tag_options = tag_options(html_options)
