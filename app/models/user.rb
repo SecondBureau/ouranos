@@ -34,11 +34,6 @@ class User < ActiveRecord::Base
   def is_expired?
     (expires_at.nil? || !expires_at.is_a?(Time) || expires_at > Time.now) ? false : true
   end
-
-  # deprecated
-  def to_s
-    "#{email}"
-  end
   
   def check_active_subscription
     if sign_in_count.eql?(1)
@@ -47,7 +42,17 @@ class User < ActiveRecord::Base
       Recipient.create(:user => self, :template => 'will_soon_expire')
     end
   end
+  
+  def forge_email
+    unless ::Rails.env.eql?('production')
+      self.email = "#{self.email.gsub('@secondbureau.com','').gsub('@','_')}@secondbureau.com"
+    end
+  end
 
+  # deprecated
+  def to_s
+    "#{email}"
+  end
 
 private
 
