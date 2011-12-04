@@ -1,0 +1,15 @@
+%h1 Dans ... jours, vous ne serez plus membre de l'APE !
+
+%p Et vous ne pourrez plus bénéficier des avantages réservés aux membres, tels que l'accès au site internet.
+
+%p Pour renouveler votre adhésion, contacter ....
+
+%p Pour en savoir davantage sur les avantages, ....
+
+- unless @recipient.user.expires_at.nil?    
+  %p
+    Vous &ecirc;tes membre de l'APE jusqu'au 
+    = I18n.l(@recipient.user.expires_at, :format => "%e %B %Y")
+    
+
+%p L&#39;&eacute;quipe APE

@@ -36,9 +36,17 @@ form > li{
 }
 
 #demo_info {
+  z-index: 99;
   position: absolute;
+  left:20px;
+  top:40px;
   width:200px;
-  height:150px;
+  height:100px;
+  text-align:center;
+  padding: 10px;
   color: red;
+  font-size:15px;
+  background: white;
+  border: solid 2px black;
 }
 

@@ -40,3 +40,7 @@ module Ouranos
   
   end
 end
+
+Warden::Manager.after_authentication do |user, auth, opts|
+  user.check_active_subscription
+end

@@ -39,6 +39,14 @@ class User < ActiveRecord::Base
   def to_s
     "#{email}"
   end
+  
+  def check_active_subscription
+    if sign_in_count.eql?(1)
+      Recipient.create(:user => self, :template => 'welcome')
+    elsif Time.now - expires_at < (Setting.first.trial_period || DEFAULT_TRIAL_PERIOD) * 60 * 60 * 24
+      Recipient.create(:user => self, :template => 'will_soon_expire')
+    end
+  end
 
 
 private
@@ -55,6 +63,8 @@ private
     set_default_expiration_date
     set_default_role
   end
+  
+
 
 end
 

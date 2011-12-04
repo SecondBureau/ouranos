@@ -1,4 +1,4 @@
-%p Bienvenue sur le site de l'APE !
+%h1= @subject
 
 %p L'&eacute;quipe de l'Association des Parents d'El&egrave;ves est heureuse de vous offrir un site internet afin de :
 %ul
@@ -19,7 +19,7 @@
     = @recipient.user.email
   %li
     mot de passe : 
-    = @password
+    = @password ? @password : "vous seul le connaissez !"
 
 - unless @recipient.user.expires_at.nil?    
   %p
