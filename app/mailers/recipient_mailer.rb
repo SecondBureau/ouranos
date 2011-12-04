@@ -20,7 +20,7 @@ class RecipientMailer < ActionMailer::Base
       else
         "Quel plaisir de vous retrouver sur le site de l'APE !"
       end
-    @email_extract  = params[:reset_password].nil? ? "Pourquoi être membre de l'APE LFIP?" : "Veuillez trouver votre mot de passe pour acceder au site de l'APE du LFIP."
+    @email_extract  = params[:reset_password] ? "Veuillez trouver votre mot de passe pour accéder au site de l'APE du LFIP." : "Pourquoi être membre de l'APE LFIP?"
     @is_archive_page = true
     # specific
     @password       = SecureRandom.hex(3) if params[:reset_password]

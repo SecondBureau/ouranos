@@ -4,14 +4,19 @@
 %p Nous avons bien reçu votre demande d'adhésion à l'Association des Parents d'élèves du Lycée International de Pékin.
 %p Afin de confirmer votre demande, veuillez cliquer sur le lien ci-dessous : 
 
-%h1{:style => "text-align:center; margin:15px;"}= link_to "Je souhaite adhérer à l'APE LFIP'", confirmation_url(@resource, :confirmation_token => @resource.confirmation_token)
+%h2{:style => "text-align:center; margin:15px;"}= link_to "Je souhaite adhérer à l'APE LFIP'", confirmation_url(@resource, :confirmation_token => @resource.confirmation_token)
 
 %hr
 
-%p= h "Pourquoi devenir membre de l'Association des Parents d'élèves du Lycée Français International de Pékin ?"
+%h2= "Pourquoi devenir membre de l'Association des Parents d'élèves du Lycée Français International de Pékin ?"
 
-  %li communiquer avec vous plus fr&eacute;quemment et plus r&eacute;guli&egrave;rement. Des articles seront &eacute;dit&eacute;s au fil des activit&eacute;s, des &eacute;v&egrave;nements et des opportunit&eacute;s,
-  %li vous &eacute;couter et &eacute;changer plus facilement entre membres de l'association. Vous pourrez commenter les articles et lire les commentaires des autres parents,
-  %li mettre &agrave; disposition de l'information pratique accessible facilement et en permanence par tous les adh&eacute;rents.
+%ul
+  %li Soutenir l’action de l’APE
+  %li Accéder à toute l’information de l’APE
+  %li Communiquer avec les autres parents d’élèves
+  %li Faire acte de solidarité
+  %li Participer au financement d'animations pour les élèves
+  %li Bénéficier de l'aide de l'APE
+  %li La cotisation annuelle n’est que de 200 RMB
 
-%p Les articles sont r&eacute;serv&eacute;s aux membres de l'association.
+%p= ga_link_to 'Cliquez ici pour lire la suite...', page_url(:permalink => 'comment-adherer', :utm_content => 'text_link')
