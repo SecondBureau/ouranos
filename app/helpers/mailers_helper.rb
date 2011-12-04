@@ -27,7 +27,7 @@ module MailersHelper
   def converthtmlentities(string)
     puts string
     puts 'encode'
-    puts HTMLEntities.new.encode(string)
-    HTMLEntities.new.encode string
+    puts HTMLEntities.new.encode(string, :named)
+    HTMLEntities.new.encode(string, :named)
   end
 end
