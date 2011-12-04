@@ -29,8 +29,8 @@ Ouranos::Application.routes.draw do
     
   end
   
-  #match '/assets/powered-by-secondbureau' => 'recipients#opening_track'
-   match '/public/powered-by-secondbureau.png' => 'recipients#opening_track'
+  match '/assets/powered-by-secondbureau.png' => 'recipients#opening_track'
+  #match '/public/powered-by-secondbureau.png' => 'recipients#opening_track'
 
   root :to => 'pages#index'
   
