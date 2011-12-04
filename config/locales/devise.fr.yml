@@ -60,8 +60,8 @@ fr:
       success: 'Authentifié avec succès via %{kind}.'
       failure: "Nous n'avons pas pu vous authentifier via %{kind} : '%{reason}'."
     mailer:
-      hello: "Bienvenu %{email} !"
-      welcome: "Bienvenu %{email} !"
+      hello: "Bienvenue %{email} !"
+      welcome: "Bienvenue %{email} !"
       confirm: "Valider mon compte"
       change: 'Changer mon mot de passe'
       someone_requested: "Un changement de mot de passe a été demandé. Vous pouvez le faire en cliquant sur le lien ci-dessous."
@@ -71,7 +71,7 @@ fr:
       click_to_unlock: "Cliquez sur le lien ci-dessous pour déverrouiller votre compte"
       unlock: "Déverrouiller mon compte"
       confirmation_instructions:
-        subject: "Instructions de confirmation"
+        subject: "Confirmer votre email pour accéder au site de l'APE LFIP."
       reset_password_instructions:
         subject: "Instructions pour changer le mot de passe"
       unlock_instructions:

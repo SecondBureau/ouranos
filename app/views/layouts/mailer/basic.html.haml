@@ -24,7 +24,8 @@
                         #std_preheader_content{'sb:edit' => 'std_preheader_content'}
                           = @email_extract
 
-                      - unless @is_archive_page
+                      -# unless @is_archive_page
+                      - unless false
                         %td{:valign => "top", :width => 190}
                           #std_preheader_links{'sb:edit' => 'std_preheader_links'}
                             Is this email not displaying correctly?
