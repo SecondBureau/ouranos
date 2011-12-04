@@ -120,6 +120,7 @@ GEM
       heroku (>= 2)
       rails (>= 2)
     hike (1.2.1)
+    hpricot (0.8.5)
     htmlentities (4.3.1)
     i18n (0.6.0)
     jquery-rails (1.0.19)
@@ -252,14 +253,13 @@ DEPENDENCIES
   guard-livereload
   haml-rails
   heroku_san
+  hpricot
   htmlentities
   jquery-rails
   kaminari
   meta_search
-  nokogiri
   paperclip
   pg
-  premailer
   premailer-rails3
   pry
   rack-cache

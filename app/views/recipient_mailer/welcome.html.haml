@@ -2,15 +2,13 @@
 
 %h1= @subject
 
-%p= converthtmlentities "L'équipe de l'Association des Parents d'Elèves du Lycée Français International de Pékin est heureuse de vous offrir un site internet afin de :"
-%p= "L&apos;&eacute;quipe de l&apos;Association des Parents d&apos;El&egrave;ves du Lyc&eacute;e Fran&ccedil;ais International de P&eacute;kin est heureuse de vous offrir un site internet afin de :"
-%p L&apos;&eacute;quipe de l&apos;Association des Parents d&apos;El&egrave;ves du Lyc&eacute;e Fran&ccedil;ais International de P&eacute;kin est heureuse de vous offrir un site internet afin de :
+%p L'équipe de l'Association des Parents d'Elèves du Lycée Français International de Pékin est heureuse de vous offrir un site internet afin de :
 %ul
-  %li communiquer avec vous plus fr&eacute;quemment et plus r&eacute;guli&egrave;rement. Des articles seront &eacute;dit&eacute;s au fil des activit&eacute;s, des &eacute;v&egrave;nements et des opportunit&eacute;s,
+  %li communiquer avec vous plus fréquemment et plus régulièrement. Des articles seront &eacute;dit&eacute;s au fil des activit&eacute;s, des &eacute;v&egrave;nements et des opportunit&eacute;s,
   %li vous &eacute;couter et &eacute;changer plus facilement entre membres de l'association. Vous pourrez commenter les articles et lire les commentaires des autres parents,
-  %li mettre &agrave; disposition de l'information pratique accessible facilement et en permanence par tous les adh&eacute;rents.
+  %li mettre à disposition de l'information pratique accessible facilement et en permanence par tous les adh&eacute;rents.
 
-%p Les articles sont r&eacute;serv&eacute;s aux membres de l'association.
+%p Les articles sont réservés aux membres de l'association.
 
 %p 
   Pour vous connecter au site
@@ -26,5 +24,5 @@
 
 - unless @recipient.user.expires_at.nil?    
   %p
-    Vous &ecirc;tes membre de l'APE jusqu'au 
-    = converthtmlentities I18n.l(@recipient.user.expires_at, :format => "%e %B %Y")
+    Vous êtes membre de l'APE jusqu'au 
+    = I18n.l(@recipient.user.expires_at, :format => "%e %B %Y")
