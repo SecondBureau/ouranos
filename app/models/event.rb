@@ -2,7 +2,7 @@ class Event < ActiveRecord::Base
   before_save :lipsum
   validates_presence_of :title, :content, :start_date
   
-  scope :comming_events, lambda{ where("start_date >= ?", DateTime.now).limit(5) }
+  scope :comming_events, lambda{ where("start_date >= ?", DateTime.now).order('start_date asc').limit(5) }
   
   class << self
     
