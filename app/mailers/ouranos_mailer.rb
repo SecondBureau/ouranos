@@ -21,25 +21,4 @@ class OuranosMailer < ActionMailer::Base
     end
   end
 
-  def membership_notice(user)
-    @date = user.expires_at.strftime("%m/%d/%Y")
-    @subject = "Membership will end in #{@date}"
-    mail(:to => user.email, :subject => @subject) do |format|
-      format.html { render :layout => "membership_notice" }
-    end
-  end
-
-  def membership_confirm(user, token)
-    @date = Time.now.strftime("%m/%d/%Y")
-    @subject = "Membership confirm from APE LFIP on #{@date}"
-    @token = token
-    @user = user
-    mail(:to => user.email, :subject => @subject) do |format|
-      format.html { render :layout => "membership_confirm" }
-      format.text { render :layout => "membership_confirm" }
-    end
-  end
-
-
-
 end
