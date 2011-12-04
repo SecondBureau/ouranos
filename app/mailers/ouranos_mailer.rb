@@ -7,10 +7,6 @@ class OuranosMailer < ActionMailer::Base
           #:host => $host,
           #:asset_host => "http://" + $host
 
-  layout 'ape'
-
- 
-
   def newsletter(user)
     @date = Time.now.strftime("%m/%d/%Y")
     @subject = "Newsletter from APE LFIP on #{@date}"

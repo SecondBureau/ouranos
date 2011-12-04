@@ -8,7 +8,7 @@ class RecipientMailer < ActionMailer::Base
   layout 'mailer/basic'
 
   def welcome(recipient)
-    I18n.locale = :en
+    I18n.locale = :fr
     # manadatory params
     @recipient      = recipient
     @subject = case @recipient.user.sign_in_count 
@@ -32,7 +32,7 @@ class RecipientMailer < ActionMailer::Base
   
   
   def will_soon_expire(recipient)
-    I18n.locale = :en
+    I18n.locale = :fr
     # manadatory params
     @recipient      = recipient
     @subject        = "Votre adhesion a l'APE LFIP arrive a expiration dans .. jours"
