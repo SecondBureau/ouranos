@@ -11,6 +11,7 @@ class RecipientMailer < ActionMailer::Base
     I18n.locale = :fr
     # manadatory params
     @recipient      = recipient
+    params          = recipient.params || {}
     @subject = case @recipient.user.sign_in_count 
       when 0
         "Découvrez le site de l'APE !"
