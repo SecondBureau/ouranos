@@ -8,6 +8,7 @@ class RecipientsController < ApplicationController
       recipient.last_read_at = Time.now
       recipient.save
     end
+  # send_file fails on heroku
   send_data File.read(Rails.root.join( 'app', 'assets', 'images', 'logo_secondbureau.png')), :type => 'image/png', :disposition => 'inline'
 end
 
