@@ -12,7 +12,7 @@ class RecipientMailer < ActionMailer::Base
     # manadatory params
     @recipient      = recipient
     params          = recipient.params || {}
-    @subject = case @recipient.user.sign_in_count 
+    @title = case @recipient.user.sign_in_count 
       when 0
         "Découvrez le site de l'APE !"
       when 1
@@ -20,14 +20,14 @@ class RecipientMailer < ActionMailer::Base
       else
         "Quel plaisir de vous retrouver sur le site de l'APE !"
       end
-    @email_extract  = "Veuillez trouver votre mot de passe pour acceder au site de l'APE du LFIP."
+    @email_extract  = params[:reset_password].nil? ? "Pourquoi être membre de l'APE LFIP?" : "Veuillez trouver votre mot de passe pour acceder au site de l'APE du LFIP."
     @is_archive_page = true
     # specific
-    @password       = SecureRandom.hex(3) if recipient.params[:reset_password]
+    @password       = SecureRandom.hex(3) if params[:reset_password]
     ActiveRecord::Base.transaction do
       recipient.update_attributes(:sent_at => Time.now, :token => SecureRandom.uuid)  
       recipient.user.update_attributes( :password => @password, :password_confirmation => @password ) if @password
-      mail(:to => recipient.user.email, :subject => @subject)
+      mail(:to => recipient.user.email, :subject => @title)
     end
   end
   
