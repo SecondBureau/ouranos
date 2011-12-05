@@ -36,9 +36,9 @@ class User < ActiveRecord::Base
   end
   
   def check_active_subscription
-    if sign_in_count.eql?(1)
+    if (sign_in_count || 0).eql?(1)
       Recipient.create(:user => self, :template => 'welcome')
-    elsif Time.now - expires_at < (Setting.first.trial_period || DEFAULT_TRIAL_PERIOD) * 60 * 60 * 24
+    elsif !expires_at.nil? && (Time.now - expires_at < (Setting.first.trial_period || DEFAULT_TRIAL_PERIOD) * 60 * 60 * 24)
       Recipient.create(:user => self, :template => 'will_soon_expire')
     end
   end
