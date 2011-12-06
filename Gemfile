@@ -45,6 +45,7 @@ group :production do
   gem 'pg'
   gem 'therubyracer-heroku'
   gem 'fog'
+  gem 'newrelic_rpm'
 end
 
 gem 'rack-cache'
@@ -54,5 +55,5 @@ gem 'RedCloth'
 #gem 'nokogiri'
 gem 'hpricot'
 gem 'htmlentities'
-#gem 'premailer' 
+#gem 'premailer'
 gem 'premailer-rails3'
