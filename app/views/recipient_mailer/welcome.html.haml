@@ -1,0 +1,28 @@
+# encoding: utf-8
+
+%h1= @title
+
+%p L'équipe de l'Association des Parents d'Elèves du Lycée Français International de Pékin est heureuse de vous offrir un site internet afin de :
+%ul
+  %li communiquer avec vous plus fréquemment et plus régulièrement. Des articles seront &eacute;dit&eacute;s au fil des activit&eacute;s, des &eacute;v&egrave;nements et des opportunit&eacute;s,
+  %li vous &eacute;couter et &eacute;changer plus facilement entre membres de l'association. Vous pourrez commenter les articles et lire les commentaires des autres parents,
+  %li mettre à disposition de l'information pratique accessible facilement et en permanence par tous les adh&eacute;rents.
+
+%p Les articles sont réservés aux membres de l'association.
+
+%p 
+  Pour vous connecter au site
+  = ga_link_to 'ape-pekin.com,', root_url(:utm_content => 'body_text')
+  veuillez utiliser les informations suivantes : 
+%ul 
+  %li 
+    email :
+    = @recipient.user.email
+  %li
+    mot de passe : 
+    = @password ? @password : "vous seul le connaissez !"
+
+- unless @recipient.user.expires_at.nil?    
+  %p
+    Vous êtes membre de l'APE jusqu'au 
+    = I18n.l(@recipient.user.expires_at, :format => "%e %B %Y")

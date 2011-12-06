@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
 
   require 'daryl'
-  
+
   protect_from_forgery
 
   before_filter :set_locale, :ready_resources
@@ -41,7 +41,7 @@ class ApplicationController < ActionController::Base
 
     def ready_resources
       @setting = Setting.first
-      if @setting.images[Random.rand(@setting.images.length)]
+      if @setting && @setting.images[Random.rand(@setting.images.length)]
         rand_index = Random.rand(@setting.images.length)
         @banner_image_url = @setting.images[rand_index].image.url(:banner_image)
       else
@@ -91,4 +91,3 @@ class ApplicationController < ActionController::Base
     end
 
 end
-

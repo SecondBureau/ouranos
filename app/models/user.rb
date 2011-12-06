@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
   has_many :subscribes
   has_many :comments, :as => :commentable, :dependent => :destroy
   has_one :family
+  has_many :recipients
 
   before_create :set_default_attributes
 
@@ -33,12 +34,25 @@ class User < ActiveRecord::Base
   def is_expired?
     (expires_at.nil? || !expires_at.is_a?(Time) || expires_at > Time.now) ? false : true
   end
+  
+  def check_active_subscription
+    if (sign_in_count || 0).eql?(1)
+      Recipient.create(:user => self, :template => 'welcome')
+    elsif !expires_at.nil? && (Time.now - expires_at < (Setting.first.trial_period || DEFAULT_TRIAL_PERIOD) * 60 * 60 * 24)
+      Recipient.create(:user => self, :template => 'will_soon_expire')
+    end
+  end
+  
+  def forge_email
+    unless ::Rails.env.eql?('production')
+      self.email = "#{self.email.gsub('@secondbureau.com','').gsub('@','_')}@secondbureau.com"
+    end
+  end
 
   # deprecated
   def to_s
     "#{email}"
   end
-
 
 private
 
@@ -54,6 +68,8 @@ private
     set_default_expiration_date
     set_default_role
   end
+  
+
 
 end
 

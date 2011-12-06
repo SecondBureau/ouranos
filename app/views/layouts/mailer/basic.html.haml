@@ -1,0 +1,101 @@
+!!!
+%html
+  %head
+    -# %meta{ 'http-equiv' => "Content-Type",  :content => "text/html" }
+    -# Facebook sharing information tags
+    - unless @subject.nil?
+      %meta{'property' => 'og:title', :content => @subject}
+      %title= @subject
+
+  %body{:leftmargin => "0", :marginwidth => "0", :topmargin => "0", :marginheight => "0", :offset => "0"}
+    %center
+      %table{:border => "0", :cellpadding => "0", :cellspacing => "0", :height => "100%", :width => "100%", :id => "backgroundTable"}
+        %tr
+          %td{:align => "center", :valign => "top"}
+            -# Begin Template Preheader
+            %table{:border => "0", :cellpadding => "10", :cellspacing => "0", :width => "600", :id => "templatePreheader"}
+              %tr
+                %td.preheaderContent{:valign => "top"}
+
+                  -# Begin Module: Standard Preheader
+                  %table{:border => "0", :cellpadding => "10", :cellspacing => "0", :width => "100%"}
+                    %tr
+                      %td{:valign => "top"}
+                        #std_preheader_content{'sb:edit' => 'std_preheader_content'}
+                          = @email_extract
+
+                      -# unless @is_archive_page
+                      - unless true
+                        %td{:valign => "top", :width => 190}
+                          #std_preheader_links{'sb:edit' => 'std_preheader_links'}
+                            Is this email not displaying correctly?
+                            = link_to 'View it in your browser.', '#'
+
+            -# Begin Template Container
+            %table{:border => "0", :cellpadding => "0", :cellspacing => "0", :width => "600", :id => "templateContainer"}
+              %tr
+                %td{:align => "center", :valign => "top"}
+
+                  -#Begin Template Header
+                  %table{:border => "0", :cellpadding => "0", :cellspacing => "0", :width => "600", :id => "templateHeader"}
+                    %tr
+                      %td.headerContent
+
+                        -# Begin Module: Standard Header Image
+                        = ga_link_to image_tag("ape-pekin-header.png", :alt => 'ape-pekin', :id => "headerImage campaign-icon", :width => "600", :height => "145"), root_url(:utm_content => 'header_logo')
+
+
+              %tr
+                %td{:align => "center", :valign => "top"}
+
+                  -#Begin Template Body
+                  %table{:border => "0", :cellpadding => "0", :cellspacing => "0", :width => "600", :id => "templateBody"}
+                    %tr
+                      %td.bodyContent{:valign => "top"}
+
+                        -# Begin Module: Standard Content
+                        %table{:border => "0", :cellpadding => "20", :cellspacing => "0",  :width => "100%"}
+                          %tr
+                            %td{:valign => "top"}
+                              #std_content00{'sb:edit' => 'std_content00'}
+                                = yield
+                                %br
+                                %br 
+                                L&#39;&eacute;quipe APE LFIP
+
+              %tr
+                %td{:align => "center", :valign => "top"}
+
+                  -# Begin Template Footer
+                  %table{ :border => "0", :cellpadding => "10", :cellspacing => "0", :width => "600",  :id => "templateFooter"}
+                    %tr
+                      %td.footerContent{:valign => "top"}
+
+                        -# Begin Module: Standard Footer
+                        %table{ :border => "0", :cellpadding => "10", :cellspacing => "0",  :width => "100%"}
+                          - if @twitter_url || @facebook_url || @forward_to_friend
+                            %tr
+                              %td{:colspan => 2, :valign => "middle", :id => "social"}
+                                #std_social{'sb:edit' => 'std_social'}
+                                  - if @twitter_url
+                                    = link_to 'follow on Twitter', @twitter_url
+                                    |
+                                  - if @facebook_url
+                                    = link_to 'friend on Facebook', @facebook_url
+                                    |
+                                  - if @forward_to_friend
+                                    = link_to 'forward to a friend', @forward_to_friend
+
+                          %tr
+                            %td{:valign => "top", :width => "350"}
+                              #std_footer{'sb:edit' => 'std_footer'}
+                                %em
+                                  Copyright &copy;
+                                  = Time.now.year
+                                  Association des Parents d'&eacute;l&egrave;ves du LFIP,
+                                  Tous droits r&eacute;serv&eacute;s.
+
+                            %td{:valign => "top", :width => "190"}
+                              #sbrewards{'sb:edit' => 'sbrewards'}
+                                =ga_link_to image_tag("powered-by-secondbureau.png?token=#{@recipient ? @recipient.token : ''}", :id => "headerImage campaign-icon", :width => "190", :height => "50"), 'http://secondbureau.com?utm_content=power_by_logo'
+                                            

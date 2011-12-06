@@ -1,5 +1,5 @@
 Ouranos::Application.configure do
-  
+
   config.action_mailer.default_url_options = { :host => "localhost:3008" }
   # Settings specified here will take precedence over those in config/application.rb
 

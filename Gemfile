@@ -21,7 +21,7 @@ group :development do
   gem 'pry'
   gem 'heroku_san'
   gem 'therubyracer'
-  
+
   gem 'guard'
   gem 'guard-livereload'
 end
@@ -43,7 +43,7 @@ gem 'meta_search'
 
 group :production do
   gem 'pg'
-  #gem 'therubyracer-heroku'
+  gem 'therubyracer-heroku'
   gem 'fog'
 end
 
@@ -51,3 +51,8 @@ gem 'rack-cache'
 
 gem 'RedCloth'
 
+#gem 'nokogiri'
+gem 'hpricot'
+gem 'htmlentities'
+#gem 'premailer' 
+gem 'premailer-rails3'

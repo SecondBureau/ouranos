@@ -1,70 +1,4 @@
-/******************************************
- *  reset all
- ******************************************/
 
-html, body, div, span, applet, object, iframe,
-p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-}
-h1, h2, h3, h4, h5, h6{
-  margin: 0;
-  padding: 0;
-  border: 0;
-  vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-  display: block;
-}
-body {
-  line-height: 1;
-}
-ol, ul {
-  list-style: none;
-}
-blockquote, q {
-  quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-  content: '';
-  content: none;
-}
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-input:focus{
-  outline: none;
-}
-
-/*
- * for the application
- */
-
-body{
-  font-family: 'Century Gothic', sans-serif;
-  font-size: 14px;
-  line-height:30px;
-}
 
 a{
   color: #333333;
@@ -75,12 +9,6 @@ a:hover{
   text-decoration: underline;
 }
 
-body{background-image: url("bgd.png"); padding:0px; margin:0px;}
-#header{height:80px; background:#333333;
-  h1{font-family: helvetica,arial,sans-serif; text-shadow:1px 1px 1px #000000; font-size:40px; font-weight:bold; padding:15px 5px;
-    a{color:#FF0000; }
-  }
-}
 
 @mixin message{margin:10px auto; width:400px; display:none; padding:10px 20px; background:#333333; color:#FFFFFF; text-align:center; font-size:16px; font-weight:bold; border-radius:6px; -moz-border-radius:6px;}
 
@@ -91,7 +19,5 @@ body{background-image: url("bgd.png"); padding:0px; margin:0px;}
   #sign_box{margin:10px auto; width:400px; background:#EEEEEE; border-radius:6px; -moz-border-radius:6px; padding:10px;
           box-shadow:0px 0px 10px #000000; -moz-box-shadow: 0px 0px 6px #000000;}
 }
-#poweredby{background-image: url("bgd.png"); padding:20px; position:fixed; right:0px; bottom:0px;}
-
 .input_field{width:98%;}
 
