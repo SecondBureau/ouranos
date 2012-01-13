@@ -10,8 +10,8 @@ namespace :db do
     desc "export People information for mailing"
     task :export => :environment do |t, args|
       sep = ";"
-      puts "db.people.export : retrieve #{Person.count} rows ..."
-      rows = ['firstname','lastname','position','email','dernière connexion','login','expiration'].join(sep)
+      puts "db.people.export : retrieving #{Person.count} rows ..."
+      rows = [['firstname','lastname','position','email','dernière connexion','login','expiration'].join(sep)]
       errors = []
       Person.all.each do |p|
         f = p.family
