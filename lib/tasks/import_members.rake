@@ -7,8 +7,8 @@ namespace :db do
       i = i + 1
       next if i < 3
 
-      firstname = row[0]
-      lastname = row[1]
+      firstname = row[1]
+      lastname = row[0]
       email = row[5]
       print "lookup #{firstname} #{lastname}..."
       person = Person.where(:firstname => firstname, :lastname => lastname).first
@@ -24,8 +24,8 @@ namespace :db do
         end
       end
 
-      firstname = row[2]
-      lastname = row[3]
+      firstname = row[3]
+      lastname = row[2]
       email = row[6]
       if firstname && lastname
         print "lookup #{firstname} #{lastname}..."
