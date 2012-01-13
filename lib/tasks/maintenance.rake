@@ -30,7 +30,7 @@ namespace :db do
       name = "#{ENV['APP_NAME']}-people-#{Time.now.strftime('%Y-%m-%d-%H%M%S')}.csv"
       puts "db.people.export : write document..."
       File.open("tmp/#{name}", 'w') {|f| f.write(rows.join("\n")) }
-      File.open("tmp/#{name}", 'a') {|f| f.write(errors.join("\n")) } if errors.count > 0
+      File.open("tmp/#{name}", 'a') {|f| f.write("\n\nERRORS\n#{errors.join("\n")}") } if errors.count > 0
       puts "db.people.export : starting gzip process..."
       system "tar cvf - tmp/#{name} | gzip -9c > tmp/#{name}.tar.gz"
       puts "db.people.export : Temp file gzipped"
