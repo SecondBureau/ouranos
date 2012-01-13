@@ -28,6 +28,7 @@ end
 
 gem "paperclip"
 gem "aws-s3"
+gem 'right_aws', '>= 2.0.0'
 
 gem "kaminari"
 gem 'formtastic'
