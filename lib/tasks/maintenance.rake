@@ -21,7 +21,7 @@ namespace :db do
         familyname = father.lastname unless father.nil?
         fullname = []
         fullname << "#{familyname} #{father.firstname}" unless father.nil?
-        mother_lastname = "#{mother.lastname} "
+        mother_lastname = mother.nil? "" : "#{mother.lastname} "
         fullname << "#{mother.lastname.eql?(familyname) ? '' : mother_lastname}#{mother.firstname}" unless mother.nil?
         family.update_attributes(:name => fullname.join(' - '))
       end
