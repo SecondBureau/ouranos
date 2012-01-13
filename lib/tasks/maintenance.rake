@@ -6,7 +6,45 @@ namespace :db do
       User.where(:sign_in_count => 0).each  {|user| Recipient.create(:user => user, :template => 'welcome', :params => {:reset_password => true}) }
     end
   end
+
+  namespace :family do
+    desc "rename famillies"
+    task :rename_families  => :environment do |t, args|
+      Family.all.each do |family|
+        father = family.people.select{|p| p.fa_type.eql?('father')}.first
+        mother = family.people.select{|p| p.fa_type.eql?('mother')}.first
+        if father.nil? && mother.nil?
+          puts "No mother, no father in the family #{family.name}"
+          next
+        end
+        familyname = ''
+        familyname = father.lastname unless father.nil?
+        fullname = []
+        fullname << "#{familyname} #{father.firstname}" unless father.nil?
+        fullname << "#{mother.lastname.eql?(familyname) ? '' : mother.lastname} #{mother.firstname}" unless mother.nil?
+        family.update_attributes(:name => fullname.join(' - '))
+      end
+    end
+  end
+
   namespace :people do
+    desc "set login email to 1 person by family if no one is set"
+    task :update_email_from_account => :environment do |t, args|
+      Family.all.each do |family|
+        unless family.people.reject{|p| p.email.nil?}.count
+          person = family.people.select{|p| p.fa_type.eql?('father')}.first
+          person = family.people.select{|p| p.fa_type.eql?('mother')}.first if person.nil?
+          if person.nil?
+            puts "No mother, no father in the family #{family.name}"
+            next
+          end
+          person.update_attributes(:email => family.user.email)
+          puts "updated #{person.firstname} #{person.lastname} with email #{person.email}"
+        end
+      end
+    end
+
+
     desc "export People information for mailing"
     task :export => :environment do |t, args|
       sep = ";"
