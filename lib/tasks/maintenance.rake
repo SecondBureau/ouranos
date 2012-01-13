@@ -21,7 +21,7 @@ namespace :db do
         familyname = father.lastname unless father.nil?
         fullname = []
         fullname << "#{familyname} #{father.firstname}" unless father.nil?
-        mother_lastname = mother.nil? "" : "#{mother.lastname} "
+        mother_lastname = mother.nil? ? "" : "#{mother.lastname} "
         fullname << "#{mother.lastname.eql?(familyname) ? '' : mother_lastname}#{mother.firstname}" unless mother.nil?
         family.update_attributes(:name => fullname.join(' - '))
       end
@@ -54,7 +54,7 @@ namespace :db do
     task :export => :environment do |t, args|
       sep = ";"
       puts "db.people.export : retrieving #{Person.count} rows ..."
-      rows = [['firstname','lastname','position','email','dernière connexion','login','expiration'].join(sep)]
+      rows = [['Family', 'firstname','lastname','position','email','dernière connexion','login','expiration'].join(sep)]
       errors = []
       Person.all.each do |p|
         f = p.family
@@ -67,7 +67,7 @@ namespace :db do
           errors << "Family #{f.id} has no user"
           next
         end
-        rows << [p.firstname, p.lastname, p.fa_type, p.email, u.current_sign_in_at, u.email, u.expires_at].join(sep)
+        rows << [f.name, p.firstname, p.lastname, p.fa_type, p.email, u.current_sign_in_at, u.email, u.expires_at].join(sep)
       end
 
       name = "#{ENV['APP_NAME']}-people-#{Time.now.strftime('%Y-%m-%d-%H%M%S')}.csv"
