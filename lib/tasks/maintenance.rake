@@ -21,7 +21,7 @@ namespace :db do
         familyname = father.lastname unless father.nil?
         fullname = []
         fullname << "#{familyname} #{father.firstname}" unless father.nil?
-        fullname << "#{mother.lastname.eql?(familyname) ? '' : mother.lastname} #{mother.firstname}" unless mother.nil?
+        fullname << "#{mother.lastname.eql?(familyname) ? '' : mother.lastname + ' '}#{mother.firstname}" unless mother.nil?
         family.update_attributes(:name => fullname.join(' - '))
       end
     end
@@ -31,7 +31,9 @@ namespace :db do
     desc "set login email to 1 person by family if no one is set"
     task :update_email_from_account => :environment do |t, args|
       Family.all.each do |family|
-        unless family.people.reject{|p| p.email.nil?}.count
+        print "#{family.name}"
+        if family.people.reject{|p| p.email.nil?}.count.eql?(0)
+          puts " has no default email"
           person = family.people.select{|p| p.fa_type.eql?('father')}.first
           person = family.people.select{|p| p.fa_type.eql?('mother')}.first if person.nil?
           if person.nil?
@@ -40,6 +42,8 @@ namespace :db do
           end
           person.update_attributes(:email => family.user.email)
           puts "updated #{person.firstname} #{person.lastname} with email #{person.email}"
+        else
+          puts " has #{family.people.reject{|p| p.email.nil?}.collect{|p| p.email}.join(', ')} for email(s)"
         end
       end
     end
