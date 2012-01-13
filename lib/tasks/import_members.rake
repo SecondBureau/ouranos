@@ -38,7 +38,7 @@ namespace :db do
           old = person.email
           if old.eql?(email)
             puts "Email matches ! unchanged"
-          elsif old.eql?(firstemail)
+          elsif email.blank? && old.eql?(firstemail)
             person.update_attributes(:email => nil)
             puts "no personal email (#{})"
           else
