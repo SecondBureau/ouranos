@@ -23,6 +23,7 @@ namespace :db do
           puts "Email updated"
         end
       end
+      firstemail = email
 
       firstname = row[3]
       lastname = row[2]
@@ -34,14 +35,15 @@ namespace :db do
           puts "NOT FOUND !"
         else
           puts "FOUND"
-          if person.email.eql?(email)
+          old = person.email
+          if old.eql?(email)
             puts "Email matches ! unchanged"
-          elsif !email.blank?
-            old = person.email
+          elsif old.eql?(firstemail)
+            person.update_attributes(:email => nil)
+            puts "no personal email (#{})"
+          else
             person.update_attributes(:email => email)
             puts "Email updated #{old} => #{email}"
-          else
-            puts "No email given"
           end
         end
       end
