@@ -36,7 +36,7 @@ namespace :db do
           puts "FOUND"
           if person.email.eql?(email)
             puts "Email matches ! unchanged"
-          elsif email.blank?
+          elsif !email.blank?
             old = person.email
             person.update_attributes(:email => email)
             puts "Email updated #{old} => #{email}"
