@@ -28,6 +28,7 @@ end
 
 gem "paperclip"
 gem "aws-s3"
+gem 'right_aws', '>= 2.0.0'
 
 gem "kaminari"
 gem 'formtastic'
@@ -35,7 +36,7 @@ gem 'formtastic'
 gem 'cancan'
 gem 'devise'
 
-gem 'rails_admin', :git => 'git://github.com/mark-secondbureau/rails_admin.git', :tag => "v0.1"
+gem 'rails_admin', :git => 'git://github.com/mark-secondbureau/rails_admin_ape.git'
 
 gem 'ruby_parser'
 
