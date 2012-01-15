@@ -1,0 +1,1 @@
+RestfulMetrics::Client.set_credentials($restful_metrics_api_key) if $restful_metrics_api_key

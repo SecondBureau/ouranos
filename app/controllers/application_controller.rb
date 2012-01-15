@@ -89,5 +89,38 @@ class ApplicationController < ActionController::Base
       end
       @current_day = DateTime.now
     end
+    
+    def anonymous_id
+      session[:anonymous_id] ||= (10000 + rand(100000))
+    end
+    
+    def compound_metric_name
+      'page_view'
+    end
+
+    def restful_metrics_application_identifier
+      'app1531543'
+    end
+
+    def count_static_page
+      begin
+        RestfulMetrics::Client.add_compound_metric(restful_metrics_application_identifier, compound_metric_name, 'info', current_user ? current_user.id : anonymous_id) if $restful_metrics_api_key
+      rescue
+      end
+    end
+
+    def count_post_page
+      begin
+      RestfulMetrics::Client.add_compound_metric(restful_metrics_application_identifier, compound_metric_name, 'post') if $restful_metrics_api_key
+      rescue
+      end
+    end
+
+    def count_event_page
+      begin
+      RestfulMetrics::Client.add_compound_metric(restful_metrics_application_identifier, compound_metric_name, 'event') if $restful_metrics_api_key
+      rescue
+      end
+    end
 
 end

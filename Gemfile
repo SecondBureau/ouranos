@@ -58,3 +58,7 @@ gem 'hpricot'
 gem 'htmlentities'
 #gem 'premailer'
 gem 'premailer-rails3'
+
+gem 'restful_metrics'
+
+gem 'fastercsv'

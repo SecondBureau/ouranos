@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
 
   before_filter :authenticate_user!, :is_membership_expired?, :check_member_confirmation
+  after_filter :count_post_page
 
   def index
     locale = params[:post_locale] if params[:post_locale]

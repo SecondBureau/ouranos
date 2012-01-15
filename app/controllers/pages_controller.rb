@@ -1,4 +1,6 @@
 class PagesController < ApplicationController
+  
+  after_filter :count_static_page
 
   def index
     @latest_posts = PostDecorator.decorate(Post.where(:is_pinned => false).limit(5))
