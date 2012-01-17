@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
-  
+
   after_filter :count_static_page
+
 
   def index
     @latest_posts = PostDecorator.decorate(Post.where(:is_pinned => false).limit(5))
@@ -18,5 +19,10 @@ class PagesController < ApplicationController
     @pages = Page.all
   end
 
-end
+  private
 
+  def set_ga_custom_value
+    ga_custom[:value] = 'info'
+  end
+
+end

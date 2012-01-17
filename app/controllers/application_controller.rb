@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   before_filter :set_locale, :ready_resources
+  before_filter :set_ga_custom_value, :set_ga_custom_name
 
   helper_method :available_locales, :current_locale
 
@@ -89,11 +90,11 @@ class ApplicationController < ActionController::Base
       end
       @current_day = DateTime.now
     end
-    
+
     def anonymous_id
       session[:anonymous_id] ||= (10000 + rand(100000))
     end
-    
+
     def compound_metric_name
       'page_view'
     end
@@ -122,5 +123,17 @@ class ApplicationController < ActionController::Base
       rescue
       end
     end
+
+    def ga_custom
+      @ga_custom ||= {}
+    end
+
+    def set_ga_custom_name
+      ga_custom[:name] = 'section'
+    end
+
+  def set_ga_custom_value
+    ga_custom[:value] = 'other'
+  end
 
 end

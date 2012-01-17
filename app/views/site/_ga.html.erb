@@ -7,6 +7,10 @@
   <% if $ga_tracker1 %>
   _gaq.push(['one._setAccount', '<%= $ga_tracker1 %>']);
   _gaq.push(['one._trackPageview']);
+  <% if @ga_custom %>
+  _gaq.push(['one._setCustomVar', <%= @ga_custom[:slot] || 1 %>, '<%= @ga_custom[:name] %>', '<%= @ga_custom[:value] %>', 3]);
+  <% end %>
+  <% if $ga_tracker1 %>
   <% end %>
 
   <% if $ga_tracker2 %>
@@ -30,4 +34,3 @@
 </script>
 
 <% end %>
-

@@ -38,5 +38,10 @@ class PostsController < ApplicationController
     kit.to_pdf
   end
 
-end
+  private
 
+  def set_ga_custom_value
+    ga_custom[:value] = 'post'
+  end
+
+end
