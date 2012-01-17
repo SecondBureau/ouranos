@@ -8,6 +8,7 @@
     = csrf_meta_tags
     = render 'site/verification' if $google_site_verification
     = yield :header
+    = render 'site/ga' if ::Rails.env.eql?('production')
 
   %body
     = render 'site/demo' unless ::Rails.env.eql?('production')
@@ -29,6 +30,3 @@
 
     #footer_wrapper
       #footer= render "site/footer"
-
-    = render 'site/ga' if ::Rails.env.eql?('production')
-
