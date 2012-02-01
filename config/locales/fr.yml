@@ -30,7 +30,7 @@ fr:
     user:
       comment: Votre commentaire est en cours de validation et sera bientôt publié. <br/> Les commentaires des membres de l'association sont immédiatement publiés.
   signin: Connexion
-  signup: Découvrez gratuitement les avantages réservés aux membres.
+  signup: Accédez gratuitement aux articles pendant 7 jours.
   signout: Déconnexion
   management: Administration
   confirm_delete: Etes-vous certain(e) de vouloir supprimer cet enregistrement ?
