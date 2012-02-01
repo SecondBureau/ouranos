@@ -10,7 +10,7 @@ class PostsController < ApplicationController
   		@category =  Category.find(params[:category_id])
   		@posts = @category.posts.locale_posts(locale).page(params[:page]).per(10)
 		else
-			@posts = Post.locale_posts(locale).page(params[:page]).per(10)
+			@posts = Post.default_order.locale_posts(locale).page(params[:page]).per(10)
   	end
 		@posts = PostDecorator.decorate(@posts)
   end

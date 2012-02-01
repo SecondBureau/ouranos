@@ -9,7 +9,7 @@ class SubscribesController < ApplicationController
   end
 
   def show
-    @posts = Post.limit(5)
+    @posts = Post.default_order.limit(5)
     @events = Event.limit(5)
     newsletter = OuranosMailer.newsletter(current_user, @posts, @events)
     newsletter.deliver
@@ -19,7 +19,7 @@ class SubscribesController < ApplicationController
 
   def create
     subscribe = Subscribe.create params[:subscribe]
-    @posts = Post.limit(subscribe.num_of_posts)
+    @posts = Post.default_order.limit(subscribe.num_of_posts)
     @events = Event.limit(subscribe.num_of_events)
     binding.pry
     newsletter = OuranosMailer.newsletter(current_user, @posts, @events)

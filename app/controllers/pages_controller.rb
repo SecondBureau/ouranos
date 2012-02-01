@@ -4,8 +4,8 @@ class PagesController < ApplicationController
 
 
   def index
-    @latest_posts = PostDecorator.decorate(Post.where(:is_pinned => false).limit(5))
-    @pinned_posts = PostDecorator.decorate(Post.where(:is_pinned => true))
+    @latest_posts = PostDecorator.decorate(Post.default_order.where(:is_pinned => false).limit(5))
+    @pinned_posts = PostDecorator.decorate(Post.default_order.where(:is_pinned => true))
     if params[:calendar_option]
       calendar_events
       respond_to do |format|

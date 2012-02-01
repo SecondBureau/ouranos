@@ -12,9 +12,10 @@ class Post < ActiveRecord::Base
   after_save :set_permalink
 
   #default_scope :order => 'created_at DESC'
+  scope :default_order,  :order => 'created_at DESC' 
   scope :locale_posts, lambda{ |locale| where(:locale => locale) }
   #scope :top_posts, lambda{ unscoped.order("read_count desc").limit(5) }
-  scope :top_posts, lambda{ unscoped.order("read_count * read_count / (#{%w[ production demo ].include?(::Rails.env) ?  'current_date::date - created_at::date' : 'current_date - created_at' }) desc").limit(6) }
+  scope :top_posts, lambda{ unscoped.order("read_count * read_count / ((#{%w[ production demo ].include?(::Rails.env) ?  'current_date::date - created_at::date' : 'current_date - created_at' })+1) desc").limit(6) }
 
   def to_param
     self.permalink
