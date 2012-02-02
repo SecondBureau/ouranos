@@ -1,4 +1,17 @@
 # encoding: utf-8
+
+namespace :cache do
+  task :purge => :environment do |t,args|
+    (0..5).each do |jour|
+      $available_locales.each do |locale|
+        day = (Time.now.utc.in_time_zone("Beijing") - jour*24*60*60 ).strftime("%Y%m%d")
+        %w[ header sidebar ].each {|page| Rails.cache.delete "views/#{page}_#{locale}_#{day}"}
+      end
+    end
+  end
+end
+
+
 namespace :db do
   namespace :users do
     desc "send password to all members who have never connected"

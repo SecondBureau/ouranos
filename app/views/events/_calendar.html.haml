@@ -1,4 +1,3 @@
-- calendar_events
 .home_side_block#calendar
   .home_side_block_title= t("event.title")
   .home_side_block_content
@@ -12,5 +11,5 @@
             
 :coffeescript
   $ ->
-    $(".#{@current_day.year}_#{@current_day.month}_#{@current_day.day}").addClass("current_day")
+    $(".#{current_day.year}_#{current_day.month}_#{current_day.day}").addClass("current_day")
 

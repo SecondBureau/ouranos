@@ -47,6 +47,59 @@ module ApplicationHelper
     end
   end
   
+  def current_day
+    @current_day ||= DateTime.now
+  end
 
+  def events_days
+    @events_days ||= set_events_days
+  end
+  
+  def events_in_this_month
+    @events_in_this_month ||= Event.where(:start_date => beginning_of_month.beginning_of_day .. end_of_month.end_of_day)
+  end
+  
+  def set_events_days
+    events_day = []
+    events_in_this_month.each do |event|
+      events_day << event.start_date.day
+    end
+    events_day
+  end
+  
+  def beginning_of_month
+    @beginning_of_month ||= DateTime.new(current_date.year, current_date.month, 1)
+  end
+  
+  def end_of_month
+    @end_of_month      ||= DateTime.new(current_date.year, current_date.month, -1)
+  end
+  
+  def current_date
+    @current_date ||= set_current_date
+  end
+
+ def set_current_date
+    calendar_option = params[:calendar_option] if params[:calendar_option]
+    if params[:year]
+      year = params[:year].to_i
+    else
+      year = DateTime.now.year
+    end
+    if params[:month]
+      month = params[:month].to_i
+    else
+      month = DateTime.now.month
+    end
+    current_date = DateTime.new(year, month, 1)
+    if calendar_option
+      if calendar_option == "pre"
+        current_date = current_date - 1.month
+      elsif calendar_option == "next"
+        current_date = current_date + 1.month
+      end
+    end
+    current_date
+  end
   
 end
