@@ -5,7 +5,7 @@
   #current_content_wrapper
     #post_wrapper
       #post_title= @post.title
-      #post_author_date= l @post.updated_at, :format => :post
+      #post_author_date= l @post.created_at, :format => :post
       = render "management", :post => @post
       .clear
       #post_content= raw @post.content

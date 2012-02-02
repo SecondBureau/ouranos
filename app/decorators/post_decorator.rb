@@ -5,9 +5,7 @@ class PostDecorator < ApplicationDecorator
     h.truncate(post.title, :length => 38, :omission => '... ')
   end
 
-  def created_at
-    post.created_at.strftime("%m-%d-%Y")
-  end
+
   
   def summary
     h.raw(h.truncate(h.strip_tags(post.content), :length => 300, :omission => '...'))
