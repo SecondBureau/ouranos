@@ -8,11 +8,15 @@ task :cron => :environment do
   #end
 
 
-  User.all.each do |user|
-    if user.is_of_role? :member && (user.expiry_date - Time.now)/3600/24 == 30
+  #User.all.each do |user|
+   # if user.is_of_role? :member && (user.expires_at - Time.now)/3600/24 == 30
       #OuranosMailer.membership_notice user.deliver
-    end
+    #end
+  #end
+  $available_locales.each do |locale|
+    day = (Time.now.utc.in_time_zone("Beijing") - 24*60*60 ).strftime("%Y%m%d")
+    %w[ header sidebar ].each {|page| Rails.cache.delete "views/#{page}_#{locale}_#{day}"}
   end
-
+  
 end
 

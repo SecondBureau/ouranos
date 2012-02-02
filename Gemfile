@@ -62,3 +62,6 @@ gem 'premailer-rails3'
 gem 'restful_metrics'
 
 gem 'fastercsv'
+
+gem 'dalli'
+gem 'thin'

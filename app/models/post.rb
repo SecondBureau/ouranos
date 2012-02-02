@@ -9,7 +9,9 @@ class Post < ActiveRecord::Base
   validates_presence_of :title, :content, :locale
 
   before_save :lipsum
-  after_save :set_permalink
+  after_save :set_permalink, :expire_cache
+  
+  attr_accessor :keep_cache 
 
   #default_scope :order => 'created_at DESC'
   scope :default_order,  :order => 'created_at DESC' 
@@ -35,6 +37,23 @@ class Post < ActiveRecord::Base
       self.title    = Lipsum.generate(:words => 3 + rand(5), :start_with_lipsum => false) if self.title.eql?'lipsum'
       self.meta_description    = Lipsum.generate(:characters => 150 + rand(50), :start_with_lipsum => false) if self.meta_description.eql?'lipsum'
       self.meta_keywords    = Lipsum.generate(:words => 20 + rand(5), :start_with_lipsum => false).gsub('.','').gsub(',','').split(' ').join(', ') if self.meta_keywords.eql?'lipsum'
+    end
+    
+    def expire_cache
+      unless self.keep_cache
+        $available_locales.each do |locale|
+          Rails.cache.delete "views/pinned_posts_#{locale}" # if self.is_pinned
+          Rails.cache.delete "views/latest_posts_#{locale}"
+          day = (Time.now.utc.in_time_zone("Beijing")).strftime("%Y%m%d")
+          %w[ header sidebar ].each {|page| Rails.cache.delete "views/#{page}_#{locale}_#{day}"}
+        end
+        %w[ admin member ].each {|role| Rails.cache.delete "views/post_#{self.locale}_#{self.id}_#{role}"}
+      end
+    end
+    
+    def save_without_expiring_cache
+      self.keep_cache = true
+      save
     end
 
 end

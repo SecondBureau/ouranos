@@ -15,6 +15,7 @@ class Page < ActiveRecord::Base
   before_validation :check_locale
   before_validation :check_permalink
   before_save :lipsum
+  after_save :expire_cache
   
   private
   
@@ -64,6 +65,16 @@ class Page < ActiveRecord::Base
     content = ''
     (1..(1+rand(3))).each { |i| content = "#{content}<h2>#{lipsum_title}</h2><p>#{lipsum_body_part}</p>"}
     content
+  end
+  
+  def expire_cache
+    def expire_cache
+      $available_locales.each do |locale|
+        day = (Time.now.utc.in_time_zone("Beijing")).strftime("%Y%m%d")
+        %w[ header sidebar ].each {|page| Rails.cache.delete "views/#{page}_#{locale}_#{day}"}
+      end
+      Rails.cache.delete "views/page_#{self.locale}_#{self.id}"
+    end
   end
 
 end

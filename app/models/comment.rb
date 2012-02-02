@@ -7,4 +7,17 @@ class Comment < ActiveRecord::Base
   default_scope :order => 'created_at DESC'
   scope :recent_comments, lambda{ limit(5) }
   
+  after_save :expire_cache
+  
+  private
+  
+  def expire_cache
+    if commentable.is_a?(Post)
+      $available_locales.each do |locale|
+        %w[ admin member ].each {|role| Rails.cache.delete "views/post_#{locale}_#{commentable.id}_#{role}"}
+      end
+    end
+  end
+  
+  
 end

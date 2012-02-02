@@ -1,7 +1,7 @@
 !!! 5
 %html
   %head
-    %title= @setting.site_name
+    %title= setting.site_name
     = stylesheet_link_tag     "application"
     = javascript_include_tag  "application"
     = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Quicksand:400,700'
@@ -24,7 +24,7 @@
         = render "site/sidebar"
         = render "events/event_for_the_day"
         #current_content
-          #site_image= image_tag(@banner_image_url, :width => 620, :height => 190)
+          #site_image= image_tag(banner_image_url, :width => 620, :height => 190)
           = yield
         .clear
 

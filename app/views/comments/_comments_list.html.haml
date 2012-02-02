@@ -4,6 +4,6 @@
       .index= comment.index(i)
       .comment_content= comment.content
       .date
-        = comment.created_at
+        = l comment.updated_at, :format => :comment
         = render "comments/management", :comment => comment
       .clear

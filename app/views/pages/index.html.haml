@@ -1,9 +1,11 @@
 #current_content_wrapper
   .home_item_title
     %h1= t("blog.pinned")
-  = render "posts/posts_list", :posts => @pinned_posts
+  - cache "pinned_posts_#{I18n.locale}" do   
+    = render "posts/posts_list", :posts => @pinned_posts
   .main_split_line
   .home_item_title
     %h1= t("blog.latest")
-  = render "posts/posts_list", :posts => @latest_posts
+  - cache "latest_posts_#{I18n.locale}" do 
+    = render "posts/posts_list", :posts => @latest_posts
 
