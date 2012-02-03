@@ -6,6 +6,7 @@
     = javascript_include_tag  "application"
     = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Quicksand:400,700'
     = csrf_meta_tags
+    %link{ :rel => "shortcut icon", :href => "/favicon.ico", :type => "image/x-icon"}
     = render 'site/verification' if $google_site_verification
     = yield :header
     = render 'site/ga' if ::Rails.env.eql?('production')
