@@ -31,6 +31,8 @@ Ouranos::Application.routes.draw do
   
   match '/assets/powered-by-secondbureau.png' => 'recipients#opening_track'
   
+  match '/new_relic' => 'pages#new_relic'
+  
   root :to => 'pages#index'
   
   match '*path' => 'pages#index'

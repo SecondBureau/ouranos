@@ -17,6 +17,10 @@ class PagesController < ApplicationController
     @page = Page.find_by_permalink params[:permalink]
     @pages = Page.all
   end
+  
+  def new_relic
+    render :text => "NewRelic OK : #{Post.count} Posts - #{Page.count} Pages - #{User.count} Users"
+  end
 
   private
 
