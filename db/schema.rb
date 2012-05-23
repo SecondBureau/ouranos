@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111203084404) do
+ActiveRecord::Schema.define(:version => 20120523085410) do
 
   create_table "categories", :force => true do |t|
     t.string   "title",                           :null => false
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(:version => 20111203084404) do
     t.string   "meta_keywords"
     t.string   "meta_description"
     t.string   "permalink"
+    t.datetime "sent_at"
   end
 
   create_table "families", :force => true do |t|
@@ -106,6 +107,7 @@ ActiveRecord::Schema.define(:version => 20111203084404) do
     t.string   "meta_keywords"
     t.string   "meta_description"
     t.boolean  "is_pinned",         :default => false
+    t.datetime "sent_at"
   end
 
   add_index "posts", ["user_id"], :name => "index_posts_on_user_id"
@@ -188,6 +190,7 @@ ActiveRecord::Schema.define(:version => 20111203084404) do
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
+    t.string   "authentication_token"
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true

@@ -9,7 +9,8 @@
   %tr
     %td{:style => "padding:0px 20px 20px 20px;"}
       .post_title{:style => "font-size:14px; font-weight:bold; margin-bottom:8px;"}
-        = link_to event.title, url_for(:controller => "events", :action => "show", :id => event.id, :locale => "en", :only_path => false)
+        - $link = url_for(:controller => "events", :action => "show", :id => event.id, :locale => "en", :only_path => false) + "?auth_token=" + @user.authentication_token
+        = link_to event.title, $link
         %span{:style => "float:right; font-weight:bold; font-size:12px; font-style:italic; color:#000000; margin-top:8px;"}
           - if !event.end_date
             = event.created_at
@@ -17,6 +18,6 @@
             = "#{event.start_date} ~ #{event.end_date}"
       .clear{:style => "clear:both;"}
       .post_content{:style => "font-size:12px; line-height:20px;"}
-        = image_tag("https://www.google.com/a/secondbureau.com/images/logo.gif", :width => 150, :style => "float:left; margin:0px 10px 10px 0px;")
+        -#= image_tag("https://www.google.com/a/secondbureau.com/images/logo.gif", :width => 150, :style => "float:left; margin:0px 10px 10px 0px;")
         = event.content
       .clear{:style => "clear:both;"}

@@ -59,9 +59,13 @@ gem 'htmlentities'
 #gem 'premailer'
 gem 'premailer-rails3'
 
+gem "mail"
+
 gem 'restful_metrics'
 
 gem 'fastercsv'
 
 gem 'dalli'
 gem 'thin'
+
+gem 'whenever', :require => false

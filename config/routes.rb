@@ -1,5 +1,6 @@
 Ouranos::Application.routes.draw do
 
+  resources :tokens,:only => [:create, :destroy]
 
   devise_for :users
 

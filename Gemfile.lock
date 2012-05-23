@@ -57,6 +57,7 @@ GEM
     cells (3.7.0)
       actionpack (~> 3.0)
       railties (~> 3.0)
+    chronic (0.6.7)
     cocaine (0.2.0)
     coderay (0.9.8)
     coffee-filter (0.1.1)
@@ -248,6 +249,9 @@ GEM
       multi_json (>= 1.0.2)
     warden (1.1.0)
       rack (>= 1.0)
+    whenever (0.7.3)
+      activesupport (>= 2.3.4)
+      chronic (~> 0.6.3)
     xml-simple (1.1.1)
     yajl-ruby (0.8.3)
 
@@ -275,6 +279,7 @@ DEPENDENCIES
   htmlentities
   jquery-rails
   kaminari
+  mail
   meta_search
   newrelic_rpm
   paperclip
@@ -294,3 +299,4 @@ DEPENDENCIES
   thin
   tinymce-rails
   uglifier (>= 1.0.3)
+  whenever

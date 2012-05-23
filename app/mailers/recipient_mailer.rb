@@ -25,7 +25,7 @@ class RecipientMailer < ActionMailer::Base
     # specific
     @password       = SecureRandom.hex(3) if params[:reset_password]
     ActiveRecord::Base.transaction do
-      recipient.update_attributes(:sent_at => Time.now, :token => SecureRandom.uuid)  
+      recipient.update_attributes(:sent_at => Time.now, :token => SecureRandom.uuid)
       recipient.user.update_attributes( :password => @password, :password_confirmation => @password ) if @password
       mail(:to => recipient.user.email, :subject => @title)
     end
@@ -39,6 +39,24 @@ class RecipientMailer < ActionMailer::Base
     @subject        = "Votre adhesion a l'APE LFIP arrive a expiration dans .. jours"
     @email_extract  = "Ci-dessous les instructions pour continuer a beneficier des avantages reserves aux membres de l'APE."
     @is_archive_page = true
+    ActiveRecord::Base.transaction do
+      recipient.update_attributes(:sent_at => Time.now, :token => SecureRandom.uuid)  
+      mail(:to => recipient.user.email, :subject => @subject)
+    end
+  end
+
+  def newsletter(recipient)
+    I18n.locale = :fr
+    
+    @recipient = recipient
+    params = recipient.params || {}
+    
+    @user = recipient.user
+    @user.reset_authentication_token!
+    @subject = params[:subject]
+    @posts = Post.find(params[:posts])
+    @events = Event.find(params[:events])
+    
     ActiveRecord::Base.transaction do
       recipient.update_attributes(:sent_at => Time.now, :token => SecureRandom.uuid)  
       mail(:to => recipient.user.email, :subject => @subject)

@@ -1,22 +1,38 @@
-desc "the cron task for newsletter and membership notice"
-task :cron => :environment do
-  #if Time.now.day == 1
-    #User.all.each do |user|
-      #newsletter = OuranosMailer.newsletter user
-      #newsletter.deliver
-    #end
-  #end
-
-
-  #User.all.each do |user|
-   # if user.is_of_role? :member && (user.expires_at - Time.now)/3600/24 == 30
-      #OuranosMailer.membership_notice user.deliver
-    #end
-  #end
-  $available_locales.each do |locale|
-    day = (Time.now.utc.in_time_zone("Beijing") - 24*60*60 ).strftime("%Y%m%d")
-    %w[ header sidebar ].each {|page| Rails.cache.delete "views/#{page}_#{locale}_#{day}"}
-  end
+namespace :cron do
+  desc "mail and newsletter"
+  task :send_newsletter => :environment do
   
+    date = DateTime.now
+    subject = "Newsletter from APE LFIP on #{date.strftime("%m/%d/%Y")}"
+  
+    posts = Post.order('created_at DESC').where(:sent_at => nil)
+    events = Event.order('created_at DESC').where(:sent_at => nil)
+    
+    begin
+      posts_ids = []
+      posts.each do |post|
+        post.sent_at = DateTime.now
+        post.save!
+        posts_ids << post.id
+        puts post.id
+      end
+      
+      events_ids = []
+      events.each do |event|
+        event.sent_at = DateTime.now
+        event.save!
+        events_ids << event.id
+        puts event.id
+      end
+    
+      users = User.all
+      users.each do |user|
+        Recipient.create(:user => user, :template => 'newsletter', :params => {:subject => subject, :posts => posts_ids, :events => events_ids})
+      end
+      
+    rescue Exception=>e
+      #Problem
+    end
+    Rake::Task['mailer:send_emails'].invoke
+  end
 end
-

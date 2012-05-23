@@ -5,10 +5,17 @@ class User < ActiveRecord::Base
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable, :confirmable
-  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :confirmable
+  devise :token_authenticatable, 
+         :database_authenticatable,
+         :registerable, 
+         :recoverable, 
+         :rememberable, 
+         :trackable, 
+         :validatable, 
+         :confirmable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :expires_at, :role_id
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :expires_at, :role_id, :authentication_token
 
   belongs_to :role
   has_many :subscribes
@@ -17,6 +24,7 @@ class User < ActiveRecord::Base
   has_many :recipients
 
   before_create :set_default_attributes
+  before_save :forge_email
 
 
   def is_role? role_name
@@ -45,7 +53,7 @@ class User < ActiveRecord::Base
 
   def forge_email
     unless ::Rails.env.eql?('production')
-      self.email = "#{self.email.gsub('@secondbureau.com','').gsub('@','_')}@secondbureau.com"
+      self.email = "#{self.email.gsub('@romain.2bu.ro','').gsub('@','_')}@romain.2bu.ro"
     end
   end
 

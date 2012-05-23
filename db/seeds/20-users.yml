@@ -1,6 +1,6 @@
 admin1:
   uniq: [email]
-  email: isabelle.roux@ape-pekin.com
+  email: romain@secondbureau.com
   password: secret
   password_confirmation: secret
   role_id: "{:name => 'administrator'}"
@@ -16,7 +16,7 @@ admin2:
 
 member:
   uniq: [email]
-  email: member@ape-pekin.com
+  email: romain.binaux@gmail.com
   password: secret
   password_confirmation: secret
   role_id: "{:name => 'member'}"
