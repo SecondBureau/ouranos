@@ -3,9 +3,9 @@ class RecipientMailer < ActionMailer::Base
   
   helper :mailers
 
-  default :from => "ape-lfip@ape-pekin.com"
+  default :from => "romain.binaux@gmail.com"
   
-  layout 'mailer/basic'
+  #layout 'mailer/basic'
 
   def welcome(recipient)
     I18n.locale = :fr
@@ -50,16 +50,20 @@ class RecipientMailer < ActionMailer::Base
     
     @recipient = recipient
     params = recipient.params || {}
-    
+    puts recipient.user.email
     @user = recipient.user
     @user.reset_authentication_token!
     @subject = params[:subject]
     @posts = Post.find(params[:posts])
+    @posts = PostDecorator.decorate(@posts)
     @events = Event.find(params[:events])
     
     ActiveRecord::Base.transaction do
       recipient.update_attributes(:sent_at => Time.now, :token => SecureRandom.uuid)  
-      mail(:to => recipient.user.email, :subject => @subject)
+      puts "Envoi du mail"
+      puts @posts
+      puts @events
+      mail(:to => recipient.user.email, :subject => @subject).deliver
     end
   end
 

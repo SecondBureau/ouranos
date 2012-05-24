@@ -1,0 +1,22 @@
+%tr
+  %td{:style => "padding:0px;border-bottom: 1px dotted #888888;border-top: 1px dotted #888888; background:#EEEEEE;"}
+    %span{:style => "float:left;font-size: 26px;line-height:60px;margin:0px 0px 0px 10px;"} Events
+    .powered_by{:style => "float:right;padding: 5px; text-align:right;font-size:13px;"}
+      = link_to "This newsletter is powered by", "http://www.secondbureau.com"
+      = link_to image_tag("https://www.google.com/a/secondbureau.com/images/logo.gif", :style => "vertical-align:middle;border:none;margin:0 10px;", :width => 143, :height => 59), "http://www.secondbureau.com"
+- @events.each do |event|
+  %tr
+    %td{:style => "padding:20px 10px 10px;"}
+      .post_title{:style => "font-size:20px;"}
+        - $link = url_for(:controller => "events", :action => "show", :id => event.id, :locale => "en", :only_path => false) + "?auth_token=" + @user.authentication_token
+        = link_to event.title, $link
+        %div{:style => "font-weight:bold; font-size:16px; color:#A80000; margin-top:0px;"}
+          - if !event.end_date
+            = event.created_at.strftime("%d %B %Y")
+          - else
+            = "#{event.start_date.strftime("%d %B %Y")} ~ #{event.end_date.strftime("%d %B %Y")}"
+      .clear{:style => "clear:both;"}
+      .post_content{:style => "font-size:12px; line-height:20px; font-color:#222;"}
+        -#= image_tag("https://www.google.com/a/secondbureau.com/images/logo.gif", :width => 150, :style => "float:left; margin:0px 10px 10px 0px;")
+        = raw(truncate(strip_tags(event.content), :length => 400, :omission => '...'))
+      .clear{:style => "clear:both;"}

@@ -5,8 +5,8 @@ namespace :cron do
     date = DateTime.now
     subject = "Newsletter from APE LFIP on #{date.strftime("%m/%d/%Y")}"
   
-    posts = Post.order('created_at DESC').where(:sent_at => nil)
-    events = Event.order('created_at DESC').where(:sent_at => nil)
+    posts = Post.order('created_at ASC').where(:sent_at => nil)
+    events = Event.order('created_at ASC').where(:sent_at => nil)
     
     begin
       posts_ids = []

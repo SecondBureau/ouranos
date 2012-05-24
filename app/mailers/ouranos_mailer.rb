@@ -5,7 +5,7 @@ class OuranosMailer < ActionMailer::Base
 
   default :from => "romain@secondbureau.com"
 
-  def newsletter
+  def DEPRECATED_DEPRECATED_newsletter
     date = DateTime.now
     subject = "Newsletter from APE LFIP on #{date.strftime("%m/%d/%Y")}"
     posts = Post.where("created_at > ?", date-1.month).order("created_at desc").limit(5)
@@ -18,7 +18,7 @@ class OuranosMailer < ActionMailer::Base
 		end
   end
   
-  def newsletter(user, subject, posts, events)
+  def DEPRECATED_newsletter(user, subject, posts, events)
     @user = user
     @user.reset_authentication_token!
     @subject = subject
