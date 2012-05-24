@@ -20,7 +20,7 @@ table td{border-collapse:collapse;}
 * @theme page
 */
 body, #backgroundTable{
-/*@editable*/ background-color:#FAFAFA;
+/*@editable*/ background-color:#FFF;
 }
 
 /**

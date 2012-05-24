@@ -5,7 +5,7 @@ class RecipientMailer < ActionMailer::Base
 
   default :from => "romain.binaux@gmail.com"
   
-  #layout 'mailer/basic'
+  layout 'mailer/complex'
 
   def welcome(recipient)
     I18n.locale = :fr
@@ -50,7 +50,6 @@ class RecipientMailer < ActionMailer::Base
     
     @recipient = recipient
     params = recipient.params || {}
-    puts recipient.user.email
     @user = recipient.user
     @user.reset_authentication_token!
     @subject = params[:subject]
@@ -60,9 +59,7 @@ class RecipientMailer < ActionMailer::Base
     
     ActiveRecord::Base.transaction do
       recipient.update_attributes(:sent_at => Time.now, :token => SecureRandom.uuid)  
-      puts "Envoi du mail"
-      puts @posts
-      puts @events
+      puts "Sending newsletter to " + recipient.user.email
       mail(:to => recipient.user.email, :subject => @subject).deliver
     end
   end

@@ -4,7 +4,7 @@
     = link_to "This newsletter is powered by", "http://www.secondbureau.com"
     = link_to image_tag("https://www.google.com/a/secondbureau.com/images/logo.gif", :style => "vertical-align:middle;border:none;margin:0 10px;", :width => 143, :height => 59), "http://www.secondbureau.com"
 - @posts.each do |post|
-  %div{:style => "padding:20px 10px 10px;clear:both;"}
+  %div{:style => "padding:20px 10px 10px 20px;clear:both;"}
     .post_title{:style => "font-size:20px;"}
       - $link = main_app.post_url(:permalink => post.permalink, :locale => "en") + "?auth_token=" + @user.authentication_token
       = link_to post.title, $link
