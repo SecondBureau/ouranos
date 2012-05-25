@@ -56,6 +56,7 @@ class RecipientMailer < ActionMailer::Base
     @posts = Post.find(params[:posts])
     @posts = PostDecorator.decorate(@posts)
     @events = Event.find(params[:events])
+    @title = "Newsletter de l'APE LFIP"
     
     ActiveRecord::Base.transaction do
       recipient.update_attributes(:sent_at => Time.now, :token => SecureRandom.uuid)  

@@ -1,8 +1,16 @@
 %html
-  %body{:style => "font-family:'Helvetica Neue',Arial;font-size:13px;"}
-    %div{:style=>"box-shadow:0px 0px 3px #CCC; margin:30px 50px 50px 50px;background: #FAFAFA;-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;border:1px solid #CCC;"}
-      %div{:style=>"background:#7D7874; -moz-border-radius:5px 5px 0px 0px;-webkit-border-radius:5px 5px 0px 0px;border-radius:5px 5px 0px 0px; text-align:center; padding:10px;"}
-        %div{:style=>"color:#A80000; font-size:40px; text-shadow:0px 1px 3px #222;"}apé lfip
-        %div{:style=>"color:#222; font-size:11px; text-transform:uppercase;"}Association des parents d'élèves
-        %div{:style=>"color:#222; font-size:11px; text-transform:uppercase;"}du lycée français international de Pékin
+  %body
+    .page
+      .header
+        .website-title
+          = @title ? @title : "apé lfip"
+        .under-title
+          Association des parents d'élèves
+        .under-title
+          du lycée français international de Pékin
       = yield
+    .footer
+      Copyright &copy;
+      = Time.now.year
+      Association des Parents d'&eacute;l&egrave;ves du LFIP, 
+      Tous droits r&eacute;serv&eacute;s.

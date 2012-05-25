@@ -324,3 +324,95 @@ a {
   color:black;
   text-decoration:none;
 }
+
+body {
+	font-family:'Helvetica Neue',Arial;
+	font-size:13px;
+}
+.page {
+	box-shadow:0px 0px 3px #CCC;
+	margin-top:30px;
+	margin-bottom: 50px;
+	margin-left: auto;
+	margin-right: auto;
+	background: #FAFAFA;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+	border:1px solid #CCC;
+	max-width: 700px;
+}
+.header {
+	background:#A80000;
+	-moz-border-radius:5px 5px 0px 0px;
+	-webkit-border-radius:5px 5px 0px 0px;
+	border-radius:5px 5px 0px 0px; 
+	text-align:center; 
+	padding:20px;
+}
+.website-title {
+	color:#FFF; 
+	font-size:40px; 
+	text-shadow:0px -1px 1px #222;
+	margin-bottom:10px;
+}
+.under-title {
+	color:#FFF; 
+	font-size:11px; 
+	text-shadow:0px -1px 1px #222;
+	text-transform:uppercase;
+	font-weight:bold;
+}
+.latest {
+	padding:0px;
+	border-bottom: 1px dotted #888888; 
+	background:#EEEEEE;
+	height:60px;
+}
+.latest-title {
+	float:left;
+	font-size: 26px;
+	line-height:60px;
+	margin:0px 0px 0px 20px;
+}
+.powered_by {
+	float:right;
+	padding: 5px; 
+	text-align:right;
+	font-size:13px;
+}
+.element {
+	padding:20px 10px 10px 20px;
+	clear:both;
+}
+.post_title {
+	font-size:20px;
+}
+.date-event, date-article {
+	margin-top:5px;
+	margin-bottom:5px
+}
+.date-event > span {
+	font-weight:bold; 
+	font-size:16px; 
+	background:#A80000; 
+	color:white; 
+	padding:3px; 
+	margin-top:0px;
+}
+.post_content {
+	font-size:12px; 
+	line-height:20px; 
+	font-color:#222;
+}
+.date-article > span {
+	font-size:12px; 
+	color:#FFF;
+	background:#000;
+	vertical-align:middle;
+	padding:0 3px;
+}
+.footer {
+  text-align: center;
+  padding-bottom:20px;
+}
