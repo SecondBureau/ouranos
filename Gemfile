@@ -69,3 +69,4 @@ gem 'dalli'
 gem 'thin'
 
 gem 'whenever', :require => false
+

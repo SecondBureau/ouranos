@@ -5,7 +5,7 @@ class RecipientMailer < ActionMailer::Base
 
   default :from => "romain.binaux@gmail.com"
   
-  layout 'mailer/complex'
+  layout 'mailer/basic'
 
   def welcome(recipient)
     I18n.locale = :fr

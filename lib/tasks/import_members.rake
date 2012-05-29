@@ -62,11 +62,8 @@ namespace :db do
       tmp_password = SecureRandom.hex(16)
       puts tmp_password
       
-      row[0] = 'FIRSTNAME' unless row[0]
-      row[1] = 'LASTNAME' unless row[1]
-      
       user = User.create({
-        :email => row[0] + '.' + row[1] + '@romain.2bu.ro', #row[5],
+        :email => row[5],
         :password => tmp_password,
         :password_confirmation => tmp_password,
         :role_id => role_member.id,
@@ -80,7 +77,7 @@ namespace :db do
       father = Person.create({
         :firstname => row[0],
         :lastname => row[1],
-        :email => row[0] + '.' + row[1] + '@romain.2bu.ro',
+        :email => row[5],
         :fa_type => "father"
       })
 
@@ -88,7 +85,7 @@ namespace :db do
       mother = Person.create({
         :firstname => row[2],
         :lastname => row[3],
-        :email => 'trash@romain.2bu.ro',
+        :email => row[5],
         :fa_type => "mother"
       })
 

@@ -1,5 +1,9 @@
 Ouranos::Application.routes.draw do
 
+  match 'admin/import' => 'application#import'
+  match '/application/read_import', :controller => 'application', :action => 'read_import'
+  match '/application/do_import', :controller => 'application', :action => 'do_import'
+  
   resources :tokens,:only => [:create, :destroy]
 
   devise_for :users
@@ -11,6 +15,7 @@ Ouranos::Application.routes.draw do
     match "/subscribes" => "subscribes#index", :as => :subscribes, :via => :get
     match "/subscribes" => "subscribes#create", :as => :subscribes, :via => :post
     match "/subscribes/testlink" => "subscribes#show", :as => :subscribe_testlink
+    match "/subscribes/unsubscribe", :controller => 'subscribes', :action => 'unsubscribe'
     match "/search" => "search#index", :as => :search
     match "/search/more/:model" => "search#show", :as => :search_more
     resources :events
