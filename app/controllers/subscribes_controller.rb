@@ -26,10 +26,6 @@ class SubscribesController < ApplicationController
     newsletter.deliver
     redirect_to subscribes_path, :notice => "Create subscribe successfully!"
   end
-  
-  def unsubscribe
-    @email = params[:id]
-  end
 
 end
 

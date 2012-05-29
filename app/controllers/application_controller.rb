@@ -22,6 +22,20 @@ class ApplicationController < ActionController::Base
 
   end
   
+  def unsubscribe
+    if user_signed_in?
+      user = User.find(:first, :conditions => ["lower(email) LIKE ?", params[:id].downcase])
+      if user
+        user.newsletter = false
+        user.save!
+        @email = params[:id]
+      else
+        redirect_to '/'
+      end
+    else
+      redirect_to '/'
+    end
+  end
   
 	def import
 	  if user_signed_in?

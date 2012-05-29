@@ -1,4 +1,4 @@
 = render "posts"
 = render "events"
 .unsubscribe
-  = link_to "Me désabonner de la newsletter", :only_path => false, :controller => 'subscribes', :action => 'unsubscribe', :id => @user.email
+  = link_to "Me désabonner de la newsletter", :only_path => false, :controller => 'application', :action => 'unsubscribe', :id => @user.email, :auth_token => @user.authentication_token

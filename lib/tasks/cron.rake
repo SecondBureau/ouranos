@@ -25,7 +25,7 @@ namespace :cron do
         puts event.id
       end
     
-      users = User.all
+      users = User.where(:newsletter => 1)
       users.each do |user|
         Recipient.create(:user => user, :template => 'newsletter', :params => {:subject => subject, :posts => posts_ids, :events => events_ids})
       end

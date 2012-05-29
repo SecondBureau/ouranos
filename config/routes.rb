@@ -15,7 +15,7 @@ Ouranos::Application.routes.draw do
     match "/subscribes" => "subscribes#index", :as => :subscribes, :via => :get
     match "/subscribes" => "subscribes#create", :as => :subscribes, :via => :post
     match "/subscribes/testlink" => "subscribes#show", :as => :subscribe_testlink
-    match "/subscribes/unsubscribe", :controller => 'subscribes', :action => 'unsubscribe'
+    match "/application/unsubscribe", :controller => 'application', :action => 'unsubscribe'
     match "/search" => "search#index", :as => :search
     match "/search/more/:model" => "search#show", :as => :search_more
     resources :events
