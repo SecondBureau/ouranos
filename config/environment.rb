@@ -8,10 +8,10 @@ ActionMailer::Base.delivery_method = :smtp
 
 ActionMailer::Base.smtp_settings = {
   :enable_starttls_auto => true,
-  :address => 'smtp.gmail.com',
-  :port => 587,
-  :domain => 'localhost',
+  :address => 'caffeine.2bu.ro',
+  :port => 25,
+  :domain => 'maille.com',
   :authentication => :plain,
-  :user_name => 'romain.binaux@gmail.com',
-  :password => 'sonnytgmail48'
+  :user_name => 'smtpsender@2bu.ro',
+  :password => 'secret11'
 }

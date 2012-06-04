@@ -19,9 +19,9 @@
 
 # Learn more: http://github.com/javan/whenever
 
-set :output, "cron.log"
-set :environment, "development"
+#set :output, "cron.log"
+#set :environment, "development"
 
-every '00 0 1 * *' do
-  rake "cron:send_newsletter"
-end
+#every '00 0 1 * *' do
+#  rake "cron:send_newsletter"
+#end
