@@ -11,8 +11,6 @@ Devise.setup do |config|
 
   config.stretches = 10
 
-  config.use_salt_as_remember_token = true
-
   config.reset_password_within = 2.hours
 
   config.sign_out_via = :delete
