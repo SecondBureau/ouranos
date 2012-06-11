@@ -17,7 +17,7 @@
       .home_side_block_title= t("blog.mostread")
       %ul.home_side_block_content
         - most_posts.each do |post|
-          %li= link_to post.short_title, post_path(post)
+          %li= link_to post.short_title, post_path( post)
 
     .home_side_block#recent_comments
       .home_side_block_title= t("comment.recent")
