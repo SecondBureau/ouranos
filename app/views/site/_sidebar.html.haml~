@@ -17,14 +17,13 @@
       .home_side_block_title= t("blog.mostread")
       %ul.home_side_block_content
         - most_posts.each do |post|
-          %li= link_to post.short_title, post_path( post)
+          %li= link_to post.short_title, post_path(post)
 
     .home_side_block#recent_comments
       .home_side_block_title= t("comment.recent")
       %ul.home_side_block_content
-        - if recent_comments
-          - recent_comments.each do |comment|
-            %li= link_to comment.short_content, post_path(comment.commentable)
+        - recent_comments.each do |comment|
+          %li= link_to comment.short_content, post_path(comment.commentable)
 
     .home_side_block#contact
       .home_side_block_title= t("contact.title")
