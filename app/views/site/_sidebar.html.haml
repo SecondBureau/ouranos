@@ -24,8 +24,7 @@
       %ul.home_side_block_content
         if recent_comments
           - recent_comments.each do |comment|
-            -#%li= link_to comment.short_content, post_path(comment.commentable)
-            - %li= link_to 'comment.short_content', '/'
+            %li= link_to 'comment.short_content', '/'
 
     .home_side_block#contact
       .home_side_block_title= t("contact.title")
