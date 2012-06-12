@@ -2,12 +2,13 @@ class CommentDecorator < ApplicationDecorator
   decorates :comment
 
   def self.decorate model
-    #@@comments_size = model.length
+    @@comments_size = model.length
     super
   end
 
   def short_content
-    h.truncate(comment.content, :length => 38, :omission => '... ')
+    #h.truncate(comment.content, :length => 38, :omission => '... ')
+    h.raw(h.truncate(h.strip_tags(comment.content), :length => 38, :omission => '...'))
   end
 
   def created_at
