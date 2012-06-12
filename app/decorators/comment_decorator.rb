@@ -1,10 +1,10 @@
 class CommentDecorator < ApplicationDecorator
   decorates :comment
 
-  def self.decorate model
-    @@comments_size = model.length
-    super
-  end
+#  def self.decorate model
+#    @@comments_size = model.length
+#    super
+#  end
 
   def short_content
     h.truncate(comment.content, :length => 38, :omission => '...')
