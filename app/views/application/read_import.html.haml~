@@ -65,5 +65,5 @@
         %input{:type=>"checkbox", :name=>"delete_families[]", :value=>f.id, :checked=>true} delete
       %td= f.name
 
-<center><input type="submit" value="Submit" style="margin:10px;"></center>
+<center><input type="submit" value="Submit" style="padding:10px;"></center>
 </form>

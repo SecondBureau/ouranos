@@ -7,7 +7,7 @@
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 require "lipsum"
 
-seeds_path = File.join(File.dirname(__FILE__), 'seeds')
+seeds_path = File.join(File.dirname(__FILE__), 'seedsx')
 
 Dir["#{seeds_path}/*"].select { |file| /(yml)$/ =~ file }.sort.each do |file|
   #puts file

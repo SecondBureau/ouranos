@@ -14,6 +14,7 @@ namespace :cron do
         post.sent_at = DateTime.now
         post.save!
         posts_ids << post.id
+        puts post.id
       end
 
       events_ids = []
@@ -21,6 +22,7 @@ namespace :cron do
         event.sent_at = DateTime.now
         event.save!
         events_ids << event.id
+        puts event.id
       end
 
       users = User.where(:newsletter => true)

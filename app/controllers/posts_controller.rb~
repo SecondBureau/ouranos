@@ -18,7 +18,7 @@ class PostsController < ApplicationController
   def show
     @post = PostDecorator.decorate(Post.where("permalink = ?", params[:permalink]).first)
     @post.read_count = @post.read_count + 1
-    #@post.save_without_expiring_cache
+    @post.save_without_expiring_cache
   end
 
   def with_category

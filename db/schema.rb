@@ -201,7 +201,7 @@ ActiveRecord::Schema.define(:version => 20120529095709) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
-    t.string   "token_authenticatable"
+    t.string   "authentication_token"
     t.boolean  "newsletter",             :default => true
   end
 
