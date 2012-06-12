@@ -22,9 +22,10 @@
     .home_side_block#recent_comments
       .home_side_block_title= t("comment.recent")
       %ul.home_side_block_content
-        - recent_comments.each do |comment|
-          -#%li= link_to comment.short_content, post_path(comment.commentable)
-          - %li= link_to 'comment.short_content', '/'
+        if recent_comments
+          - recent_comments.each do |comment|
+            -#%li= link_to comment.short_content, post_path(comment.commentable)
+            - %li= link_to 'comment.short_content', '/'
 
     .home_side_block#contact
       .home_side_block_title= t("contact.title")
