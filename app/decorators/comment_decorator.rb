@@ -7,9 +7,7 @@ class CommentDecorator < ApplicationDecorator
   end
 
   def short_content
-    if comment && comment.content
-      h.truncate(comment.content, :length => 38, :omission => '...')
-    end
+    h.truncate(comment.content, :length => 38, :omission => '...')
   end
 
   def created_at
