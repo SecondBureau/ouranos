@@ -3,7 +3,7 @@ class RecipientMailer < ActionMailer::Base
 
   helper :mailers
 
-  default :from => "romain.binaux@gmail.com"
+  default :from => "smtpsender@2bu.ro"
 
   layout 'mailer/basic'
 

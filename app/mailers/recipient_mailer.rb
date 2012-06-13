@@ -41,7 +41,8 @@ class RecipientMailer < ActionMailer::Base
     @is_archive_page = true
     ActiveRecord::Base.transaction do
       recipient.update_attributes(:sent_at => Time.now, :token => SecureRandom.uuid)
-      mail(:to => recipient.user.email, :subject => @subject)
+      if recipient.user
+        mail(:to => recipient.user.email, :subject => @subject)
     end
   end
 
