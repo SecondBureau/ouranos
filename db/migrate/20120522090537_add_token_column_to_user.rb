@@ -1,5 +1,5 @@
 class AddTokenColumnToUser < ActiveRecord::Migration
   def change
-    add_column :users, :authentication_token, :string
+    add_column :users, :token_authenticatable, :string
   end
 end
