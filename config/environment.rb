@@ -7,10 +7,10 @@ Ouranos::Application.initialize!
 ActionMailer::Base.delivery_method = :smtp
 
 ActionMailer::Base.smtp_settings = {
-  :enable_starttls_auto => true,
+  :enable_starttls_auto => false,
   :address => 'caffeine.2bu.ro',
   :port => 25,
-  :domain => 'localhost',
+  :domain => 'maille.com',
   :authentication => :plain,
   :user_name => 'smtpsender@2bu.ro',
   :password => 'secret11'
