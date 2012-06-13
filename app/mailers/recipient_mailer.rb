@@ -40,8 +40,8 @@ class RecipientMailer < ActionMailer::Base
     @email_extract  = "Ci-dessous les instructions pour continuer a beneficier des avantages reserves aux membres de l'APE."
     @is_archive_page = true
     ActiveRecord::Base.transaction do
-      recipient.update_attributes(:sent_at => Time.now, :token => SecureRandom.uuid)
       if recipient.user
+        recipient.update_attributes(:sent_at => Time.now, :token => SecureRandom.uuid)
         mail(:to => recipient.user.email, :subject => @subject)
       end
     end
