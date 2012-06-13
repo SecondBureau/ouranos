@@ -27,7 +27,7 @@ class RecipientMailer < ActionMailer::Base
     ActiveRecord::Base.transaction do
       recipient.update_attributes(:sent_at => Time.now, :token => SecureRandom.uuid)
       recipient.user.update_attributes( :password => @password, :password_confirmation => @password ) if @password
-      mail(:to => recipient.user.email, :subject => @title)
+      mail(:to => recipient.user.email, :subject => @title).deliver
     end
   end
 
@@ -42,7 +42,7 @@ class RecipientMailer < ActionMailer::Base
     ActiveRecord::Base.transaction do
       if recipient.user
         recipient.update_attributes(:sent_at => Time.now, :token => SecureRandom.uuid)
-        mail(:to => recipient.user.email, :subject => @subject)
+        mail(:to => recipient.user.email, :subject => @subject).deliver
       end
     end
   end
