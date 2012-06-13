@@ -43,6 +43,7 @@ class RecipientMailer < ActionMailer::Base
       recipient.update_attributes(:sent_at => Time.now, :token => SecureRandom.uuid)
       if recipient.user
         mail(:to => recipient.user.email, :subject => @subject)
+      end
     end
   end
 
