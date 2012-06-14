@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120529095709) do
+ActiveRecord::Schema.define(:version => 20120613100915) do
 
   create_table "categories", :force => true do |t|
     t.string   "title",                           :null => false
@@ -202,7 +202,8 @@ ActiveRecord::Schema.define(:version => 20120529095709) do
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
     t.string   "authentication_token"
-    t.boolean  "newsletter",             :default => true
+    t.boolean  "opt_in_newsletter",      :default => true
+    t.datetime "newsletter_sent_at"
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true

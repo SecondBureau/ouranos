@@ -1,7 +1,7 @@
 .latest{:style => "border-top:1px dotted #888888;"}
   %span{:class => "latest-title"} Events
   .powered_by
-    = link_to "This newsletter is powered by", "http://www.secondbureau.com"
+    = link_to t("newsletter.powered_by"), "http://www.secondbureau.com"
     = link_to image_tag("https://www.google.com/a/secondbureau.com/images/logo.gif", :style => "vertical-align:middle;border:none;margin:0 10px;", :width => 143, :height => 59), "http://www.secondbureau.com"
 - @events.each do |event|
   .element

@@ -17,20 +17,20 @@ namespace :mailer do
     begin
       posts_ids = []
       posts.each do |post|
-        post.sent_at = DateTime.now
+        post.sent_at = date
         post.save!
         posts_ids << post.id
       end
 
       events_ids = []
       events.each do |event|
-        event.sent_at = DateTime.now
+        event.sent_at = date
         event.save!
         events_ids << event.id
       end
 
       if posts_ids.length > 0 || events_ids.length > 0
-        users = User.where(:opt_in_newsletter => true, :newsletter_sent_at < DateTime.now-1.month)
+        users = User.where("opt_in_newsletter = ? AND (newsletter_sent_at IS ? OR newsletter_sent_at < ?)", true, nil, DateTime.now-1.month)
         users.each do |user|
           Recipient.create(:user => user, :template => 'newsletter', :params => {:subject => subject, :posts => posts_ids, :events => events_ids})
         end
