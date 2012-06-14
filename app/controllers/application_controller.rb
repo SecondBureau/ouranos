@@ -33,7 +33,7 @@ class ApplicationController < ActionController::Base
     if user_signed_in?
       user = User.find(:first, :conditions => ["lower(email) LIKE ?", params[:id].downcase])
       if user
-        user.newsletter = false
+        user.opt_in_newsletter = false
         user.save!
         @email = params[:id]
       else

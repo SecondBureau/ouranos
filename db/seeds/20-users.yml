@@ -1,7 +1,43 @@
 admin1:
   uniq: [email]
-  email: romain@secondbureau.com
+  email: isabelle.roux@ape-pekin.com
   password: secret
   password_confirmation: secret
   role_id: "{:name => 'administrator'}"
   confirmed_at: "2011-11-14 02:45:49 UTC"
+
+admin2:
+  uniq: [email]
+  email: etienne.perrin@ape-pekin.com
+  password: secret
+  password_confirmation: secret
+  role_id: "{:name => 'administrator'}"
+  confirmed_at: "2011-11-14 02:45:49 UTC"
+
+member:
+  uniq: [email]
+  email: member@ape-pekin.com
+  password: secret
+  password_confirmation: secret
+  role_id: "{:name => 'member'}"
+  confirmed_at: "2011-11-14 02:45:49 UTC"
+  expires_at: "2100-12-12"
+
+
+family_user1:
+  uniq: [email]
+  email: zhangsan@email.com
+  password: secret
+  password_confirmation: secret
+  role_id: "{:name => 'member'}"
+  confirmed_at: "2011-11-14 02:45:49 UTC"
+  expires_at: "2100-12-12"
+
+family_user2:
+  uniq: [email]
+  email: lisi@email.com
+  password: secret
+  password_confirmation: secret
+  role_id: "{:name => 'member'}"
+  confirmed_at: "2011-11-14 02:45:49 UTC"
+  expires_at: "2100-12-12"

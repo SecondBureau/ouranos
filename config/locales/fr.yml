@@ -86,4 +86,5 @@ fr:
     title: Contact
     info: Boite aux lettres dans le hall du bâtiment A du site principal.
   newsletter:
-    powered:Cette newsletter a été créée par
+    powered_by: Cette newsletter a été créée par
+    subject: Newletter de l'APE LFIP du

@@ -4,4 +4,5 @@
 en:
   hello: "Hello world"
   newsletter:
-    powered:This newsletter is powered by
+    powered_by: This newsletter is powered by
+    subject: Newsletter from APE LFIP on
