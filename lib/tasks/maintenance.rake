@@ -18,6 +18,11 @@ namespace :db do
     task :mass_init_password => :environment do |t, args|
       User.where(:sign_in_count => 0).each  {|user| Recipient.create(:user => user, :template => 'welcome', :params => {:reset_password => true}) }
     end
+
+    desc "forge emails to force domain to 2bu.ro"
+    task :forge_emails => :environment do |t, args|
+      User.forge_all_emails
+    end
   end
 
   namespace :family do
