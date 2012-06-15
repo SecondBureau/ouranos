@@ -26,6 +26,20 @@ ActiveRecord::Schema.define(:version => 20120613100915) do
     t.integer "post_id",     :null => false
   end
 
+  create_table "ckeditor_assets", :force => true do |t|
+    t.string   "data_file_name",                  :null => false
+    t.string   "data_content_type"
+    t.integer  "data_file_size"
+    t.integer  "assetable_id"
+    t.string   "assetable_type",    :limit => 30
+    t.string   "type",              :limit => 30
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "ckeditor_assets", ["assetable_type", "assetable_id"], :name => "idx_ckeditor_assetable"
+  add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], :name => "idx_ckeditor_assetable_type"
+
   create_table "comments", :force => true do |t|
     t.text     "content",          :null => false
     t.integer  "user_id",          :null => false
@@ -69,6 +83,16 @@ ActiveRecord::Schema.define(:version => 20120613100915) do
   end
 
   add_index "images", ["setting_id"], :name => "index_images_on_setting_id"
+
+  create_table "member_confirms", :force => true do |t|
+    t.integer  "user_id"
+    t.date     "send_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "token"
+  end
+
+  add_index "member_confirms", ["user_id"], :name => "index_member_confirms_on_user_id"
 
   create_table "pages", :force => true do |t|
     t.string   "title",            :null => false
@@ -167,6 +191,7 @@ ActiveRecord::Schema.define(:version => 20120613100915) do
     t.string   "contact_email"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "send_email_after_user_created", :default => false
     t.integer  "trial_period"
   end
 
@@ -183,12 +208,12 @@ ActiveRecord::Schema.define(:version => 20120613100915) do
   add_index "subscribes", ["user_id"], :name => "index_subscribes_on_user_id"
 
   create_table "users", :force => true do |t|
-    t.string   "email",                  :default => "",   :null => false
-    t.string   "encrypted_password",     :default => "",   :null => false
+    t.string   "email",                                 :default => "",   :null => false
+    t.string   "encrypted_password",     :limit => 128, :default => "",   :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          :default => 0
+    t.integer  "sign_in_count",                         :default => 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -200,9 +225,8 @@ ActiveRecord::Schema.define(:version => 20120613100915) do
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
-    t.string   "unconfirmed_email"
     t.string   "authentication_token"
-    t.boolean  "opt_in_newsletter",      :default => true
+    t.boolean  "opt_in_newsletter",                     :default => true
     t.datetime "newsletter_sent_at"
   end
 
