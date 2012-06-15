@@ -9,7 +9,7 @@ namespace :mailer do
   desc "prepare newsletter"
   task :prepare_newsletter => :environment do
     date = DateTime.now
-    subject = t("newsletter.subject") + " #{I18n.l(date, :format => "%e %B %Y")}"
+    subject = "Newletter du #{I18n.l(date, :format => "%e %B %Y")}"
 
     posts = Post.order('created_at ASC').where(:sent_at => nil)
     events = Event.order('created_at ASC').where(:sent_at => nil)

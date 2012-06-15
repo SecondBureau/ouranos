@@ -54,7 +54,7 @@ class RecipientMailer < ActionMailer::Base
     params = recipient.params || {}
     @user = recipient.user
     @user.reset_authentication_token!
-    @subject = params[:subject] + " #{I18n.l(DateTime.now, :format => "%e %B %Y")}"
+    @subject = t('newsletter.subject') + " #{I18n.l(DateTime.now, :format => "%e %B %Y")}"
     @posts = Post.find(params[:posts])
     @posts = PostDecorator.decorate(@posts)
     @events = Event.find(params[:events])
