@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
   has_many :recipients
 
   before_create :set_default_attributes
-  before_save :forge_email
+  before_validation :forge_email
 
 
   def is_role? role_name
@@ -53,8 +53,12 @@ class User < ActiveRecord::Base
 
   def forge_email
     unless ::Rails.env.eql?('production')
-      self.email = "#{self.email.gsub('@romain.2bu.ro','').gsub('@','.')}@romain.2bu.ro"
+      self.email = "#{self.email.gsub('@' + $catch_all_domain_name,'').gsub('@','.')}@#{$catch_all_domain_name}"
     end
+  end
+
+  def self.forge_all_emails
+    User.all.each{ |_| _.save }
   end
 
   # deprecated
