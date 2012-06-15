@@ -60,7 +60,7 @@ gem 'dalli'
 gem 'thin'
 
 # administration
-gem 'rails_admin'
+gem 'rails_admin', :git => 'git://github.com/mark-secondbureau/rails_admin_ape.git'
 
 # authorizing
 gem 'cancan'
