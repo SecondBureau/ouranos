@@ -5,7 +5,7 @@ class PostsController < ApplicationController
 
   def index
     locale = params[:post_locale] if params[:post_locale]
-    locale = params[:locale] if !params[:post_locale]
+    locale = current_locale if !params[:post_locale]
   	if params[:category_id]
   		@category =  Category.find(params[:category_id])
   		@posts = @category.posts.locale_posts(locale).page(params[:page]).per(10)
@@ -13,6 +13,10 @@ class PostsController < ApplicationController
 			@posts = Post.default_order.locale_posts(locale).page(params[:page]).per(10)
   	end
 		@posts = PostDecorator.decorate(@posts)
+		respond_to do |format|
+		  format.html
+      format.rss { render :layout => false }
+    end
   end
 
   def show
