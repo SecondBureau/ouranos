@@ -1,7 +1,7 @@
 
 Devise.setup do |config|
 
-  config.mailer_sender = "ape-lfip@ape-pekin.com"
+  config.mailer_sender = $noreply_sender 
 
   require 'devise/orm/active_record'
 

@@ -1,10 +1,4 @@
 # encoding: utf-8
-class String
-  def clean
-    acc = "ÀÁÂÃÄÅÇÑñÇçÈÉÊËÌÍÎÏÒÓÔÕÖØÙÚÛÜÝàáâãäåçèéêëìíîïðòóôõöøùúûüýÿ"
-    self.force_encoding("UTF-8").tr(acc,'_').downcase
-  end
-end
 
 class ApplicationController < ActionController::Base
 
@@ -27,21 +21,6 @@ class ApplicationController < ActionController::Base
 
   def check_member_confirmation
 
-  end
-
-  def unsubscribe
-    if user_signed_in?
-      user = User.find(:first, :conditions => ["lower(email) LIKE ?", params[:id].downcase])
-      if user
-        user.opt_in_newsletter = false
-        user.save!
-        @email = params[:id]
-      else
-        redirect_to '/'
-      end
-    else
-      redirect_to '/'
-    end
   end
 
 	def import

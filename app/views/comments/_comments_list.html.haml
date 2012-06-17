@@ -1,8 +1,14 @@
 %ul
   - @comments.each_with_index do |comment, i|
     %li
-      .index= comment.index(i)
-      .comment_content= comment.content
+      .index= (i+1).to_s
+      .comment_content
+        - if comment.author
+          = t 'comment.author'
+          = comment.author
+          %br
+        = comment.content
+        
       .date
         = l comment.updated_at, :format => :comment
         = render "comments/management", :comment => comment

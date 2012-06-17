@@ -3,5 +3,5 @@
   = form.input :commentable_id, :as => :hidden
   = form.input :commentable_type, :as => :hidden, :value => :Post
   = form.input :content, :input_html => {:rows => 6, :cols => 40}
-  = form.submit(:value => t("comment.create.button"))
+  = form.submit(:input_html => { :value => t("comment.create.button")})
     

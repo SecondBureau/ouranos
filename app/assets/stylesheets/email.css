@@ -388,27 +388,26 @@ body {
 .post_title {
 	font-size:20px;
 }
-.date-event, date-article {
+.date-event, date-post {
 	margin-top:5px;
 	margin-bottom:5px
 }
 .date-event > span {
-	font-weight:bold; 
-	font-size:16px; 
-	background:#A80000; 
-	color:white; 
-	padding:3px; 
-	margin-top:0px;
+  font-size:12px; 
+  background:#A80000; 
+	color:#ffffff; 
+	vertical-align:middle;
+	padding:0 3px;
 }
 .post_content {
 	font-size:12px; 
 	line-height:20px; 
 	font-color:#222;
 }
-.date-article > span {
+.date-post > span {
 	font-size:12px; 
-	color:#FFF;
 	background:#000;
+	color:#ffffff;
 	vertical-align:middle;
 	padding:0 3px;
 }

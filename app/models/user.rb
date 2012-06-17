@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
          :confirmable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :expires_at, :role_id, :authentication_token
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :expires_at, :role_id, :authentication_token, :newsletter_sent_at, :opt_in_newsletter
 
   belongs_to :role
   has_many :subscribes
@@ -42,6 +42,10 @@ class User < ActiveRecord::Base
   def is_expired?
     (expires_at.nil? || !expires_at.is_a?(Time) || expires_at > Time.now) ? false : true
   end
+  
+  def is_optin?
+    opt_in_newsletter || false
+  end
 
   def check_active_subscription
     if (sign_in_count || 0).eql?(1)
@@ -53,7 +57,7 @@ class User < ActiveRecord::Base
 
   def forge_email
     unless ::Rails.env.eql?('production')
-      self.email = "#{self.email.gsub('@' + $catch_all_domain_name,'').gsub('@','.')}@#{$catch_all_domain_name}"
+      self.email = "#{self.email.gsub('@' + $catch_all_domain_name,'').gsub('@','_')}@#{$catch_all_domain_name}"
     end
   end
 

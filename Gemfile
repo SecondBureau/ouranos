@@ -60,7 +60,7 @@ gem 'dalli'
 gem 'thin'
 
 # administration
-gem 'rails_admin', :git => 'git://github.com/mark-secondbureau/rails_admin_ape.git'
+gem 'rails_admin', :git => 'git://github.com/SecondBureau/rails_admin_ape.git'
 
 # authorizing
 gem 'cancan'
@@ -72,7 +72,6 @@ gem 'htmlentities'
 gem 'premailer-rails3'
 
 # others (deprecated ?)
-gem "kaminari"
 gem 'ruby_parser'
 gem 'meta_search'
 gem 'rack-cache'

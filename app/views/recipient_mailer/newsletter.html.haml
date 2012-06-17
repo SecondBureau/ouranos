@@ -1,4 +1,29 @@
-= render "posts"
-= render "events"
+# encoding: utf-8
+
+%h1= @title
+%h2= I18n.l(DateTime.now, :format => "%e %B %Y")
+
+%p 
+  Chers parents d’élèves du LFIP, chers adhérents de l’APE
+  %br
+  Nous vous prions de trouver ci-joint les derniers évènements concernant votre association.
+  %br
+  
+
+- unless @posts.empty?
+  .latest{:style => "border-top:1px dotted #888888;"}
+    %span{:class => "latest-title"}= t('blog.pinned')
+  = render :partial => "posts/post", :collection => @posts
+  
+- unless @previous_events.empty?
+  .latest{:style => "border-top:1px dotted #888888;"}
+    %span{:class => "latest-title"}= t('event.latest')
+  = render :partial => "events/event", :collection => @previous_events
+  
+- unless @next_events.empty?
+  .latest{:style => "border-top:1px dotted #888888;"}
+    %span{:class => "latest-title"}= t('event.comming')
+  = render :partial => "events/event", :collection => @next_events
+
 .unsubscribe
-  = link_to "Me désabonner de la newsletter", :only_path => false, :controller => 'application', :action => 'unsubscribe', :id => @user.email, :auth_token => @user.authentication_token
+  

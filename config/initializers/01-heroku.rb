@@ -8,3 +8,5 @@ $available_locales        = ENV['AVAILABLE_LOCALES'].nil? ? %w[fr zh] : ENV['AVA
 $init_rails_admin         = ENV['init_rails_admin'].nil? ? false : eval(ENV['init_rails_admin'])
 $restful_metrics_api_key  = ENV['RESTFUL_METRICS_API_KEY']
 $catch_all_domain_name    = ENV['CATCH_ALL_DOMAIN_NAME'] || 'tests.2bu.ro'
+$newsletter_period         = ENV['NEWSLETTER_PERIOD'] || '1.month'
+$noreply_sender             = ENV['NOREPLY_SENDER'] || 'no-reply@ape-pekin.com'

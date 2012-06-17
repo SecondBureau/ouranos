@@ -4,8 +4,6 @@ class PostDecorator < ApplicationDecorator
   def short_title
     h.truncate(post.title, :length => 38, :omission => '... ')
   end
-
-
   
   def summary
     h.raw(h.truncate(h.strip_tags(post.content), :length => 300, :omission => '...'))

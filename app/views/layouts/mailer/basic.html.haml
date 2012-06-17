@@ -98,3 +98,12 @@
                             %td{:valign => "top", :width => "190"}
                               #sbrewards{'sb:edit' => 'sbrewards'}
                                 =ga_link_to image_tag("powered-by-secondbureau.png?token=#{@recipient ? @recipient.token : ''}", :id => "headerImage campaign-icon", :width => "190", :height => "50"), 'http://secondbureau.com?utm_content=power_by_logo'
+                          
+                          - if @unsubscribe_link
+                            %tr
+                              %td{:colspan => 2}
+                                #std_footer{'sb:edit' => 'std_footer'}
+                                  %em
+                                    Vous recevez cet email car vous êtes membre de l'association des parents d'élèves du Lycée Français de Pékin. Si vous ne souhaitez plus recevoir nos informations
+                                    = link_to 'cliquez ici pour vous désinscrire', new_subscription_url(:auth_token => @user.authentication_token, :unsubscribe => 1) 
+                                    %br

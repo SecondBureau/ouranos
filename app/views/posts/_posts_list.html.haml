@@ -2,6 +2,10 @@
   %ul
     - posts.each_with_index do |post, index|
       %li.post_title= link_to post.title, main_app.post_path(post)
-      %li.post_content= post.summary
+      %li.post_content
+        = post.summary
+        %br
+        = link_to t('blog.continue'), main_app.post_path(post)
+      
       - if index != (posts.length - 1)
         %li.post_split_line

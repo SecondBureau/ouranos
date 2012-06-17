@@ -9,6 +9,10 @@ class Comment < ActiveRecord::Base
   
   after_save :expire_cache
   
+  def author
+    user.family.name if user && user.family
+  end
+  
   private
   
   def expire_cache

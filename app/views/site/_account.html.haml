@@ -18,7 +18,12 @@
         - $available_locales.map do |locale|
           - if !locale.eql?(current_locale.to_s)
             %li.alocale= link_to_switch_locale(locale)
+    - if current_user && !current_user.is_optin?
+      %li.locale
+        = link_to image_tag("newsletter.png"), main_app.new_subscription_url
     %li.search= link_to image_tag("search.png"), main_app.search_path, {:title => t("search.title")}
+    
+
 
 :coffeescript
   items = [{key:".locale", value:".locales"}, {key:".user", value:".user_links"}]

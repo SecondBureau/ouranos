@@ -9,11 +9,12 @@ class EventDecorator < ApplicationDecorator
     event.start_date.strftime("%d/%m")
   end
   
-  def date_range
+  def date_range(options={})
+    date_format = options[:format] || :default
     if !event.end_date
-      event.start_date
+      I18n.l(event.start_date, :format => date_format)
     else
-      h.raw("#{event.start_date} ~ #{event.end_date}")
+      h.raw("#{I18n.l(event.start_date, :format => date_format)} ~ #{I18n.l(event.end_date, :format => date_format)}")
     end
   end
   

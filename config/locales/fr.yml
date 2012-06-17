@@ -20,10 +20,12 @@ fr:
     latest: Derniers articles
     mostread: Les plus lus
     pinned: Actualités
+    continue: Lire la suite...
   print:
     print: Imprimer cet article
     pdf: Exporter cet article en PDF
   comment:
+    author: écrit par la famille
     recent: Derniers commentaires
     create:
       button: "Ajouter votre commentaire"
@@ -87,4 +89,7 @@ fr:
     info: Boite aux lettres dans le hall du bâtiment A du site principal.
   newsletter:
     powered_by: Cette newsletter a été créée par
-    subject: "Newletter de l'APE LFIP du"
+    subject: "Votre lettre mensuelle de l'APE"
+    unsubscribe: Me désabonner
+    opt_in: Vous avez été inscrit(e) à la lettre d'information.
+    opt_out: Vous avez été desinscrit(e) de notre lettre d'information.
