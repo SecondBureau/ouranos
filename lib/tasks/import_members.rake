@@ -53,26 +53,27 @@ namespace :db do
   desc "import members data from csv"
   task :import_members_data => :environment do |t, args|
     i = 0
-    CSV.foreach("./lib/tasks/members_list.csv", encoding: "ISO8859-1") do |row|
+    CSV.foreach("./lib/tasks/members_list_test.csv", encoding: "utf-8") do |row|
       i = i + 1
       next if i < 3
       puts "name:\t #{row[0]}\t#{row[1]}"
       puts "email:\t #{row[5]}"
-      member = Role.where("name = ?", "member").first
+      role_member = Role.where("name = ?", "member").first
       tmp_password = SecureRandom.hex(16)
       puts tmp_password
+      
       user = User.create({
         :email => row[5],
         :password => tmp_password,
         :password_confirmation => tmp_password,
-        :role_id => member.id,
+        :role_id => role_member.id,
         :expires_at => DateTime.now + 1.year,
         :confirmed_at => DateTime.now + 5.second
       })
       user.confirmed_at = DateTime.now + 5.second
       user.save
 
-      puts "father: #{row[0]} #{row[1]} #{row[5]}"
+      puts "father : #{row[0]} #{row[1]} #{row[5]}"
       father = Person.create({
         :firstname => row[0],
         :lastname => row[1],
@@ -80,7 +81,7 @@ namespace :db do
         :fa_type => "father"
       })
 
-      puts "mother: #{row[2]} #{row[3]} #{row[5]}"
+      puts "mother : #{row[2]} #{row[3]} #{row[5]}"
       mother = Person.create({
         :firstname => row[2],
         :lastname => row[3],
@@ -89,43 +90,17 @@ namespace :db do
       })
 
       kids = []
-
-      puts "kid1: #{row[12]} #{row[13]}"
-      kid1 = Person.create({
-        :firstname => row[12],
-        :lastname => row[13],
-        :fa_type => "kid"
-      })
-      kids << kid1
-
-      if row[16]
-        puts "kid2: #{row[16]} #{row[17]}"
-        kid2 = Person.create({
-          :firstname => row[16],
-          :lastname => row[17],
+      
+      j = 12
+      while !row[j].nil? do
+        puts "kid : #{row[j]} #{row[j+1]}"
+        kid = Person.create({
+          :firstname => row[j],
+          :lastname => row[j+1],
           :fa_type => "kid"
         })
-        kids << kid2
-      end
-
-      if row[20]
-        puts "kid3: #{row[20]} #{row[21]}"
-        kid3 = Person.create({
-          :firstname => row[19],
-          :lastname => row[20],
-          :fa_type => "kid"
-        })
-        kids << kid3
-      end
-
-      if row[24]
-        puts "kid4: #{row[24]} #{row[25]}"
-        kid4 = Person.create({
-          :firstname => row[22],
-          :lastname => row[23],
-          :fa_type => "kid"
-        })
-        kids << kid4
+        kids << kid
+        j += 4
       end
 
       family = Family.create({

@@ -2,19 +2,19 @@ module MailersHelper
 
   def ga_link_to(*args, &block)
     if block_given?
-      options      = args.first || {}
+      options = args.first || {}
       html_options = args.second
       ga_link_to(capture(&block), options, html_options)
     else
-      name         = args[0]
-      options      = args[1] || {}
+      name = args[0]
+      options = args[1] || {}
       html_options = args[2]
 
       html_options = convert_options_to_data_attributes(options, html_options)
       url = url_for(options)
-      
+
       url += url.include?('?') ? '&' : '?'
-      url += {:utm_source =>  Rails.application.config.host, :utm_medium => "email", :utm_campaign => (@recipient ? @recipient.template : '')}.to_query
+      url += {:utm_source => Rails.application.config.host, :utm_medium => "email", :utm_campaign => (@recipient ? @recipient.template : '')}.to_query
 
       href = html_options['href']
       tag_options = tag_options(html_options)
@@ -28,7 +28,7 @@ module MailersHelper
     puts HTMLEntities.new.encode(string, :named)
     HTMLEntities.new.encode(string, :named).html_safe
   end
-  
+
   def donothing(string)
     puts string
     string

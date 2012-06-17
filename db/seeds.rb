@@ -44,4 +44,3 @@ Dir["#{seeds_path}/*"].select { |file| /(yml)$/ =~ file }.sort.each do |file|
     o.save!
   end
 end
-

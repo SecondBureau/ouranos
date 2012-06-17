@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111203084404) do
+ActiveRecord::Schema.define(:version => 20120613100915) do
 
   create_table "categories", :force => true do |t|
     t.string   "title",                           :null => false
@@ -25,6 +25,20 @@ ActiveRecord::Schema.define(:version => 20111203084404) do
     t.integer "category_id", :null => false
     t.integer "post_id",     :null => false
   end
+
+  create_table "ckeditor_assets", :force => true do |t|
+    t.string   "data_file_name",                  :null => false
+    t.string   "data_content_type"
+    t.integer  "data_file_size"
+    t.integer  "assetable_id"
+    t.string   "assetable_type",    :limit => 30
+    t.string   "type",              :limit => 30
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "ckeditor_assets", ["assetable_type", "assetable_id"], :name => "idx_ckeditor_assetable"
+  add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], :name => "idx_ckeditor_assetable_type"
 
   create_table "comments", :force => true do |t|
     t.text     "content",          :null => false
@@ -46,6 +60,7 @@ ActiveRecord::Schema.define(:version => 20111203084404) do
     t.string   "meta_keywords"
     t.string   "meta_description"
     t.string   "permalink"
+    t.datetime "sent_at"
   end
 
   create_table "families", :force => true do |t|
@@ -68,6 +83,16 @@ ActiveRecord::Schema.define(:version => 20111203084404) do
   end
 
   add_index "images", ["setting_id"], :name => "index_images_on_setting_id"
+
+  create_table "member_confirms", :force => true do |t|
+    t.integer  "user_id"
+    t.date     "send_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "token"
+  end
+
+  add_index "member_confirms", ["user_id"], :name => "index_member_confirms_on_user_id"
 
   create_table "pages", :force => true do |t|
     t.string   "title",            :null => false
@@ -106,6 +131,7 @@ ActiveRecord::Schema.define(:version => 20111203084404) do
     t.string   "meta_keywords"
     t.string   "meta_description"
     t.boolean  "is_pinned",         :default => false
+    t.datetime "sent_at"
   end
 
   add_index "posts", ["user_id"], :name => "index_posts_on_user_id"
@@ -150,11 +176,22 @@ ActiveRecord::Schema.define(:version => 20111203084404) do
     t.datetime "updated_at"
   end
 
+  create_table "sessions", :force => true do |t|
+    t.string   "session_id", :null => false
+    t.text     "data"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
+  add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
+
   create_table "settings", :force => true do |t|
     t.string   "site_name"
     t.string   "contact_email"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "send_email_after_user_created", :default => false
     t.integer  "trial_period"
   end
 
@@ -171,8 +208,8 @@ ActiveRecord::Schema.define(:version => 20111203084404) do
   add_index "subscribes", ["user_id"], :name => "index_subscribes_on_user_id"
 
   create_table "users", :force => true do |t|
-    t.string   "email",                                 :default => "", :null => false
-    t.string   "encrypted_password",     :limit => 128, :default => "", :null => false
+    t.string   "email",                                 :default => "",   :null => false
+    t.string   "encrypted_password",     :limit => 128, :default => "",   :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -188,6 +225,9 @@ ActiveRecord::Schema.define(:version => 20111203084404) do
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
+    t.string   "authentication_token"
+    t.boolean  "opt_in_newsletter",                     :default => true
+    t.datetime "newsletter_sent_at"
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true

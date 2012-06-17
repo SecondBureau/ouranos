@@ -1,0 +1,20 @@
+.latest{:style => "border-top:1px dotted #888888;"}
+  %span{:class => "latest-title"} Events
+  .powered_by
+    = link_to t("newsletter.powered_by"), "http://www.secondbureau.com"
+    = link_to image_tag("https://www.google.com/a/secondbureau.com/images/logo.gif", :style => "vertical-align:middle;border:none;margin:0 10px;", :width => 143, :height => 59), "http://www.secondbureau.com"
+- @events.each do |event|
+  .element
+    .post_title
+      - $link = url_for(:controller => "events", :action => "show", :id => event.id, :locale => "en", :only_path => false) + "?auth_token=" + @user.authentication_token
+      = link_to event.title, $link
+      .date-event
+        %span
+          - if !event.end_date
+            = I18n.l(event.created_at, :format => "%e %B %Y")
+          - else
+            = "#{I18n.l(event.start_date, :format => "%e %B %Y")} ~ #{I18n.l(event.end_date, :format => "%e %B %Y")}"
+    .clear{:style => "clear:both;"}
+    .post_content
+      = raw(truncate(strip_tags(event.content), :length => 400, :omission => '...'))
+    .clear{:style => "clear:both;"}

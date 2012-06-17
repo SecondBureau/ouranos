@@ -7,5 +7,4 @@ $google_site_verification = ENV['GOOGLE_SITE_VERIFICATION']
 $available_locales        = ENV['AVAILABLE_LOCALES'].nil? ? %w[fr zh] : ENV['AVAILABLE_LOCALES'].split(',')
 $init_rails_admin         = ENV['init_rails_admin'].nil? ? false : eval(ENV['init_rails_admin'])
 $restful_metrics_api_key  = ENV['RESTFUL_METRICS_API_KEY']
-
-
+$catch_all_domain_name    = ENV['CATCH_ALL_DOMAIN_NAME'] || 'tests.2bu.ro'

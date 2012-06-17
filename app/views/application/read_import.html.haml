@@ -1,0 +1,69 @@
+<form action="/application/do_import" method="post">
+%input{:type=>"hidden", :name=>"authenticity_token", :value=>form_authenticity_token.to_s}
+.import-title People in the file
+
+%table{:class => "import-table"}
+  %tr
+    %th Action
+    %th Prénom
+    %th Nom
+    %th Email
+    %th Type
+  - @families.each do |f|
+    - index = 0
+    %tr
+      %td{:colspan => 5, :class => "family-cell"}
+        Famille
+        <b>
+        = f.name
+        </b>,
+        = f.user.email if f.user
+    - f.people.each do |p|
+      %tr
+        - if p.id
+          %td
+        - else
+          %td
+            %input{:type=>"checkbox", :name=>"add["+f.name+"][]", :value=>index, :checked=>true} add
+        - index += 1
+        %td=p.firstname
+        %td=p.lastname
+        %td=p.email if p.email
+        %td=p.fa_type
+
+.import-title Missing people
+
+%table{:class => "import-table"}
+  %tr
+    %th Action
+    %th Prénom
+    %th Nom
+    %th Email
+    %th Type
+  - @missing_people.each do |f|
+    %tr
+      %td
+        %input{:type=>"checkbox", :name=>"delete_people[]", :value=>f.id, :checked=>true} delete
+      %td=f.firstname
+      %td=f.lastname
+      %td=f.email
+      %td=f.fa_type
+
+.import-title Users
+%table{:class => "import-table"}
+  - @missing_users.each do |u|
+    %tr
+      %td
+        %input{:type=>"checkbox", :name=>"delete_users[]", :value=>u.id, :checked=>true} delete
+      %td= u.email
+
+.import-title Families
+%table{:class => "import-table"}
+  - @missing_families.each do |f|
+    %tr
+      %td
+        %input{:type=>"checkbox", :name=>"delete_families[]", :value=>f.id, :checked=>true} delete
+      %td= f.name
+
+<center><input type="submit" value="Submit" style="margin:10px;"></center>
+</form>

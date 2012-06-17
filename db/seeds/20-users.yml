@@ -41,4 +41,3 @@ family_user2:
   role_id: "{:name => 'member'}"
   confirmed_at: "2011-11-14 02:45:49 UTC"
   expires_at: "2100-12-12"
-
