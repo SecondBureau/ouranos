@@ -50,12 +50,10 @@ gem 'draper'
 gem 'cells'
 gem 'RedCloth'
 
-group :development, :production do
-  # Storage
-  gem "paperclip"
-  gem "aws-s3"
-  gem 'right_aws', '>= 2.0.0'
-end
+# Storage
+gem "paperclip"
+gem "aws-s3"
+gem 'right_aws', '>= 2.0.0'
 
 # performances
 gem 'dalli'
