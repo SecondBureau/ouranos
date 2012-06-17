@@ -2,9 +2,11 @@
 
 %p Et vous ne pourrez plus bénéficier des avantages réservés aux membres, tels que l'accès au site internet.
 
-%p Pour renouveler votre adhésion, contacter ....
+%p Pour renouveler votre adhésion, contacter contact@ape-pekin.com
 
-%p Pour en savoir davantage sur les avantages, ....
+%p
+  Pour en savoir davantage sur les avantages, 
+  = link_to 'cliquez-ici', page_url(:permalink => 'aboutus')
 
 - unless @recipient.user.expires_at.nil?    
   %p

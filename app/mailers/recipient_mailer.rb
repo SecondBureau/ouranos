@@ -36,7 +36,7 @@ class RecipientMailer < ActionMailer::Base
     I18n.locale = :fr
     # mandatory params
     @recipient      = recipient
-    @subject        = "Votre adhesion a l'APE LFIP arrive a expiration dans .. jours"
+    @subject        = "Votre adhesion a l'APE LFIP arrive a expiration dans #{(Time.now - recipient.user.expires_at - Time.now).to_i / 60 / 60 / 24} jours" unless recipient.user.expires_at.nil?
     @email_extract  = "Ci-dessous les instructions pour continuer a beneficier des avantages reserves aux membres de l'APE."
     @is_archive_page = true
     ActiveRecord::Base.transaction do
