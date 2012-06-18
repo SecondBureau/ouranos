@@ -1,4 +1,6 @@
-if $init_rails_admin || Rails.env.development?
+if $init_rails_admin
+
+puts "init_rails_admin"
 
   RailsAdmin.config do |config|
     config.authorize_with :cancan
