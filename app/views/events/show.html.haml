@@ -1,8 +1,0 @@
-#current_content_wrapper
-  #event_title= @event.title
-  #event_date_show
-    - if !@event.end_date
-      = @event.start_date
-    - else
-      = raw("#{@event.start_date} ~ #{@event.end_date}")
-  #event_content= raw @event.content

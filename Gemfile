@@ -1,77 +1,70 @@
-source 'http://rubygems.org'
+source 'https://rubygems.org'
 
-#migrating to rails 3.2.2 (GCRO 15/06/2012)
-gem 'rails', '3.2.2'
+gem 'rails', '3.2.8'
 
-# Gems used only for assets and not required
-# in production environments by default.
-group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
-  gem 'therubyracer'
-  gem 'uglifier', '>= 1.0.3'
-end
+#DBMS
+gem 'pg'
 
 group :development do
-  gem 'pry'
-  gem 'heroku_san'
-  gem 'guard-rspec'
-  gem 'guard-livereload'
-  gem 'growl'
-  gem 'libnotify'
-  gem 'foreman'
+ gem 'foreman'
+ gem 'heroku'
+ gem 'heroku_san'
+ gem 'taps'
 end
 
 group :development, :test do
-  gem 'sqlite3'
-  gem 'rspec'
   gem 'rspec-rails'
+  gem 'factory_girl_rails', :require => false
+  gem 'capybara'
+  gem 'guard-rspec'
+  gem 'launchy'
+  gem 'growl'
+  #gem 'ruby-growl'
+  gem 'libnotify'
 end
 
-group :production do
-  gem 'therubyracer-heroku'
-  gem 'fog'
-  #DBMS
-  gem 'pg'
-  #monitoring
-  gem 'newrelic_rpm'
-  gem 'restful_metrics'
+group :production, :demo do
+ gem 'newrelic_rpm'
+ gem 'fog'
+ gem 'memcachier'
+ gem 'dalli'
 end
 
-# Coding
-gem 'coffee-filter'
+group :assets do
+  gem 'sass-rails',   '~> 3.2.3'
+  gem 'coffee-rails', '~> 3.2.1'
+  gem 'therubyracer', :platforms => :ruby
+  gem 'uglifier', '>= 1.0.3'
+end
+
+# editing
 gem 'haml-rails'
+gem 'coffee-filter'
 gem 'jquery-rails'
-gem 'tinymce-rails'
-gem 'formtastic'
+gem 'bootstrap-sass', '~> 2.0.3'
+gem "twitter-bootstrap-rails"
+gem 'jquery-ui-rails'
+gem 'bourbon'
+gem 'nokogiri'
+gem 'sanitize'
 
-# Rendering
-gem 'draper'
-gem 'cells'
-gem 'RedCloth'
+# PDF Export
+gem "doc_raptor"
 
-# Storage
-gem "paperclip"
-gem "aws-s3"
-gem 'right_aws', '>= 2.0.0'
+# Excel
+gem 'roo'
 
-# performances
-gem 'dalli'
+# Performances
 gem 'thin'
+gem 'bullet', group: :development
 
-# administration
-gem 'rails_admin', :git => 'git://github.com/SecondBureau/rails_admin_ape.git'
+# Refinery CMS
+gem 'refinerycms', '~> 2.0.0'
 
-# authorizing
-gem 'cancan'
-gem 'devise'
+# Refinery CMS Extensions
+gem 'refinerycms-i18n', '~> 2.0.0'
+gem 'refinerycms-blog', '~> 2.0.0'
+gem 'refinerycms-page-images', '~> 2.0.0'
 
-# emailing
-gem 'hpricot'
-gem 'htmlentities'
-gem 'premailer-rails3'
-
-# others (deprecated ?)
-gem 'ruby_parser'
-gem 'meta_search'
-gem 'rack-cache'
+#  gem 'refinerycms-inquiries', '~> 2.0.0'
+#  gem 'refinerycms-search', '~> 2.0.0'
