@@ -1,1 +1,5 @@
+#home_link= link_to image_tag("xue.png", :height => 29), root_path, {:title => t("home.title")}
 = render(:partial => "/refinery/menu", :locals => { :dom_id => 'menu', :css => 'menu' })
+#account
+  = render "site/account"
+  = render "site/locale_switcher"

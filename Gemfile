@@ -47,6 +47,7 @@ gem 'jquery-ui-rails'
 gem 'bourbon'
 gem 'nokogiri'
 gem 'sanitize'
+gem 'deface'
 
 # PDF Export
 gem "doc_raptor"

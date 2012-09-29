@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 task :migrate_legacy_data_to_refinery => :environment do
 
   #
@@ -20,5 +22,55 @@ task :migrate_legacy_data_to_refinery => :environment do
     p.categories = Refinery::Blog::Category.where(:title => post.categories.collect(&:title))
     p.save
   end
+  
+  # Pages Migration
+  Refinery::Page.all.each {|p| p.destroy!}
+  
+  home_page = Refinery::Page.create!({
+              :title => "Home",
+              :show_in_menu => false,
+              :deletable => false,
+              :link_url => "/",
+              :menu_match => "^/$"})
+  home_page.parts.create({
+                :title => "Body",
+                :body => "<p>Le mot du président.</p>",
+                :position => 0
+              })
+  home_page.parts.create({
+                :title => "Side Body",
+                :body => "<p>Message urgent.</p>",
+                :position => 1
+              })
+
+  home_page_position = -1
+  
+  page_not_found_page = home_page.children.create(:title => "Erreur 404!",
+              :menu_match => "^/404$",
+              :show_in_menu => false,
+              :deletable => false)
+  page_not_found_page.parts.create({
+                :title => "Body",
+                :body => "<h2>Oups, petit problème...</h2><img src='/assets/404.jpg'><p>Il n'y a rien par ici.</p><p><a href='/'>Retournons à l'accueil</a></p>",
+                :position => 0
+              })
+              
+  page_blog = Refinery::Page.create!({
+                :title => "Articles",
+                :link_url => "/blog",
+                :deletable => false,
+                :menu_match => "^/blogs?(\/|\/.+?|)$"
+              })
+
+  Refinery::Pages.default_parts.each do |default_page_part|
+    page_blog.parts.create(:title => default_page_part, :body => nil)
+  end
+          
+  Page.all.each do |page|
+    refinery_page = Refinery::Page.create(:title => page.title)
+    refinery_page.parts.create(:title => "Body", :body => page.content, :position => 0)
+  end
+              
+
 
 end

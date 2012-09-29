@@ -1,0 +1,8 @@
+zh_cn:
+  time:
+    formats:
+      post: "%Y-%m-%d"
+      comment: "%Y-%m-%d"
+  ok: 确定
+  home:
+    title: 主页

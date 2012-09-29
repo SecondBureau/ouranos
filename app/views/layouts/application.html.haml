@@ -1,24 +1,32 @@
 !!! 5
-%html.no-js{:lang => ::I18n.locale}
+= render "/refinery/html_tag"
 
-  = render '/refinery/head'
+- site_bar = render('/refinery/site_bar')
 
-  %body
-    = render 'site/demo' unless ::Rails.env.eql?('production')
+= render '/refinery/head'
 
-    #header_wrapper
-      #header
-        = render "site/header"
-        = render "site/account"
-        .clear
-    #body_wrapper
-      = render "site/notice_alert"
-      #content
-        = render "site/sidebar"
-        #current_content
-          #site_image= image_tag(banner_image_url, :width => 620, :height => 190)
-          = yield
-        .clear
 
-    #footer_wrapper
-      #footer= render "site/footer"
+%body{:id => browser_title}
+
+  = site_bar
+  
+  = render 'site/demo' unless ::Rails.env.eql?('production')
+
+  #header_wrapper
+    #header
+      = render "site/header"
+      .clear
+  #body_wrapper
+    = render "site/notice_alert"
+    #content
+      = render "site/sidebar"
+      #current_content
+        #site_image= image_tag(banner_image_url, :width => 620, :height => 190)
+        = yield
+      .clear
+
+  #footer_wrapper
+    #footer
+      = render "site/footer"
+      
+  = render "/refinery/javascripts"

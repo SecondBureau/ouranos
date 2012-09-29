@@ -1,0 +1,6 @@
+%li.locale
+  = link_to_switch_locale(I18n.locale.to_s)
+  %ul.locales
+    - ::Refinery::I18n.frontend_locales.map do |locale|
+      - if !locale.eql?(I18n.locale)
+        %li.alocale= link_to_switch_locale(locale)
