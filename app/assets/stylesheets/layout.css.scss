@@ -214,3 +214,18 @@ form.formtastic{
 .button_link{padding:2px 10px; background:#808080; border:1px solid #555555;; text-decoration:none; color:#000000;
   &:hover{background:#606060; text-decoration:none; }
 }
+
+#demo_info {
+  z-index: 99;
+  position: absolute;
+  left:20px;
+  top:40px;
+  width:200px;
+  height:100px;
+  text-align:center;
+  padding: 10px;
+  color: red;
+  font-size:15px;
+  background: white;
+  border: solid 2px black;
+}
