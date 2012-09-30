@@ -1,32 +1,29 @@
 !!! 5
 = render "/refinery/html_tag"
 
-- site_bar = render('/refinery/site_bar')
-
 = render '/refinery/head'
 
+%body
 
-%body{:id => browser_title}
-
-  = site_bar
+  -#= render 'site/demo' unless ::Rails.env.eql?('production')
   
-  = render 'site/demo' unless ::Rails.env.eql?('production')
+  .navbar.navbar-fixed-top.navbar-inverse
+    .navbar-inner
+      .container
+        = render "site/header"
+      
+  .container
+    .content
+      .row
+        .span3
+          = render "site/sidebar"
+        .span9.light-grey.shadow
+          = bootstrap_flash
+          #site_image= image_tag(banner_image_url, :width => 620, :height => 190)
+          = yield
+        
 
-  #header_wrapper
-    #header
-      = render "site/header"
-      .clear
-  #body_wrapper
-    = render "site/notice_alert"
-    #content
-      = render "site/sidebar"
-      #current_content
-        #site_image= image_tag(banner_image_url, :width => 620, :height => 190)
-        = yield
-      .clear
-
-  #footer_wrapper
-    #footer
-      = render "site/footer"
+  %footer
+    = render "site/footer"
       
   = render "/refinery/javascripts"

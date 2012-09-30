@@ -10,6 +10,7 @@ group :development do
  gem 'heroku'
  gem 'heroku_san'
  gem 'taps'
+ gem 'pry'
 end
 
 group :development, :test do

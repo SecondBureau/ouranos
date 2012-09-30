@@ -1,0 +1,8 @@
+- Refinery::Blog::Category.all.each do |category|
+  = category.title
+  %br
+  = category.description
+  
+  %ul
+    - category.posts.each do |post|
+      %li= post.title 

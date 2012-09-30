@@ -1,5 +1,10 @@
-#home_link= link_to image_tag("xue.png", :height => 29), root_path, {:title => t("home.title")}
-= render(:partial => "/refinery/menu", :locals => { :dom_id => 'menu', :css => 'menu' })
-#account
-  = render "site/account"
-  = render "site/locale_switcher"
+%a.btn.btn-navbar(data-target=".nav-collapse" data-toggle="collapse")
+  - 3.times do 
+    %span.icon-bar
+.home-link.pull-left= link_to image_tag("xue.png", :height => 29), refinery.root_path, {:title => t("home.title")}
+.collapse.nav-collapse
+  %ul.nav
+    = render(:partial => "/refinery/menu", :locals => { :dom_id => 'menu', :css => 'menu' })
+  %ul.nav.pull-right
+    %li.dropdown
+      = render 'site/locale_switcher'
