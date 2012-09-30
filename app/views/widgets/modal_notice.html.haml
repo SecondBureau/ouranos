@@ -1,0 +1,12 @@
+#modal-notice.modal.hide.fade{:tabindex => "-1", :role => "dialog", :"aria-labelledby"=>"HomeNotice", :"aria-hidden" => "true", :"data-show" => "false"}
+  .modal-header
+    .button.close{:type => "button", :"data-dismiss" => "modal", :"aria-hidden" => "true"} x
+    %h3{:id => "HomeNotice"}= t('home.modal_notice')
+  .modal-body
+    = Refinery::Page.modal_notice.html_safe
+  .modal-footer
+    .button.btn.btn-primary{:"data-dismiss" => "modal", :"aria-hidden" => "true"}= t('close')
+    
+:coffeescript
+  $ ->
+    $('#modal-notice').modal('show')

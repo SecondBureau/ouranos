@@ -1,5 +1,7 @@
-$dark_grey: #7D7874;
+$dark_grey: #333;
+$grey: #7D7874;
 $light_grey: #9B9591;
+$red: #9A0606;
 
 .navbar .nav > li > a.locale-switcher { 
   padding:7px 15px; 
@@ -7,10 +9,6 @@ $light_grey: #9B9591;
 
 .home-link {
   padding:5px 15px; 
-}
-
-body{
-  background: $dark_grey;
 }
 
 .light-grey{
@@ -35,3 +33,9 @@ body{
   background: white;
   border: solid 2px black;
 }
+
+/* Bugfix */
+.icon-white {
+  color:#fff;
+}
+

@@ -1,0 +1,9 @@
+#contact-container.widget-block
+  %h3.shadow.red
+    = link_to t("home.contact"), '#contact', :"data-toggle" => "collapse", :"data-parent" => "#contact-container" 
+    %i.icon-pencil.pull-right.icon-white
+  %ul.widget-content.collapse.in.shadow{:id => 'contact'}
+    %ul
+      %br
+      = Refinery::Page.by_slug('contact').first.content_for(:side_body).html_safe unless Refinery::Page.by_slug('contact').first.nil?
+    %br

@@ -1,0 +1,10 @@
+#popular_posts-container.widget-block
+  %h3.shadow
+    = link_to t("posts.popular.title"), '#popular_posts', :"data-toggle" => "collapse", :"data-parent" => "#popular_posts-container" 
+    %i.icon-thumbs-up.pull-right.icon-white
+  %ul.widget-content.collapse.shadow{:id => 'popular_posts'}
+    %ul
+      %br
+      - Refinery::Blog::Post.popular('10').each do |post|
+        %li= link_to post.short_title, refinery.blog_post_path(post), :title => post.title, :rel => 'tooltip', :"data-placement" => "right"
+    %br

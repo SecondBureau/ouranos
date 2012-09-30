@@ -15,7 +15,7 @@
   .container
     .content
       .row
-        .span3
+        .span3.hidden-phone
           = render "site/sidebar"
         .span9.light-grey.shadow
           = bootstrap_flash
@@ -27,3 +27,9 @@
     = render "site/footer"
       
   = render "/refinery/javascripts"
+  
+  :javascript
+    if (!jQuery.browser.mobile) {
+      $("#widgets").load("/widgets/master?s=home");
+    };
+    

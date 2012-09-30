@@ -1,0 +1,4 @@
+%div{:id => "widget_#{id}", :class => 'widget block'}
+  .loading
+:javascript
+  $("#widget_#{id}").load("/widgets/#{id}?");

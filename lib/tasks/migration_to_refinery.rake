@@ -55,6 +55,20 @@ task :migrate_legacy_data_to_refinery => :environment do
                 :position => 0
               })
               
+  page_contact_page = home_page.children.create(:title => "Contact",
+              :show_in_menu => false,
+              :deletable => false)
+  page_not_found_page.parts.create({
+                :title => "Body",
+                :body => "<h2>Oups, petit problème...</h2><img src='/assets/404.jpg'><p>Il n'y a rien par ici.</p><p><a href='/'>Retournons à l'accueil</a></p>",
+                :position => 0
+              })
+  page_not_found_page.parts.create({
+                :title => "Side Body",
+                :body => "<p>contact@ape-pekin.com<br/>Boite aux lettres dans le hall du bâtiment A du site principal.</p>",
+                :position => 0
+              })
+              
   page_blog = Refinery::Page.create!({
                 :title => "Articles",
                 :link_url => "/blog",

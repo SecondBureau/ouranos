@@ -1,0 +1,10 @@
+#recent_comments-container.widget-block
+  %h3.shadow
+    = link_to t("comments.recent.title"), '#recent_comments', :"data-toggle" => "collapse", :"data-parent" => "#recent_comments-container" 
+    %i.icon-comment.pull-right.icon-white
+  %ul.widget-content.collapse.shadow{:id => 'recent_comments'}
+    %ul
+      %br
+      - Refinery::Blog::Comment.recent('10').each do |comment|
+        %li= link_to comment.short_body, refinery.blog_post_path(comment.post), :title => comment.post.title, :rel => 'tooltip', :"data-placement" => "right"
+    %br

@@ -5,5 +5,16 @@ fr:
       post: "%e %B %Y"
       comment: "%e %B %Y"
   ok: OK
+  close: Fermer
   home:
     title: Accueil
+    contact: Contact
+    modal_notice: Information Importante
+  categories:
+    title: Dossiers
+  posts:
+    popular:
+      title: Les plus lus
+  comments:
+    recent:
+      title: Derniers commentaires
