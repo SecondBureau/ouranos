@@ -6,5 +6,5 @@
     %ul.widget-content.collapse.in.shadow{:id => 'contact'}
       %ul
         %br
-        = Refinery::Page.by_slug('contact').first.content_for(:side_body).html_safe unless Refinery::Page.by_slug('contact').first.nil?
+        = Refinery::Page.home_contact.html_safe
       %br

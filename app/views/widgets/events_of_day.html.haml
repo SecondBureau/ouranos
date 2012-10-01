@@ -1,0 +1,21 @@
+%h4.red= I18n.l(@day, :format => "%A %d %B %Y")
+
+- if (events = Refinery::Calendar::Event.of_the_day(@day)).size > 0
+  - events.each do |event|
+    .event
+      %h5
+        %i.icon-bullhorn
+        = link_to event.title, refinery.calendar_event_path(event)
+      %p= event.excerpt
+      %p
+        %i.icon-time
+        = format_start_end(event, @day)
+      - if event.venue
+        %p
+          %i.icon-globe
+          = event.venue.name
+      %p.pull-right
+        %i.icon-plus
+        = link_to t('events.to_be_continued'), refinery.calendar_event_path(event)
+      .clearfix
+  

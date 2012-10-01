@@ -4,12 +4,15 @@ fr:
     formats:
       post: "%e %B %Y"
       comment: "%e %B %Y"
+      event: "%e %B %Y"
+      datetime: "%e %B %Y à %H:%M"
   ok: OK
   close: Fermer
   home:
     title: Accueil
     contact: Contact
     modal_notice: Information Importante
+    events_of_day: Evénements du Jour
   categories:
     title: Dossiers
   posts:
@@ -18,3 +21,9 @@ fr:
   comments:
     recent:
       title: Derniers commentaires
+  events:
+    title: Evénements
+    to_be_continued: lire la suite...
+    unknown_time: Horaire non précisé.
+    from: du
+    to: au

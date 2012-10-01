@@ -2,6 +2,8 @@
 
 task :migrate_legacy_data_to_refinery => :environment do
 
+  include ActionView::Helpers::TextHelper
+
   #
   #Posts
   #
@@ -9,6 +11,13 @@ task :migrate_legacy_data_to_refinery => :environment do
   # Cleaning
   Refinery::Blog::Category.all.each {|c| c.destroy}
   Refinery::Blog::Post.all.each {|p| p.destroy}
+  (1..3).each do |i|
+    begin
+      Refinery::Page.all.each {|p| p.destroy!}
+    rescue
+    end
+  end
+  Refinery::Calendar::Event.all.each {|e| e.destroy}
 
   # Categories migration
   Category.all.each do |category|
@@ -24,7 +33,7 @@ task :migrate_legacy_data_to_refinery => :environment do
   end
   
   # Pages Migration
-  Refinery::Page.all.each {|p| p.destroy!}
+  
   
   home_page = Refinery::Page.create!({
               :title => "Home",
@@ -58,12 +67,12 @@ task :migrate_legacy_data_to_refinery => :environment do
   page_contact_page = home_page.children.create(:title => "Contact",
               :show_in_menu => false,
               :deletable => false)
-  page_not_found_page.parts.create({
+  page_contact_page.parts.create({
                 :title => "Body",
-                :body => "<h2>Oups, petit problème...</h2><img src='/assets/404.jpg'><p>Il n'y a rien par ici.</p><p><a href='/'>Retournons à l'accueil</a></p>",
+                :body => "Page non visible.",
                 :position => 0
               })
-  page_not_found_page.parts.create({
+  page_contact_page.parts.create({
                 :title => "Side Body",
                 :body => "<p>contact@ape-pekin.com<br/>Boite aux lettres dans le hall du bâtiment A du site principal.</p>",
                 :position => 0
@@ -75,16 +84,35 @@ task :migrate_legacy_data_to_refinery => :environment do
                 :deletable => false,
                 :menu_match => "^/blogs?(\/|\/.+?|)$"
               })
+              
 
   Refinery::Pages.default_parts.each do |default_page_part|
     page_blog.parts.create(:title => default_page_part, :body => nil)
   end
+
+  
+  url = "/calendar/events"
+  
+  page_calendar = ::Refinery::Page.create(
+                  :title => 'Evénements',
+                  :link_url => url,
+                  :deletable => false,
+                  :menu_match => "^#{url}(\/|\/.+?|)$"
+                )
+    Refinery::Pages.default_parts.each_with_index do |default_page_part, index|
+      page_calendar.parts.create(:title => default_page_part, :body => nil, :position => index)
+    end 
           
   Page.all.each do |page|
     refinery_page = Refinery::Page.create(:title => page.title)
     refinery_page.parts.create(:title => "Body", :body => page.content, :position => 0)
   end
-              
+        
+  # events
+  
+  Event.all.each do |event|
+    Refinery::Calendar::Event.create(:title => event.title, :start_at => event.start_date, :end_at => event.end_date, :excerpt => truncate(Sanitize.clean(event.content), :length => 50, :omission => '...'), :description => event.content)
+  end
 
 
 end
