@@ -1,71 +1,73 @@
 
 .widget-block{
-  padding: 0 7px 0 7px;
-  margin:0 0 10px 0;
+  padding: 0 0 0 0;
+  margin:0 0 0 0;
+  font-size: 13px;
+  line-height: 12px;
+  
+  a {
+    color: #000000;
+  }
+  
   h3 {
     background: $dark_grey;
-    margin: 0 -7px 0 -7px;
-    padding: 0 20px 0 20px;
-    position:relative;
+    margin: 20px 0 0 0;
+    padding: 0 15px 0 20px;
+    position: relative;
+    overflow: hidden;
+    height: 40px;
     z-index: 3;
-    line-height: 30px;
-    font-weight: normal;
+    font-size: 16px;
     a {
-      font-family: 'Quicksand', sans-serif;
       color: #fff;
-      font-size: 16px;
     }
   }
   
-  h3.red {
-    background: $red;
-  }
-  
-  ul.widget-content {
-    background: $light_grey;
-    list-style-type:none;
-    padding: 0 5px 0px 8px;
-    margin: 0 ;
-    position:relative;
-    z-index: 2;
+  .widget-content-container {
+    margin: 0 0 0 0;
+    padding: 0 7px 0 7px;
+    
+    .widget-content {
+      background: $light_grey;
+      padding: 0 15px 0 10px;
+      
+      ul {
+        overflow: hidden;
+        li {
+          white-space:nowrap;
+        }
+      }
+    }
+    
+    .widget-content.red {
+      background: $red;
+      ul {
+        list-style-type:disc;
+      }
+    }
+    
+    ul {
+      margin:0 0 0 0;
+      padding:0 0 0 25px;
+      list-style-type:none;
+    }
+    
     h4 {
-      margin: 12px 0 6px 0;
-      padding: 0;
+      margin:15px 0 0 0;
+      padding:0 0 0 0;
+      font-size:15px;
       a {
-        color: #000000;
-        font-size: 15px;
-        font-weight: bold;
-        text-decoration: underline;
+        
       }
     }
     
     .description {
-      margin: 0px 0 3px 12px;
-      a {
-        color: #fff;
-        font-size: 13px;
-      }
-    }
-    
-    ul {
-      margin:0 0 0 10px;
-      list-style-type:none;
       a {
         color: #fff;
       }
     }
   }
-  
-  ul.red {
-    background: $red;
-    ul {
-      margin:0 0 0 25px;
-      list-style-type:disc;
-      a {
-        color: #000;
-      }
-    }
-  }
+ 
 }
 
 .loading {
@@ -80,4 +82,7 @@
   margin-bottom:10px;
 }
 
+.collapse {
+overflow: hidden !important;
+}
 

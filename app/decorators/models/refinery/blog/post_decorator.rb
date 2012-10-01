@@ -7,7 +7,7 @@ Refinery::Blog::Post.class_eval do
   end
   
   def short_title
-    truncate(self.title, :length => 35, :omission => '... ')
+    truncate(self.title, :length => 50, :omission => '... ')
   end
   
   def self.popular(count)

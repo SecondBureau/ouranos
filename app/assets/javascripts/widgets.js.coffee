@@ -1,2 +1,2 @@
 jQuery ->
-  $('.home_side_block_content').tooltip()
+  $('.widget-block').tooltip()

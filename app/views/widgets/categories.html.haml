@@ -2,15 +2,24 @@
   %h3.shadow
     = link_to t("categories.title"), '#categories', :"data-toggle" => "collapse", :"data-parent" => "#categories-container" 
     %i.icon-folder-open.pull-right.icon-white
-  %ul.widget-content.collapse.shadow.red.in{:id => 'categories'}
-    - Refinery::Blog::Category.all.each do |category|
-      %li
-        %h4
-          %i{:class => 'icon-list'}
-          = link_to  category.short_title, refinery.blog_category_path(category), :title => category.description, :rel => 'tooltip', :"data-placement" => "right"
-        .description= link_to category.short_description, refinery.blog_category_path(category), :title => category.description, :rel => 'tooltip', :"data-placement" => "right" if category.description
-        %ul
-          - category.posts.each do |post|
-            %li= link_to post.short_title, refinery.blog_post_path(post), :title => post.title, :rel => 'tooltip', :"data-placement" => "right"
-    %br
-      
+  .widget-content-container
+    %ul.widget-content.collapse.shadow.red.in{:id => 'categories'}
+      - Refinery::Blog::Category.all.each do |category|
+        %li
+          %h4
+            %i{:class => 'icon-list'}
+            = link_to  category.short_title, refinery.blog_category_path(category), :title => category.description, :rel => 'tooltip', :"data-placement" => "right", :class => 'tt'
+          .description= link_to category.short_description, refinery.blog_category_path(category), :title => category.description, :rel => 'tooltip', :"data-placement" => "right", :class => 'tt' if category.description
+          %ul
+            - category.posts.each do |post|
+              %li= link_to post.short_title, refinery.blog_post_path(post), :title => post.title, :rel => 'tooltip', :"data-placement" => "right", :class => 'tt'
+      %br
+         
+:coffeescript
+  $ ->
+    $('.tt').tooltip();
+    
+    
+    
+
+    

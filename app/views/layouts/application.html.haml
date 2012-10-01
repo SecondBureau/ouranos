@@ -15,9 +15,9 @@
   .container
     .content
       .row
-        .span3.hidden-phone
+        .span4.hidden-phone
           = render "site/sidebar"
-        .span9.light-grey.shadow
+        .span8.light-grey.shadow
           = bootstrap_flash
           #site_image= image_tag(banner_image_url, :width => 620, :height => 190)
           = yield
