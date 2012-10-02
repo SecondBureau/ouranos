@@ -19,6 +19,10 @@ $red: #9A0606;
   @include box-shadow(1px 2px 2px #333);
 }
 
+#body_content {
+  padding: 0 20px 0 20px;
+}
+
 #demo_info {
   z-index: 99;
   position: absolute;
@@ -33,6 +37,14 @@ $red: #9A0606;
   background: white;
   border: solid 2px black;
 }
+
+
+/* Customization */
+h1 { font-size: 30px; line-height: 36px; }
+h2 { font-size: 24px; line-height: 36px; }
+h3 { font-size: 18px; line-height: 38px; }
+h4 { font-size: 16px; line-height: 18px; }
+h5 { font-size: 14px; line-height: 18px; }
 
 /* Bugfix */
 .icon-white {

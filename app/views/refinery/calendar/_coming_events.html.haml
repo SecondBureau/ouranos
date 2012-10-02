@@ -1,4 +1,4 @@
-- unless (events = Refinery::Calendar::Event.coming).empty?
+- if (events = Refinery::Calendar::Event.coming.limit(5)).any?
   #coming-events
     %center
       .separator 

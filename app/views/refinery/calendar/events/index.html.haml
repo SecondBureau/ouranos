@@ -1,0 +1,22 @@
+- content_for :body_content_title do
+  %i.icon-calendar
+  = t('events.title')
+  
+- content_for :body_content_left do
+  
+  - if @coming_events.any?
+    %section{:id => 'coming_calendar_events'}
+      %h2= t('events.upcoming')
+      = render :partial => 'event', :collection => @coming_events, :locals => {:badge_color => 'success'}
+    
+    
+  - if @previous_events.any? 
+    %section{:id => 'previous_calendar_events'}
+      %h2= t('events.previous')
+      #events
+        = render :partial => 'event', :collection => @previous_events, :locals => {:with_year => true}
+      = will_paginate @previous_events
+
+-# content_for :stylesheets, stylesheet_link_tag('events')
+
+= render '/refinery/content_page', :hide_sections => [:side_body]

@@ -17,10 +17,11 @@
       .row
         .span4.hidden-phone
           = render "site/sidebar"
+        .span4.visible-phone
+          #site_image= image_tag(banner_image_url, :width => 620, :height => 190) 
         .span8.light-grey.shadow
           = bootstrap_flash
-          #site_image= image_tag(banner_image_url, :width => 620, :height => 190)
-          
+          #site_image.hidden-phone= image_tag(banner_image_url, :width => 620, :height => 190) 
           = yield
         
 

@@ -99,6 +99,17 @@ task :migrate_legacy_data_to_refinery => :environment do
                   :deletable => false,
                   :menu_match => "^#{url}(\/|\/.+?|)$"
                 )
+                
+  page_calendar.parts.create({
+                :title => "Body",
+                :body => "Les événéments organisés par l'APE",
+                :position => 0
+              })
+  page_calendar.parts.create({
+                :title => "Side Body",
+                :body => "Page non visible",
+                :position => 0
+              })
     Refinery::Pages.default_parts.each_with_index do |default_page_part, index|
       page_calendar.parts.create(:title => default_page_part, :body => nil, :position => index)
     end 

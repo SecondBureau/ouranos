@@ -24,6 +24,11 @@ fr:
   events:
     title: Evénements
     to_be_continued: lire la suite...
+    previous: Evénements passés
+    upcoming: Prochains événements
     unknown_time: Horaire non précisé.
+    unknown_venue: Lieu non précisé.
+    register: Enregistrez-vous en ligne pour cet événement.
     from: du
     to: au
+    map_link: Voir sur Google Maps.

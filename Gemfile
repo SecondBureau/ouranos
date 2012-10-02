@@ -38,12 +38,13 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-# editing
+# editing-rendering
 gem 'haml-rails'
 gem 'coffee-filter'
 gem 'jquery-rails'
 gem 'bootstrap-sass', '~> 2.0.3'
 gem "twitter-bootstrap-rails"
+gem 'bootstrap-will_paginate'
 gem 'jquery-ui-rails'
 gem 'bourbon'
 gem 'nokogiri'

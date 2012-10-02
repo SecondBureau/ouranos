@@ -50,7 +50,7 @@ table.calendar {
   font-size: 16px;
 }
 
-#modal-event {
+#calendar_event, #previous_calendar_events, #coming_calendar_events, #modal-event {
   
   h4.red {
     color: $red;
@@ -68,8 +68,18 @@ table.calendar {
   }
   
   .event:not(:last-child) {
-    border-bottom:1px dotted $light_grey;
+    border-bottom:1px dotted $dark_grey;
   }
+  
+  p.date {
+    padding:10px;
+  }
+  
+  section.details {
+    margin:0 0 30px 80px;
+    
+  }
+  
 }
 
 #coming-events {

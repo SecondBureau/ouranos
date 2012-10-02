@@ -1,0 +1,32 @@
+= div_for event do
+  
+  %h3
+    .icon-bullhorn
+    = link_to event.title, refinery.calendar_event_path(event)
+  
+  %p.date.pull-left.badge{:class => "badge-#{local_assigns[:badge_color] || 'inverse'}"}
+    %strong= l(event.start_at, :format => '%a').upcase
+    %br
+    = l(event.start_at, :format => '%e %b')
+    - if local_assigns[:with_year]
+      %br
+      = l(event.start_at, :format => '%Y')
+      
+  %section.details
+      
+    %p= event.excerpt
+  
+    %p
+      %i.icon-time
+      = format_start_end event
+  
+    - if event.venue_name
+      %p
+        %i.icon-globe
+        = event.venue_name
+  
+    %p.pull-right
+      %i.icon-plus
+      = link_to t('events.to_be_continued'), refinery.calendar_event_path(event)
+  
+    .clearfix
