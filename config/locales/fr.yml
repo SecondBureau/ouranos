@@ -16,6 +16,8 @@ fr:
   categories:
     title: Dossiers
   posts:
+    singular: article
+    all_categories: Supprimer le filtre
     popular:
       title: Les plus lus
   comments:
@@ -23,7 +25,6 @@ fr:
       title: Derniers commentaires
   events:
     title: Evénements
-    to_be_continued: lire la suite...
     previous: Evénements passés
     upcoming: Prochains événements
     unknown_time: Horaire non précisé.

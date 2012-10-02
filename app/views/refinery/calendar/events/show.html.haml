@@ -2,44 +2,11 @@
   %i.icon-bullhorn
   = @event.title
 
-
 - content_for :body_content_left do
   
   #show_calendar_event
-
-    %event{:id => "calendar_event"}
-
-      %header
-        
-        %p.date.pull-left.badge.badge-inverse
-          %strong= l(@event.start_at, :format => '%a').upcase
-          %br
-          = l(@event.start_at, :format => '%e %b')
-            
-        %section.details
-        
-
-        
-          %p
-            %i.icon-globe
-            = @event.venue_name || t('events.unknown_venue')
-            
-            - if @event.venue_address.present? 
-              %br
-              = link_to t('events.map_link'), "http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=#{CGI::escape(@event.venue.address)}&ie=UTF8&z=16", :target => 'gmap'
-
-          %p
-            %i.icon-time
-            = format_start_end(@event)
-
-          - if @event.registration_link.present?
-            %p
-              %i.icon-user
-              = link_to t('events.register'), @event.registration_link 
-
-          
-      
-      = raw @event.description
+    = render 'event'
+    
       
     %nav{:id => "next_prev_event"}
 

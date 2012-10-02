@@ -16,6 +16,6 @@
           = event.venue_name
       %p.pull-right
         %i.icon-plus
-        = link_to t('events.to_be_continued'), refinery.calendar_event_path(event)
+        = link_to t('read_more', :scope => 'refinery.blog.shared.posts'), refinery.calendar_event_path(event)
       .clearfix
   

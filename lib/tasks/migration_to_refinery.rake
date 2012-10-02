@@ -36,19 +36,19 @@ task :migrate_legacy_data_to_refinery => :environment do
   
   
   home_page = Refinery::Page.create!({
-              :title => "Home",
+              :title => "Edito",
               :show_in_menu => false,
               :deletable => false,
               :link_url => "/",
               :menu_match => "^/$"})
   home_page.parts.create({
                 :title => "Body",
-                :body => "<p>Le mot du président.</p>",
+                :body => "<p>L'Edito du Président.</p>",
                 :position => 0
               })
   home_page.parts.create({
                 :title => "Side Body",
-                :body => "<p>Message urgent.</p>",
+                :body => "<p>Bienvenue sur votre nouveau site.</p>",
                 :position => 1
               })
 

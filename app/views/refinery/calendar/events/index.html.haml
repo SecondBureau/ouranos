@@ -14,7 +14,7 @@
     %section{:id => 'previous_calendar_events'}
       %h2= t('events.previous')
       #events
-        = render :partial => 'event', :collection => @previous_events, :locals => {:with_year => true}
+        = render :partial => '/refinery/calendar/shared/event', :collection => @previous_events, :locals => {:with_year => true}
       = will_paginate @previous_events
 
 -# content_for :stylesheets, stylesheet_link_tag('events')

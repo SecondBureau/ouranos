@@ -1,0 +1,43 @@
+%article.blog_post
+  %header
+
+    %p.date.pull-left.badge.badge-inverse
+      %span
+        = l(@post.published_at, :format => '%e')
+      %br
+      = l(@post.published_at, :format => '%b')
+      - unless @post.published_at.year.eql?(Time.now.year)
+        %br
+        = l(@post.published_at, :format => '%Y')
+    
+    .details
+    
+      %time.posted_at{:datetime => l(@post.published_at.to_date, :format => :default) }
+        %i.icon-pencil
+        = t('created_at', :scope => 'refinery.blog.shared.posts', :when => l(@post.published_at.to_date, :format => (@post.published_at.year.eql?(Time.now.year) ? :short : '%e %b %Y')))
+        = "#{t('by', :scope => 'refinery.blog.posts.show')} #{@post.author.username.capitalize}" if @post.author.present?
+    
+      - if @post.source_url.present?
+        .blog_source
+          = "#{t('source', :scope => 'refinery.blog.posts.show')}: "
+          = link_to (@post.source_url_title.blank? ? @post.source_url : @post.source_url_title), @post.source_url
+
+      - if (categories = @post.categories).any?
+        %aside.filed_in
+          -#= t('filed_in', :scope => 'refinery.blog.posts.show')
+          .icon-folder-open
+          =raw categories.collect { |category| link_to category.title, refinery.blog_category_path(category), :class => 'label label-info' }.join(' ')
+
+      - if (tags = @post.tags).any?
+        %aside.tagged
+          -#= t('tagged', :scope => 'refinery.blog.posts.show')
+          .icon-tags
+          =raw tags.collect { |tag| link_to tag, refinery.blog_tagged_posts_path(tag.id, tag.name.parameterize), :class => 'label label-info' }.join(' ')
+      
+    %section.post_content
+      = @post.body.html_safe
+      
+    %footer
+      
+      - if Refinery::Blog::Post::ShareThis.enabled?
+        %span.st_sharethis{:displayText => "ShareThis"}

@@ -1,0 +1,5 @@
+$('#posts').append("#{j render(:partial => "/refinery/blog/shared/post", :collection => @posts)}");
+- if @posts.next_page
+  $('.pagination').replaceWith("#{j will_paginate(@posts) }");
+- else
+  $('.pagination').remove();

@@ -39,13 +39,6 @@ $red: #9A0606;
 }
 
 
-/* Customization */
-h1 { font-size: 30px; line-height: 36px; }
-h2 { font-size: 24px; line-height: 36px; }
-h3 { font-size: 18px; line-height: 38px; }
-h4 { font-size: 16px; line-height: 18px; }
-h5 { font-size: 14px; line-height: 18px; }
-
 /* Bugfix */
 .icon-white {
   color:#fff;
@@ -53,5 +46,33 @@ h5 { font-size: 14px; line-height: 18px; }
 
 .collapse {
   overflow: hidden !important;
+}
+
+/* Customization */
+h1 { font-size: 30px; line-height: 36px; }
+h2 { font-size: 24px; line-height: 36px; }
+h3 { font-size: 18px; line-height: 38px; }
+h4 { font-size: 16px; line-height: 18px; }
+h5 { font-size: 14px; line-height: 18px; }
+
+@media (max-width: 480px) { 
+  
+  body {
+    padding-left:0;
+    padding-right:0;
+  }
+  
+  .navbar-fixed-top, .navbar-fixed-bottom {
+      margin-left: 0;
+      margin-right: 0;
+  }
+  
+  p { font-size: 14px; line-height: 20px; }
+  h1 { font-size: 26px; line-height: 32px; }
+  h2 { font-size: 20px; line-height: 22px; }
+  h3 { font-size: 18px; line-height: 22px; }
+  h4 { font-size: 16px; line-height: 18px; }
+  h5 { font-size: 16px; line-height: 18px; }
+  
 }
 

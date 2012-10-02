@@ -1,32 +1,33 @@
-= div_for event do
-  
-  %h3
-    .icon-bullhorn
-    = link_to event.title, refinery.calendar_event_path(event)
-  
-  %p.date.pull-left.badge{:class => "badge-#{local_assigns[:badge_color] || 'inverse'}"}
-    %strong= l(event.start_at, :format => '%a').upcase
-    %br
-    = l(event.start_at, :format => '%e %b')
-    - if local_assigns[:with_year]
+%event{:id => "calendar_event"}
+
+  %header
+    
+    %p.date.pull-left.badge.badge-inverse
+      %strong= l(@event.start_at, :format => '%a').upcase
       %br
-      = l(event.start_at, :format => '%Y')
-      
-  %section.details
-      
-    %p= event.excerpt
-  
-    %p
-      %i.icon-time
-      = format_start_end event
-  
-    - if event.venue_name
+      = l(@event.start_at, :format => '%e %b')
+        
+    %section.details
+    
+
+    
       %p
         %i.icon-globe
-        = event.venue_name
+        = @event.venue_name || t('events.unknown_venue')
+        
+        - if @event.venue_address.present? 
+          %br
+          = link_to t('events.map_link'), "http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=#{CGI::escape(@event.venue.address)}&ie=UTF8&z=16", :target => 'gmap'
+
+      %p
+        %i.icon-time
+        = format_start_end(@event)
+
+      - if @event.registration_link.present?
+        %p
+          %i.icon-user
+          = link_to t('events.register'), @event.registration_link 
+
+      
   
-    %p.pull-right
-      %i.icon-plus
-      = link_to t('events.to_be_continued'), refinery.calendar_event_path(event)
-  
-    .clearfix
+  = raw @event.description

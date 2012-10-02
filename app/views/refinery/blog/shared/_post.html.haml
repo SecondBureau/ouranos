@@ -1,0 +1,62 @@
+- if post.live?
+  %article.blog_post{:id => dom_id(post)}
+    
+    %header
+      %h3
+        %i.icon-star-empty
+        = link_to post.title, refinery.blog_post_path(post)
+      
+    %p.date.pull-left.badge.badge-inverse
+      %span
+        = l(post.published_at, :format => '%e')
+      %br
+      = l(post.published_at, :format => '%b')
+      - unless post.published_at.year.eql?(Time.now.year)
+        %br
+        = l(post.published_at, :format => '%Y')
+          
+    .details
+      %time.posted_at{:datetime => l(post.published_at.to_date, :format => :default) }
+        %i.icon-pencil
+        = t('created_at', :scope => 'refinery.blog.shared.posts', :when => l(post.published_at.to_date, :format => (post.published_at.year.eql?(Time.now.year) ? :short : '%e %b %Y')))
+        = "#{t('by', :scope => 'refinery.blog.posts.show')} #{post.author.username.capitalize}" if post.author.present?
+       
+      - if (categories = post.categories).any?
+        %aside.filed_in{:class => @category ? 'hidden-phone' : ''}
+          -#= t('filed_in', :scope => 'refinery.blog.posts.show')
+          .icon-folder-open
+          =raw categories.collect { |category| link_to category.title, refinery.blog_category_path(category), :class => 'label label-info' }.join(' ')
+      
+      - if (tags = post.tags).any?
+        %aside.tagged
+          -#= t('tagged', :scope => 'refinery.blog.posts.show')
+          .icon-tags
+          =raw tags.collect { |tag| link_to tag, refinery.blog_tagged_posts_path(tag.id, tag.name.parameterize), :class => 'label label-info' }.join(' ')
+
+    %section.post_content
+      - if blog_post_teaser_enabled?
+        = blog_post_teaser(post)
+      - else
+        = post.body.html_safe
+
+    %footer
+      
+      - if blog_post_teaser_enabled?
+        %aside.read_more.pull-right
+          %i.icon-plus
+          = link_to t('read_more', :scope => 'refinery.blog.shared.posts'), refinery.blog_post_path(post)
+      
+      - if Refinery::Blog::Post.comments_allowed?
+        - if post.comments.any?
+          %aside.comment_count.pull-right
+            %i.icon-comment
+            = "#{pluralize(post.comments.approved.count, t('singular', :scope => 'refinery.blog.shared.comments'))}"
+
+      - if post.author.present?
+        %aside.author.pull-right
+          %i.icon-user
+          = "#{t('by', :scope => 'refinery.blog.posts.show')} #{post.author.username.capitalize}"
+      
+      
+      %clearfix
+        %br
