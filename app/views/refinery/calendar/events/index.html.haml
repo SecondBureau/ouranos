@@ -7,7 +7,7 @@
   - if @coming_events.any?
     %section{:id => 'coming_calendar_events'}
       %h2= t('events.upcoming')
-      = render :partial => 'event', :collection => @coming_events, :locals => {:badge_color => 'success'}
+      = render :partial => '/refinery/calendar/shared/event', :collection => @coming_events, :locals => {:badge_color => 'success'}
     
     
   - if @previous_events.any? 
