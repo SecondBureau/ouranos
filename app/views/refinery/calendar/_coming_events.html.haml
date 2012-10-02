@@ -1,0 +1,14 @@
+- if (events = Refinery::Calendar::Event.coming.limit(5)).any?
+  #coming-events
+    %center
+      .separator 
+    %ul
+      - events.each do |event|
+        %li
+          = event.start_at.strftime('%d/%m')
+          \-
+          = link_to truncate(event.title, :length => 44, :omission => '... '), refinery.calendar_event_path(event), :title => event.title, :rel => 'tooltip', :"data-placement" => "right", :class => 'tt'
+          
+  :coffeescript
+    $ ->
+      $('.tt').tooltip();

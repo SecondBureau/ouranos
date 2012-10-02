@@ -12,3 +12,4 @@ public/system
 .~lock*
 *.log
 *~
+config/database.yml

@@ -1,7 +1,0 @@
-.home_item_content
-  %ul
-    - @events.each_with_index do |event, index|
-      %li.post_title= link_to event.title, main_app.event_path(event)
-      %li.post_content= event.summary
-      - if index != (@events.length - 1)
-        %li.post_split_line

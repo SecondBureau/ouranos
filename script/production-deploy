@@ -1,6 +1,0 @@
-#!/bin/sh
-heroku config:add init_rails_admin=false --app production-ouranos
-#rake production deploy
-git push production master
-heroku config:add init_rails_admin=true --app production-ouranos
-

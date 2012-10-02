@@ -1,0 +1,8 @@
+# encoding: utf-8
+fr:
+  refinery:
+    plugins:
+      calendar:
+        title: Evénements
+      blog:
+        title: Articles

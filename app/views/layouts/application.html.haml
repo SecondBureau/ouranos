@@ -1,33 +1,41 @@
 !!! 5
-%html
-  %head
-    %title= setting.site_name
-    = stylesheet_link_tag     "application"
-    = javascript_include_tag  "application"
-    = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Quicksand:400,700'
-    = csrf_meta_tags
-    %link{ :rel => "shortcut icon", :href => "/favicon.ico", :type => "image/x-icon"}
-    = render 'site/verification' if $google_site_verification
-    = yield :header
-    = render 'site/ga' if ::Rails.env.eql?('production')
+= render "/refinery/html_tag"
 
-  %body
-    = render 'site/demo' unless ::Rails.env.eql?('production')
+- content_for :meta do
+  %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0" }
+= render '/refinery/head'
 
-    #header_wrapper
-      #header
+%body
+
+  -#= render 'site/demo' unless ::Rails.env.eql?('production')
+  
+  .navbar.navbar-fixed-top.navbar-inverse
+    .navbar-inner
+      .container
         = render "site/header"
-        = render "site/account"
-        .clear
-    #body_wrapper
-      = render "site/notice_alert"
-      #content
-        = render "site/sidebar"
-        = render "events/event_for_the_day"
-        #current_content
-          #site_image= image_tag(banner_image_url, :width => 620, :height => 190)
+      
+  .container
+    .content
+      .row
+        .span4
+          .hidden-phone
+            = render "site/sidebar"
+          .visible-phone
+            %center
+              = link_to image_tag("APE-LOGO.png"), refinery.root_path, {:title => t("home.title")}
+        .span8.light-grey.shadow
+          = bootstrap_flash
+          #site_image.hidden-phone= image_tag(banner_image_url, :width => 620, :height => 190) 
           = yield
-        .clear
+        
 
-    #footer_wrapper
-      #footer= render "site/footer"
+  %footer
+    = render "site/footer"
+      
+  = render "/refinery/javascripts"
+  
+  :javascript
+    if (!jQuery.browser.mobile) {
+      $("#widgets").load("/widgets/master?s=home");
+    };
+    

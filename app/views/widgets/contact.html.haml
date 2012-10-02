@@ -1,0 +1,10 @@
+#contact-container.widget-block
+  %h3.shadow.red
+    = link_to t("home.contact"), '#contact', :"data-toggle" => "collapse", :"data-parent" => "#contact-container" 
+    %i.icon-pencil.pull-right.icon-white
+  .widget-content-container
+    %ul.widget-content.collapse.in.shadow{:id => 'contact'}
+      %ul
+        %br
+        = Refinery::Page.home_contact.html_safe
+      %br

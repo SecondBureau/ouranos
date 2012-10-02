@@ -1,0 +1,2 @@
+jQuery ->
+  $('.widget-block').tooltip()

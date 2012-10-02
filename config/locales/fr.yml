@@ -4,92 +4,32 @@ fr:
     formats:
       post: "%e %B %Y"
       comment: "%e %B %Y"
+      event: "%e %B %Y"
+      datetime: "%e %B %Y à %H:%M"
   ok: OK
+  close: Fermer
   home:
     title: Accueil
-  event:
+    contact: Contact
+    modal_notice: Information Importante
+    events_of_day: Evénements du Jour
+  categories:
+    title: Dossiers
+  posts:
+    singular: article
+    all_categories: Supprimer le filtre
+    popular:
+      title: Les plus lus
+  comments:
+    recent:
+      title: Derniers commentaires
+  events:
     title: Evénements
-    latest: En ce moment
-    none: Aucun événement sur cette période.
-    comming: Prochains événéments
-    ofday: Aujourd'hui
-    in: "Events in %{year}"
-  category: "Dossiers"
-  blog:
-    title: Articles
-    latest: Derniers articles
-    mostread: Les plus lus
-    pinned: Actualités
-    continue: Lire la suite...
-  print:
-    print: Imprimer cet article
-    pdf: Exporter cet article en PDF
-  comment:
-    author: écrit par la famille
-    recent: Derniers commentaires
-    create:
-      button: "Ajouter votre commentaire"
-    valid:
-      added: Votre commentaire a bien été ajouté.
-    guest:
-      comment: Enregistrez-vous pour commenter cet article.
-    user:
-      comment: Votre commentaire est en cours de validation et sera bientôt publié. <br/> Les commentaires des membres de l'association sont immédiatement publiés.
-  signin: Connexion
-  signup: Accédez gratuitement aux articles pendant 7 jours.
-  signout: Déconnexion
-  management: Administration
-  confirm_delete: Etes-vous certain(e) de vouloir supprimer cet enregistrement ?
-  account:
-    email: E-mail
-    password: Mot de passe
-    password_confirm: Confirmation du mot de passe
-    send_me_password: Envoyez-moi mon mot de passe.
-    remember_me: Se souvenir de moi
-    forgot_password: Mot de passe oublié ?
-    title: Votre compte
-    member: Membre?
-    bemember: Je veux devenir membre.
-    membership_expired: Your membership has expired. Please contact the administrator.
-    alreadymember: Vous êtes membre.
-    memberdesc: Devenez membre pour recevoir davantage d'information.
-    memberdesc_getemail: Cliquez sur le bouton rouge pour recevoir les informations demandées.
-    has_send_member_confirmation: Vous allez recevoir un email de confirmation.
-    please_check_email: Veuillez vérifier votre boite aux lettres électroniques.
-    did_not_received_confirmation: Vous n'avez pas reçu l'email de confirmation ?
-  subscribe:
-    title: Abonnements
-    cycle: Périodicité：
-    button: S'abonner
-    description:
-      title: Choisissez la périodicité
-    results:
-      title: Abonnements actuels
-    posts: Nombre d'articles
-    events: Nombre d'événements
-    nonymous_user: Connectez-vous pour vous abonner à la newsletter de l'APE.
-    testlink: Cliquez pour recevoir un exemplaire de démonstration.
-  search:
-    title: Chercher
-    posts: Articles correspondants à votre recherche
-    events: Evénements correspondants à votre recherche
-    postsnothing: Aucun
-    eventsnothing: Aucune
-  weekdays:
-    mon: LUN
-    tue: MAR
-    wed: MER
-    thu: JEU
-    fri: VEN
-    sat: SAM
-    sun: DIM
-  more: D'avantage
-  contact:
-    title: Contact
-    info: Boite aux lettres dans le hall du bâtiment A du site principal.
-  newsletter:
-    powered_by: Cette newsletter a été créée par
-    subject: "Votre lettre mensuelle de l'APE"
-    unsubscribe: Me désabonner
-    opt_in: Vous avez été inscrit(e) à la lettre d'information.
-    opt_out: Vous avez été desinscrit(e) de notre lettre d'information.
+    previous: Evénements passés
+    upcoming: Prochains événements
+    unknown_time: Horaire non précisé.
+    unknown_venue: Lieu non précisé.
+    register: Enregistrez-vous en ligne pour cet événement.
+    from: du
+    to: au
+    map_link: Voir sur Google Maps.
