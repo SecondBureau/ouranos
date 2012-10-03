@@ -5,6 +5,22 @@ GIT
     refinerycms-calendar (2.0.2)
       refinerycms-core (~> 2.0.3)
 
+GIT
+  remote: git://github.com/mark-secondbureau/refinerycms-groups.git
+  revision: 0bfcccaadb5b167fece0732e2df8ce081202c785
+  specs:
+    refinerycms-groups (0.2.1)
+      acts_as_indexed (~> 0.7)
+      refinerycms (~> 2.0.0)
+
+GIT
+  remote: git://github.com/mark-secondbureau/refinerycms-mailchimp.git
+  revision: 08e63d0558bb8ded1ed9acfae478587922e1ed74
+  specs:
+    refinerycms-mailchimp (0.1.0)
+      gibbon
+      hominid (~> 3.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -115,6 +131,12 @@ GEM
       thor (>= 0.13.6)
     formatador (0.2.3)
     friendly_id (4.0.8)
+    gibbon (0.3.5)
+      httparty (> 0.6.0)
+      httparty (> 0.6.0)
+      json (> 1.4.0)
+      json (> 1.4.0)
+      rdoc
     globalize3 (0.2.0)
       activemodel (>= 3.0.0)
       activerecord (>= 3.0.0)
@@ -151,6 +173,7 @@ GEM
       heroku-api (>= 0.1.2)
       rake
     hike (1.2.1)
+    hominid (3.0.5)
     httparty (0.9.0)
       multi_json (~> 1.0)
       multi_xml
@@ -397,6 +420,7 @@ DEPENDENCIES
   factory_girl_rails
   fog
   foreman
+  gibbon
   growl
   guard-rspec
   haml-rails
@@ -415,8 +439,11 @@ DEPENDENCIES
   refinerycms (~> 2.0.0)
   refinerycms-blog (~> 2.0.0)
   refinerycms-calendar!
+  refinerycms-groups!
   refinerycms-i18n (~> 2.0.0)
+  refinerycms-mailchimp!
   refinerycms-page-images (~> 2.0.0)
+  refinerycms-settings (~> 2.0.1)
   roo
   rspec-rails
   sanitize
