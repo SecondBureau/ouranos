@@ -1,0 +1,103 @@
+<%= form_for [refinery, :mailchimp_admin, @posts_campaign] do |f| -%>
+  <%= render :partial => "/refinery/admin/error_messages", :locals => {
+    :object => @posts_campaign,
+    :include_object_name => true
+  } %>
+
+  <div class='field'>
+    <span class='label_with_help'>
+      <%= f.label :subject, t('.subject') -%>
+      <%= refinery_help_tag t('.subject_help') %>
+    </span>
+    <%= f.text_field :subject, :class => 'larger widest' -%>
+  </div>
+
+  <div class='field'>
+    <%= f.hidden_field :nltype, :value => @posts_campaign.nltype %>
+  </div>
+  <% if @posts_campaign.nltype == 1 %>
+    <div class='field edition'>
+      <%= label_tag t('.edition') %>
+      <%#= select "posts_campaign", "edito_id", Refinery::Blog::Edition.all.collect{|edition| [edition.string_title, edition.id]} %>
+    </div>
+  <% end %>
+  <% if  @posts_campaign.nltype == 2 %>
+    <div class="field edito">
+      <%= label_tag t('.edito') %>
+      <%= select "posts_campaign", "edito_id", Refinery::Blog::Category.where(:title => "editorial").first.posts.collect{|post| [post.title, post.id]} %>
+    </div>
+  <% end %>
+
+  <% if @posts_campaign.nltype == 3 %>
+    <div class='field posts'>
+      <%= f.hidden_field :posts, :value => @posts_campaign.posts.join(",") %>
+      <%= render "posts" %>
+    </div>
+  <% end %>
+
+  <br/><br/>
+  <div class="hemisquare">
+    <h2><%= t('.to_and_from') %></h2>
+
+    <div class='field'>
+      <span class='label_with_help'>
+        <%= f.label :from_name, t('.from_name') -%>
+        <%= refinery_help_tag t('.from_name_help') %>
+      </span>
+      <%= f.text_field :from_name %>
+    </div>
+
+    <div class='field'>
+      <span class='label_with_help'>
+        <%= f.label :from_email, t('.from_email') -%>
+        <%= refinery_help_tag t('.from_email_help') %>
+      </span>
+      <%= f.text_field :from_email %>
+    </div>
+  </div>
+
+  <div class="hemisquare right_side">
+    <h2><%= t('.settings') %></h2>
+
+    <div class='field'>
+      <span class='label_with_help'>
+        <%= f.label :mailchimp_list_id, t('.mailchimp_list_id') -%>
+        <%= refinery_help_tag t('.mailchimp_list_id_help') %>
+      </span>
+      <%= f.select :mailchimp_list_id, @lists.collect{ |list| [list['name'], list['id']] } %>
+    </div>
+
+    <div class='field'>
+      <span class='label_with_help'>
+        <%= f.label :mailchimp_template_id, t('.mailchimp_template_id') -%>
+        <%= refinery_help_tag t('.mailchimp_template_id_help') %>
+      </span>
+      <%= f.select :mailchimp_template_id, @templates.collect{ |template| [template['name'], template['id']] } %>
+    </div>
+
+    <div class='field'>
+      <span class='label_with_help'>
+        <%= f.label :target_users, t('.target_users') -%>
+        <%= refinery_help_tag t('.target_users_help') %>
+      </span>
+      <%= f.select :target_users, [["all users", "all_users"], ["expired users", "expired_users"], ["not expired users", "not_expired_users"]] %>
+    </div>
+
+  </div>
+  <div class="clearfix"></div>
+
+  <%= render :partial => "/refinery/admin/form_actions",
+              :locals => {
+                :f => f,
+                :continue_editing => false,
+                :delete_subject => t('delete', :scope => 'refinery.mailchimp.admin.campaigns.campaign.delete'),
+                :delete_confirmation => t('message', :scope => 'refinery.admin.de;ete', :subject => @posts_campaign.subject)
+              } %>
+<% end -%>
+<% content_for :javascripts do %>
+  <script>
+    $(document).ready(function(){
+      page_options.init(false, '', '');
+    });
+  </script>
+<% end %>

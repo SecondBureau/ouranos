@@ -124,6 +124,13 @@ task :migrate_legacy_data_to_refinery => :environment do
   Event.all.each do |event|
     Refinery::Calendar::Event.create(:title => event.title, :start_at => event.start_date, :end_at => event.end_date, :excerpt => truncate(Sanitize.clean(event.content), :length => 50, :omission => '...'), :description => event.content)
   end
+  
+  # Groups
+  
+  Refinery::Role.[]('Member')
+  Refinery::Role.[]('GroupAdmin')
+  
+  
 
 
 end

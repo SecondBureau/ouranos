@@ -6,3 +6,13 @@ fr:
         title: Evénements
       blog:
         title: Articles
+      refinery-mailchimp:
+        title: Campagnes
+      groups:
+        title: Familles
+    
+    mailchimp:
+      admin:
+        campaigns:
+          index:
+            set_api_key: Vous devez configurer Mailchimp avant de pouvoir l'utiliser.

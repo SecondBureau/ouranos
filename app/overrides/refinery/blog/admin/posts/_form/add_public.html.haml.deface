@@ -1,0 +1,6 @@
+/
+  insert_before 'span#draft_field'
+
+%span{:id => 'public_field'}
+  = f.check_box :public
+  = f.label :public, t('.save_as_public'), :class => "stripped"

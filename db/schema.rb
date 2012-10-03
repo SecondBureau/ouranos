@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121001064104) do
+ActiveRecord::Schema.define(:version => 20121003115145) do
 
   create_table "categories", :force => true do |t|
     t.string   "title",                           :null => false
@@ -196,8 +196,8 @@ ActiveRecord::Schema.define(:version => 20121001064104) do
     t.text     "body"
     t.boolean  "draft"
     t.datetime "published_at"
-    t.datetime "created_at",                      :null => false
-    t.datetime "updated_at",                      :null => false
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
     t.integer  "user_id"
     t.string   "cached_slug"
     t.string   "custom_url"
@@ -206,6 +206,7 @@ ActiveRecord::Schema.define(:version => 20121001064104) do
     t.string   "source_url_title"
     t.integer  "access_count",     :default => 0
     t.string   "slug"
+    t.boolean  "public",           :default => false
   end
 
   add_index "refinery_blog_posts", ["access_count"], :name => "index_refinery_blog_posts_on_access_count"
@@ -235,6 +236,15 @@ ActiveRecord::Schema.define(:version => 20121001064104) do
     t.integer  "position"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "refinery_groups", :force => true do |t|
+    t.string   "name"
+    t.integer  "position"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.text     "description"
+    t.date     "expiration_date"
   end
 
   create_table "refinery_image_page_translations", :force => true do |t|
@@ -270,6 +280,46 @@ ActiveRecord::Schema.define(:version => 20121001064104) do
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end
+
+  create_table "refinery_mailchimp_campaigns", :force => true do |t|
+    t.string   "subject"
+    t.string   "mailchimp_campaign_id"
+    t.string   "mailchimp_list_id"
+    t.string   "mailchimp_template_id"
+    t.string   "from_email"
+    t.string   "from_name"
+    t.text     "body"
+    t.datetime "sent_at"
+    t.datetime "scheduled_at"
+    t.boolean  "auto_tweet",            :default => false
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
+  end
+
+  add_index "refinery_mailchimp_campaigns", ["id"], :name => "index_refinery_mailchimp_campaigns_on_id"
+
+  create_table "refinery_mailchimp_posts_campaigns", :force => true do |t|
+    t.string   "subject"
+    t.string   "mailchimp_campaign_id"
+    t.string   "mailchimp_list_id"
+    t.string   "mailchimp_template_id"
+    t.string   "from_email"
+    t.string   "from_name"
+    t.string   "to_name"
+    t.text     "body"
+    t.datetime "sent_at"
+    t.datetime "scheduled_at"
+    t.boolean  "auto_tweet",            :default => false
+    t.string   "posts"
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
+    t.integer  "edito_id"
+    t.boolean  "paused"
+    t.integer  "nltype"
+    t.string   "target_users"
+  end
+
+  add_index "refinery_mailchimp_posts_campaigns", ["id"], :name => "index_refinery_mailchimp_posts_campaigns_on_id"
 
   create_table "refinery_page_part_translations", :force => true do |t|
     t.integer  "refinery_page_part_id"
@@ -391,8 +441,14 @@ ActiveRecord::Schema.define(:version => 20121001064104) do
     t.datetime "reset_password_sent_at"
     t.datetime "created_at",             :null => false
     t.datetime "updated_at",             :null => false
+    t.integer  "group_id"
+    t.string   "authentication_token"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "position"
   end
 
+  add_index "refinery_users", ["group_id"], :name => "index_refinery_users_on_group_id"
   add_index "refinery_users", ["id"], :name => "index_refinery_users_on_id"
 
   create_table "resources", :force => true do |t|

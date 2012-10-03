@@ -44,7 +44,7 @@ gem 'coffee-filter'
 gem 'jquery-rails'
 gem 'bootstrap-sass', '~> 2.0.3'
 gem "twitter-bootstrap-rails"
-#gem 'bootstrap-will_paginate' #breaks refinery admin
+gem 'bootstrap-will_paginate'
 gem 'jquery-ui-rails'
 gem 'bourbon'
 gem 'nokogiri'

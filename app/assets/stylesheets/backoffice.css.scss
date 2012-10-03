@@ -1,0 +1,23 @@
+@import "bootstrap_and_overrides";
+@import "common";
+
+body.index {
+  padding-top:0px;
+}
+
+.color-private {
+  color: $red;
+}
+
+.color-public {
+  color: $green;
+}
+
+/* overrides Bootstrap for refinery */
+.form-actions {
+  padding: 0;
+}
+
+select {
+  width: auto;
+}
