@@ -17,3 +17,6 @@ Refinery::Calendar::Engine.load_seed
 
 # Added by Refinery CMS Recipes extension
 Refinery::Mailchimp::Engine.load_seed
+
+          # Added by Refinery CMS Groups extension
+          Refinery::Groups::Engine.load_seed
