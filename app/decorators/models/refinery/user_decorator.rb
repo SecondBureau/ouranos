@@ -12,6 +12,7 @@ Refinery::User.class_eval do
     before_create   :subscribe
     before_update   :update_subscribe_in_mailchimp
     before_destroy  :unsubscribe
+    attr_accessor :bypass_mailchimp
     
     # Token Authentication
     devise :token_authenticatable
@@ -19,7 +20,7 @@ Refinery::User.class_eval do
     before_save :reset_authentication_token, :unless => :authentication_token
     
     # Bugfix
-    before_validation :parameterize_username
+    #before_validation :parameterize_username
 
     # new attributes
     attr_accessible :position, :firstname, :lastname
@@ -36,9 +37,7 @@ Refinery::User.class_eval do
     
     
     def subscribe
-      # DESACTIVE MAILCHIMP
-      return
-      return if self.group.nil?
+      return if (group.nil? || bypass_mailchimp)
 
       merge_vars = {
         :FNAME => firstname || username ,
@@ -60,8 +59,7 @@ Refinery::User.class_eval do
     end
 
     def unsubscribe
-      return
-      return if self.group.nil?
+      return if (group.nil? || bypass_mailchimp)
 
       Gibbon.list_unsubscribe(:id             => Refinery::Groups.list_id,
                               :email_address  => self.email,
@@ -76,8 +74,7 @@ Refinery::User.class_eval do
     end
 
     def update_subscribe_in_mailchimp
-      return
-      return if self.group.nil?
+      return if (group.nil? || bypass_mailchimp)
 
       unless (changed & mailchimp_list_fields).empty?
 
@@ -93,11 +90,14 @@ Refinery::User.class_eval do
       end
     end
     
+
     
     private
     
     def parameterize_username
-      self.username = username.parameterize
+      #self.username = username.parameterize
     end
+    
+
 
 end

@@ -140,13 +140,15 @@ task :migrate_legacy_data_to_refinery => :environment do
 
  
   # Users, Roles & Groups
+  Refinery::User.all.each do |u| 
+    u.bypass_mailchimp = true
+    u.destroy
+  end
   Refinery::Role.all.each {|r| r.destroy }
-  Refinery::User.all.each {|u| u.destroy }
-  #Refinery::User.delete_all
   Refinery::Groups::Group.all.each {|g| g.destroy }
   
   # Roles
-  %w[Refinery Superuser Member GroupAdmin].each {|r| Refinery::Role.[](r)}
+  %w[Refinery Superuser Member Group_Admin].each {|r| Refinery::Role.[](r.downcase.to_sym)}
   
   
   # Default groups
@@ -155,10 +157,13 @@ task :migrate_legacy_data_to_refinery => :environment do
   
   # SuperAdmin
   admin = Refinery::User.new(:username => 'secondbureau', :password => 'secret', :password_confirmation => 'secret', :firstname => 'Gilles', :lastname => 'Crofils', :email => 'ape-lfip@secondbureau.com')
-  admin.plugins = Refinery::Plugins.registered.collect(&:name)
-  admin.roles = ['Refinery', 'Superuser'].collect { |r| Refinery::Role[r.downcase.to_sym] }
   admin.group = membersGroup
-  admin.save!
+  admin.bypass_mailchimp = true
+  admin.roles = ['Refinery', 'Superuser'].collect { |r| Refinery::Role[r.downcase.to_sym] }
+  admin.save! # we need to save it first.
+  admin.plugins = Refinery::Plugins.registered.collect(&:name)
+  
+  
   
   guestid = 0
   
@@ -178,10 +183,11 @@ task :migrate_legacy_data_to_refinery => :environment do
         :current_sign_in_ip => user.current_sign_in_ip, 
         :last_sign_in_ip => user.last_sign_in_ip, 
         :sign_in_count => user.sign_in_count)
-      groupAdmin.plugins = ['groups']
-      groupAdmin.roles = ['Refinery', 'GroupAdmin'].collect { |r| Refinery::Role[r.downcase.to_sym] }
       groupAdmin.group = group
-      groupAdmin.save!
+      groupAdmin.bypass_mailchimp = true
+      groupAdmin.roles = ['Refinery', 'Group_Admin'].collect { |r| Refinery::Role[r.downcase.to_sym] }  
+      groupAdmin.save! # we need to save it first.
+      groupAdmin.plugins = ['groups']
       
     end
     
@@ -192,7 +198,7 @@ task :migrate_legacy_data_to_refinery => :environment do
       
       firstname = person.firstname.parameterize rescue nil
       lastname = person.lastname.parameterize rescue nil
-      username = [firstname, lastname].compact.join('_').camelize
+      username = [firstname, lastname].compact.join('.')
       
       if username.eql?('')
         guestid += 1
@@ -206,6 +212,7 @@ task :migrate_legacy_data_to_refinery => :environment do
       refinery_user = Refinery::User.new if refinery_user.nil?
       refinery_user.add_role(:refinery)
       refinery_user.group = group
+      refinery_user.bypass_mailchimp = true
       refinery_user.update_attributes!(:username => username, :password => password, :password_confirmation => password, :firstname => firstname, :lastname => lastname, :email => email, :position => person.fa_type)
       
     rescue Exception => e
