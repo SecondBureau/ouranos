@@ -1,0 +1,23 @@
+#restricted_area.shadow.clearfix
+
+  .notice-decoration.pull-left
+    = image_tag 'restricted_area.jpg', :class => "img-polaroid"
+  
+  .header
+    %h2
+      %i.icon-lock
+      = t('restricted_area.title')
+    %h3
+      = t('restricted_area.subtitle')
+    =link_to t('restricted_area.sign_in'), refinery.new_refinery_user_session_path
+      
+  .clearfix
+  
+  .notice-text
+  
+    .body
+      = Refinery::Page.join_us.html_safe
+  
+    .footer
+      = t('restricted_area.if_already_signed_up')
+      = link_to t('restricted_area.click_to_sign_in'), refinery.new_refinery_user_session_path

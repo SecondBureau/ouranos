@@ -1,6 +1,8 @@
 # encoding: utf-8
 
 task :migrate_legacy_data_to_refinery => :environment do
+  
+  I18n.locale = :fr
 
   include ActionView::Helpers::TextHelper
 
@@ -65,17 +67,24 @@ task :migrate_legacy_data_to_refinery => :environment do
               })
               
   page_contact_page = home_page.children.create(:title => "Contact",
+              :menu_match => "^/contact$",
               :show_in_menu => false,
               :deletable => false)
   page_contact_page.parts.create({
                 :title => "Body",
                 :body => "Page non visible.",
-                :position => 0
+                :position => 2
               })
   page_contact_page.parts.create({
-                :title => "Side Body",
+                :title => "Home",
                 :body => "<p>contact@ape-pekin.com<br/>Boite aux lettres dans le hall du bâtiment A du site principal.</p>",
                 :position => 0
+              })
+              
+  page_contact_page.parts.create({
+                :title => "Join Us",
+                :body => "<p>L’APE est une association de parents bénévoles qui donnent leur temps pour défendre les intérêts de tous les enfants du LFIP et de leurs familles. </p>\r\n<p>Rejoignez-nous et accédez à l'intégralité des articles. <a title=\"Comment adhérer\" href=\"/comment-adherer\">Cliquez ici pour connaitre tous les avantages réservés aux membres</a>.</p>",
+                :position => 1
               })
               
   page_blog = Refinery::Page.create!({
@@ -115,7 +124,7 @@ task :migrate_legacy_data_to_refinery => :environment do
     end 
           
   Page.all.each do |page|
-    refinery_page = Refinery::Page.create(:title => page.title)
+    refinery_page = Refinery::Page.create(:title => page.title, :show_in_menu => true)
     refinery_page.parts.create(:title => "Body", :body => page.content, :position => 0)
   end
         
@@ -126,9 +135,8 @@ task :migrate_legacy_data_to_refinery => :environment do
   end
   
   # Groups
-  
-  Refinery::Role.[]('Member')
-  Refinery::Role.[]('GroupAdmin')
+  Refinery::Role.all.each {|r| r.destroy }
+  %w[Refinery Superuser Member GroupAdmin].each {|r| Refinery::Role.[](r)}
   
   
 

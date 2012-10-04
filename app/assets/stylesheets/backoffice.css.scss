@@ -1,7 +1,7 @@
 @import "bootstrap_and_overrides";
 @import "common";
 
-body.index {
+body.index, body.edit, body.show {
   padding-top:0px;
 }
 
@@ -13,6 +13,12 @@ body.index {
   color: $green;
 }
 
+#public_field {
+  position:absolute;
+  top:0px;
+  left:75%;
+}
+
 /* overrides Bootstrap for refinery */
 .form-actions {
   padding: 0;
@@ -21,3 +27,4 @@ body.index {
 select {
   width: auto;
 }
+

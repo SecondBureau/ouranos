@@ -13,6 +13,9 @@ fr:
     contact: Contact
     modal_notice: Information Importante
     events_of_day: Evénements du Jour
+    sign_in: S'identifier
+    logout: Se déconnecter
+    admin: Administration
   categories:
     title: Dossiers
   posts:
@@ -33,3 +36,9 @@ fr:
     from: du
     to: au
     map_link: Voir sur Google Maps.
+  restricted_area:
+    title: ACCESS RESERVE
+    subtitle: aux membres de l'Association
+    sign_in: Identifiez-vous
+    if_already_signed_up: Si vous êtes déjà membre de l'association,
+    click_to_sign_in: cliquez ici pour vous identifier.
