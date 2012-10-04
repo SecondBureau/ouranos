@@ -443,8 +443,8 @@ ActiveRecord::Schema.define(:version => 20121003115145) do
     t.datetime "updated_at",             :null => false
     t.integer  "group_id"
     t.string   "authentication_token"
-    t.string   "first_name"
-    t.string   "last_name"
+    t.string   "firstname"
+    t.string   "lastname"
     t.string   "position"
   end
 
