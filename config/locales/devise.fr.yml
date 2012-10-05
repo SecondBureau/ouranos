@@ -1,0 +1,9 @@
+# encoding: utf-8
+fr:
+  devise:
+    sessions:
+      refinery_user:
+        signed_out: Vous avez été déconnecté(e).
+    failure:
+      already_authenticated: Vous êtes déjà connecté(e) !
+       

@@ -1,6 +1,8 @@
 Refinery::Blog::Post.class_eval do
   
   include ActionView::Helpers::TextHelper
+  
+  attr_accessible :public
 
   def migrate_access_count(count)
     self.access_count = count

@@ -35,7 +35,11 @@
           =raw tags.collect { |tag| link_to tag, refinery.blog_tagged_posts_path(tag.id, tag.name.parameterize), :class => 'label label-info' }.join(' ')
       
     %section.post_content
-      = @post.body.html_safe
+      - if visible(@post)
+        = @post.body.html_safe
+      - else
+        = blog_post_teaser(@post)
+        = render 'site/restricted_area'
       
     %footer
       

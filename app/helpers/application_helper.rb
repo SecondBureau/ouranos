@@ -8,5 +8,17 @@ module ApplicationHelper
       "home_image.jpg"
     end
   end
+  
+  def fullname (user)
+    unless user.firstname.blank? && user.lastname.blank?
+      [user.firstname, user.lastname].join(' ')
+    else
+      user.username
+    end
+  end
+  
+  def probably_uptodate(date)
+    date > Time.new(Time.now.year, 9, 15)
+  end
 
 end

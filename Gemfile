@@ -44,7 +44,7 @@ gem 'coffee-filter'
 gem 'jquery-rails'
 gem 'bootstrap-sass', '~> 2.0.3'
 gem "twitter-bootstrap-rails"
-#gem 'bootstrap-will_paginate' #breaks refinery admin
+gem 'bootstrap-will_paginate'
 gem 'jquery-ui-rails'
 gem 'bourbon'
 gem 'nokogiri'
@@ -69,6 +69,10 @@ gem 'refinerycms-i18n', '~> 2.0.0'
 gem 'refinerycms-blog', '~> 2.0.0'
 gem 'refinerycms-page-images', '~> 2.0.0'
 gem 'refinerycms-calendar', :git => 'git://github.com/haroldt/refinerycms-calendar.git'
-
-#  gem 'refinerycms-inquiries', '~> 2.0.0'
+gem "refinerycms-settings", "~> 2.0.1"
+gem 'refinerycms-inquiries', '~> 2.0.0'
 #  gem 'refinerycms-search', '~> 2.0.0'
+
+gem 'gibbon'
+gem 'refinerycms-mailchimp', :git => 'git://github.com/mark-secondbureau/refinerycms-mailchimp.git'
+gem 'refinerycms-groups', :git => 'git://github.com/mark-secondbureau/refinerycms-groups.git'

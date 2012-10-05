@@ -7,7 +7,9 @@
 
 %body
 
-  -#= render 'site/demo' unless ::Rails.env.eql?('production')
+  = render 'site/demo' unless ::Rails.env.eql?('production')
+  
+  = render 'site/expired' if current_refinery_user && current_refinery_user.expired?
   
   .navbar.navbar-fixed-top.navbar-inverse
     .navbar-inner

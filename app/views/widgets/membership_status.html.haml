@@ -1,0 +1,13 @@
+#membership-status-container.widget-block
+  %h3.shadow.red
+    = link_to t("home.membership_status"), '#membership-status', :"data-toggle" => "collapse", :"data-parent" => "#membership-status-container" 
+    %i.icon-info-sign.pull-right.icon-white
+  .widget-content-container
+    %ul.widget-content.collapse.shadow{:id => 'membership-status', :class => current_refinery_user.expired? ? 'in' : ''}
+      %ul
+        %br
+        %p
+          = current_refinery_user.expired? ? t('users.membership_expired_since') : t('users.membership_until')
+          %strong= l(current_refinery_user.group.expiration_date, :format => :long)
+          
+      %br

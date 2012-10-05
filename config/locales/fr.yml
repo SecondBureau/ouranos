@@ -8,11 +8,16 @@ fr:
       datetime: "%e %B %Y à %H:%M"
   ok: OK
   close: Fermer
+  canceled: Action abandonnée. Aucune modification n'a été enregistrée.
   home:
     title: Accueil
     contact: Contact
     modal_notice: Information Importante
     events_of_day: Evénements du Jour
+    sign_in: S'identifier
+    logout: Se déconnecter
+    admin: Administration
+    membership_status: Votre adhésion
   categories:
     title: Dossiers
   posts:
@@ -33,3 +38,38 @@ fr:
     from: du
     to: au
     map_link: Voir sur Google Maps.
+  restricted_area:
+    title: ACCESS RESERVE
+    subtitle: aux membres de l'Association
+    sign_in: Identifiez-vous
+    if_already_signed_up: Si vous êtes déjà membre de l'association,
+    click_to_sign_in: cliquez ici pour vous identifier.
+  users:
+    blank_password_keeps_current: Laissez blanc pour conserver le mot de passe actuel.
+    membership_until: Merci de votre soutien! Vous êtes à jour de votre cotisation et membre de l'association jusqu'au
+    membership_expired_since: Vous n'avez pas renouvelé votre adhésion. Vous n'êtes plus membre de l'association depuis le
+    user_helper: Sur cette page, vous pouvez mettre à jour les informations qui concernent votre famille et choisir les membres qui recevront la lettre d'information périodique de l'Association. La mention "admin" indique la ou les personnes de votre famille qui sont autorisés à effectuer ces modifications.
+    membership: Adhésion
+    yourfamily: Votre famille comprend
+    member: membre
+    last_position_updated: Dernière mise à jour
+    positions:
+      maternelle: Maternelle
+      maternelle_ps: Petite Section
+      maternelle_ms: Moyenne Section
+      maternelle_gs: Grande Section
+      primaire: Primaire
+      primaire_cp: CP
+      primaire_ce1: CE1
+      primaire_ce2: CE2
+      primaire_cm1: CM1
+      primaire_cm2: CM2
+      college: Collège
+      college_6: 6ème
+      college_5: 5ème
+      college_4: 4ème
+      college_3: 3ème
+      lycee: Lycée
+      lycee_2: 2nde
+      lycee_1: 1ère
+      lycee_t: Terminale

@@ -4,5 +4,49 @@ fr:
     plugins:
       calendar:
         title: Evénements
-      blog:
+      refinerycms_blog:
         title: Articles
+      refinery-mailchimp:
+        title: Campagnes
+      groups:
+        title: Familles
+    
+    mailchimp:
+      admin:
+        campaigns:
+          index:
+            set_api_key: Vous devez configurer Mailchimp avant de pouvoir l'utiliser.
+            
+    
+    groups:
+      cant_delete_self: Vous ne pouvez pas vous supprimer vous-même !
+      user_deleted_successfully: Le membre a été supprimé de votre famille! Snif.
+      user_deleted_from_group_successfully: Le membre a été déplacé dans le groupe "Guests"
+      not_allowed_to_create_new_group: Vous n'êtes pas autorisé à créer un groupe
+      admin:
+        groups:
+          group:
+            add_user: Ajouter un membre
+
+    
+    blog:
+      admin:
+        posts:
+          form:
+            save_as_public: Public
+            custom_url: Custom Url
+            custom_url_help: Generate the url for the blog post from this text instead of the title.
+            source_url: Source Url
+            source_url_help: Stores the url for the source of the post material.
+            source_url_title: Source Url Title
+            source_url_title_help: Title for the source url for the post.
+            author: Author
+            author_help: Set which user this post will show as the author.
+            copy_body: Dupliquer le corps.
+            copy_body_help: Dupliquez le corps principal puis personnalisez le.  Si le teaser reste vide, c'est un extrait du corps qui sera affiché.
+
+  activerecord:
+    attributes:
+      refinery/blog_post:
+        teaser: Teaser
+        
