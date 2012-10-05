@@ -12,7 +12,7 @@ Refinery::Blog::PostsHelper.module_eval do
   end
   
   def visible(post)
-    post.public? || current_refinery_user
+    post.public? || (current_refinery_user && !current_refinery_user.expired?)
   end
 
 end

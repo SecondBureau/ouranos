@@ -1,0 +1,8 @@
+/
+  replace '#site_bar'
+
+.navbar.navbar-fixed-top.navbar-inverse
+  .navbar-inner
+    .container
+      = render "site/header"
+

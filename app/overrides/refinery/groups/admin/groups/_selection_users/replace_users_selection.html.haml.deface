@@ -1,0 +1,4 @@
+/
+  replace_contents '.users_selection'
+
+= render '/refinery/groups/admin/groups/replace_users_selection', :selecting => selecting

@@ -7,6 +7,8 @@ Refinery::User.class_eval do
     # Groups
     belongs_to :group, :class_name => "Refinery::Groups::Group"
     attr_accessible :group_id
+    attr_accessible :group_admin
+    delegate :expired?, :to => :group, :allow_nil => true
     
     # MailChimp
     before_create   :subscribe
@@ -19,11 +21,15 @@ Refinery::User.class_eval do
     attr_accessible :authentication_token
     before_save :reset_authentication_token, :unless => :authentication_token
     
-    # Bugfix
-    #before_validation :parameterize_username
-
     # new attributes
-    attr_accessible :position, :firstname, :lastname
+    before_validation :update_position_updated_at, :if => :position_changed?
+    attr_accessible :position, :position_updated_at, :firstname, :lastname, :optin_newsletters
+    
+    
+    # Hack : Allow Empty Emails on Front End
+    EMPTY_DOMAIN_NAME = 'example.org'
+    before_validation :hack_empty_email, :unless => :optin_newsletters
+    
 
     #TODO
     def is_expired?
@@ -34,7 +40,6 @@ Refinery::User.class_eval do
     def slug
       self.username
     end
-    
     
     def subscribe
       return if (group.nil? || bypass_mailchimp)
@@ -89,13 +94,16 @@ Refinery::User.class_eval do
                                   :merge_vars     => merge_vars)
       end
     end
-    
 
     
     private
     
-    def parameterize_username
-      #self.username = username.parameterize
+    def hack_empty_email
+      self.email = "#{username}@#{EMPTY_DOMAIN_NAME}" if email.blank?
+    end
+    
+    def update_position_updated_at
+      self.position_updated_at = Time.now
     end
     
 

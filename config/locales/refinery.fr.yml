@@ -18,6 +18,17 @@ fr:
             set_api_key: Vous devez configurer Mailchimp avant de pouvoir l'utiliser.
             
     
+    groups:
+      cant_delete_self: Vous ne pouvez pas vous supprimer vous-même !
+      user_deleted_successfully: Le membre a été supprimé de votre famille! Snif.
+      user_deleted_from_group_successfully: Le membre a été déplacé dans le groupe "Guests"
+      not_allowed_to_create_new_group: Vous n'êtes pas autorisé à créer un groupe
+      admin:
+        groups:
+          group:
+            add_user: Ajouter un membre
+
+    
     blog:
       admin:
         posts:
@@ -38,3 +49,4 @@ fr:
     attributes:
       refinery/blog_post:
         teaser: Teaser
+        

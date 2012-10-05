@@ -1,9 +1,7 @@
 @import "bootstrap_and_overrides";
 @import "common";
 
-body.index, body.edit, body.show {
-  padding-top:0px;
-}
+
 
 .color-private {
   color: $red;
@@ -27,4 +25,31 @@ body.index, body.edit, body.show {
 select {
   width: auto;
 }
+
+.form-horizontal {
+  label, .label_with_help {
+    margin-top: 0px;
+  }
+  
+  .form-actions {
+    background-color: white;
+    border:none;
+    margin: 20px 0 20px 0;
+    padding: 0 0 0 160px;
+  }
+  
+  input.button {
+      
+  }
+}
+
+#content .form-actions {
+  background-color: white;
+  border:none;
+  margin: 20px 0 20px 0;
+  padding: 0 0 0 160px;
+  width: auto;
+}
+
+
 

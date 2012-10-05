@@ -1,0 +1,4 @@
+#expired_info.shadow{:onmouseover => "this.style.display='none'"}
+  Votre adhésion est expirée depuis le 
+  = l(current_refinery_user.group.expiration_date, :format => :long)
+  Vous n'avez plus accès aux articles réservés aux membres.

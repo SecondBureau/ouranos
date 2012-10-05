@@ -1,9 +1,11 @@
 %a.btn.btn-navbar(data-target=".nav-collapse" data-toggle="collapse")
   - 3.times do 
     %span.icon-bar
-.home-link.pull-left= link_to image_tag("xue.png", :height => 29), refinery.root_path, {:title => t("home.title")}  
+%ul.nav.pull-left
+  %nav.menu.nav
+    %li= link_to image_tag("xue.png", :height => 20), refinery.root_path, {:title => t("home.title"), :class => 'home-link'}  
 %ul.nav.pull-right
-  %nav.menu.clearfix.nav
+  %nav.menu.nav
     %li
       - if current_refinery_user
         = link_to "<i class='icon-user'></i> #{current_refinery_user.username}".html_safe, refinery.destroy_refinery_user_session_path, {:title => t("home.logout")}
@@ -14,11 +16,15 @@
       %li
         = link_to image_tag("gear.png", :height => 29), refinery.admin_root_path, {:title => t("home.admin")}  
     
+    - if current_refinery_user && current_refinery_user.has_role?('GroupAdmin')
+      %li
+        = link_to image_tag("gear.png", :height => 29), refinery.groups_admin_group_path(current_refinery_user.group), {:title => t("home.admin")}
+    
     = render 'site/locale_switcher'
 
 .collapse.nav-collapse
   %ul.nav
-    = render(:partial => "/refinery/menu", :locals => { :dom_id => 'menu', :css => 'menu' })
+    = render(:partial => "/refinery/menu", :locals => { :dom_id => 'pages_menu', :css => 'menu' })
   
 
       

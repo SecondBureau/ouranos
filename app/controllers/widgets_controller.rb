@@ -21,6 +21,9 @@ class WidgetsController < ActionController::Base
         @widgets << 'modal_notice' 
         cookies[:modal_notice_timestamp] = Time.now.to_i
       end
+      if current_refinery_user 
+        @widgets << 'membership_status'
+      end
     else
       @widgets = %w[calendar categories popular_posts recent_comments contact]
     end

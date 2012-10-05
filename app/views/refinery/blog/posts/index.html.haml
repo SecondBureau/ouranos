@@ -15,7 +15,7 @@
 
 
 - content_for :body_content_right_prepend do 
-  = raw @page.content_for(Refinery::Pages.default_parts.second.to_sym)
+  = raw @page.content_for(Refinery::Pages.default_parts.second.to_sym) rescue nil
 
 -#= render :partial => '/refinery/blog/shared/body_content_right'
 

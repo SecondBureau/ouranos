@@ -1,0 +1,33 @@
+#records
+  %h1= "Famille #{@group.name}"
+  
+  - if current_refinery_user.has_role?('GroupAdmin')
+    -if @group.expiration_date > Date.today
+      %p
+        %i.icon-info-sign.color-public
+        = t('users.membership_until')
+        %strong= l(@group.expiration_date, :format => :long)
+      %p= t('users.user_helper') 
+    - else
+      %p
+        %i.icon-info-sign.color-private
+        = t('users.membership_expired_since')
+        %strong= l(@group.expiration_date, :format => :long)
+      
+    %p
+      = t('users.yourfamily')
+      = pluralize(@group.users.count, t('users.member'))
+      \: 
+  - else
+    %p
+      %i{:class => (@group.expiration_date > Date.today ? 'icon-thumbs-up color-public' : 'icon-thumbs-down color-private')}
+      = t('users.membership')
+      \:
+      = l(@group.expiration_date, :format => :long)
+    %p{:id => "group_users_count"}= pluralize(@group.users.count, t('users.member'))
+    
+    %p= @group.description
+  
+  = render "users", :selecting => false
+
+= yield :actions
