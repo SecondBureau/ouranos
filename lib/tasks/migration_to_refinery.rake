@@ -213,7 +213,7 @@ task :migrate_legacy_data_to_refinery => :environment do
       refinery_user.add_role(:refinery)
       refinery_user.group = group
       refinery_user.bypass_mailchimp = true
-      refinery_user.update_attributes!(:username => username, :password => password, :password_confirmation => password, :firstname => person.firstname, :lastname => person.lastname, :email => email, :position => person.fa_type, :position_updated_at => person.updated_at, :optin_newsletter => !person.email.nil?)
+      refinery_user.update_attributes!(:username => username, :password => password, :password_confirmation => password, :firstname => person.firstname, :lastname => person.lastname, :email => email, :position => person.fa_type, :position_updated_at => person.updated_at, :optin_newsletters => !person.email.nil?)
       
     rescue Exception => e
       puts "===== ERREUR == #{e}"
