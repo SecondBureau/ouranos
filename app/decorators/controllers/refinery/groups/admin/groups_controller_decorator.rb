@@ -1,5 +1,8 @@
 Refinery::Groups::Admin::GroupsController.class_eval do
   
+
+  helper ::MenuHelper
+  
   def index
     if current_refinery_user.has_role?("GroupAdmin") && !current_refinery_user.has_role?("Superuser") && !current_refinery_user.has_role?("Bureau")
       redirect_to refinery.groups_admin_group_path(current_refinery_user.group) and return
