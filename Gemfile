@@ -52,10 +52,10 @@ gem 'sanitize'
 gem 'deface'
 
 # PDF Export
-gem "doc_raptor"
+#gem "doc_raptor"
 
 # Excel
-gem 'roo'
+#gem 'roo'
 
 # Performances
 gem 'thin'
@@ -69,7 +69,7 @@ gem 'refinerycms-i18n', '~> 2.0.0'
 gem 'refinerycms-blog', '~> 2.0.0'
 gem 'refinerycms-page-images', '~> 2.0.0'
 gem 'refinerycms-calendar', :git => 'git://github.com/haroldt/refinerycms-calendar.git'
-gem "refinerycms-settings", "~> 2.0.1"
+gem "refinerycms-settings", "2.0.1"
 gem 'refinerycms-inquiries', '~> 2.0.0'
 #  gem 'refinerycms-search', '~> 2.0.0'
 
