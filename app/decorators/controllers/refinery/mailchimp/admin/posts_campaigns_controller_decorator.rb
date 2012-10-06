@@ -1,26 +1,22 @@
+# encoding: utf-8
+
 Refinery::Mailchimp::Admin::PostsCampaignsController.class_eval do
+  
+  helper Refinery::Blog::PostsHelper
   
   protected
 
     def set_campaign_body
-      if params[:posts_campaign][:nltype] == "1"
-        @edition = Refinery::Blog::Edition.find params[:posts_campaign][:edito_id]
-        @posts = @edition.content_posts
-        @edito = @edition.edito
-        @categories_posts = @posts.to_a.group_by{|post| post.categories.first.title }
-        body_html = render_to_string(:partial => "weekly_newsletter")
-      elsif params[:posts_campaign][:nltype] == "2"
-        @edito = Refinery::Blog::Post.find params[:posts_campaign][:edito_id]
-        body_html = render_to_string(:partial => "free_edito_newsletter")
-      elsif params[:posts_campaign][:nltype] == "3"
-        posts_ids = params[:posts_campaign][:posts].split(",")
-        @posts = Refinery::Blog::Post.where(:id => posts_ids)
-        params[:posts_campaign][:posts] = posts_ids
-        @categories_posts = @posts.to_a.group_by{|post| post.categories.any? ? post.categories.first.title : 'DEFAULT_CATEGORY' }  #BUGFIX
-        body_html = render_to_string(:partial => "free_posts_newsletter")
-      end
-      params[:posts_campaign][:body] = body_html
+      posts_ids = params[:posts_campaign][:posts].split(",")      
+      @edito = Refinery::Page.edito
+      @posts = Refinery::Blog::Post.where(:id => posts_ids)      
+      body_posts = render_to_string(:partial => "newsletter_posts")
+      body_edito = render_to_string(:partial => "newsletter_edito")
+      preheader_content = "Votre lettre d'information de l'association des parents d'élèves."
+      params[:posts_campaign][:posts] = posts_ids
+      params[:posts_campaign][:body]  = {:html_preheader_content => preheader_content, :html_body_edito => body_edito, :html_body_posts => body_posts}
     end
+    
   
   
   

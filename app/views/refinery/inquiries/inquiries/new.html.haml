@@ -1,0 +1,33 @@
+- content_for :body_content_title do
+  %i.icon-comment
+  = 'Contact'
+  
+- content_for :body_content_left do
+  
+  .inquiries
+    = form_for [refinery, :inquiries, @inquiry] do |f|
+      = render :partial => "/refinery/admin/error_messages", :locals => { :object => @inquiry, :include_object_name => true }
+      
+      .field
+        = f.required_label :name, :class => 'placeholder-fallback'
+        = f.text_field :name, :class => 'text', :required => 'required', :placeholder => t('name', :scope => 'activerecord.attributes.refinery/inquiries/inquiry')
+      
+      .field
+        = f.required_label :email, :class => 'placeholder-fallback'
+        = f.email_field :email, :class => 'text email', :required => 'required', :placeholder => t('email', :scope => 'activerecord.attributes.refinery/inquiries/inquiry')
+        
+      .field
+        = f.label :phone, :class => 'placeholder-fallback'
+        = f.text_field :phone, :class => 'text phone', :placeholder => t('phone', :scope => 'activerecord.attributes.refinery/inquiries/inquiry')
+      
+      .field.message_field
+        = f.required_label :message, :class => 'placeholder-fallback'
+        = f.text_area :message, :rows => 8, :required => 'required', :placeholder => t('message', :scope => 'activerecord.attributes.refinery/inquiries/inquiry')
+        
+      .actions
+        = f.submit t('.send')
+
+= render :partial => "/refinery/content_page", :locals => {:hide_sections => [:home, :join_us]}
+
+
+

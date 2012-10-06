@@ -1,0 +1,45 @@
+- if post.live?
+  
+  - categories = post.categories
+  - icon_url_path = 'https://d2q0qd5iz04n9u.cloudfront.net/_ssl/proxy.php/http/gallery.mailchimp.com/62fb7fb3c9ad08de24513aee4/images/'
+  
+  %tr
+    %td{:colspan => 3}
+      %br
+      %h2
+        = image_tag "#{icon_url_path}category_icon.gif", :style => "width: 16px; height: 16px;", :height => 16, :width => 16, :alt => "0"
+        = link_to post.title, URI.unescape(refinery.blog_post_url(post, :auth_token => '*|TOKEN|*'))
+  
+  %tr
+    %td{:valign => :top, :rowspan => 3}
+      %p.badge
+        %span
+          = l(post.published_at, :format => '%e')
+        %br
+        = l(post.published_at, :format => '%b')
+    
+    %td
+    %td
+      - if categories.any?
+        =raw post.categories.collect { |category| link_to category.title, URI.unescape(refinery.blog_category_url(category, :auth_token => '*|TOKEN|*')), :class => 'category' }.join(' ')
+  
+  %tr
+    %td
+      &nbsp;
+    %td
+      = blog_post_teaser(post)
+      
+  %tr
+    %td
+      &nbsp;
+    %td{:align => :right}
+      - if post.author.present?
+        = image_tag "#{icon_url_path}icon_user.gif", :style => "width: 20px; height: 13px;", :height => 13, :width => 20, :alt => "*"
+        = "#{t('by', :scope => 'refinery.blog.posts.show')} #{post.author.username.capitalize}"
+      = image_tag "#{icon_url_path}icon_read_more.gif", :style => "width: 22px; height: 13px;", :height => 13, :width => 22, :alt => "+"
+      = link_to t('read_more', :scope => 'refinery.blog.shared.posts'), URI.unescape(refinery.blog_post_url(post, :auth_token => '*|TOKEN|*'))
+      
+  %tr.post_separator
+    %td{:colspan => 3}
+      %br
+      

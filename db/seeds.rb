@@ -20,3 +20,6 @@ Refinery::Mailchimp::Engine.load_seed
 
           # Added by Refinery CMS Groups extension
           Refinery::Groups::Engine.load_seed
+
+# Added by Refinery CMS Inquiries engine
+Refinery::Inquiries::Engine.load_seed
