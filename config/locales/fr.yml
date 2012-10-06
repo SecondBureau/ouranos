@@ -54,6 +54,7 @@ fr:
     member: membre
     last_position_updated: Dernière mise à jour
     positions:
+      unknown: Classe inconnue
       maternelle: Maternelle
       maternelle_ps: Petite Section
       maternelle_ms: Moyenne Section

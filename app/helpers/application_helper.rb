@@ -18,7 +18,7 @@ module ApplicationHelper
   end
   
   def probably_uptodate(date)
-    date > Time.new(Time.now.year, 9, 15)
+    date > Time.new(Time.now.year, 8, 15)
   end
 
 end

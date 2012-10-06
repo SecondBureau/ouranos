@@ -1,7 +1,7 @@
 Refinery::Groups::Admin::GroupsController.class_eval do
   
   def index
-    if current_refinery_user.has_role?("GroupAdmin") && !current_refinery_user.has_role?("Superuser")
+    if current_refinery_user.has_role?("GroupAdmin") && !current_refinery_user.has_role?("Superuser") && !current_refinery_user.has_role?("Bureau")
       redirect_to refinery.groups_admin_group_path(current_refinery_user.group) and return
     end 
     if params[:search]
@@ -15,7 +15,7 @@ Refinery::Groups::Admin::GroupsController.class_eval do
   private
   
   def find_current_group
-    if current_refinery_user.has_role?("GroupAdmin") && !current_refinery_user.has_role?("Superuser")
+    if current_refinery_user.has_role?("GroupAdmin") && !current_refinery_user.has_role?("Superuser") && !current_refinery_user.has_role?("Bureau")
       @group = current_refinery_user.group
     else
       @group = Refinery::Groups::Group.find params[:id]

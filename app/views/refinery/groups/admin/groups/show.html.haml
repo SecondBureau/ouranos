@@ -1,7 +1,7 @@
 #records
   %h1= "Famille #{@group.name}"
   
-  - if current_refinery_user.has_role?('GroupAdmin')
+  - if current_refinery_user.has_role?('GroupAdmin') && !current_refinery_user.has_role?("Superuser") && !current_refinery_user.has_role?("Bureau")
     -if @group.expiration_date > Date.today
       %p
         %i.icon-info-sign.color-public

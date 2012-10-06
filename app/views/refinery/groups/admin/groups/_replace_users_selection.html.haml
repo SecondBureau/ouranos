@@ -11,7 +11,7 @@
         - if user.optin_newsletters?
           %i.icon-envelope
         %strong= fullname(user)
-        %span.preview= (user.email[-11,11].eql?(Refinery::User::EMPTY_DOMAIN_NAME) ? '' : user.email)
+        %span.preview= user.unhacked_email
         - if user.has_role?("GroupAdmin") 
           %span.label.label-inverse Admin 
         - if !user.position.blank? && user.position_updated_at

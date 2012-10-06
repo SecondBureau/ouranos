@@ -6,12 +6,16 @@ Refinery::Page.class_eval do
   
   def self.home_contact
     #(Refinery::Page.by_slug('contact').first.content_for(:side_body) if Refinery::Page.by_slug('contact').first) || ""
-    (Refinery::Page.where(:menu_match => '^/contact$').first.content_for(:home) if Refinery::Page.where(:menu_match => '^/contact$').first) || ""
+    (Refinery::Page.where(:menu_match => '^/(inquiries|contact).*$').first.content_for(:home) if Refinery::Page.where(:menu_match => '^/(inquiries|contact).*$').first) || ""
   end
   
   def self.join_us
     #(Refinery::Page.by_slug('contact').first.content_for(:side_body) if Refinery::Page.by_slug('contact').first) || ""
-    (Refinery::Page.where(:menu_match => '^/contact$').first.content_for(:join_us) if Refinery::Page.where(:menu_match => '^/contact$').first) || ""
+    (Refinery::Page.where(:menu_match => '^/(inquiries|contact).*$').first.content_for(:join_us) if Refinery::Page.where(:menu_match => '^/(inquiries|contact).*$').first) || ""
+  end
+  
+  def self.edito
+    (Refinery::Page.where(:menu_match => '^/$').first.content_for(:body) if Refinery::Page.where(:menu_match => '^/$').first) || ""
   end
   
 end
