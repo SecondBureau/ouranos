@@ -24,7 +24,8 @@
 
 .collapse.nav-collapse
   %ul.nav
-    = render(:partial => "/refinery/menu", :locals => { :dom_id => 'pages_menu', :css => 'menu' })
+    - cache "#{locale}/menu/#{@latest_page_etag}" do
+      = render(:partial => "/refinery/menu", :locals => { :dom_id => 'pages_menu', :css => 'menu' })
   
 
       

@@ -1,4 +1,5 @@
 %div{:id => "widget_#{id}", :class => 'widget block'}
   .loading
 :javascript
-  $("#widget_#{id}").load("/widgets/#{id}?");
+  $("#widget_#{id}").load("/widgets/#{id}?po=#{latest_post_etag}&e=#{latest_event_etag}&pa=#{latest_page_etag}");
+

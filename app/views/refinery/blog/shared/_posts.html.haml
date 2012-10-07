@@ -1,0 +1,2 @@
+- cache "#{locale}/posts/#{posts.first.id}/#{posts.last.id}/#{Refinery::Blog::Post.latest.etag}" do
+  = render :partial => "/refinery/blog/shared/post", :collection => posts

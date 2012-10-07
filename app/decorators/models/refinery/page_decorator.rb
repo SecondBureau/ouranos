@@ -18,4 +18,13 @@ Refinery::Page.class_eval do
     (Refinery::Page.where(:menu_match => '^/$').first.content_for(:body) if Refinery::Page.where(:menu_match => '^/$').first) || ""
   end
   
+  # for cache management
+  def self.latest
+    unscoped.order('updated_at desc').first
+  end
+
+  def etag
+    updated_at.to_i
+  end
+  
 end

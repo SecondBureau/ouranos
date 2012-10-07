@@ -15,5 +15,14 @@ Refinery::Blog::Post.class_eval do
   def self.popular(count)
     unscoped.live.order("access_count * access_count / ((current_date::date - published_at::date)+1) desc").limit(count)
   end
+  
+  # for cache management
+  def self.latest
+    unscoped.live.order('updated_at desc').first
+  end
+
+  def etag
+    updated_at.to_i
+  end
 
 end

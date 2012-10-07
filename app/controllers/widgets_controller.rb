@@ -8,10 +8,13 @@ class WidgetsController < ActionController::Base
   def show
 
     @widget = params[:id]
+    @latest_post_etag = params[:po]
+    @latest_event_etag = params[:e]
+    @latest_page_etag = params[:pa]
     
     case @widget
     when 'calendar', 'events_of_day'
-      @day = Time.parse(params[:d]) rescue Time.now
+      @day = Time.zone.parse(params[:d]) rescue Time.zone.now
     end
 
     case params[:s]

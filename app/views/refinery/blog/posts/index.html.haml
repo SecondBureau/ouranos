@@ -6,7 +6,7 @@
     %section{:id => "blog_posts"}
   
       #posts
-        = render :partial => "/refinery/blog/shared/post", :collection => @posts
+        = render :partial => "/refinery/blog/shared/posts", :locals => {:posts => @posts}
       = will_paginate @posts
 
   - else

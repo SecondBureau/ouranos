@@ -2,7 +2,7 @@
   %h1= "Famille #{@group.name}"
   
   - if current_refinery_user.has_role?('GroupAdmin') && !current_refinery_user.has_role?("Superuser") && !current_refinery_user.has_role?("Bureau")
-    -if @group.expiration_date > Date.today
+    -if @group.expiration_date > Time.zone.today
       %p
         %i.icon-info-sign.color-public
         = t('users.membership_until')
@@ -20,7 +20,7 @@
       \: 
   - else
     %p
-      %i{:class => (@group.expiration_date > Date.today ? 'icon-thumbs-up color-public' : 'icon-thumbs-down color-private')}
+      %i{:class => (@group.expiration_date > Time.zone.today ? 'icon-thumbs-up color-public' : 'icon-thumbs-down color-private')}
       = t('users.membership')
       \:
       = l(@group.expiration_date, :format => :long)

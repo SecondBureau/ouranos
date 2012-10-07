@@ -18,5 +18,14 @@ Refinery::Calendar::Event.class_eval do
   def self.of_the_day(day=Time.now)
     Refinery::Calendar::Event.where('(start_at >= ? and start_at <= ?) or (end_at >= ? and end_at <= ?) or (start_at < ? and end_at > ?)', day.beginning_of_day, day.end_of_day, day.beginning_of_day, day.end_of_day, day.beginning_of_day, day.end_of_day) 
   end
+  
+  # for cache management
+  def self.latest
+    unscoped.order('updated_at desc').first
+  end
+
+  def etag
+    updated_at.to_i
+  end
 
 end
