@@ -135,9 +135,11 @@
 	@theme page
 	*/
 		#templatePreheader{
-			/*@editable*/background-color:#000000;
+			/*@editable*/background-color:#222222;
 			/*@editable*/border-bottom:0;
 		}
+		
+		
 	/*
 	@tab Header
 	@section preheader text
@@ -294,7 +296,7 @@
 	@theme footer
 	*/
 		body,#bodyTable{
-			/*@editable*/background-color:#F4F4F4;
+			/*@editable*/background-color:#7D7874;
 		}
 	/*
 	@tab Footer
@@ -322,6 +324,27 @@
 		.footerContent img{
 			display:inline;
 		}
+		
+		/*
+  	@tab SBFooter
+  	@section footer link
+  	@tip Set the styling for your email's footer links. Choose a color that helps them stand out from your text.
+  	*/
+  		#templateSecondBureauFooter {
+  		  /*@editable*/background-color:#9A0606;
+  		  /*@editable*/color:#ffffff;
+  		  text-align:center;
+  		  font-size: 10px;
+  		  /*@editable*/font-family:"Helvetica Neue",​Helvetica,​Arial,​sans-serif;
+  		}
+  		
+  		#templateSecondBureauFooter a {
+  		  /*@editable*/color:#ffffff;
+  		  font-size: 10px;
+  		  /*@editable*/font-family:"Helvetica Neue",​Helvetica,​Arial,​sans-serif;
+  		}
+  		
+  		
 	@media only screen and (max-width: 480px){
 		body,table,td,p,a,li,blockquote{
 			-webkit-text-size-adjust:none !important;
@@ -463,94 +486,110 @@
 		}
 
 }</style></head>
-    <body leftmargin="0" marginwidth="0" topmargin="0" marginheight="0" offset="0">
-    	<center>
-        	<table border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="bodyTable">
-            	<tr>
-                	<td align="center" valign="top">
-                    	<!-- // BEGIN PREHEADER -->
-                        <table border="0" cellpadding="10" cellspacing="0" width="100%" id="templatePreheader">
-                        	<tr>
-                            	<td align="center" valign="top">
-                                	<table border="0" cellpadding="0" cellspacing="0" width="600">
-                                    	<tr>
-                                        	<td valign="top" class="preheaderContent" mc:edit="preheader_content">
-                                            	Extrait visible sur certains lecteurs.
-                                            </td>
-                                            <!-- *|IFNOT:ARCHIVE_PAGE|* -->
-											<td valign="top" width="220" class="preheaderContent" style="padding-left:20px;" mc:edit="preheader_links">
-                                                Cet email n'est pas lisible?<br><a href="*|ARCHIVE|*" target="_blank">Ouvrez le dans une nouvelle fenêtre.</a>.
-                                            </td>
-											<!-- *|END:IF|* -->
-                                        </tr>
-                                    </table>
-                                </td>
-                            </tr>
-                        </table>
-                        <!-- END PREHEADER \\ -->
-                    	<!-- // BEGIN TEMPLATE SECTIONS -->
-                        <table border="0" cellpadding="0" cellspacing="0" width="100%" class="templatePage">
-                        	<tr>
-                            	<td align="center" valign="top">
-                                	<!-- // BEGIN HEADER -->
-                                	<table border="0" cellpadding="0" cellspacing="0" width="100%">
-                                    	<tr>
-                                        	<td align="center" valign="top" id="templateHeader">
-                                            	<table border="0" cellpadding="0" cellspacing="0" width="600" class="templateContainer">
-                                                	<tr>
-                                                        <td class="headerContent">
-                                                            	<!-- // Begin Module: Standard Header Image \\ -->
-                                                            
-                                                            	<img src="http://gallery.mailchimp.com/62fb7fb3c9ad08de24513aee4/images/APE_LOGO.png" style="max-width:600px;" id="headerImage campaign-icon" mc:label="header_image" mc:edit="header_image" mc:allowdesigner="" mc:allowtext="">
-                                                            	<!-- // End Module: Standard Header Image \\ -->
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                    <!-- END HEADER \\ -->
-                                </td>
-                            </tr>
-                        	<tr>
-                            	<td align="center" valign="top">
-                                	<!-- // BEGIN BODY -->
-                                	<table border="0" cellpadding="0" cellspacing="0" width="100%">
-                                    	<tr>
-                                        	<td align="center" valign="top" id="templateBody">
-                                            	<table border="0" cellpadding="0" cellspacing="0" width="600" class="templateContainer">
-                                                	<tr>
-                                                    <td valign="top" class="bodyContent" mc:edit="body_edito">
-                                                      <strong>Chers Membres,</strong>
-                                                      <br>
-                                                      Ce texte, y compris la ligne qui précède, sera remplacé par l'édito.
-                                                    </td>
-                                                  </tr>
-                                                  <tr>
-                                                    <td valign="top" class="bodyContent" mc:edit="body_posts">
-                                                            	Ce texte sera remplacé par les articles sélectionnés.
-                                                    </td>
-                                                  </tr>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                    <!-- END BODY \\ -->
-                                </td>
-                            </tr>
-                        	<tr>
-                            	<td align="center" valign="top">
-                                	<!-- // BEGIN FOOTER -->
-                                    <!-- END FOOTER \\ -->
-                                </td>
-                            </tr>
-                        </table>
-                        <!-- END TEMPLATE SECTIONS \\ -->
+
+  <body leftmargin="0" marginwidth="0" topmargin="0" marginheight="0" offset="0">
+    <center>
+    <table border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="bodyTable">
+      <tr>
+        <td align="center" valign="top">
+          
+          <!-- // BEGIN PREHEADER -->
+          <table border="0" cellpadding="10" cellspacing="0" width="100%" id="templatePreheader">
+            <tr>
+              <td align="center" valign="top">
+                <table border="0" cellpadding="0" cellspacing="0" width="600">
+                  <tr>
+                    <td valign="top" class="preheaderContent" mc:edit="preheader_content">Extrait visible sur certains lecteurs.</td>
+                    <!-- *|IFNOT:ARCHIVE_PAGE|* -->
+                    <td valign="top" width="220" class="preheaderContent" style="padding-left:20px;" mc:edit="preheader_links">
+                      Cet email n'est pas lisible?<br><a href="*|ARCHIVE|*" target="_blank">Ouvrez le dans une nouvelle fenêtre.</a>.
                     </td>
-                </tr>
-            </table>
-        </center>
-    </body>
+                    <!-- *|END:IF|* -->
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+          <!-- END PREHEADER \\ -->
+          
+          <!-- // BEGIN TEMPLATE SECTIONS -->
+          <table border="0" cellpadding="0" cellspacing="0" width="100%" class="templatePage">
+            <tr>
+              <td align="center" valign="top">
+                <!-- // BEGIN HEADER -->
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                  <tr>
+                    <td align="center" valign="top" id="templateHeader">
+                      <table border="0" cellpadding="0" cellspacing="0" width="600" class="templateContainer">
+                        <tr>
+                          <td class="headerContent">
+                            <!-- // Begin Module: Standard Header Image \\ -->
+                            <img src="http://gallery.mailchimp.com/62fb7fb3c9ad08de24513aee4/images/APE_LOGO.png" style="max-width:600px;" id="headerImage campaign-icon" mc:label="header_image" mc:edit="header_image" mc:allowdesigner="" mc:allowtext="">
+                            <!-- // End Module: Standard Header Image \\ -->
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+                <!-- END HEADER \\ -->
+              </td>
+            </tr>
+            <tr>
+              <td align="center" valign="top">
+                <!-- // BEGIN BODY -->
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                  <tr>
+                    <td align="center" valign="top" id="templateBody">
+                      <table border="0" cellpadding="0" cellspacing="0" width="600" class="templateContainer">
+                        <tr>
+                          <td valign="top" class="bodyContent" mc:edit="body_edito">
+                            <strong>Chers Membres,</strong>
+                            <br>
+                            Ce texte, y compris la ligne qui précède, sera remplacé par l'édito.
+                          </td>
+                        </tr>
+                        <tr>
+                          <td valign="top" class="bodyContent" mc:edit="body_posts">
+                            Ce texte sera remplacé par les articles sélectionnés.
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            &nbsp;
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+                <!-- END BODY \\ -->
+              </td>
+            </tr>
+          </table>
+          <!-- END TEMPLATE SECTIONS \\ -->
+          
+          <!-- // BEGIN FOOTER SECOND BUREAU -->
+          <table border="0" cellpadding="10" cellspacing="0" width="100%" id="templateSecondBureauFooter">
+            <tr>
+              <td align="center" valign="top">
+                <table border="0" cellpadding="0" cellspacing="0" width="600" class="templateContainer">
+                  <tr>
+                    <td  align="center">
+                      <a href='http://www.secondbureau.com'><img alt="Second Bureau est une agence de Conseil en Marketing Digital" height="50" src="https://d2q0qd5iz04n9u.cloudfront.net/_ssl/proxy.php/http/gallery.mailchimp.com/62fb7fb3c9ad08de24513aee4/images/logo_secondbureau.png" style="width: 190px; height: 50px;" width="190" /></a>
+                      <p><a href='http://www.secondbureau.com'>Second Bureau</a> est une agence de Conseil en Marketing Digital de Paris à Pékin</p>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+          <!-- END FOOTER SECOND BUREAU \\ -->
+        </td>
+      </tr>
+    </table>
+    </center>
+  </body>
 </html>
 
 

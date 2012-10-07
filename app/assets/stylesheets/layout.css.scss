@@ -1,5 +1,18 @@
 
 
+.footer .navbar-inner {
+    @include background(linear-gradient(#9A0606, #850101) left repeat);
+    border-color: #252525;
+}
+
+.footer center.powered_by {
+  padding-top:10px;
+}
+
+.container .content .row {
+  padding-bottom: 60px;
+}
+
 .navbar .nav > li > a.locale-switcher { 
   padding:10px 15px; 
 }
