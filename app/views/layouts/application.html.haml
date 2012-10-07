@@ -27,12 +27,14 @@
               = link_to image_tag("APE-LOGO.png"), refinery.root_path, {:title => t("home.title")}
         .span8.light-grey.shadow
           = bootstrap_flash
-          #site_image.hidden-phone= image_tag(banner_image_url, :width => 620, :height => 190) 
+          #site_image.hidden-phone= image_tag(banner_image_url) 
           = yield
         
 
-  %footer
-    = render "site/footer"
+  .footer.navbar.navbar-fixed-bottom.navbar-inverse
+    .navbar-inner
+      .container
+        = render "site/footer"
       
   = render "/refinery/javascripts"
   

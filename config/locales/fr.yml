@@ -6,6 +6,7 @@ fr:
       comment: "%e %B %Y"
       event: "%e %B %Y"
       datetime: "%e %B %Y à %H:%M"
+  powered_by: Ce site a été conçu et réalisé par SecondBureau, agence de Conseil en Marketing Digital à Pékin et à Paris.
   ok: OK
   close: Fermer
   canceled: Action abandonnée. Aucune modification n'a été enregistrée.
