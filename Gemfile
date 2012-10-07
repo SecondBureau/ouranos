@@ -24,7 +24,7 @@ group :development, :test do
   gem 'libnotify'
 end
 
-group :production, :demo do
+group :production do
  gem 'newrelic_rpm'
  gem 'fog'
  gem 'memcachier'
