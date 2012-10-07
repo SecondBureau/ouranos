@@ -1,12 +1,6 @@
 module MenuHelper
 
-  def link_to_switch_locale( locale, trigger=false )
-    uparams = params.dup
-    uparams[:locale] = locale
-    options = {:title => locale}
-    options = options.merge({:class => "dropdown-toggle locale-switcher", :"data-toggle" => "dropdown", :"data-target" => "#" }) if trigger
-    link_to "#{image_tag("flags/#{locale}.png")}#{trigger ? '<b class=\'caret\'></b>' : ''}".html_safe, refinery.url_for(uparams.merge(:only_path => true )), options
-  end
+
   
   def bootstrap_menu_branch_css(local_assigns)
     options = local_assigns.dup
