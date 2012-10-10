@@ -76,6 +76,7 @@ task :migrate_legacy_data_to_refinery => :environment do
 
 
 
+
   page_blog = Refinery::Page.create!({
                 :title => "Articles",
                 :link_url => "/blog",
@@ -165,6 +166,16 @@ task :migrate_legacy_data_to_refinery => :environment do
 
 
 
+  new_relic_page =  Refinery::Page.create!(
+              :title => "New Relic",
+              :menu_match => "",
+              :show_in_menu => false,
+              :deletable => false)
+  new_relic_page.parts.create({
+                :title => "Body",
+                :body => "<div>PING ALERT</div><p>NE PAS SUPPRIMER, DEPLACER ou RENOMMER CETTE PAGE</p><p>C'est une page témoin pour le monitoring du serveur</p>",
+                :position => 0
+              })
 
 
 
