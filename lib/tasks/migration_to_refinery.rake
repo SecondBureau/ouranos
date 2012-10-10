@@ -1,12 +1,12 @@
 # encoding: utf-8
 
 task :migrate_legacy_data_to_refinery => :environment do
-  
+
   I18n.locale = :fr
 
   include ActionView::Helpers::TextHelper
-  
-  
+
+
   #
   #Posts
   #
@@ -68,13 +68,13 @@ task :migrate_legacy_data_to_refinery => :environment do
                 :position => 0
               })
 
-  
-              
-              
-              
-              
-              
-              
+
+
+
+
+
+
+
 
   page_blog = Refinery::Page.create!({
                 :title => "Articles",
@@ -87,8 +87,8 @@ task :migrate_legacy_data_to_refinery => :environment do
   Refinery::Pages.default_parts.each do |default_page_part|
     page_blog.parts.create(:title => default_page_part, :body => nil)
   end
-  
-  
+
+
 
 
   url = "/calendar/events"
@@ -112,19 +112,19 @@ task :migrate_legacy_data_to_refinery => :environment do
               })
     Refinery::Pages.default_parts.each_with_index do |default_page_part, index|
       page_calendar.parts.create(:title => default_page_part, :body => nil, :position => index)
-    end 
+    end
 
   Page.all.each do |page|
     refinery_page = Refinery::Page.create(:title => page.title, :show_in_menu => true)
     refinery_page.parts.create(:title => "Body", :body => page.content, :position => 0)
   end
-  
+
   Refinery::Page.find_by_slug('kermesse-2012').update_attributes(:show_in_menu => false)
-  
+
   Refinery::Page.find_by_slug('paru-dans-la-presse').update_attributes(:show_in_menu => false)
 
 
-  
+
   page_contact_page = ::Refinery::Page.create(:title => "Contact",
               :menu_match => "^/(inquiries|contact).*$",
               :link_url => "/contact",
@@ -146,7 +146,7 @@ task :migrate_legacy_data_to_refinery => :environment do
                 :body => "<p>L’APE est une association de parents bénévoles qui donnent leur temps pour défendre les intérêts de tous les enfants du LFIP et de leurs familles. </p>\r\n<p>Rejoignez-nous et accédez à l'intégralité des articles. <a title=\"Comment adhérer\" href=\"/comment-adherer\">Cliquez ici pour connaitre tous les avantages réservés aux membres</a>.</p>",
                 :position => 1
               })
-              
+
 
 
 
@@ -164,17 +164,17 @@ task :migrate_legacy_data_to_refinery => :environment do
                      })
 
 
-                
-  
-  
 
 
 
-       
+
+
+
+
        (Refinery::Inquiries::Setting.methods.sort - ActiveRecord::Base.methods).each do |setting|
          Refinery::Inquiries::Setting.send(setting) unless setting.to_s =~ /=$/
        end
-       
+
 
   # events
 
@@ -182,25 +182,25 @@ task :migrate_legacy_data_to_refinery => :environment do
     Refinery::Calendar::Event.create(:title => event.title, :start_at => event.start_date, :end_at => event.end_date, :excerpt => truncate(Sanitize.clean(event.content), :length => 50, :omission => '...'), :description => event.content)
   end
 
-  
 
- 
+
+
   # Users, Roles & Groups
-  Refinery::User.all.each do |u| 
+  Refinery::User.all.each do |u|
     u.bypass_mailchimp = true
     u.destroy
   end
   Refinery::Role.all.each {|r| r.destroy }
   Refinery::Groups::Group.all.each {|g| g.destroy }
-  
+
   # Roles
   %w[Refinery Superuser Member Group_Admin Bureau].each {|r| Refinery::Role.[](r.downcase.to_sym)}
-  
-  
+
+
   # Default groups
   guestsGroup = Refinery::Groups::Group.create!(:name => 'guest', :expiration_date => Time.parse('20000101'), :description => 'Individuels abonnés à la newsletter, mais sans accès au site.')
   membersGroup = Refinery::Groups::Group.create!(:name => 'Members', :expiration_date => Time.parse('20991231'), :description => 'Individuels abonnés à la newsletter avec un accès permanent au site.')
-  
+
   # SuperAdmin
   admin = Refinery::User.new(:username => 'secondbureau', :password => 'secret', :password_confirmation => 'secret', :firstname => 'Gilles', :lastname => 'Crofils', :email => 'ape-lfip@secondbureau.com')
   admin.group = membersGroup
@@ -208,80 +208,80 @@ task :migrate_legacy_data_to_refinery => :environment do
   admin.roles = ['Refinery', 'Superuser'].collect { |r| Refinery::Role[r.downcase.to_sym] }
   admin.save! # we need to save it first.
   admin.plugins = Refinery::Plugins.registered.collect(&:name)
-  
+
   # Users without family
   User.includes(:family).where('families.name is null').each do |user|
-    
+
     password = 'secret'
-    
+
     guest = Refinery::User.new(
-      :username => user.email, 
-      :password => password, 
-      :password_confirmation => password, 
-      :email => user.email, 
-      :current_sign_in_at => user.current_sign_in_at, 
+      :username => user.email,
+      :password => password,
+      :password_confirmation => password,
+      :email => user.email,
+      :current_sign_in_at => user.current_sign_in_at,
       :last_sign_in_at => user.last_sign_in_at,
-      :current_sign_in_ip => user.current_sign_in_ip, 
-      :last_sign_in_ip => user.last_sign_in_ip, 
+      :current_sign_in_ip => user.current_sign_in_ip,
+      :last_sign_in_ip => user.last_sign_in_ip,
       :sign_in_count => user.sign_in_count,
       :optin_newsletters => true)
       guest.group = guestsGroup
       guest.bypass_mailchimp = true
       guest.save!
   end
-  
-  
+
+
   guestid = 0
-  
+
   Family.all.each do |family|
-    
+
     unless (user = family.user).nil?
       group = Refinery::Groups::Group.create(:name => family.name.strip, :expiration_date => user.expires_at)
-      
+
       password = 'secret'
       groupAdmin = Refinery::User.new(
-        :username => user.email, 
-        :password => password, 
-        :password_confirmation => password, 
-        :email => user.email, 
-        :current_sign_in_at => user.current_sign_in_at, 
+        :username => user.email,
+        :password => password,
+        :password_confirmation => password,
+        :email => user.email,
+        :current_sign_in_at => user.current_sign_in_at,
         :last_sign_in_at => user.last_sign_in_at,
-        :current_sign_in_ip => user.current_sign_in_ip, 
-        :last_sign_in_ip => user.last_sign_in_ip, 
+        :current_sign_in_ip => user.current_sign_in_ip,
+        :last_sign_in_ip => user.last_sign_in_ip,
         :sign_in_count => user.sign_in_count,
         :optin_newsletters => true)
       groupAdmin.group = group
       groupAdmin.bypass_mailchimp = true
-      groupAdmin.roles = ['Refinery', 'Group_Admin'].collect { |r| Refinery::Role[r.downcase.to_sym] }  
+      groupAdmin.roles = ['Refinery', 'Group_Admin'].collect { |r| Refinery::Role[r.downcase.to_sym] }
       groupAdmin.save! # we need to save it first.
       groupAdmin.plugins = ['groups']
-      
+
     end
-    
+
     family.people.each do |person|
 
       begin
       password = 'secret'
-      
+
       firstname = person.firstname.parameterize rescue nil
       lastname = person.lastname.parameterize rescue nil
       username = [firstname, lastname].compact.join('.')
-      
+
       if username.eql?('')
         guestid += 1
         username = "guest_#{guestid}"
         puts "****** #{username} *******"
       end
-      
+
       email = person.email || "#{username}@example.org"
-      
+
       position = case person.fa_type
         when 'kid'
           'unknown'
         else
           nil
       end
-      
+
       refinery_user = Refinery::User.find_by_email(person.email) unless person.email.nil?
       refinery_user = Refinery::User.new if refinery_user.nil?
       refinery_user.bypass_update_position = true
@@ -289,27 +289,37 @@ task :migrate_legacy_data_to_refinery => :environment do
       refinery_user.group = group
       refinery_user.bypass_mailchimp = true
       refinery_user.update_attributes!(:username => username, :password => password, :password_confirmation => password, :firstname => person.firstname, :lastname => person.lastname, :email => email, :position => position, :position_updated_at => position.nil? ? nil : person.updated_at, :optin_newsletters => !person.email.nil?)
-      
+
     rescue Exception => e
       puts "===== ERREUR == #{e}"
       puts family.inspect
       puts person.inspect
     end
 
-      
+
     end
-    
+
   end
-  
+
   # Membres du Bureau
-  members = %w[mfressange@yahoo.com mb.miao@yahoo.fr mocquiaux@gmail.com famille.wattrelos@hotmail.fr anaxjaud@gmail.com sandrineb1808@yahoo.fr dargent.anne@gmail.com larafesselier@yahoo.fr fredennicolette@yahoo.fr emmontet@yahoo.fr moog_g@yahoo.fr urlacher@neuf.fr rebecca.wiart@gmail.com]
+
+  members = %w[mfressange@yahoo.com mb.miao@yahoo.fr famille.wattrelos@hotmail.fr sandrineb1808@yahoo.fr dargent.anne@gmail.com aliceapepekin@gmail.com fredennicolette@yahoo.fr emmontet@yahoo.fr moog_g@yahoo.fr urlacher@neuf.fr]
   members.each do |email|
+    password = 'secret'
     refinery_user = Refinery::User.find_by_email(email)
+    if refinery_user.nil?
+      refinery_user = Refinery::User.new(
+        :username => email,
+        :password => password,
+        :password_confirmation => password,
+        :email => email,
+        :optin_newsletters => true)
+    end
     refinery_user.plugins +=  ['groups', 'calendar', 'refinerycms_blog', 'refinerycms_inquiries']
     refinery_user.add_role(:bureau)
     refinery_user.save
   end
-  
+
   almost_super_users = %w[etienne.perin.1967@gmail.com]
   almost_super_users.each do |email|
     refinery_user = Refinery::User.find_by_email(email)
@@ -317,7 +327,7 @@ task :migrate_legacy_data_to_refinery => :environment do
     refinery_user.add_role(:bureau)
     refinery_user.save
   end
-  
+
 
 
 end
