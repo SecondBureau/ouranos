@@ -1,0 +1,16 @@
+- content_for :body_content_title do
+  %i.icon-bullhorn
+  = @event.title
+
+- content_for :body_content_left do
+  
+  #show_calendar_event
+    = render 'event'
+    
+      
+    %nav{:id => "next_prev_event"}
+
+
+-# content_for :stylesheets, stylesheet_link_tag('events') 
+
+= render '/refinery/content_page', :hide_sections => [:body, :side_body]

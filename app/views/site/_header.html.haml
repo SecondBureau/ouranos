@@ -1,14 +1,28 @@
-- cache "header_#{I18n.locale}_#{Time.now.utc.in_time_zone("Beijing").strftime("%Y%m%d")}" do 
-  #home_link= link_to image_tag("xue.png", :height => 29), main_app.root_path, {:title => t("home.title")}
-  #head_nav
-    %ul
-      %li= link_to t("event.title"), main_app.events_path
-      %li= link_to t("blog.title"), main_app.posts_path
-      - if categories_top
-        - categories_top.each do |category|
-          %li= link_to category.title, main_app.posts_with_category_path(category)
+%a.btn.btn-navbar(data-target=".nav-collapse" data-toggle="collapse")
+  - 3.times do
+    %span.icon-bar
+%ul.nav.pull-left
+  %nav.menu.nav
+    %li= link_to image_tag("xue.png", :height => 20), refinery.root_path, {:title => t("home.title"), :class => 'home-link'}
+%ul.nav.pull-right
+  %nav.menu.nav
+    %li
+      - if current_refinery_user
+        = link_to "<i class='icon-user'></i> #{current_refinery_user.username}".html_safe, refinery.destroy_refinery_user_session_path, {:title => t("home.logout")}
       - else
-        %li no cat
-      - if top_pages
-        - top_pages.each do |page|
-          %li= link_to page.title, main_app.page_path(page.permalink)
+        = link_to "<i class='icon-home'></i> #{t('home.sign_in')}".html_safe, refinery.new_refinery_user_session_path, {:title => t("home.sign_in")}
+
+    - if current_refinery_user && current_refinery_user.has_role?('Superuser')
+      %li
+        = link_to image_tag("gear.png", :height => 29), refinery.admin_root_path, {:title => t("home.admin")}
+
+    - if current_refinery_user && current_refinery_user.has_role?('GroupAdmin')
+      %li
+        = link_to image_tag("gear.png", :height => 29), refinery.groups_admin_group_path(current_refinery_user.group), {:title => t("home.admin")}
+
+    = render 'site/locale_switcher'
+
+.collapse.nav-collapse
+  %ul.nav
+    - cache "#{locale}/menu/#{path_for_cache}/#{Refinery::Page.latest.etag}" do
+      = render(:partial => "/refinery/menu", :locals => { :dom_id => 'pages_menu', :css => 'menu' })

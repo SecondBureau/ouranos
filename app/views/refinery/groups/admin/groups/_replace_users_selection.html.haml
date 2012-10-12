@@ -1,0 +1,37 @@
+= will_paginate @users, :remote => false
+
+%ul{:style => "padding-left:0px;"}
+
+  - @users.each_with_index do |user, index|
+    
+    %li.clearfix.record{:id => "sortable_#{user.id}",  :class => cycle('on', 'on-hover')}
+      %span.title
+        %i.icon-user
+        = check_box_tag("user_check_item", user.id) if selecting
+        - if user.optin_newsletters?
+          %i.icon-envelope
+        %strong= fullname(user)
+        %span.preview= user.unhacked_email
+        - if user.has_role?("GroupAdmin") 
+          %span.label.label-inverse Admin 
+        - if !user.position.blank? && user.position_updated_at
+          %span.label{:class => "label-#{probably_uptodate(user.position_updated_at) ? 'success' : 'warning'}"}= t("users.positions.#{user.position}")
+      
+      %span.actions{:style => "position:static; float:right;"}
+        - unless selecting
+          
+          -#= mail_to user.email, refinery_icon_tag('email_go.png'), :title => t('.email_user')
+          
+          = link_to refinery_icon_tag('application_edit.png'), refinery.edit_groups_admin_group_user_path(@group, user), 
+                    :class => "edit_user", 
+                    :title => t('edit', :scope => 'refinery.groups.admin.users')
+          
+          - if user.email != current_refinery_user.email
+            = link_to refinery_icon_tag('delete.png'), refinery.groups_admin_group_user_path(@group, user), 
+                      :class => "cancel confirm-delete delete_user", 
+                      :title => t('delete', :scope => 'refinery.groups.admin.users'), 
+                      :method => :delete, 
+                      :data => { :confirm => t('message', :scope => 'refinery.admin.delete', :title => user.username) }
+ 
+- if selecting
+  %input{:type => "submit", :value => "Save"}

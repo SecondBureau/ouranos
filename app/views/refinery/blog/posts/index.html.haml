@@ -1,0 +1,24 @@
+- content_for :body_content_left do
+  = raw @page.content_for(Refinery::Pages.default_parts.first.to_sym) if Refinery::Pages.default_parts.any?
+
+  - if @posts.any?
+  
+    %section{:id => "blog_posts"}
+  
+      #posts
+        = render :partial => "/refinery/blog/shared/posts", :locals => {:posts => @posts}
+      = will_paginate @posts
+
+  - else
+    %p= t('.no_blog_articles_yet')
+
+
+
+- content_for :body_content_right_prepend do 
+  = raw @page.content_for(Refinery::Pages.default_parts.second.to_sym) rescue nil
+
+-#= render :partial => '/refinery/blog/shared/body_content_right'
+
+= render :partial => "/refinery/content_page"
+
+- content_for :stylesheets, stylesheet_link_tag('refinery/blog/frontend')

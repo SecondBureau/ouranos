@@ -1,0 +1,48 @@
+- cache "#{locale}/widgets/calendar/#{Time.zone.now.strftime('%Y%m%d')}/#{@day.strftime('%Y%m%d')}/#{@latest_event_etag}" do
+  
+  #modal-event.modal.hide.fade{:tabindex => "-1", :role => "dialog", :"aria-labelledby"=>"HomeNotice", :"aria-hidden" => "true", :"data-show" => "false"}
+    .modal-header
+      .button.close{:type => "button", :"data-dismiss" => "modal", :"aria-hidden" => "true"} x
+      %h3{:id => "HomeNotice"}
+        %i.icon-calendar
+        = t('home.events_of_day')
+    .modal-body
+      .loading_img
+    .modal-footer
+      .button.btn.btn-primary{:"data-dismiss" => "modal", :"aria-hidden" => "true"}= t('close')
+
+  
+  #calendar-container.widget-block
+    %h3.shadow
+      = link_to t("events.title"), '#calendar', :"data-toggle" => "collapse", :"data-parent" => "#calendar-container" 
+      %i.icon-calendar.pull-right.icon-white
+    .widget-content-container
+      .widget-content.collapse.in.shadow.calendar{:id => 'calendar'}
+        .month
+          %i.icon-backward.pull-left.pointer{:id => 'previous'}
+          %i.icon-forward.pull-right.pointer{:id => 'next'}
+          #today.pointer= "#{I18n.l(@day, :format => "%B").capitalize} #{@day.year}"
+        
+        - events = Refinery::Calendar::Event.of_the_month(@day) 
+            
+        = calendar Date.parse(@day.strftime("%Y%m%d")) do |date| 
+          - if (events_of_day = events.select{|e| e.start_at.strftime('%Y%m%d').eql?(date.strftime('%Y%m%d')) || (e.end_at && e.start_at < date && e.end_at > date) }).size > 0
+            = link_to date.day, "#", :title => events_of_day.collect(&:title).join('<br>').html_safe, :rel => 'tooltip', :"data-date" => date.strftime('%Y%m%d'), :"data-placement" => "left", :class => 'eventtt'
+          - else
+            = date.day
+        
+        = render 'refinery/calendar/coming_events'
+      
+  :coffeescript
+    $('td > a').parent().addClass( 'withevent' );
+    $("#next").click -> 
+      $("#widget_calendar").load("/widgets/calendar?d=#{(@day.end_of_month + 1).strftime('%Y%m%d')}")
+    $("#previous").click ->
+      $("#widget_calendar").load("/widgets/calendar?d=#{(@day.beginning_of_month - 1).strftime('%Y%m%d')}")
+    $("#today").click ->
+      $("#widget_calendar").load("/widgets/calendar?d=#{Time.zone.now.strftime('%Y%m%d')}")
+    $('.eventtt').tooltip();
+    $('.eventtt').click -> 
+      $('.modal-body').html( "<div class='loading_img'></div>" )
+      $('#modal-event').modal('show')
+      $('.modal-body').load('/widgets/events_of_day?d=' + $(this).data('date'))

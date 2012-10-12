@@ -1,0 +1,31 @@
+- content_for :body_content_title, @category.title
+
+- content_for :body_content_left do 
+  
+  - if @categories.any?
+    .visible-phone
+      =raw (@categories - [@category]).collect { |category| link_to category.title, refinery.blog_category_path(category), :class => 'label label-info' }.join(' ')
+      = link_to t('posts.all_categories'), refinery.blog_root_path, :class => 'label label-inverse'
+  
+  - if @posts.any?
+  
+    %section{:id => "blog_posts"}
+  
+      #posts
+        = render :partial => "/refinery/blog/shared/posts", :locals => {:posts => @posts}
+      = will_paginate @posts
+
+  - else
+    %p= t('.no_posts')
+    
+    
+-#- content_for :body_content_right do 
+-#  = render :partial => "/refinery/blog/shared/categories"
+
+= render :partial => "/refinery/content_page" 
+
+- content_for :stylesheets, stylesheet_link_tag('refinery/blog/frontend')
+
+
+
+

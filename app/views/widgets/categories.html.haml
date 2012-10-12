@@ -1,0 +1,28 @@
+- cache "#{locale}/widgets/categories/#{@latest_post_etag}" do
+  #categories-container.widget-block
+    %h3.shadow
+      = link_to t("categories.title"), '#categories', :"data-toggle" => "collapse", :"data-parent" => "#categories-container" 
+      %i.icon-folder-open.pull-right.icon-white
+    .widget-content-container
+      %ul.widget-content.collapse.shadow.red.in{:id => 'categories'}
+        - Refinery::Blog::Category.all.each do |category|
+          %li
+            %h4
+              %i.icon-list
+              = link_to  category.short_title, refinery.blog_category_path(category), :title => "#{category.description} (#{pluralize(category.posts.count, t('posts.singular'))})", :rel => 'tooltip', :"data-placement" => "right", :class => 'tt'
+              %span 
+                = "(#{category.posts.count})"
+            .description= link_to category.short_description, refinery.blog_category_path(category), :title => "#{category.description} (#{pluralize(category.posts.count, t('posts.singular'))})", :rel => 'tooltip', :"data-placement" => "right", :class => 'tt' if category.description
+            %ul
+              - category.posts.order('published_at asc').limit(3).each do |post|
+                %li= link_to post.short_title, refinery.blog_post_path(post), :title => post.title, :rel => 'tooltip', :"data-placement" => "right", :class => 'tt'
+        %br
+         
+  :coffeescript
+    $ ->
+      $('.tt').tooltip();
+    
+    
+    
+
+    

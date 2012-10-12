@@ -1,0 +1,78 @@
+= form_for [refinery, :groups, :admin, @group, @user], :html => {:class => "form-horizontal #{controller.action_name}_user"} do |f|
+  
+  - @user.email = nil if @user.email[-11,11].eql?(Refinery::User::EMPTY_DOMAIN_NAME) rescue nil
+  
+  %legend= (@user.username ? "Modifier le profil de #{fullname(@user)}" : "Ajouter un membre à la famille #{@group.name}")
+  
+  = render '/refinery/admin/error_messages', :object => @user, :include_object_name => true
+  
+  = f.hidden_field :group_id, :value => @group.id
+  
+
+  
+  .control-group
+    = f.label :username, :class => 'control-label'
+    .controls
+      = f.text_field :username, :class => 'input-large'
+    
+  .control-group
+    = f.label :password, :class => 'control-label'
+    .controls
+      = f.password_field :password, :autocomplete => 'off', :class => 'input-large'
+      - if @user.persisted?
+        %span.help-block
+          %i.icon-info
+          = t('users.blank_password_keeps_current')
+
+  .control-group
+    = f.label :password_confirmation, :class => 'control-label'
+    .controls
+      = f.password_field :password_confirmation, :autocomplete => 'off', :class => 'input-large'
+  
+
+  .control-group
+    = f.label :email, :class => 'control-label'
+    .controls
+      = f.text_field :email, :class => 'input-large'
+      
+  .control-group
+    = f.label :optin_newsletters, :class => 'control-label'
+    .controls
+      = f.check_box :optin_newsletters
+      
+  .control-group
+    = f.label :firstname, :class => 'control-label'
+    .controls
+      = f.text_field :firstname, :class => 'input-large'
+      
+  .control-group
+    = f.label :lastname, :class => 'control-label'
+    .controls
+      = f.text_field :lastname, :class => 'input-large'
+      
+  .control-group
+    = f.label 'Classe', :class => 'control-label'
+    .controls
+      - positions = [['maternelle', ['ps', 'ms', 'gs']], ['primaire', ['cp', 'ce1', 'ce2', 'cm1', 'cm2']], ['college', ['6', '5', '4', '3']], ['lycee', ['2', '1', 't']]]
+      - positions = positions.map{|a,b| [t("users.positions.#{a}"), b.map {|c| [t("users.positions.#{a}_#{c}"), "#{a}_#{c}"]}]}
+      = f.select(:position, positions, { :include_blank => true })
+      - if @user.position_updated_at
+        %span.help-block
+          %i.icon-time{:class => probably_uptodate(@user.position_updated_at) ? 'color-public' : 'color-private'}
+          = t('users.last_position_updated')
+          = l(@user.position_updated_at, :format => :event)
+       
+  - unless @group.name.eql?("guest") || (current_refinery_user.eql?(@user) && current_refinery_user.has_role?('GroupAdmin'))
+    
+    .control-group
+      = f.label :admin, :class => 'control-label'
+      .controls
+        = check_box_tag :admin, "group-admin", @user.has_role?("GroupAdmin")
+
+  
+  .form-actions
+    %button.btn.btn-success{:type => 'submit'}
+      Enregister
+    %button.btn{:type => 'submit', :name => 'cancel'}
+      Annuler
+

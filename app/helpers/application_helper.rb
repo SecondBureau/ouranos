@@ -1,105 +1,39 @@
 module ApplicationHelper
-  
-  def link_to_switch_locale( locale )
+
+  def banner_image_url
+      "home_image.jpg"
+  end
+
+  def fullname (user)
+    unless user.firstname.blank? && user.lastname.blank?
+      [user.firstname, user.lastname].join(' ')
+    else
+      user.username
+    end
+  end
+
+  def probably_uptodate(date)
+    date > Time.new(Time.now.year, 8, 15)
+  end
+
+  # Menu Helper not included in Groups Controller...
+  def link_to_switch_locale( locale, trigger=false )
     uparams = params.dup
     uparams[:locale] = locale
-    link_to image_tag("flags/#{locale}.png"), main_app.url_for( uparams.merge(:only_path => true )), {:title => locale}
-  end
-  
-  def num_to_month_name month_num
-    t("date.month_names")[month_num].capitalize
-  end
-  
-  def most_posts
-    @most_posts ||= PostDecorator.decorate(Post.top_posts)
-  end
-  
-  def categories_side
-    @categories_side ||= CategoryDecorator.decorate(Category.on_the(:left))
-  end
-  
-  def recent_comments
-    @recent_comments ||= CommentDecorator.decorate(Comment.recent_comments)
-  end
-  
-  def categories_top
-    @categories_top ||= CategoryDecorator.decorate(Category.on_the(:top))
-  end
-  
-  def comming_events     
-    @comming_events ||= EventDecorator.decorate(Event.comming_events)
-  end
-  
-  def top_pages
-    @top_pages ||= Page.all
-  end
-  
-  def setting
-    @setting ||= Setting.first
-  end
-  
-  def banner_image_url
-    if Rails.env.production? && setting && setting.images[Random.rand(setting.images.length)]
-      rand_index = Random.rand(setting.images.length)
-      setting.images[rand_index].image.url(:banner_image)
-    else
-      "home_image.jpg"
-    end
-  end
-  
-  def current_day
-    @current_day ||= DateTime.now
+    options = {:title => locale}
+    options = options.merge({:class => "dropdown-toggle locale-switcher", :"data-toggle" => "dropdown", :"data-target" => "#" }) if trigger
+    link_to "#{image_tag("flags/#{locale}.png")}#{trigger ? '<b class=\'caret\'></b>' : ''}".html_safe, refinery.url_for(uparams.merge(:only_path => true )), options
   end
 
-  def events_days
-    @events_days ||= set_events_days
-  end
-  
-  def events_in_this_month
-    @events_in_this_month ||= Event.where(:start_date => beginning_of_month.beginning_of_day .. end_of_month.end_of_day)
-  end
-  
-  def set_events_days
-    events_day = []
-    events_in_this_month.each do |event|
-      events_day << event.start_date.day
+  def path_for_cache
+    path = request.path.sub("//", "/")
+    path = path.force_encoding('utf-8') if path.respond_to?(:force_encoding)
+    # Ensure we match the path without the locale, if present.
+    if ::Refinery.i18n_enabled? and path =~ %r{^/#{::I18n.locale}/}
+      path = path.split(%r{^/#{::I18n.locale}}).last
+      path = "/" if path.blank?
     end
-    events_day
-  end
-  
-  def beginning_of_month
-    @beginning_of_month ||= DateTime.new(current_date.year, current_date.month, 1)
-  end
-  
-  def end_of_month
-    @end_of_month      ||= DateTime.new(current_date.year, current_date.month, -1)
-  end
-  
-  def current_date
-    @current_date ||= set_current_date
+    path.split('/').second || 'home'
   end
 
- def set_current_date
-    calendar_option = params[:calendar_option] if params[:calendar_option]
-    if params[:year]
-      year = params[:year].to_i
-    else
-      year = DateTime.now.year
-    end
-    if params[:month]
-      month = params[:month].to_i
-    else
-      month = DateTime.now.month
-    end
-    current_date = DateTime.new(year, month, 1)
-    if calendar_option
-      if calendar_option == "pre"
-        current_date = current_date - 1.month
-      elsif calendar_option == "next"
-        current_date = current_date + 1.month
-      end
-    end
-    current_date
-  end
-  
 end

@@ -1,0 +1,15 @@
+- content_for :body_content_left do
+
+  - if @posts.any?
+  
+    %section{:id => "blog_posts"}
+  
+      #posts
+        = render :partial => "/refinery/blog/shared/posts", :locals => {:posts => @posts}
+      = will_paginate @posts
+
+  - else
+    %p= t('.no_blog_articles_yet')
+    
+    
+= render '/refinery/content_page', :hide_sections => [:side_body]

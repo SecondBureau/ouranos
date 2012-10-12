@@ -1,5 +1,5 @@
 :ruby
-  flash[:alert] = t("account.membership_expired") if current_user && current_user.is_expired?
+  flash[:alert] = t("account.membership_expired") if current_refinery_user && current_refinery_user.is_expired?
 #alert= flash[:notice]
 #notice= flash[:notice]
 

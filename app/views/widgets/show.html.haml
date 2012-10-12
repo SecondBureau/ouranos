@@ -1,0 +1,6 @@
+= render  :partial => 'widget_block', 
+          :collection => @widgets, 
+          :as => :id, 
+          :locals => {  :latest_post_etag => Refinery::Blog::Post.latest.etag, 
+                        :latest_event_etag => Refinery::Calendar::Event.latest.etag, 
+                        :latest_page_etag => Refinery::Page.latest.etag }

@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-Ouranos::Application.config.secret_token = 'b689afb748633d6ecb1ce6afda516181823f9d9ff5985ad0ea16a104f868deaca5a8cddfb1995ce2208daf23735417c8d5eb82c3b7be736af1c100346bf98696'
+Ouranos::Application.config.secret_token = '938b4ec015f3f31452d72fc5184fbe5ed462d77556222ea0f58885e82c59546b76e04d35cfb903afbdb6c4f7b92d15e7f276707950ed5c187beb479f82b39047'

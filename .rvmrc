@@ -1,5 +1,18 @@
 #!/usr/bin/env bash
 
+if [ -e ".environment" ]
+then
+  source .environment
+fi
+
+# set Gemset in a ".environment" file
+# export gemset=YOUR_GEMSET_NAME
+
+if [ "$gemset" = "" ]
+then
+  gemset=${PWD##*/}
+fi
+
 # This is an RVM Project .rvmrc file, used to automatically load the ruby
 # development environment upon cd'ing into the directory
 

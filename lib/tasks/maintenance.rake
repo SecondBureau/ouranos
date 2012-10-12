@@ -1,106 +1,62 @@
-# encoding: utf-8
+task :backup_and_load_db => :environment do
+    begin
+      tmp_path = File.expand_path(File.join(Rails.root, 'tmp'))
 
-namespace :cache do
-  task :purge => :environment do |t,args|
-    (0..5).each do |jour|
-      $available_locales.each do |locale|
-        day = (Time.now.utc.in_time_zone("Beijing") - jour*24*60*60 ).strftime("%Y%m%d")
-        %w[ header sidebar ].each {|page| Rails.cache.delete "views/#{page}_#{locale}_#{day}"}
-      end
-    end
-  end
-end
+      app = "production-ouranos"
 
+      puts "capturing a new backup..."
+      capture_output = `heroku pgbackups:capture --app #{app} --expire`
 
-namespace :db do
-  namespace :users do
-    desc "send password to all members who have never connected"
-    task :mass_init_password => :environment do |t, args|
-      User.where(:sign_in_count => 0).each  {|user| Recipient.create(:user => user, :template => 'welcome', :params => {:reset_password => true}) }
-    end
+      backup_id = capture_output.split("\n\n").first.split("--->  ")[1]
+      puts "creating url for backup: #{backup_id}"
 
-    desc "forge emails to force domain to 2bu.ro"
-    task :forge_emails => :environment do |t, args|
-      User.forge_all_emails
-    end
-  end
+      backup_url = `heroku pgbackups:url #{backup_id} --app #{app}`
+      puts "created url: #{backup_url}"
 
-  namespace :family do
-    desc "rename famillies"
-    task :rename_families  => :environment do |t, args|
-      Family.all.each do |family|
-        father = family.people.select{|p| p.fa_type.eql?('father')}.first
-        mother = family.people.select{|p| p.fa_type.eql?('mother')}.first
-        if father.nil? && mother.nil?
-          puts "No mother, no father in the family #{family.name}"
-          next
-        end
-        familyname = ''
-        familyname = father.lastname unless father.nil?
-        fullname = []
-        fullname << "#{familyname} #{father.firstname}" unless father.nil?
-        mother_lastname = mother.nil? ? "" : "#{mother.lastname} "
-        fullname << "#{mother.lastname.eql?(familyname) ? '' : mother_lastname}#{mother.firstname}" unless mother.nil?
-        family.update_attributes(:name => fullname.join(' - '))
-      end
-    end
-  end
+      backup_file = File.join(tmp_path, "#{backup_id}.dump")
 
-  namespace :people do
-    desc "set login email to 1 person by family if no one is set"
-    task :update_email_from_account => :environment do |t, args|
-      Family.all.each do |family|
-        print "#{family.name}"
-        if family.people.reject{|p| p.email.nil?}.count.eql?(0)
-          puts " has no default email"
-          person = family.people.select{|p| p.fa_type.eql?('father')}.first
-          person = family.people.select{|p| p.fa_type.eql?('mother')}.first if person.nil?
-          if person.nil?
-            puts "No mother, no father in the family #{family.name}"
-            next
-          end
-          person.update_attributes(:email => family.user.email)
-          puts "updated #{person.firstname} #{person.lastname} with email #{person.email}"
-        else
-          puts " has #{family.people.reject{|p| p.email.nil?}.collect{|p| p.email}.join(', ')} for email(s)"
+      puts "downloading dump file..."
+
+      open(backup_url) do |src|
+        File.open(backup_file,"wb") do |dst|
+          dst.write(src.read)
         end
       end
-    end
 
+      puts "download complete. saved to: #{backup_file}"
 
-    desc "export People information for mailing"
-    task :export => :environment do |t, args|
-      sep = ";"
-      puts "db.people.export : retrieving #{Person.count} rows ..."
-      rows = [['Family', 'firstname','lastname','position','email','dernière connexion','login','expiration'].join(sep)]
-      errors = []
-      Person.all.each do |p|
-        f = p.family
-        if f.nil?
-          errors << "Person #{p.id} (#{p.firstname},#{p.lastname},#{p.fa_type}) has no family"
-          next
-        end
-        u = f.user
-        if u.nil?
-          errors << "Family #{f.id} has no user"
-          next
-        end
-        rows << [f.name, p.firstname, p.lastname, p.fa_type, p.email, u.current_sign_in_at, u.email, u.expires_at].join(sep)
+      puts "loading dump file to database: yourdb_#{Rails.env}"
+
+      # this could be specified differently, but worked out for the places i needed to use this
+      user = `whoami`.to_s.chomp.strip
+
+      # restore the database from the dumpfile
+      restore_command = "pg_restore --verbose --clean --no-acl --no-owner -h localhost -U #{user} -d yourdb_#{Rails.env} #{backup_file}"
+      puts restore_command
+      `#{restore_command}`
+
+      puts "load complete!"
+
+      # find all existing dumpfiles
+      previous_dumps = []
+      Dir.new(tmp_path).each do |f|
+        previous_dumps << f if f.to_s =~ /^.*.dump/
       end
 
-      name = "#{ENV['APP_NAME']}-people-#{Time.now.strftime('%Y-%m-%d-%H%M%S')}.csv"
-      puts "db.people.export : write document..."
-      File.open("tmp/#{name}", 'w') {|f| f.write(rows.join("\n")) }
-      File.open("tmp/#{name}", 'a') {|f| f.write("\n\nERRORS\n#{errors.join("\n")}") } if errors.count > 0
-      puts "db.people.export : starting gzip process..."
-      system "tar cvf - tmp/#{name} | gzip -9c > tmp/#{name}.tar.gz"
-      puts "db.people.export : Temp file gzipped"
-      s3 = RightAws::S3.new(ENV['s3_access_key_id'], ENV['s3_secret_access_key'])
-      bucket = s3.bucket("#{ENV['APP_NAME']}-heroku-data", true, 'private')
-      bucket.put("#{name}.tar.gz", open("tmp/#{name}.tar.gz"))
-      system "rm tmp/#{name}"
-      system "rm tmp/#{name}.tar.gz"
-      puts "db.people.export : Process finished"
+      # delete the oldest dump keeping a max of 5
+      if previous_dumps.size > 5
+        File.delete(File.join(tmp_path, previous_dumps.sort.first))
+        puts "removed oldest backup"
+      end
+
+    rescue Exception => e
+
+      # if anything goes wrong notify me
+      # we were already using Hoptoad in our app
+      # if not using hoptoad this could be just an email
+      HoptoadNotifier.notify(
+        :error_class   => "HerokuDatabaseBackupError",
+        :error_message => e.message
+      )
     end
   end
-end

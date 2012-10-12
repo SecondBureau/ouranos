@@ -1,0 +1,5 @@
+$('#events').append("#{j render(:partial => "/refinery/calendar/shared/event", :collection => @previous_events, :locals => {:with_year => true})}");
+- if @previous_events.next_page
+  $('.pagination').replaceWith("#{j will_paginate(@previous_events) }");
+- else
+  $('.pagination').remove();
