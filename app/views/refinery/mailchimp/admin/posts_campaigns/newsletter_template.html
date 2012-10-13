@@ -237,8 +237,12 @@
 			/*@editable*/line-height:150%;
 			/*@editable*/text-align:left;
 			padding:20px 20px 0 20px;
-			
 		}
+		
+		.lastBodyContent {
+		  padding:20px 20px 20px 20px;
+		}
+		
 	/*
 	@tab Body
 	@section body link
@@ -338,11 +342,33 @@
   		  /*@editable*/font-family:"Helvetica Neue",​Helvetica,​Arial,​sans-serif;
   		}
   		
-  		#templateSecondBureauFooter a {
+  		#templateSecondBureauFooter a:link, #templateSecondBureauFooter a:visited, #templateSecondBureauFooter a .yshortcuts {
   		  /*@editable*/color:#ffffff;
   		  font-size: 10px;
   		  /*@editable*/font-family:"Helvetica Neue",​Helvetica,​Arial,​sans-serif;
   		}
+  	
+  		/*
+    	@tab MailChimp
+    	@section footer link
+    	@tip Set the styling for your email's footer links. Choose a color that helps them stand out from your text.
+    	*/
+    		#templateMailChimpFooter  {
+    		  /*@editable*/background-color:#7D7874;
+    		  /*@editable*/color:#333;
+    		  text-align:center;
+    		  font-size: 8px;
+    		  line-height: 10px;
+    		  /*@editable*/font-family:"Helvetica Neue",​Helvetica,​Arial,​sans-serif;
+    		}
+
+    		#templateMailChimpFooter a:link, #templateMailChimpFooter a:visited, #templateMailChimpFooter a .yshortcuts {
+    		  /*@editable*/color:#9A0606;
+    		  font-size: 8px;
+    		  /*@editable*/font-family:"Helvetica Neue",​Helvetica,​Arial,​sans-serif;
+    		}	
+  	
+  	
   		
   		
 	@media only screen and (max-width: 480px){
@@ -524,7 +550,7 @@
                         <tr>
                           <td class="headerContent">
                             <!-- // Begin Module: Standard Header Image \\ -->
-                            <img src="http://gallery.mailchimp.com/62fb7fb3c9ad08de24513aee4/images/APE_LOGO.png" style="max-width:600px;" id="headerImage campaign-icon" mc:label="header_image" mc:edit="header_image" mc:allowdesigner="" mc:allowtext="">
+                            <img src="http://gallery.mailchimp.com/9de4ae55ef5b0bdc8245bacbf/images/APE_LOGO.png" style="max-width:600px;" id="headerImage campaign-icon" mc:label="header_image" mc:edit="header_image" mc:allowdesigner="" mc:allowtext="">
                             <!-- // End Module: Standard Header Image \\ -->
                           </td>
                         </tr>
@@ -550,13 +576,8 @@
                           </td>
                         </tr>
                         <tr>
-                          <td valign="top" class="bodyContent" mc:edit="body_posts">
+                          <td valign="top" class="bodyContent lastBodyContent" mc:edit="body_posts">
                             Ce texte sera remplacé par les articles sélectionnés.
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            &nbsp;
                           </td>
                         </tr>
                       </table>
@@ -569,14 +590,15 @@
           </table>
           <!-- END TEMPLATE SECTIONS \\ -->
           
+          
+          
           <!-- // BEGIN FOOTER SECOND BUREAU -->
           <table border="0" cellpadding="10" cellspacing="0" width="100%" id="templateSecondBureauFooter">
             <tr>
               <td align="center" valign="top">
                 <table border="0" cellpadding="0" cellspacing="0" width="600" class="templateContainer">
                   <tr>
-                    <td  align="center">
-                      <a href='http://www.secondbureau.com'><img alt="Second Bureau est une agence de Conseil en Marketing Digital" height="50" src="https://d2q0qd5iz04n9u.cloudfront.net/_ssl/proxy.php/http/gallery.mailchimp.com/62fb7fb3c9ad08de24513aee4/images/logo_secondbureau.png" style="width: 190px; height: 50px;" width="190" /></a>
+                    <td  align="center"><a href='http://www.secondbureau.com'><img alt="Second Bureau est une agence de Conseil en Marketing Digital" height="50" src="http://gallery.mailchimp.com/9de4ae55ef5b0bdc8245bacbf/images/logo_secondbureau.png" style="width: 190px; height: 50px;" width="190" /></a>
                       <p><a href='http://www.secondbureau.com'>Second Bureau</a> est une agence de Conseil en Marketing Digital de Paris à Pékin</p>
                     </td>
                   </tr>
@@ -585,6 +607,60 @@
             </tr>
           </table>
           <!-- END FOOTER SECOND BUREAU \\ -->
+          
+          
+          <!-- // Begin Module: Standard Footer \\ -->
+          <table border="0" cellpadding="10" cellspacing="0" width="100%" id="templateMailChimpFooter">
+            <tr>
+              <td align="center" valign="top">
+                <table border="0" cellpadding="0" cellspacing="0" width="600" class="templateContainer">
+                  <tr>
+                    <td valign="top" width="66%">
+                    <br />
+                    <div mc:edit="std_footer">
+                      *|IF:LIST|*
+                      <em>Copyright &copy; *|CURRENT_YEAR|* *|LIST:COMPANY|*, Tous droits réservés.</em>
+                      <br />
+                      <!-- *|IFNOT:ARCHIVE_PAGE|* -->
+                      *|LIST:DESCRIPTION|*
+                      <br />
+                      <strong>Pour nous contacter:</strong>
+                      <br />
+                      *|HTML:LIST_ADDRESS_HTML|*
+                      <br />
+                      <!-- *|END:IF|* -->
+                      *|ELSE:|*
+                      <!-- *|IFNOT:ARCHIVE_PAGE|* -->
+                      <em>Copyright &copy; *|CURRENT_YEAR|* *|USER:COMPANY|*, Tous droits réservés.</em>
+                      <br />
+                      <strong>Pour nous contacter:</strong>
+                      <br />
+                      *|USER:ADDRESS_HTML|*
+                      <!-- *|END:IF|* -->
+                      *|END:IF|*
+                    </div>
+                    <br />
+                  </td>
+                  <td valign="top" width="34%" id="monkeyRewards">
+                    <br />
+                    <div mc:edit="monkeyrewards">
+                      *|IF:REWARDS|* *|HTML:REWARDS|* *|END:IF|*
+                    </div>
+                    <br />
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2" valign="middle" id="utility">
+                    <div mc:edit="std_utility">
+                      &nbsp;<a href="*|UNSUB|*">Désincription</a> | <a href="*|UPDATE_PROFILE|*">Vos préférences</a><!-- *|IFNOT:ARCHIVE_PAGE|* --> | <a href="*|ARCHIVE|*">Voir dans une nouvelle fenêtre</a><!-- *|END:IF|* -->&nbsp;
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+        <!-- // End Module: Standard Footer \\ -->
         </td>
       </tr>
     </table>
