@@ -79,7 +79,7 @@ Refinery::User.class_eval do
     end
     
     def mailchimp_list_fields
-      %w(firstname lastname username authentication_token group_id optin_newsletters)
+      %w(firstname lastname username authentication_token group_id optin_newsletters email)
     end
     
     def subscribe_mailchimp(email)
