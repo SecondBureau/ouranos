@@ -11,6 +11,8 @@ group :development do
  gem 'heroku_san'
  gem 'taps'
  gem 'pry'
+ gem "better_errors"
+ gem "binding_of_caller"
 end
 
 group :development, :test do
