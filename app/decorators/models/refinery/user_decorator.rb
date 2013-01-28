@@ -15,6 +15,7 @@ Refinery::User.class_eval do
     before_update   :subscribe_or_update
     before_destroy  :unsubscribe
     attr_accessor :bypass_mailchimp
+    attr_accessor :force_mailchimp
     
     # Token Authentication
     devise :token_authenticatable
@@ -50,6 +51,10 @@ Refinery::User.class_eval do
       @bypass_mailchimp || false
     end
     
+    def force_mailchimp
+      @force_mailchimp || false
+    end
+    
     private
     
     def hack_empty_email
@@ -67,13 +72,13 @@ Refinery::User.class_eval do
     end
     
     def subscribe_or_update
-      return if (group.nil? || bypass_mailchimp)
+      return if ((group.nil? || bypass_mailchimp) && !force_mailchimp)
       unsubscribe_mailchimp(email_was) if email_changed? && !email_was.nil?
       unless unhacked_email.nil?
         if optin_newsletters
-          subscribe_mailchimp(email) unless (changed & mailchimp_list_fields).empty?
+          subscribe_mailchimp(email) unless (changed & mailchimp_list_fields).empty? && !force_mailchimp
         else
-          unsubscribe_mailchimp(email) if optin_newsletters_changed?
+          unsubscribe_mailchimp(email) if optin_newsletters_changed? || force_mailchimp
         end
       end
     end
