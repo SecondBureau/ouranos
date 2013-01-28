@@ -26,6 +26,10 @@
     a {
       color: #fff;
     }
+    
+    i {
+      padding: 12px 0;
+    }
   }
   
   .widget-content-container {
@@ -99,7 +103,7 @@
   height: 25px;
   width: 100%;
   @include background(url("/assets/loading.gif"), linear-gradient(#fff, #f6f6f6), center no-repeat #f6f6f6 );
-  @include border-radius(4px);
+  /*@include border-radius(4px);*/
   background-position: center;
   background-repeat: no-repeat;
   margin-bottom:10px;

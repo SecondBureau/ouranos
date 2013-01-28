@@ -50,6 +50,7 @@ gem 'bourbon'
 gem 'nokogiri'
 gem 'sanitize'
 gem 'deface'
+gem 'less-rails'
 
 # PDF Export
 #gem "doc_raptor"
