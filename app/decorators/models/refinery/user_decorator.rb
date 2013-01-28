@@ -79,15 +79,16 @@ Refinery::User.class_eval do
     end
     
     def mailchimp_list_fields
-      %w(firstname lastname username authentication_token group_id optin_newsletters)
+      %w(firstname lastname username authentication_token group_id optin_newsletters email)
     end
     
     def subscribe_mailchimp(email)
+      Gibbon.throws_exceptions = false
       res = Gibbon.list_subscribe(:id => Refinery::Groups.list_id, :email_address  => email, :merge_vars => mailchimp_merge_vars, :double_optin   => false)
       
       # Catch some errors:
       # if already subscribed, just update the member info
-      puts res.inspect
+      # puts res.inspect
       update_mailchimp(email) if res.is_a?(Hash) && res["code"] == 214
     end
     

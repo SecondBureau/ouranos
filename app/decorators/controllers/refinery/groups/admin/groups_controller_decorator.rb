@@ -1,5 +1,7 @@
 Refinery::Groups::Admin::GroupsController.class_eval do
   
+  skip_before_filter :check_if_superuser
+  before_filter :check_if_allowed_to_create, :only => :new
 
   helper ::MenuHelper
   
@@ -25,5 +27,13 @@ Refinery::Groups::Admin::GroupsController.class_eval do
     end
     @is_guest_group = true if @group.name == "guest"
   end
+  
+
+    def check_if_allowed_to_create
+      unless current_refinery_user.has_role?("Superuser") || current_refinery_user.has_role?("Bureau")
+        flash[:error] = t("refinery.groups.not_allowed_to_create_new_group")
+        redirect_to refinery.groups_admin_groups_path
+      end
+    end
   
 end
