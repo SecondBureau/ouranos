@@ -46,6 +46,10 @@ Refinery::User.class_eval do
       email[-11,11].eql?(EMPTY_DOMAIN_NAME) ? nil : email
     end
     
+    def bypass_mailchimp
+      @bypass_mailchimp || false
+    end
+    
     private
     
     def hack_empty_email
