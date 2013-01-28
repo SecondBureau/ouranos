@@ -60,6 +60,10 @@ GEM
       activerecord (>= 3.0.0)
     babosa (0.3.8)
     bcrypt-ruby (3.0.1)
+    better_errors (0.3.2)
+      coderay (>= 1.0.0)
+      erubis (>= 2.7.0)
+    binding_of_caller (0.6.8)
     bootstrap-sass (2.0.4.2)
     bootstrap-will_paginate (0.0.9)
       will_paginate
@@ -89,6 +93,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.4.0)
+    commonjs (0.2.6)
     daemons (1.1.9)
     dalli (2.6.2)
     deface (0.9.1)
@@ -178,6 +183,11 @@ GEM
     json (1.7.6)
     launchy (2.1.2)
       addressable (~> 2.3)
+    less (2.2.2)
+      commonjs (~> 0.2.6)
+    less-rails (2.2.3)
+      actionpack (>= 3.1)
+      less (~> 2.2.0)
     libnotify (0.8.0)
       ffi (>= 1.0.11)
     libv8 (3.11.8.13)
@@ -376,6 +386,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  better_errors
+  binding_of_caller
   bootstrap-sass (~> 2.0.3)
   bootstrap-will_paginate
   bourbon
@@ -397,6 +409,7 @@ DEPENDENCIES
   jquery-rails
   jquery-ui-rails
   launchy
+  less-rails
   libnotify
   memcachier
   newrelic_rpm

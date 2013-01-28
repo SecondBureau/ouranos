@@ -35,5 +35,17 @@ Refinery::Groups::Admin::GroupsController.class_eval do
         redirect_to refinery.groups_admin_groups_path
       end
     end
+    
+    def check_current_user_role
+      unless current_refinery_user.has_role?("Superuser")  || current_refinery_user.has_role?("Bureau") || (current_refinery_user.has_role?("GroupAdmin") && @group.users.include?(current_refinery_user))
+      redirect_to refinery.groups_admin_groups_path, :flash => { :notice => "can not find that group" }
+      end
+    end
+
+    def check_before_destroy
+      if @is_guest_group || (!current_refinery_user.has_role?("Superuser") && !current_refinery_user.has_role?("Bureau"))
+        redirect_to refinery.groups_admin_groups_path, :flash => { :notice => "can not delete this group" }
+      end
+    end
   
 end

@@ -11,6 +11,8 @@ group :development do
  gem 'heroku_san'
  gem 'taps'
  gem 'pry'
+ gem "better_errors"
+ gem "binding_of_caller"
 end
 
 group :development, :test do
@@ -50,6 +52,7 @@ gem 'bourbon'
 gem 'nokogiri'
 gem 'sanitize'
 gem 'deface'
+gem 'less-rails'
 
 # PDF Export
 #gem "doc_raptor"
