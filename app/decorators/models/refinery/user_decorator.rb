@@ -84,7 +84,7 @@ Refinery::User.class_eval do
     end
     
     def mailchimp_merge_vars
-      { :FNAME => firstname || username , :LNAME => lastname || username, :TOKEN => authentication_token, :FAMILY => group.name }
+      { :FNAME => firstname || username , :LNAME => lastname || username, :TOKEN => authentication_token, :FAMILY => group.name, :SYNC => Time.now.strftime('%Y-%m-%d') }
     end
     
     def mailchimp_list_fields
