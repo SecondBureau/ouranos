@@ -23,7 +23,7 @@ group :development, :test do
   gem 'launchy'
   gem 'growl'
   #gem 'ruby-growl'
-  gem 'libnotify'
+  #gem 'libnotify'
 end
 
 group :production do
