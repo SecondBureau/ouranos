@@ -49,7 +49,7 @@ Ouranos::Application.configure do
   #                :show_online_status => true }
   Bullet.rails_logger = true
   #Bullet.airbrake = false
-  Bullet.disable_browser_cache = true
+  #Bullet.disable_browser_cache = true
 end
 
 end
