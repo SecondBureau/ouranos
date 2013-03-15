@@ -24,7 +24,8 @@
           
       - if @post.source_url.present?
         .blog_source
-          = "#{t('source', :scope => 'refinery.blog.posts.show')}: "
+          %i.icon-globe
+          = t('source', :scope => 'refinery.blog.posts.show')
           = link_to (@post.source_url_title.blank? ? @post.source_url : @post.source_url_title), @post.source_url
 
       - if (categories = @post.categories).any?

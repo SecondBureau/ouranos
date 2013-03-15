@@ -30,6 +30,10 @@ fr:
 
     
     blog:
+      posts:
+        show:
+          source: source
+      
       admin:
         posts:
           form:
