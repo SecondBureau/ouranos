@@ -19,7 +19,7 @@
       %time.posted_at{:datetime => l(post.published_at.to_date, :format => :default) }
         %i.icon-pencil
         = t('created_at', :scope => 'refinery.blog.shared.posts', :when => l(post.published_at.to_date, :format => (post.published_at.year.eql?(Time.now.year) ? :short : '%e %b %Y')))
-        = "#{t('by', :scope => 'refinery.blog.posts.show')} #{post.author.username.capitalize}" if post.author.present?
+        = "#{t('by', :scope => 'refinery.blog.posts.show')} #{post.author.signature}" if post.author.present?
        
       - if (categories = post.categories).any?
         %aside.filed_in{:class => @category ? 'hidden-phone' : ''}
@@ -55,7 +55,7 @@
       - if post.author.present?
         %aside.author.pull-right
           %i.icon-user
-          = "#{t('by', :scope => 'refinery.blog.posts.show')} #{post.author.username.capitalize}"
+          = "#{t('by', :scope => 'refinery.blog.posts.show')} #{post.author.signature}"
       
       
       %clearfix
