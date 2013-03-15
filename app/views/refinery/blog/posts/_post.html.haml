@@ -17,6 +17,11 @@
         = t('created_at', :scope => 'refinery.blog.shared.posts', :when => l(@post.published_at.to_date, :format => (@post.published_at.year.eql?(Time.now.year) ? :short : '%e %b %Y')))
         = "#{t('by', :scope => 'refinery.blog.posts.show')} #{@post.author.username.capitalize}" if @post.author.present?
     
+      - if @post.author.present?
+        %aside.author
+          %i.icon-user
+          = "#{t('by', :scope => 'refinery.blog.posts.show')} #{@post.author.signature}"
+          
       - if @post.source_url.present?
         .blog_source
           = "#{t('source', :scope => 'refinery.blog.posts.show')}: "
@@ -42,6 +47,8 @@
         = render 'site/restricted_area'
       
     %footer
+    
+      
       
       - if Refinery::Blog::Post::ShareThis.enabled?
         %span.st_sharethis{:displayText => "ShareThis"}

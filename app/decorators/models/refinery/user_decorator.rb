@@ -32,6 +32,10 @@ Refinery::User.class_eval do
     EMPTY_DOMAIN_NAME = 'example.org'
     before_validation :hack_empty_email, :unless => :optin_newsletters
     
+    def signature
+      return username.humanize if firstname.blank? || lastname.blank?
+      "#{firstname} #{lastname}"
+    end
 
     #TODO
     def is_expired?
