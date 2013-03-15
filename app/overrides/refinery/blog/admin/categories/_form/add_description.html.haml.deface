@@ -1,0 +1,6 @@
+/
+  insert_after 'div.field'
+  
+.field
+  = f.label :description
+  = f.text_field :description, :class => 'larger widest'
