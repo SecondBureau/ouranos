@@ -27,7 +27,7 @@
             
         = calendar Date.parse(@day.strftime("%Y%m%d")) do |date| 
           - if (events_of_day = events.select{|e| e.start_at.strftime('%Y%m%d').eql?(date.strftime('%Y%m%d')) || (e.end_at && e.start_at < date && e.end_at > date) }).size > 0
-            = link_to date.day, "#", :title => events_of_day.collect(&:title).join('<br>').html_safe, :rel => 'tooltip', :"data-date" => date.strftime('%Y%m%d'), :"data-placement" => "left", :class => 'eventtt'
+            = link_to date.day, "#", :title => events_of_day.collect(&:title).join('<br>').html_safe, :rel => 'tooltip', :"data-date" => date.strftime('%Y%m%d'), :"data-placement" => "left", :class => 'eventtt', :"data-container" => "body"
           - else
             = date.day
         
