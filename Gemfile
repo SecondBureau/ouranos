@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.11'
+gem 'rails', '3.2.12'
 
 #DBMS
 gem 'pg'
@@ -41,8 +41,8 @@ group :assets do
 end
 
 # editing-rendering
-gem 'haml-rails'
-gem 'coffee-filter'
+gem 'haml-rails',   '~> 0.3.5'
+gem 'coffee-filter' #Integrated in haml 4.0
 gem 'jquery-rails'
 gem 'bootstrap-sass', '~> 2.0.3'
 gem "twitter-bootstrap-rails"

@@ -7,7 +7,7 @@
         %li
           = event.start_at.strftime('%d/%m')
           \-
-          = link_to truncate(event.title, :length => 44, :omission => '... '), refinery.calendar_event_path(event), :title => event.title, :rel => 'tooltip', :"data-placement" => "right", :class => 'tt'
+          = link_to truncate(event.title, :length => 44, :omission => '... '), refinery.calendar_event_path(event), :title => event.title, :rel => 'tooltip', :"data-placement" => "right", :class => 'tt', :"data-container" => "body"
           
   :coffeescript
     $ ->

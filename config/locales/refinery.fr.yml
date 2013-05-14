@@ -1,6 +1,10 @@
 # encoding: utf-8
 fr:
   refinery:
+  
+    admin:
+      search:
+        results_for_html: "<i>Résultats pour :</i> %{query}"
     plugins:
       calendar:
         title: Evénements
@@ -30,6 +34,10 @@ fr:
 
     
     blog:
+      posts:
+        show:
+          source: source
+      
       admin:
         posts:
           form:
