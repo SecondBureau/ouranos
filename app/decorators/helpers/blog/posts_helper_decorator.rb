@@ -5,7 +5,7 @@ Refinery::Blog::PostsHelper.module_eval do
       post.custom_teaser.html_safe
     else
       if post.body.nil?
-        article en cours
+        "article en cours"
       else
         truncate(Sanitize.clean(post.body), {
          :length => Refinery::Blog.post_teaser_length,
