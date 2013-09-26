@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.12'
+ruby '2.0.0'
+
+gem 'rails', '3.2.14'
 
 #DBMS
 gem 'pg'
@@ -77,6 +79,6 @@ gem "refinerycms-settings", "2.0.1"
 gem 'refinerycms-inquiries', '~> 2.0.0'
 #  gem 'refinerycms-search', '~> 2.0.0'
 
-gem 'gibbon'
+gem 'gibbon', '~> 0.4.6' #Gibbon 0.5.0+ targets MailChimp API 2.0, which is substantially different from API 1.3. Please use Gibbon 0.4.6 if you need to use API 1.3.
 gem 'refinerycms-mailchimp', :git => 'git://github.com/mark-secondbureau/refinerycms-mailchimp.git'
 gem 'refinerycms-groups', :git => 'git://github.com/mark-secondbureau/refinerycms-groups.git'
