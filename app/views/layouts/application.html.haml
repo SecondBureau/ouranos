@@ -23,7 +23,7 @@
             = render "site/sidebar"
           .visible-phone
             %center
-              = link_to image_tag("APE-LOGO.png"), refinery.root_path, {:title => t("home.title")}
+              = link_to image_tag("APE-LOGO.png", rel: "288x145", width: 288, height:145, alt: t("home.title")), refinery.root_path, {:title => t("home.title")}
         .span8.light-grey.shadow
           = bootstrap_flash
           #site_image.hidden-phone= image_tag(banner_image_url) 
