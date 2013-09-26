@@ -7,8 +7,6 @@ gem 'pg'
 
 group :development do
  gem 'foreman'
- gem 'heroku'
- gem 'heroku_san'
  gem 'taps'
  gem 'pry'
  gem "better_errors"
@@ -20,17 +18,20 @@ group :development, :test do
   gem 'factory_girl_rails', :require => false
   gem 'capybara'
   gem 'guard-rspec'
-  gem 'launchy'
-  gem 'growl'
+  #gem 'launchy'
+  #gem 'growl'
   #gem 'ruby-growl'
-  gem 'libnotify'
+  #gem 'libnotify'
 end
 
 group :production do
  gem 'newrelic_rpm'
  gem 'fog'
+ gem 'rack-cache'
  gem 'memcachier'
  gem 'dalli'
+ gem 'kgio'
+ gem 'rails_12factor'
 end
 
 group :assets do

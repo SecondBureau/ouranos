@@ -1,11 +1,10 @@
 !!! 5
 = render "/refinery/html_tag"
-
-- content_for :meta do
-  %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0" }
 = render '/refinery/head'
 
-%body
+%body{class: yield(:body_class)}
+
+  = render '/refinery/ie6check' if request.env['HTTP_USER_AGENT'] =~ /MSIE/
 
   = render 'site/demo' unless ::Rails.env.eql?('production')
   
