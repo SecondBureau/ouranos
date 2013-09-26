@@ -37,7 +37,10 @@
       - if blog_post_teaser_enabled?
         = blog_post_teaser(post)
       - else
-        = post.body.html_safe
+        - if post.body.nil?
+          article en cours
+        - else
+          = post.body.html_safe
 
     %footer
       
