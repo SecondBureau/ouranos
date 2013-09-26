@@ -48,14 +48,14 @@ gem 'haml-rails',   '~> 0.3.5'
 gem 'coffee-filter' #Integrated in haml 4.0
 gem 'jquery-rails'
 gem 'bootstrap-sass', '~> 2.0.3'
-gem "twitter-bootstrap-rails"
+gem "twitter-bootstrap-rails", '2.2.6' #Twitter-bootstrap-rails has a very big issue with versioning - Generator between 2.2.6 and 2.2.7 changed.
 gem 'bootstrap-will_paginate'
 gem 'jquery-ui-rails'
 gem 'bourbon'
 gem 'nokogiri'
 gem 'sanitize'
 gem 'deface'
-gem 'less-rails'
+gem 'less-rails', '2.3.3' #https://github.com/metaskills/less-rails/issues/71
 
 # PDF Export
 #gem "doc_raptor"
