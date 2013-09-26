@@ -1,4 +1,4 @@
-- cache "#{locale}/head/#{refinery_user? ? 'refinery' : 'anonymous'}/#{Digest::MD5.hexdigest((@post || @event || @page).slug)}" do
+- cache "#{locale}/head/#{Digest::MD5.hexdigest((@post || @event || @page).slug)}" do
 
   %head
     %meta{charset: Rails.application.config.encoding}
