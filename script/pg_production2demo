@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+heroku pgbackups:capture --app production-ouranos --expire
+heroku pgbackups:restore DATABASE -a demo-ouranos --confirm demo-ouranos `heroku pgbackups:url -a production-ouranos`
