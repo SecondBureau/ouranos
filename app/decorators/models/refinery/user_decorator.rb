@@ -1,4 +1,9 @@
+require 'acts_as_indexed'
+
 Refinery::User.class_eval do
+ 
+    # Docs for acts_as_indexed http://github.com/dougal/acts_as_indexed
+    acts_as_indexed :fields => [:username, :email, :firstname, :lastname]
   
     # Migration
     # To be removes
@@ -32,6 +37,10 @@ Refinery::User.class_eval do
     EMPTY_DOMAIN_NAME = 'example.org'
     before_validation :hack_empty_email, :unless => :optin_newsletters
     
+    def signature
+      return username.humanize if firstname.blank? || lastname.blank?
+      "#{firstname} #{lastname}"
+    end
 
     #TODO
     def is_expired?

@@ -1,0 +1,5 @@
+/
+  replace_contents 'span.actions'
+  
+= link_to refinery_icon_tag("application_edit.png"), refinery.edit_blog_admin_category_path(category), :title => t('.edit')
+= link_to refinery_icon_tag("delete.png"), refinery.blog_admin_category_path(category), :class => "cancel confirm-delete", :title => t('.delete'), :method => :delete,:data => {:confirm => t('message', :scope => 'refinery.admin.delete', :title => category.title)}

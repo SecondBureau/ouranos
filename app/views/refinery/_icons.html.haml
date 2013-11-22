@@ -1,0 +1,13 @@
+  
+/ Fav and touch icons 
+  
+- %w[152x152 144x144 120x120 114x114 76x76 72x72 60x60 57x57].each do |sizes|
+  = favicon_link_tag "icons/apple-touch-icon-#{sizes}.png", rel: 'apple-touch-icon', type: 'image/png', sizes: sizes
+
+= favicon_link_tag "icons/apple-touch-icon.png", rel: 'apple-touch-icon', type: 'image/png'
+
+- unless request.env['HTTP_USER_AGENT'].eql?('w3c')
+  - {'iphone' => '(max-device-width: 480px) and not (-webkit-min-device-pixel-ratio: 2)', 'iphone4' => '(max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2)', 'iPad-portrait' => '(min-device-width: 768px) and (orientation: portrait)', 'iPad-landscape' => '(min-device-width: 768px) and (orientation: landscape)'}.each do |device, media|
+    = favicon_link_tag "icons/startup-#{device}.png", rel: 'apple-touch-startup-image', media: media, type: 'image/png'
+ 
+= favicon_link_tag 'icons/favicon.ico'

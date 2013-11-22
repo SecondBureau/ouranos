@@ -1,16 +1,8 @@
 #!/usr/bin/env bash
-heroku pgbackups:capture --app production-ouranos --account secondbureau --expire
-curl -o /tmp/production-ouranos-latest.dump `heroku pgbackups:url --app production-ouranos --account secondbureau`
-#pg_restore -O -d ouranos_development_gilles /tmp/production-ouranos-latest.dump
-pg_restore --verbose --clean --no-acl -O -d ouranos_development_gilles /tmp/production-ouranos-latest.dump
 
-#user postgres
+heroku pgbackups:capture --app production-ouranos --expire
+curl -o /tmp/production-ouranos-latest.dump `heroku pgbackups:url --app production-ouranos`
+echo "drop database ouranos_development;" | psql
+echo "create database ouranos_development;" | psql
+pg_restore -O -d ouranos_development /tmp/production-ouranos-latest.dump
 
-
-  for tbl in `psql -qAt -c "select tablename from pg_tables where schemaname = 'public';" ouranos_development_gilles` ; do  psql -c "alter table $tbl owner to gilles" ouranos_development_gilles ; done
-
-  for tbl in `psql -qAt -c "select sequence_name from information_schema.sequences where sequence_schema = 'public';" ouranos_development_gilles` ; do  psql -c "alter table $tbl owner to gilles" ouranos_development_gilles ; done
-
-  for tbl in `psql -qAt -c "select table_name from information_schema.views where table_schema = 'public';" ouranos_development_gilles` ; do  psql -c "alter table $tbl owner to gilles" ouranos_development_gilles ; done
-
-  psql -c "ALTER SCHEMA public OWNER TO postgres;" ouranos_development_gilles

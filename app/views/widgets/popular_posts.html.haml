@@ -7,7 +7,7 @@
       %ul
         %br
         - Refinery::Blog::Post.popular('10').each do |post|
-          %li= link_to post.short_title, refinery.blog_post_path(post), :title => post.title, :rel => 'tooltip', :"data-placement" => "right", :class => 'tt'
+          %li= link_to post.short_title, refinery.blog_post_path(post), :title => post.title, :rel => 'tooltip', :"data-placement" => "right", :"data-container" => "body", :class => 'tt'
       %br
 
 :coffeescript
