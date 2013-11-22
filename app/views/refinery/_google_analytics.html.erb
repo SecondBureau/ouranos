@@ -2,7 +2,7 @@
 
 <!-- asynchronous google analytics snippet <%= page_code %> -->
 
-<% unless local_request? or refinery_user? or page_code =~ /^(UA-xxxxxx-x)?$/ -%>
+<% unless local_request? or page_code =~ /^(UA-xxxxxx-x)?$/ -%>
 
 
 <script type="text/javascript">
